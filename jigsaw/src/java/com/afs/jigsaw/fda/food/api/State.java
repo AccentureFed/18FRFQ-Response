@@ -6,81 +6,96 @@ import com.google.common.base.Preconditions;
  * Represents one of the 50 U.S. and Washington DC.
  */
 public enum State {
-    ALABAMA("Alabama", "AL"),
-    ALASKA("Alaska", "AK"),
-    ARIZONA("Arizona", "AZ"),
-    ARKANSAS("Arkansas", "AR"),
-    CALIFORNIA("California", "CA"),
-    COLORADO("Colorado", "CO"),
-    CONNECTICUT("Connecticut", "CT"),
-    DELAWARE("Delaware", "DE"),
-    DISTRICT_OF_COLUMBIA("District of Columbia", "DC"),
-    FLORIDA("Florida", "FL"),
-    GEORGIA("Georgia", "GA"),
-    HAWAII("Hawaii", "HI"),
-    IDAHO("Idaho", "ID"),
-    ILLINOIS("Illinois", "IL"),
-    INDIANA("Indiana", "IN"),
-    IOWA("Iowa", "IA"),
-    KANSAS("Kansas", "KS"),
-    KENTUCKY("Kentucky", "KY"),
-    LOUISIANA("Louisiana", "LA"),
-    MAINE("Maine", "ME"),
-    MARYLAND("Maryland", "MD"),
-    MASSACHUSETTS("Massachusetts", "MA"),
-    MICHIGAN("Michigan", "MI"),
-    MINNESOTA("Minnesota", "MN"),
-    MISSISSIPPI("Mississippi", "MS"),
-    MISSOURI("Missouri", "MO"),
-    MONTANA("Montana", "MT"),
-    NEBRASKA("Nebraska", "NE"),
-    NEVADA("Nevada", "NV"),
-    NEW_HAMPSHIRE("New Hampshire", "NH"),
-    NEW_JERSEY("New Jersey", "NJ"),
-    NEW_MEXICO("New Mexico", "NM"),
-    NEW_YORK("New York", "NY"),
-    NORTH_CAROLINA("North Carolina", "NC"),
-    NORTH_DAKOTA("North Dakota", "ND"),
-    OHIO("Ohio", "OH"),
-    OKLAHOMA("Oklahoma", "OK"),
-    OREGON("Oregon", "OR"),
-    PENNSYLVANIA("Pennsylvania", "PA"),
-    RHODE_ISLAND("Rhode Island", "RI"),
-    SOUTH_CAROLINA("South Carolina", "SC"),
-    SOUTH_DAKOTA("South Dakota", "SD"),
-    TENNESSEE("Tennessee", "TN"),
-    TEXAS("Texas", "TX"),
-    UTAH("Utah", "UT"),
-    VERMONT("Vermont", "VT"),
-    VIRGINIA("Virginia", "VA"),
-    WASHINGTON("Washington", "WA"),
-    WEST_VIRGINIA("West Virginia", "WV"),
-    WISCONSIN("Wisconsin", "WI"),
-    WYOMING("Wyoming", "WY");
+    ALABAMA("AL", "Alabama"),
+    ALASKA("AK", "Alaska"),
+    ARIZONA("AZ", "Arizona"),
+    ARKANSAS("AR", "Arkansas"),
+    CALIFORNIA("CA", "California"),
+    COLORADO("CO", "Colorado"),
+    CONNECTICUT("CT", "Connecticut"),
+    DELAWARE("DE", "Delaware"),
+    DISTRICT_OF_COLUMBIA("DC", "District of Columbia", "Washington DC", "Washington D.C."),
+    FLORIDA("FL", "Florida"),
+    GEORGIA("GA", "Georgia"),
+    HAWAII("HI", false, "Hawaii"), // 'hi' should not match to Hawaii
+    IDAHO("ID", "Idaho"),
+    ILLINOIS("IL", "Illinois"),
+    INDIANA("IN", false, "Indiana"), // 'in' should not match to Indiana
+    IOWA("IA", "Iowa"),
+    KANSAS("KS", "Kansas"),
+    KENTUCKY("KY", "Kentucky"),
+    LOUISIANA("LA", "Louisiana"),
+    MAINE("ME", "Maine"),
+    MARYLAND("MD", "Maryland"),
+    MASSACHUSETTS("MA", "Massachusetts"),
+    MICHIGAN("MI", "Michigan"),
+    MINNESOTA("MN", "Minnesota"),
+    MISSISSIPPI("MS", "Mississippi"),
+    MISSOURI("MO", "Missouri"),
+    MONTANA("MT", "Montana"),
+    NEBRASKA("NE", "Nebraska"),
+    NEVADA("NV", "Nevada"),
+    NEW_HAMPSHIRE("NH", "New Hampshire"),
+    NEW_JERSEY("NJ", "New Jersey"),
+    NEW_MEXICO("NM", "New Mexico"),
+    NEW_YORK("NY", "New York"),
+    NORTH_CAROLINA("NC", "North Carolina"),
+    NORTH_DAKOTA("ND", "North Dakota"),
+    OHIO("OH", "Ohio"),
+    OKLAHOMA("OK", false, "Oklahoma"), // 'ok' should not match to Oklahoma
+    OREGON("OR", false, "Oregon"), // 'or' should not match to Oregan
+    PENNSYLVANIA("PA", "Pennsylvania"),
+    RHODE_ISLAND("RI", "Rhode Island"),
+    SOUTH_CAROLINA("SC", "South Carolina"),
+    SOUTH_DAKOTA("SD", "South Dakota"),
+    TENNESSEE("TN", "Tennessee"),
+    TEXAS("TX", "Texas"),
+    UTAH("UT", "Utah"),
+    VERMONT("VT", "Vermont"),
+    VIRGINIA("VA", "Virginia"),
+    WASHINGTON("WA", "Washington"),
+    WEST_VIRGINIA("WV", "West Virginia"),
+    WISCONSIN("WI", "Wisconsin"),
+    WYOMING("WY", "Wyoming");
 
-    /**
-     * The state's name.
-     */
-    private String name;
-
-    /**
-     * The state's abbreviation.
-     */
+    private String[] names;
     private String abbreviation;
+    private boolean allowsCaseInsensitiveAbbreviationMatches;
+
+    /**
+     * Constructs a new state. This state will be matched by abbreviation
+     * regardless of string case.
+     *
+     * @param abbreviation
+     *            the state's abbreviation. Must not be null.
+     * @param names
+     *            A list of other names that may be considered as a much for a
+     *            state. Must not be null. Must contain at least 1 valid name.
+     */
+    private State(final String abbreviation, final String... names) {
+        this(abbreviation, true, names);
+    }
 
     /**
      * Constructs a new state.
      *
-     * @param name
-     *            the state's name. Must not be null.
      * @param abbreviation
      *            the state's abbreviation. Must not be null.
+     * @param allowsCaseInsensitiveAbbreviationMatches
+     *            True if the abbreviation for this State is case insensitive;
+     *            False otherwise.
+     * @param names
+     *            A list of other names that may be considered as a much for a
+     *            state. Must not be null. Must contain at least 1 valid name.
      */
-    private State(final String name, final String abbreviation) {
-        Preconditions.checkNotNull(name);
+    private State(final String abbreviation, final boolean allowsCaseInsensitiveAbbreviationMatches,
+            final String... names) {
         Preconditions.checkNotNull(abbreviation);
-        this.name = name;
+        Preconditions.checkNotNull(names);
+        Preconditions.checkArgument(names.length > 0, "You must provide at least one name");
         this.abbreviation = abbreviation;
+        this.allowsCaseInsensitiveAbbreviationMatches = allowsCaseInsensitiveAbbreviationMatches;
+        this.names = names;
     }
 
     /**
@@ -93,12 +108,26 @@ public enum State {
     }
 
     /**
-     * Gets the state's full name in a display-friendly format.
+     * Gets the state's FIRST full name in a display-friendly format.<br />
+     * <br />
+     *
+     * If you want to see all of the state's names, use
+     * {@link #getAllFullNames()}.
      *
      * @return The state's display name. Never null.
      */
     public String getFullName() {
-        return name;
+        return names[0];
+    }
+
+    /**
+     * Gets all of the state's names in a display-friendly format.
+     *
+     * @return All of the state's display name. Never null. Will always contain
+     *         at least 1 name.
+     */
+    public String[] getAllFullNames() {
+        return names;
     }
 
     /**
@@ -133,10 +162,16 @@ public enum State {
 
         // check the abbreviation/name for a match
         for (final State s : values()) {
-            if (s.abbreviation.equalsIgnoreCase(stateString)) {
+            if (s.allowsCaseInsensitiveAbbreviationMatches && s.abbreviation.equalsIgnoreCase(stateString)) {
                 return s;
-            } else if (s.name.equalsIgnoreCase(stateString)) {
+            } else if (s.abbreviation.equals(stateString)) {
                 return s;
+            } else {
+                for (final String fullName : s.names) {
+                    if (fullName.equalsIgnoreCase(stateString)) {
+                        return s;
+                    }
+                }
             }
         }
 

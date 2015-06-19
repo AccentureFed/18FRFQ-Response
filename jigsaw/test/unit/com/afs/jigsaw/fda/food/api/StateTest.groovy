@@ -9,35 +9,38 @@ public class StateTest {
     @Test
     public void testGetStateByEnumStringValue() {
         final String stateEnumString = State.NEW_YORK.toString()
-        final State state = State.fromString(stateEnumString)
-        assertEquals(state, State.NEW_YORK)
+        assertEquals(State.NEW_YORK, State.fromString(stateEnumString))
     }
 
     @Test
     public void testGetStateByFullName() {
-        final String stateFullNameString = "New York"
-        final State state = State.fromString(stateFullNameString)
-        assertEquals(state, State.NEW_YORK)
+        assertEquals(State.NEW_YORK, State.fromString("New York"))
     }
 
     @Test
     public void testGetStateByAbbreviation() {
-        final String stateAbbrString = "NY"
-        final State state = State.fromString(stateAbbrString)
-        assertEquals(state, State.NEW_YORK)
+        assertEquals(State.NEW_YORK, State.fromString("NY"))
     }
 
     @Test
     public void testGetStateByAbbreviationLowercase() {
-        final String stateAbbrString = "ny"
-        final State state = State.fromString(stateAbbrString)
-        assertEquals(state, State.NEW_YORK)
+        assertEquals(State.NEW_YORK, State.fromString("ny"))
+    }
+
+    @Test
+    public void testNonAbbreviateAbbreviationLowercase() {
+        assertEquals(null, State.fromString("in"))
+    }
+
+    @Test
+    public void testMultipleNames() {
+        assertEquals(State.DISTRICT_OF_COLUMBIA, State.fromString("District of Columbia"))
+        assertEquals(State.DISTRICT_OF_COLUMBIA, State.fromString("Washington DC"))
+        assertEquals(State.DISTRICT_OF_COLUMBIA, State.fromString("Washington D.C."))
     }
 
     @Test
     public void testInvalidStateString() {
-        final String stateAbbrString = "not a state"
-        final State state = State.fromString(stateAbbrString)
-        assertEquals(null, state)
+        assertEquals(null, State.fromString("not a state"))
     }
 }
