@@ -1,0 +1,25 @@
+{
+  "name": "jigsaw",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AccentureFed/jigsaw",
+  "authors": [
+    "bakerj <joshua.baker@agilex.com>"
+  ],
+  "description": "jigsaw",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.1"
+  }
+}
