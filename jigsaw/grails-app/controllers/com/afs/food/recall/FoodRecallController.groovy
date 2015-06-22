@@ -5,7 +5,7 @@ class FoodRecallController {
     def foodRecallService
 
     def recalls() {
-        render foodRecallService.getRecalls()
+        render foodRecallService.getRecalls() 
     }
 
 	def count() {
