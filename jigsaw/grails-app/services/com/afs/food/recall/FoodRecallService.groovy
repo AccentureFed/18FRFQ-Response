@@ -1,5 +1,10 @@
 package com.afs.food.recall
 
+import grails.transaction.Transactional
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 import org.codehaus.groovy.grails.web.json.JSONObject
 
 import com.afs.jigsaw.fda.food.api.*
@@ -16,6 +21,7 @@ class FoodRecallService {
 	protected static final def BASE_COUNT_URL = "https://api.fda.gov/food/enforcement.json?"
 	
     def stateNormalizationService
+	LocalDate lastNotified = LocalDate.now().minusMonths(2)
 
 	
 	/*
@@ -46,7 +52,47 @@ class FoodRecallService {
 
         return json
     }
-
+	
+	/**
+	 * Determines if there has been an update since the last notification
+	 * 
+	 * @return true if we need to send new notifications
+	 */
+	def needUpdate() {
+		def json = new JSONObject(new URL("https://api.fda.gov/food/enforcement.json").getText())
+		LocalDate lastUpdate = LocalDate.parse(json.meta.last_updated, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+		return (lastUpdate > lastNotified)
+	}
+	
+	/**
+	 * Send new notifications since the last notification date (in recall_initiation_date)
+	 * @return
+	 */
+	def sendNotifications(){
+		println("Last notified: ${lastNotified}")
+		if(needUpdate()){
+			println("Sending notifications")
+			def json = new JSONObject(new URL("https://api.fda.gov/food/enforcement.json?search=recall_initiation_date:[${lastNotified}+TO+${LocalDate.now()}]&limit=100").getText())
+			final Set<String> distributionStates = []
+			json.results.each { result ->
+				println("${result.recall_number} - ${result.recall_initiation_date}")
+			}
+			lastNotified = LocalDate.parse(json.meta.last_updated, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+		}
+	}
+	
+	/**
+	 * May be OBE - reads RSS feed
+	 * @return
+	 */
+	def readRss(){
+		def url = "http://www2c.cdc.gov/podcasts/createrss.asp?c=146"
+		def rss = new XmlSlurper().parse(url)
+		println rss.channel.title
+		rss.channel.item.each { item->
+			println "- ${item.title}" 
+		}​
+	}
 
 	/**
 	 * Returns the a detailed set of recalls for a specific state allowing pagination.  The data is passed back in a JSON
@@ -61,7 +107,6 @@ class FoodRecallService {
 	 * @return
 	 */
 	def getPageByState(State state, Integer limit, Integer skip) {
-
 		def json = new JSONObject(new URL(buildCountUrl(state, buildOptions(limit, skip))).getText())
 		json.results.each { result ->
 			// try to find the states in the natural language value and add it to the result
