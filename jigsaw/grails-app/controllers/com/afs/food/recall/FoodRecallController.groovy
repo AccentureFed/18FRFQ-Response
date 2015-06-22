@@ -15,4 +15,11 @@ class FoodRecallController {
 	def sendNotifications() {
 		render foodRecallService.sendNotifications()
 	}
+
+	def count() {
+		
+		render foodRecallService.getCountsByState(com.afs.jigsaw.fda.food.api.State.fromString(params.stateCode));
+		
+	}
+
 }

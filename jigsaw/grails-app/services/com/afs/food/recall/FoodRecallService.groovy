@@ -7,7 +7,9 @@ import java.time.format.DateTimeFormatter
 
 import org.codehaus.groovy.grails.web.json.JSONObject
 
-@Transactional
+import com.afs.jigsaw.fda.food.api.StateSearchCriteriaUtils
+
+
 class FoodRecallService {
 
     /**
@@ -17,10 +19,23 @@ class FoodRecallService {
      */
     private static final def MAX_RESULTS = 100
     private static final def BASE_URL = "https://api.fda.gov/food/enforcement.json?limit=${MAX_RESULTS}"
-
+	protected static final def BASE_COUNT_URL = "https://api.fda.gov/food/enforcement.json?"
+	
     def stateNormalizationService
 	LocalDate lastNotified = LocalDate.now().minusMonths(2)
 
+	
+	/*
+	 *  this creates are "nlp phrases" list
+	 *  states with multi words will be treated as a single phrase
+	 */
+	private static final Map CLASSIFICATION_TO_SEVERITY= new HashMap<String,String>();
+	static {
+	CLASSIFICATION_TO_SEVERITY.put("Class I", "high");
+	CLASSIFICATION_TO_SEVERITY.put("Class II", "medium");
+	CLASSIFICATION_TO_SEVERITY.put("Class III", "low");
+	}
+	
     /**
      * Returns the first {@link #MAX_RESULTS} recalls from the FDA Service API.  The data is passed back as a {@link JSONObject}.<br /><br />
      *
@@ -39,12 +54,21 @@ class FoodRecallService {
         return json
     }
 	
+	/**
+	 * Determines if there has been an update since the last notification
+	 * 
+	 * @return true if we need to send new notifications
+	 */
 	def needUpdate() {
 		def json = new JSONObject(new URL("https://api.fda.gov/food/enforcement.json").getText())
 		LocalDate lastUpdate = LocalDate.parse(json.meta.last_updated, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
 		return (lastUpdate > lastNotified)
 	}
 	
+	/**
+	 * Send new notifications since the last notification date (in recall_initiation_date)
+	 * @return
+	 */
 	def sendNotifications(){
 		println("Last notified: ${lastNotified}")
 		if(needUpdate()){
@@ -58,6 +82,10 @@ class FoodRecallService {
 		}
 	}
 	
+	/**
+	 * May be OBE - reads RSS feed
+	 * @return
+	 */
 	def readRss(){
 		def url = "http://www2c.cdc.gov/podcasts/createrss.asp?c=146"
 		def rss = new XmlSlurper().parse(url)
@@ -65,5 +93,65 @@ class FoodRecallService {
 		rss.channel.item.each { item->
 			println "- ${item.title}" 
 		}​
+	}
+
+	/**
+	 * Returns the aggregated counts by classification for a specific state.  The data is passed back in a JSON
+	 * {@link JSONObject}.<br /><br />
+	 * 
+	 * There is no query feature in the FDA API to support state by state querying of the data set. It is possible to acheive this 
+	 * same behavior through specially structured search criteria which will use AND/OR syntax to include the state code or state
+	 * name.  In cases where the state name is an exact substring of another state (i.e. Virginia / West Virginia), the AND
+	 * syntax will be used to use Virginia AND NOT West Virginia. <br /><br /> 
+	 * 
+	 * The resulting JSON will have the "classification"  of Class I, Class II, Class III
+	 *  removed in place of "severity" of high medium and low instead. <br /><br />
+	 * 
+	 *   
+	 * @return
+	 */
+	def getCountsByState(com.afs.jigsaw.fda.food.api.State state) {
+		//these functions are separated out to facilitate unit testng code coverage
+		def json = new JSONObject(new URL(buildCountUrl(state)).getText())
+		return transformCountJson(state, json);
+		
+
+	}	
+	
+	/**
+	 * Uses utilities available
+	 * @param state
+	 * @return
+	 */
+	def buildCountUrl (com.afs.jigsaw.fda.food.api.State state) {
+		String searchCriteria = new StateSearchCriteriaUtils().generateCriteria(state);
+		StringBuffer url = new StringBuffer();
+		url.append(BASE_COUNT_URL).append("search=").append(searchCriteria).append("&count=classification.exact");
+		
+		return url.toString();
+	}
+	
+	/**
+	 * Transforms the JSON return from the FDA API to the spec
+	 * @param json
+	 * @return
+	 */
+	def transformCountJson(com.afs.jigsaw.fda.food.api.State state, JSONObject json) {
+		def translatedJson = new JSONObject();
+		translatedJson.stateCode = state.getAbbreviation()
+		
+		json.results.each { result ->
+			// try to find the states in the natural language value and add it to the result
+			def entry= new JSONObject();
+			if (CLASSIFICATION_TO_SEVERITY.containsKey(result.term)) {
+				/**
+				 * error handling for a changing set of values in the underlying API...
+				 */
+				entry.severity = CLASSIFICATION_TO_SEVERITY.getAt(result.term);
+				entry.count = result.count
+				translatedJson.accumulate("results", entry);
+			}
+		}
+		return translatedJson
 	}
 }
