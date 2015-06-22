@@ -25,10 +25,10 @@ class FoodRecallServiceSpec extends Specification {
 		def service = new FoodRecallService();
 		
         when:
-        def url = service.buildCountUrl(State.ALABAMA)
+        def url = service.buildCountUrl(State.ALABAMA, "")
 
         then:
-        url == service.BASE_COUNT_URL + "search=" + stateUtils.generateCriteria(State.ALABAMA) + "&count=classification.exact"
+        url == service.BASE_COUNT_URL + "search=" + stateUtils.generateCriteria(State.ALABAMA)
     }	
 
 	void "transformCountJson"() {
@@ -80,4 +80,70 @@ class FoodRecallServiceSpec extends Specification {
 		new JSONObject(ourJson).equals(transformedJson);
 	}
 	
+	
+	void "buildOptionsWithLimit"() {
+		given:
+		def limit = new Integer(10);
+		def skip = null;
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildOptions(limit, skip);
+		
+		then:
+		options == "&limit=10"
+	}
+	
+	
+	void "buildOptionsWithLimitOverMax"() {
+		given:
+		def limit = new Integer(101);
+		def skip = null;
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildOptions(limit, skip);
+		
+		then:
+		options == "&limit=100"
+	}
+
+	void "buildOptionsWithNeither"() {
+		given:
+		def limit = null;
+		def skip = null;
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildOptions(limit, skip);
+		
+		then:
+		options == ""
+	}
+	
+	void "buildOptionsWithSkipAndLimit"() {
+		given:
+		def limit = new Integer(101);
+		def skip = new Integer(20);
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildOptions(limit, skip);
+		
+		then:
+		options == "&limit=100&skip=20"
+	}
+	
+	void "buildOptionsWithSkipOnly"() {
+		given:
+		def limit = null;
+		def skip = new Integer(20);
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildOptions(limit, skip);
+		
+		then:
+		options == ""
+	}
 }

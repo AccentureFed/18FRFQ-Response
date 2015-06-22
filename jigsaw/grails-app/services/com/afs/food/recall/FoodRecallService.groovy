@@ -1,11 +1,8 @@
 package com.afs.food.recall
 
-import grails.transaction.Transactional
-
 import org.codehaus.groovy.grails.web.json.JSONObject
 
-import com.afs.jigsaw.fda.food.api.StateSearchCriteriaUtils
-
+import com.afs.jigsaw.fda.food.api.*
 
 class FoodRecallService {
 
@@ -52,6 +49,60 @@ class FoodRecallService {
 
 
 	/**
+	 * Returns the a detailed set of recalls for a specific state allowing pagination.  The data is passed back in a JSON
+	 * {@link JSONObject}.<br /><br />
+	 *
+	 * There is no query feature in the FDA API to support state by state querying of the data set. It is possible to acheive this
+	 * same behavior through specially structured search criteria which will use AND/OR syntax to include the state code or state
+	 * name.  In cases where the state name is an exact substring of another state (i.e. Virginia / West Virginia), the AND
+	 * syntax will be used to use Virginia AND NOT West Virginia. <br /><br />
+	 *
+	 *This response will have the same stru
+	 * @return
+	 */
+	def getPageByState(State state, Integer limit, Integer skip) {
+
+		def json = new JSONObject(new URL(buildCountUrl(state, buildOptions(limit, skip))).getText())
+		json.results.each { result ->
+			// try to find the states in the natural language value and add it to the result
+			result.normalized_distribution_pattern = stateNormalizationService.getStates(result.distribution_pattern)*.getAbbreviation()
+		}
+		
+		/*
+		 * we also want to remove the meta from the JSON response, but we need the pagination informaiton, so we'll
+		 * move that up int he JSON and then remove the meta
+		 */
+		json.numResults = json.meta.results.total;
+		json.skip = json.meta.results.skip;
+		json.limit = json.meta.results.limit;
+		
+		json.remove("meta");
+		
+		return json;
+	}
+	
+	/**
+	 * builds the inputs for the pagination of the results handling nulls in a 
+	 * meaningful way
+	 * 
+	 * @param skip The record to start at in the result set. Skip 50 with a limit of 25 means start at page 3 effectively.
+	 * @param limit - The number of records to return in the "page"
+	 * @return
+	 */
+	def buildOptions (Integer limit, Integer skip) {
+		//these functions are separated out to facilitate unit testng code coverage
+		StringBuffer options = new StringBuffer("");
+		if (limit != null) {
+			options.append("&limit=").append(Math.min(limit, MAX_RESULTS));
+			if (skip != null) {
+				//the skip is only really useful for pagination if you have a specific limit to the number of results (a page size)
+				options.append("&skip="+skip);
+			}
+		}
+		return options.toString();		
+	}
+	
+	/**
 	 * Returns the aggregated counts by classification for a specific state.  The data is passed back in a JSON
 	 * {@link JSONObject}.<br /><br />
 	 * 
@@ -66,23 +117,24 @@ class FoodRecallService {
 	 *   
 	 * @return
 	 */
-	def getCountsByState(com.afs.jigsaw.fda.food.api.State state) {
+	def getCountsByState(State state) {
 		//these functions are separated out to facilitate unit testng code coverage
-		def json = new JSONObject(new URL(buildCountUrl(state)).getText())
+		def json = new JSONObject(new URL(buildCountUrl(state, "&count=classification.exact")).getText())
 		return transformCountJson(state, json);
 		
 
 	}	
 	
+	
 	/**
-	 * Uses utilities available
+	 * Uses utilities available to build the url for fetching a singular states' count results
 	 * @param state
 	 * @return
 	 */
-	def buildCountUrl (com.afs.jigsaw.fda.food.api.State state) {
+	def buildCountUrl (State state, String options) {
 		String searchCriteria = new StateSearchCriteriaUtils().generateCriteria(state);
 		StringBuffer url = new StringBuffer();
-		url.append(BASE_COUNT_URL).append("search=").append(searchCriteria).append("&count=classification.exact");
+		url.append(BASE_COUNT_URL).append("search=").append(searchCriteria).append(options);
 		
 		return url.toString();
 	}
@@ -92,7 +144,7 @@ class FoodRecallService {
 	 * @param json
 	 * @return
 	 */
-	def transformCountJson(com.afs.jigsaw.fda.food.api.State state, JSONObject json) {
+	def transformCountJson(State state, JSONObject json) {
 		def translatedJson = new JSONObject();
 		translatedJson.stateCode = state.getAbbreviation()
 		

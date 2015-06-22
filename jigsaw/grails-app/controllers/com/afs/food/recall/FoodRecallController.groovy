@@ -1,5 +1,7 @@
 package com.afs.food.recall
 
+import com.afs.jigsaw.fda.food.api.*
+
 class FoodRecallController {
 
     def foodRecallService
@@ -10,8 +12,14 @@ class FoodRecallController {
 
 	def count() {
 		
-		render foodRecallService.getCountsByState(com.afs.jigsaw.fda.food.api.State.fromString(params.stateCode));
+		render foodRecallService.getCountsByState(State.fromString(params.stateCode));
 		
+	}
+
+	def getAll() {
+		def limit = params.limit == null ? 10 : params.limit.toInteger();
+		def skip = params.skip == null ? 0 : params.skip.toInteger();
+		render foodRecallService.getPageByState(State.fromString(params.stateCode), limit,  skip);
 	}
 
 }

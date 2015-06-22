@@ -24,16 +24,18 @@ public class StateSearchCriteriaUtils {
 	 *   1) These terms are not case sensitive.  AL and al will both find AL, al, Al, and aL.
 	 *   2) These terms are treated as complete words, so AL will find " AL ", and " AL," but not "ALSO" or "also"
 	 *   
-	 * @param e A State not null.If null then a search string will be returned for nationwide recalls
+	 * @param e A State not null.If null then an empty string will be returned equating to no specific state (any state)
 	 * 
 	 * @return search criteria string for the "search" parameter related to searching for a specific state. 
 	 */
 	public String generateCriteria(State state) {
+		if (state == null) {
+			return "";
+		}
 		
 		//(distribution_pattern:%22Virginia%22+AND+NOT+distribution_pattern:%22West+Virginia%22)+distribution_pattern:VA+distribution_pattern:Nationwide
 		StringBuffer criteria = new StringBuffer("distribution_pattern:nationwide+distribution_pattern:\"all+50+u.s.+states\"");
 
-		if (state != null) {
 			criteria .append("+distribution_pattern:").append(state.getAbbreviation());
 			for (String name : state.getAllFullNames()) {
 				Collection<String> exclude = this.getExclusionCriteria(state, name);
@@ -47,7 +49,6 @@ public class StateSearchCriteriaUtils {
 				}
 				
 			}
-		}
 		return criteria.toString();
 		
 	}

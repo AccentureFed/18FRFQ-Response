@@ -32,7 +32,7 @@ public class StateSearchCriteriaUtilsTest {
 
     @Test
     public void testNull() {
-        assertEquals("distribution_pattern:nationwide+distribution_pattern:\"all+50+u.s.+states\"", utils.generateCriteria(null));
+        assertEquals("", utils.generateCriteria(null));
     }
 
 }
