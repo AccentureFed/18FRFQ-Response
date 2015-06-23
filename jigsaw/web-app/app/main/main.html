@@ -1,0 +1,137 @@
+<div class="container">
+	<h1>FDA Food Recalls</h1>
+	<div class="row">
+		<div class="card card-danger col-sm-12 col-md-12 col-lg-12">
+			<div class="col-md-4">
+                <div class="control-group">
+                	<label class="control-label" for="startDate">Filter Start Date</label>
+                	<div class="controls">
+                		<div class="input-group">
+		                    <input type="text" class="date-picker form-control" id="startDate" ng-model="startDateValue"/>
+		                    <label for="startDate" class="input-group-addon btn btn-info"><span class="glyphicon glyphicon-calendar"></span>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+			<div class="col-md-4">
+                <div class="control-group">
+                	<label class="control-label" for="endDate">Filter End Date</label>
+                	<div class="controls">
+                		<div class="input-group">
+		                    <input type="text" class="date-picker form-control" id="endDate" ng-model="endDateValue"/>
+		                    <label for="endDate" class="input-group-addon btn btn-info"><span class="glyphicon glyphicon-calendar"></span>
+	                    </div>
+                    </div>
+                </div>
+            </div>
+			<div class="col-md-3">
+				<div class="control-group">
+					<label class="control-label" for="stateSelect">State(s)</label>
+					<div class="controls">
+						<select class="form-control" id="stateSelect" multiple="multiple" style="width=100%" ng-model="selectedStates">
+							<option value="Alabama">Alabama</option>
+						    <option value="Alaska">Alaska</option>
+						    <option value="Arizona">Arizona</option>
+						    <option value="Arkansas">Arkansas</option>
+						    <option value="California">California</option>
+						    <option value="Colorado">Colorado</option>
+						    <option value="Connecticut">Connecticut</option>
+						    <option value="Delaware">Delaware</option>
+						    <option value="Washington D.C.">Washington D.C.</option>
+						    <option value="Florida">Florida</option>
+						    <option value="Georgia">Georgia</option>
+						    <option value="Hawaii">Hawaii</option>
+						    <option value="Idaho">Idaho</option>
+						    <option value="Illinois">Illinois</option>
+						    <option value="Indiana">Indiana</option>
+						    <option value="Iowa">Iowa</option>
+						    <option value="Kansas">Kansas</option>
+						    <option value="Kentucky">Kentucky</option>
+						    <option value="Louisiana">Louisiana</option>
+						    <option value="Maine">Maine</option>
+						    <option value="Maryland">Maryland</option>
+						    <option value="Massachusetts">Massachusetts</option>
+						    <option value="Michigan">Michigan</option>
+						    <option value="Minnesota">Minnesota</option>
+						    <option value="Mississippi">Mississippi</option>
+						    <option value="Missouri">Missouri</option>
+						    <option value="Montana">Montana</option>
+						    <option value="Nebraska">Nebraska</option>
+						    <option value="Nevada">Nevada</option>
+						    <option value="New Hampshire">New Hampshire</option>
+						    <option value="New Jersey">New Jersey</option>
+						    <option value="New Mexico">New Mexico</option>
+						    <option value="New York">New York</option>
+						    <option value="North Carolina">North Carolina</option>
+						    <option value="North Dakota">North Dakota</option>
+						    <option value="Ohio">Ohio</option>
+						    <option value="Oklahoma">Oklahoma</option>
+						    <option value="Oregon">Oregon</option>
+						    <option value="Pennsylvania">Pennsylvania</option>
+						    <option value="Rhode Island">Rhode Island</option>
+						    <option value="South Carolina">South Carolina</option>
+						    <option value="South Dakota">South Dakota</option>
+						    <option value="Tennessee">Tennessee</option>
+						    <option value="Texas">Texas</option>
+						    <option value="Utah">Utah</option>
+						    <option value="Vermont">Vermont</option>
+						    <option value="Virginia">Virginia</option>
+						    <option value="Washington">Washington</option>
+						    <option value="West Virginia">West Virginia</option>
+						    <option value="Wisconsin">Wisconsin</option>
+						    <option value="Wyoming">Wyoming</option>
+						</select>
+					</div>
+				</div>
+            </div>
+            <div class="col-md-1">
+				<span class="btn btn-default" ng-click="clearFilters()">Clear Filters</span>
+            </div>
+        </div>
+	</div>
+	<div class="row">
+		<div class="col-md-7 col-lg-7">
+			<div id="map" style="width: 590px; height: 400px; border: solid 3px gray;"></div>
+		</div>
+		<div class="panel col-md-5 col-lg-5">
+	        <div class="container col-md-12 col-sm-12 col-xs-12">
+	            <nav ng-if="alerts.length > 0">
+	                <ul class="pager">
+		                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt; First</a></li>
+		                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
+		                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
+		                <li class="active"><a>{{page}}</a></li>
+		                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
+		                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
+		                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>Last &gt;&gt;</a></li>
+	                </ul>
+	            </nav>
+	            <div class="card card-info col-sm-12 col-md-12"  ng-if="!alerts || alerts.length == 0">
+	                <h4>No alerts Found.</h4>
+	            </div>
+	            <div class="card card-info col-sm-12" ng-repeat="alert in alerts">
+	                <h4>{{alert.title}}</h4>
+	                <div ng-attr-class="{{alert.enclosureLink && 'col-sm-4' || 'hide-img'}}">
+	            		<img ng-if="alert.enclosureLink" ng-src="{{getImgUrl(alert.articleId)}}" alt="" class="pull-left img-thumbnail img-responsive">
+	                </div>
+	                <p>{{alert.body}}....</p>
+	                <br/>
+	                <a ng-href="{{alert.link}}" target="_blank">View Full Detail</a>
+	                <a class="pull-right" ng-href="{{flipUrl(alert.title,alert.link)}}" target="_blank">Flip</a>
+	
+	            </div>
+	            <nav ng-if="alerts.length > 0">
+	                <ul class="pager">
+	                    <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt; First</a></li>
+	                    <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
+	                    <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
+	                    <li class="active"><a>{{page}}</a></li>
+	                    <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
+	                    <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
+	                    <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>Last &gt;&gt;</a></li>
+	                </ul>
+	            </nav>
+	        </div>
+		</div>
+	</div>
+</div>

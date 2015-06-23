@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
-		<title>Jigsaw</title>
+		<title><g:if env="development">Grails Runtime Exception</g:if><g:else>Error</g:else></title>
+		<meta name="layout" content="main">
 	</head>
 	<body>
-		<h1>Welcome to Jigsaw</h1>
-		<span class="glyphicon glyphicon-search" aria-hidden="true">Search</span>
-		<p>Dashboard Here</p>
+		<g:if env="development">
+			<g:renderException exception="${exception}" />
+		</g:if>
+		<g:else>
+			<ul>
+				<li>An error has occurred</li>
+			</ul>
+		</g:else>
 	</body>
 </html>

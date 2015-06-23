@@ -1,0 +1,21 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS file within this directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the top of the
+* compiled file, but it's generally better to create a new file per style scope.
+*
+*= require bootstrap/dist/css/bootstrap.min.css
+*= require bootstrap/dist/css/bootstrap.css
+*= require bootstrap-multiselect/dist/css/bootstrap-multiselect.css
+*= require bootflat/css/bootflat.css
+*= require bootflat/css/bootflat.min.css
+*= require ladda/dist/ladda.min.css
+*= require fontawesome/css/font-awesome.css
+*= require jquery-ui/themes/smoothness/jquery-ui.min.css
+*= require main.css
+*= require documentation.css
+*= require self
+*/
