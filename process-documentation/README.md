@@ -1,5 +1,4 @@
 # jigsaw-documentation
 Documentation for jigsaw
 
-![alt tag](https://raw.github.com/aharastyAFS/AccentureFed
-/master/jigsaw-documentation/images/2015-06-22_10.23.41_720.png)
+![alt tag](https://raw.githubusercontent.com/AccentureFed/jigsaw-documentation/master/images/20150623_080013_resized_720.png)
