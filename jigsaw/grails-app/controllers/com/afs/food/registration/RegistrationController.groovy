@@ -8,6 +8,8 @@ import com.afs.jigsaw.fda.food.api.State
 
 class RegistrationController {
 
+	def registrationService
+	
     def index() { }
 
 	/**
@@ -21,22 +23,33 @@ class RegistrationController {
 	 * @return - A simple OK message
 	 */
 	def registerAlerts() {
-		def email = params.email
-		def severity = params.severity == null ? null : Classification.valueOf(params.severity.toUpperCase())
-		def states = new ArrayList<String>();
-		
-		params.stateCode.each  { val ->
-			State st =State.fromString(val) 
-			if (st != null) {
-				states.add( st.getAbbreviation())
+		try {
+			def email = params.email
+			def severity = params.severity == null ? null : Classification.valueOf(params.severity.toUpperCase())
+			def states = new ArrayList<String>();
+			
+			params.stateCode.each  { val ->
+				State st =State.fromString(val) 
+				if (st != null) {
+					states.add( st.getAbbreviation())
+				}
 			}
+			if (email != null && severity != null && !states.isEmpty()) {
+				Registration reg = new Registration();
+				reg.setClassification(severity);
+				reg.setStateList(states.join(","));
+				reg.setEmailAddress(email)
+				
+				registrationService.registerEmail(reg);
+				render reg as JSON;
+				
+			} else {
+				render '{"Missing Required Information":"true"}';
+			}
+		} catch(IllegalArgumentException) {
+			//thrown when the severity is invalid per the enum
+			render '{"Missing Required Information":"true"}';
+		
 		}
-		
-		Registration reg = new Registration();
-		reg.setClassification(severity);
-		reg.setStateList(states.join(","));
-		reg.setEmailAdress(email)
-		
-		render reg as JSON;
 	}	
 }

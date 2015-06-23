@@ -21,7 +21,7 @@ class Registration {
 	/**
 	 * A valid email address for the user
 	 */
-	String emailAdress;
+	String emailAddress;
 	
 	/**
 	 * a comma separated list of states that the user is interested in recieving
@@ -31,12 +31,13 @@ class Registration {
 	
 	Classification classification;
 
-	public String getEmailAdress() {
-		return emailAdress;
+
+	public String getEmailAddress() {
+		return emailAddress;
 	}
 
-	public void setEmailAdress(String emailAdress) {
-		this.emailAdress = emailAdress;
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
 	public String getStateList() {
