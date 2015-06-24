@@ -1,6 +1,9 @@
 package com.afs.food.recall
 
-import grails.test.mixin.TestFor
+import grails.test.mixin.*
+
+import java.text.DateFormat
+import java.text.SimpleDateFormat
 
 import org.codehaus.groovy.grails.web.json.JSONObject
 
@@ -28,9 +31,20 @@ class FoodRecallServiceSpec extends Specification {
         def url = service.buildCountUrl(State.ALABAMA, "")
 
         then:
-        url == service.BASE_COUNT_URL + "search=" + stateUtils.generateCriteria(State.ALABAMA)
+        url == service.BASE_COUNT_URL + "search=(" + stateUtils.generateCriteria(State.ALABAMA) + ")"
     }	
 
+	void "buildCountUrlWithOptions"() {
+		given:
+		def stateUtils = new StateSearchCriteriaUtils()
+		def service = new FoodRecallService();
+		
+		when:
+		def url = service.buildCountUrl(State.ALABAMA, "withoptions")
+
+		then:
+		url == service.BASE_COUNT_URL + "search=(" + stateUtils.generateCriteria(State.ALABAMA) + ")withoptions"
+	}
 	void "transformCountJson"() {
 		given:
 		def fdaJson = "{ "+
@@ -145,5 +159,44 @@ class FoodRecallServiceSpec extends Specification {
 		
 		then:
 		options == ""
+	}
+
+	void "buildDateRangeOneNull"() {
+		given:
+		def startDate = new SimpleDateFormat("yyyyMMdd").parse("20150501")
+		def endDate = new SimpleDateFormat("yyyyMMdd").parse("20150601")
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildDateRange(startDate, endDate);
+		
+		then:
+		options == "+AND+report_date:[20150501+TO+20150601]"
+	}
+	
+	void "buildDateRangeNoFrom"() {
+		given:
+		def startDate = null
+		def endDate = new SimpleDateFormat("yyyyMMdd").parse("20150601")
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildDateRange(startDate, endDate);
+		
+		then:
+		options ==""
+	}
+	
+	void "buildDateRangeNoTo"() {
+		given:
+		def startDate =  new SimpleDateFormat("yyyyMMdd").parse("20150601")
+		def endDate = null
+		def service = new FoodRecallService();
+		
+		when :
+		def options = service.buildDateRange(startDate, endDate);
+		
+		then:
+		options ==""
 	}
 }
