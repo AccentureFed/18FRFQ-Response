@@ -16,6 +16,9 @@ import com.afs.jigsaw.fda.food.api.Classification;
 class Registration {
 
     static constraints = {
+		emailAddress email:true, blank:false, unique: true
+		stateList blank:false
+		classification blank:false
     }
 	
 	/**
