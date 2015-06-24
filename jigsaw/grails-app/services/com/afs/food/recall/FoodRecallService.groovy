@@ -110,15 +110,53 @@ class FoodRecallService {
 	 * same behavior through specially structured search criteria which will use AND/OR syntax to include the state code or state
 	 * name.  In cases where the state name is an exact substring of another state (i.e. Virginia / West Virginia), the AND
 	 * syntax will be used to use Virginia AND NOT West Virginia. <br /><br />
-	 *
+	 * 
 	 *This response will have the same stru
+	 * The UPC barcode is an optional item which can be used to find recalls by manufacturer
+	 * 
 	 * @return
 	 */
-	def getPageByState(State state, Integer limit, Integer skip, Date from, Date to) {
-		def options = buildDateRange(from, to)
-		options += buildOptions(limit, skip)
+	def getPageByState(State state, Integer limit, Integer skip, Date from, Date to, UpcBarcode upc) {
+		//create the query without UPC
+		def dateOptions = buildDateRange(from, to)
+		def pageOptions = buildOptions(limit, skip)
+		def productOptions = buildManufacturerAndProductCriteria(upc);
+		
+		if (productOptions == null) {
+			
+			return  queryFda( buildCountUrl(state, dateOptions + pageOptions), limit)
+			
+		} else {
+			def url =  buildCountUrl(state, productOptions+ dateOptions + pageOptions)
+			def productJson = queryFda(url, limit)
+			if (productJson.numResults > 0 ) {
+				productJson.upc_match = "product"
+				productJson.fdaurl = url
+				return productJson;
+			} else {
+				url = buildCountUrl(state, buildManufacturerOnlyCriteria(upc)+ dateOptions + pageOptions)
+				def json = queryFda(url, limit)
+				json.upc_match = "manufacturer"
+				json.fdaurl = url
+				return json
+			}
+		}
+		
+		
+	}
+	
+	/**
+	 * Given a fully formed url for the FDA API, this queries it
+	 * adding the denormalized states field and doing error handling
+	 * also adds meta fields to the header of the json indicating the number of values returned
+	 * 
+	 * @param url
+	 * @return
+	 */
+	def queryFda(String url, int limit) {
+		
 		try {
-			def json = new JSONObject(new URL(buildCountUrl(state, options)).getText())
+			def json = new JSONObject(new URL(url).getText())
 			json.results.each { result ->
 				// try to find the states in the natural language value and add it to the result
 				result.normalized_distribution_pattern = stateNormalizationService.getStates(result.distribution_pattern)*.getAbbreviation()
@@ -145,7 +183,6 @@ class FoodRecallService {
 			json.results = []
 			return json
 		}
-
 	}
 	
 	/**
@@ -254,5 +291,37 @@ class FoodRecallService {
 			}
 		}
 		return translatedJson
+	}
+	
+	/**
+	 * Builds criteria for the FDA API URL for using the manufacturer portion
+	 * of the upc to identify recalls specific to that manufacturer
+	 * @param upc - can be null
+	 * @return returns an empty string if null otherwise a partial string for the "search" parameter 
+	 */
+	def buildManufacturerOnlyCriteria(UpcBarcode upc) {
+		if (upc == null) {
+			return "";
+		}
+		return new StringBuffer("+AND+(product_description:")
+							.append(upc.getManufacturer())
+							.append("+code_info:")
+							.append(upc.getManufacturer())
+							.append(")")
+							.toString();
+	}
+	
+	def buildManufacturerAndProductCriteria(UpcBarcode upc) {
+		if (upc == null) {
+			return "";
+		}
+		String val = '"' + upc.getEncoding() + '+'+ upc.getManufacturer() + '+' + upc.getProduct() + '+' + upc.getCheckDigit() + '"';
+		return new StringBuffer("+AND+(product_description:").append(val)
+							.append("+code_info:").append(val)
+							.append("+product_description:").append(upc.toString())
+							.append("+code_info:").append(upc.toString())
+							.append(")")
+							.toString();
+
 	}
 }

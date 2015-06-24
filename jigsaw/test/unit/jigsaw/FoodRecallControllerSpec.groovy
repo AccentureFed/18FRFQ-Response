@@ -1,4 +1,6 @@
+
 package jigsaw
+
 
 import grails.test.mixin.*
 
@@ -9,6 +11,7 @@ import spock.lang.Specification
 import com.afs.food.recall.FoodRecallController
 import com.afs.food.recall.FoodRecallService
 import com.afs.jigsaw.fda.food.api.State
+import com.afs.jigsaw.fda.food.api.UpcBarcode;
 
 /**
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
@@ -36,7 +39,7 @@ class FoodRecallControllerSpec extends Specification {
 		controller.getAll();
 		
 		then:
-		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null)
+		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null, null)
     }
 	
 	void "getAllWithPagination"() {
@@ -53,7 +56,7 @@ class FoodRecallControllerSpec extends Specification {
 		controller.getAll();
 		
 		then:
-		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 22, 15, null, null)
+		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 22, 15, null, null, null)
 	}
 	
 	void "getAllNoState"() {
@@ -70,7 +73,7 @@ class FoodRecallControllerSpec extends Specification {
 		controller.getAll();
 		
 		then:
-		1*controller.foodRecallService.getPageByState(null, 10, 0, null, null)
+		1*controller.foodRecallService.getPageByState(null, 10, 0, null, null, null)
 	}
 	
 	void "getAllWithInvalidStartDate"() {
@@ -86,7 +89,7 @@ class FoodRecallControllerSpec extends Specification {
 		controller.getAll();
 		
 		then:
-		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null)
+		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null, null)
 	}
 	
 	
@@ -103,7 +106,41 @@ class FoodRecallControllerSpec extends Specification {
 		controller.getAll();
 		
 		then:
-		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null)
+		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null, null)
+	}
+	
+	void "getAllWithUpc"() {
+		given:
+		controller.foodRecallService=Mock(FoodRecallService)
+		def format = "yyyyMMdd"
+		when :
+		params.limit = 10
+//		params.skip = 15
+		params.stateCode ='VA'
+		params.startDate = '20150501'
+		params.endDate = 'saa'
+		params.upc="122222333334"
+		controller.getAll();
+		
+		then:
+		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null, UpcBarcode.buildBarcode("122222333334"))
+	}
+	
+	void "getAllWithInvalidUpc"() {
+		given:
+		controller.foodRecallService=Mock(FoodRecallService)
+		def format = "yyyyMMdd"
+		when :
+		params.limit = 10
+//		params.skip = 15
+		params.stateCode ='VA'
+		params.startDate = '20150501'
+		params.endDate = 'saa'
+		params.upc="1222223334"
+		controller.getAll();
+		
+		then:
+		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, null, null, null)
 	}
 	
 	void "getAllWithDates"() {
@@ -120,7 +157,7 @@ class FoodRecallControllerSpec extends Specification {
 		controller.getAll();
 		
 		then:
-		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, new SimpleDateFormat(format).parse("20150501"), new SimpleDateFormat(format).parse("20150601"))
+		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, new SimpleDateFormat(format).parse("20150501"), new SimpleDateFormat(format).parse("20150601"), null)
 	}
 	
 	

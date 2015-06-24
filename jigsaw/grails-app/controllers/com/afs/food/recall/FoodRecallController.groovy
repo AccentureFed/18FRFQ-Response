@@ -69,6 +69,7 @@ class FoodRecallController {
 		def limit = params.limit == null ? 10 : params.limit.toInteger();
 		def skip = params.skip == null ? 0 : params.skip.toInteger();
 		def state = params.stateCode == null ? null : State.fromString(params.stateCode)
+		def upc = params.upc == null ? null : UpcBarcode.buildBarcode(params.upc)
 		def startDate
 		def endDate
 		try {
@@ -79,7 +80,7 @@ class FoodRecallController {
 			startDate = null
 			endDate = null
 		}
-		render foodRecallService.getPageByState(state, limit,  skip, startDate, endDate);
+		render foodRecallService.getPageByState(state, limit,  skip, startDate, endDate, upc);
 	}
 
 }
