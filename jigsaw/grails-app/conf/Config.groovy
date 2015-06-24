@@ -117,3 +117,16 @@ log4j.main = {
 }
 
 grails.views.javascript.library="jquery"
+
+grails {
+	mail {
+	  host = "smtp.gmail.com"
+	  port = 465
+	  username = "accenturefedjigsaw@gmail.com"
+	  password = "18FAccentureAgilex"
+	  props = ["mail.smtp.auth":"true",
+			   "mail.smtp.socketFactory.port":"465",
+			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+			   "mail.smtp.socketFactory.fallback":"false"]
+	}
+ }
