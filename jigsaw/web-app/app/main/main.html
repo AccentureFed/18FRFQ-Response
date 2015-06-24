@@ -6,11 +6,53 @@
         </div>
 	</div>
 	<div class="row">
-		<div ng-show={{mapActive}} class="col-md-7 col-lg-7 visible-md visible-lg">
-			<div ng-show={{mapActive}} id="map" style="width: 590px; height: 400px;"></div>
-			<div ng-show={{!mapActive}} id="recallDetails" style="width: 590px; height: 400px;" ng-model="currentRecall">
+		<div id="mapCell" ng-show=mapActive class="col-md-7 col-lg-7">
+			<div id="map" style="width: 590px; height: 400px;"></div>
+		</div>
+		<div id="detailsCell" ng-show=!mapActive class="col-md-7 col-lg-7">
+			<div id="recallDetails" style="width: 590px; height: 400px;" ng-model="currentRecall">
 				<div><h3>{{currentRecall.recalling_firm}} Recall Detail</h3></div>
-				<a href="#" ng-click="showMap()">Back to Recall Map</a>
+				<a ng-click="showMap()"><span><i class="fa fa-compass fa-lg"></i></span>&#xA0;<span>Back to Recall Map</span></a>
+				<div class="panel panel-primary">
+				<table class="table-bordered" style="width:100%">
+	                <thead bgcolor="#E3E3E3">
+	                  <tr>
+	                    <th width="25%">Food Recall Detail</th>
+	                    <th>Value</th>
+	                  </tr>
+	                </thead>
+	                <tbody>
+	                  <tr>
+	                    <td>Reason for Recall</td>
+	                    <td>{{currentRecall.reason_for_recall}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Classification</td>
+	                    <td>{{currentRecall.classification}}</td>
+	                  </tr>
+					  <tr>
+	                    <td>Severity</td>
+	                    <td>{{(currentRecall.classification) == 'Class I' ? 'High' : (currentRecall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Recall Number</td>
+	                    <td>{{currentRecall.recall_number}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Quantity</td>
+	                    <td>{{currentRecall.product_quantity}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Code Info</td>
+	                    <td>{{currentRecall.code_info}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Distribution</td>
+	                    <td>{{currentRecall.distribution_pattern}}</td>
+	                  </tr>
+	                </tbody>
+		        </table>
+		        </div>
 			</div>
 		</div>
 		<div class="panel col-md-5 col-lg-5 col-sm-12 col-xs-12">
@@ -43,7 +85,7 @@
 		                <tbody>
 		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
 		                    <td>{{recall.product_description.substring(0,50)}}...</td>
-		                    <td>{{recall.classification}}</td>
+		                    <td>{{(currentRecall.classification) == 'Class I' ? 'High' : (currentRecall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
 		                  </tr>
 		                </tbody>
 		            </table>

@@ -13,7 +13,6 @@ angular.module('jigsawApp')
     	$scope.mapActive = true;
     	
     	$scope.showRecallDetail = function(recallInfo){
-    		alert(recallInfo)
     		$scope.mapActive = false;
     		$scope.currentRecall = recallInfo;
     	}

@@ -18,6 +18,11 @@ Theme
     border-color: #a0d468;
 }
 
+tbody {
+    height: 200px;
+    overflow-y: auto;
+}
+
 .modal-header hr {
     margin-bottom:0;
 }
