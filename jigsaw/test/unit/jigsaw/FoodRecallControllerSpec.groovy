@@ -90,7 +90,7 @@ class FoodRecallControllerSpec extends Specification {
 	}
 	
 	
-	void "getInvalidEndDate"() {
+	void "getAllInvalidEndDate"() {
 		given:
 		controller.foodRecallService=Mock(FoodRecallService)
 		def format = "yyyyMMdd"
@@ -121,5 +121,63 @@ class FoodRecallControllerSpec extends Specification {
 		
 		then:
 		1*controller.foodRecallService.getPageByState(State.VIRGINIA, 10, 0, new SimpleDateFormat(format).parse("20150501"), new SimpleDateFormat(format).parse("20150601"))
+	}
+	
+	
+	void "countWithInvalidStartDate"() {
+		given:
+		controller.foodRecallService=Mock(FoodRecallService)
+		def format = "yyyyMMdd"
+		when :
+		params.stateCode ='VA'
+		params.startDate = 'ssss'
+		params.endDate = '20150601'
+		controller.count();
+		
+		then:
+		1*controller.foodRecallService.getCountsByState(State.VIRGINIA, null, null)
+	}
+	
+	
+	void "countInvalidEndDate"() {
+		given:
+		controller.foodRecallService=Mock(FoodRecallService)
+		def format = "yyyyMMdd"
+		when :
+		params.stateCode ='VA'
+		params.startDate = '20150501'
+		params.endDate = 'saa'
+		controller.count();
+		
+		then:
+		1*controller.foodRecallService.getCountsByState(State.VIRGINIA, null, null)
+	}
+	
+	void "countWithDates"() {
+		given:
+		controller.foodRecallService=Mock(FoodRecallService)
+		def format = "yyyyMMdd"
+		when :
+		params.stateCode ='VA'
+		params.startDate = '20150501'
+		params.endDate = '20150601'
+		
+		controller.count();
+		
+		then:
+		1*controller.foodRecallService.getCountsByState(State.VIRGINIA, new SimpleDateFormat(format).parse("20150501"), new SimpleDateFormat(format).parse("20150601"))
+	}
+	
+	
+	void "countNoState"() {
+		given:
+		controller.foodRecallService=Mock(FoodRecallService)
+		when :
+//		params.stateCode = n
+		
+		controller.count();
+		
+		then:
+		1*controller.foodRecallService.getCountsByState(null,_,_)
 	}
 }

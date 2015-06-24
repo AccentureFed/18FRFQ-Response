@@ -20,9 +20,33 @@ class FoodRecallController {
 		render foodRecallService.sendNotifications()
 	}
 
+	/**
+	 * Used to return a count metadata for recalls within a specific set of search criteria.
+	 *
+	 * params include:
+	 * state - optional.  If optional, then no state specific searching will be performed. Can be any name or abbreviation of a state
+	 * startDate - optional. Date in yyyyMMdd format
+	 * endDate - optinoal. Date in yyyyMMdd format
+	 *
+	 * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
+	 *
+	 * @return - up to 3 counts are returned.  One each for high, medium and low severity recalls matching the criteria.
+	 */
 	def count() {
 		
-		render foodRecallService.getCountsByState(State.fromString(params.stateCode));
+		def state = params.stateCode == null ? null : State.fromString(params.stateCode)
+		def startDate
+		def endDate
+		try {
+			startDate = new SimpleDateFormat("yyyyMMdd").parse( params.startDate)
+			endDate = new SimpleDateFormat("yyyyMMdd").parse( params.endDate)
+		}catch(Exception e) {
+			//invalid dates
+			startDate = null
+			endDate = null
+		}
+
+		render foodRecallService.getCountsByState(state, startDate, endDate);
 		
 	}
 

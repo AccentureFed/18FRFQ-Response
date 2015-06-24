@@ -195,11 +195,20 @@ class FoodRecallService {
 	 *   
 	 * @return
 	 */
-	def getCountsByState(State state) {
+	def getCountsByState(State state, Date from, Date to) {
 		//these functions are separated out to facilitate unit testng code coverage
-		def json = new JSONObject(new URL(buildCountUrl(state, "&count=classification.exact")).getText())
-		return transformCountJson(state, json);
-		
+		def options = buildDateRange(from, to) +"&count=classification.exact"
+
+		try {		
+			def json = new JSONObject(new URL(buildCountUrl(state,options )).getText())
+			return transformCountJson(state, json);
+		} catch(Exception e) {
+			//the response was not a valid set of responses.
+			def json = new JSONObject()
+			json.numResults = 0;
+			json.error = e.getMessage()
+			return json
+		}
 
 	}	
 	
