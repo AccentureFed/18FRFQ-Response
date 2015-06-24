@@ -1,50 +1,110 @@
 'use strict';
 
 angular.module('jigsawApp')
-    .controller('MainController', function ($rootScope, $scope, $state, $timeout) {
-    	$scope.startDateValue = null;
-    	$scope.endDateValue = null;
+    .controller('MainController', function ($rootScope, $scope, $state, $timeout, RecallInfo) {
+    	var currentDate = new Date();
+    	var startDate = new Date();
+    	$scope.startDateValue = startDate.toLocaleDateString("en-US");
+
+    	$scope.endDateValue = currentDate.toLocaleDateString("en-US");
     	$scope.selectedStates = null;
+    	$scope.recalls = null;
+    	$scope.currentRecall = "";
+    	$scope.mapActive = true;
     	
-    	$scope.updateFilter = function (option, checked, select){
-    		
+    	$scope.showRecallDetail = function(recallInfo){
+    		alert(recallInfo)
+    		$scope.mapActive = false;
+    		$scope.currentRecall = recallInfo;
     	}
     	
-    	$scope.clearFilters = function (){
-        	$scope.startDateValue = null;
-        	$scope.endDateValue = null;
-        	$scope.selectedStates = null;
+    	$scope.showMap = function() {
+    		$scope.mapActive = true;
     	}
     	
-    	$scope.getAllStateAlerts = function (startDate, endDate, stateSelection) {
-    		
+    	$scope.getBriefRecallsByState = function(stateObj, start){
+    		RecallInfo.getRecallDetail(stateObj, 0, 10, function(data){
+    			$scope.recalls = data.results;
+    		}, function(){
+    			
+    		});
     	}
     	
-    	$scope.getStateAlerts = function(startDate, endDate, stateObj){
-    		
+    	$scope.setDateRange = function(rangeType){
+    		var tempDate = new Date();
+    		switch(rangeType){
+    		case 'week':
+    			tempDate.setDate(currentDate.getDate() - 7);
+    			break;
+    		case 'month':
+    			tempDate.setMonth(currentDate.getMonth() - 1);
+    			break;
+    		case 'quarter':
+    			tempDate.setMonth(currentDate.getMonth() - 3);
+    			break;
+    		case 'year':
+    			tempDate.setFullYear(currentDate.getFullYear() - 1);
+    			break;
+    		default:
+    			tempDate.setMonth(currentDate.getMonth() - 3);
+    			break;
+    		}
+    		$scope.startDateValue = tempDate.toLocaleDateString("en-US");
     	}
+    	
+    	
+    	$scope.getStateSeverity = function(stateObj){
+    		var severity = "";
+    		RecallInfo.getStateCount(stateObj,
+    			function(data){
+    				var stateAbr = data.stateCode;
+    				data.results.forEach(function(element, index, array)
+    				{
+    					stateAbr;
+    					if (element.severity == "high")
+    					{
+    						$('#map').usmap({
+    				      	    'stateSpecificStyles': {
+    				      	    	stateAbr : {fill: 'red'}
+    				        	    }
+    						});
+    					}
+    					else if (element.severity == "medium" && severity != "high")
+    					{
+    						$('#map').usmap({
+    				      	    'stateSpecificStyles': {
+    				      	    	stateAbr : {fill: 'orange'}
+    				        	    }
+    						});
+    					}
+    					else if (element.severity == "low" && severity == null)
+    					{
+    						$('#map').usmap({
+    				      	    'stateSpecificStyles': {
+    				      	    	stateAbr : {fill: 'yellow'}
+    				        	    }
+    						});
+    					}
+    				});
+    			},
+    			function(){
+    				angular.noop;
+    			});
+    	};
     	
         angular.element(document).ready(function () {
       	  $('#map').usmap({
-        	'showLables': true,
+        	'stateStyles': {fill: 'white', showLabels: true},
       	    'stateSpecificStyles': {
-      	      'AK' : {fill: '#f00'}
+      	      'AK' : {fill: '#f00'},
+      	      'VA' : {fill: 'orange'}
       	    },
       	    'stateSpecificHoverStyles': {
       	      'HI' : {fill: '#ff0'}
       	    },
       	    
-      	    'mouseoverState': {
-      	      'HI' : function(event, data) {
-      	        //return false;
-      	      }
-      	    },
       	    'click' : function(event, data) {
-      	      $('#alert')
-      	        .text('Click '+data.name+' on map 1')
-      	        .stop()
-      	        .css('backgroundColor', '#ff0')
-      	        .animate({backgroundColor: '#ddd'}, 1000);
+      	    	$scope.getBriefRecallsByState(data.name);
       	    }
       	  });
           $('#stateSelect').multiselect({
@@ -57,9 +117,9 @@ angular.module('jigsawApp')
               buttonWidth: '200px'
           });
         });
+
+        $scope.getBriefRecallsByState('VA', $scope.startDateValue);
         
         $scope.errors = {};
-        
-    	$('.date-picker').datepicker();
 
     });

@@ -34,6 +34,7 @@
 //= require app/app.constants.js
 //= require components/navbar/navbar.directive.js
 //= require components/navbar/navbar.controller.js
+//= require components/main/main.service.js
 //= require app/error/error.js
 //= require app/main/main.js
 //= require app/main/main.controller.js

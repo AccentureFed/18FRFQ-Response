@@ -225,7 +225,9 @@ a{
     border-color: rgba(255,165,0,.5);
 }
 .card-danger {
-    border-color: #ec8282;
+    border-color: #660000;
+    background-color: #FF0000;
+    color: white;
 }
 .card-primary {
     border-color: #9ca6f1;
@@ -291,5 +293,9 @@ a{
 .led-green {
     background-color: #690;
     box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.clickable-row:hover {
+	background-color: #E6E6E6;
 }
 

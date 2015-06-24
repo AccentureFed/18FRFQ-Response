@@ -2,136 +2,61 @@
 	<h1>FDA Food Recalls</h1>
 	<div class="row">
 		<div class="card card-danger col-sm-12 col-md-12 col-lg-12">
-			<div class="col-md-4">
-                <div class="control-group">
-                	<label class="control-label" for="startDate">Filter Start Date</label>
-                	<div class="controls">
-                		<div class="input-group">
-		                    <input type="text" class="date-picker form-control" id="startDate" ng-model="startDateValue"/>
-		                    <label for="startDate" class="input-group-addon btn btn-info"><span class="glyphicon glyphicon-calendar"></span>
-	                    </div>
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-4">
-                <div class="control-group">
-                	<label class="control-label" for="endDate">Filter End Date</label>
-                	<div class="controls">
-                		<div class="input-group">
-		                    <input type="text" class="date-picker form-control" id="endDate" ng-model="endDateValue"/>
-		                    <label for="endDate" class="input-group-addon btn btn-info"><span class="glyphicon glyphicon-calendar"></span>
-	                    </div>
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-3">
-				<div class="control-group">
-					<label class="control-label" for="stateSelect">State(s)</label>
-					<div class="controls">
-						<select class="form-control" id="stateSelect" multiple="multiple" style="width=100%" ng-model="selectedStates">
-							<option value="Alabama">Alabama</option>
-						    <option value="Alaska">Alaska</option>
-						    <option value="Arizona">Arizona</option>
-						    <option value="Arkansas">Arkansas</option>
-						    <option value="California">California</option>
-						    <option value="Colorado">Colorado</option>
-						    <option value="Connecticut">Connecticut</option>
-						    <option value="Delaware">Delaware</option>
-						    <option value="Washington D.C.">Washington D.C.</option>
-						    <option value="Florida">Florida</option>
-						    <option value="Georgia">Georgia</option>
-						    <option value="Hawaii">Hawaii</option>
-						    <option value="Idaho">Idaho</option>
-						    <option value="Illinois">Illinois</option>
-						    <option value="Indiana">Indiana</option>
-						    <option value="Iowa">Iowa</option>
-						    <option value="Kansas">Kansas</option>
-						    <option value="Kentucky">Kentucky</option>
-						    <option value="Louisiana">Louisiana</option>
-						    <option value="Maine">Maine</option>
-						    <option value="Maryland">Maryland</option>
-						    <option value="Massachusetts">Massachusetts</option>
-						    <option value="Michigan">Michigan</option>
-						    <option value="Minnesota">Minnesota</option>
-						    <option value="Mississippi">Mississippi</option>
-						    <option value="Missouri">Missouri</option>
-						    <option value="Montana">Montana</option>
-						    <option value="Nebraska">Nebraska</option>
-						    <option value="Nevada">Nevada</option>
-						    <option value="New Hampshire">New Hampshire</option>
-						    <option value="New Jersey">New Jersey</option>
-						    <option value="New Mexico">New Mexico</option>
-						    <option value="New York">New York</option>
-						    <option value="North Carolina">North Carolina</option>
-						    <option value="North Dakota">North Dakota</option>
-						    <option value="Ohio">Ohio</option>
-						    <option value="Oklahoma">Oklahoma</option>
-						    <option value="Oregon">Oregon</option>
-						    <option value="Pennsylvania">Pennsylvania</option>
-						    <option value="Rhode Island">Rhode Island</option>
-						    <option value="South Carolina">South Carolina</option>
-						    <option value="South Dakota">South Dakota</option>
-						    <option value="Tennessee">Tennessee</option>
-						    <option value="Texas">Texas</option>
-						    <option value="Utah">Utah</option>
-						    <option value="Vermont">Vermont</option>
-						    <option value="Virginia">Virginia</option>
-						    <option value="Washington">Washington</option>
-						    <option value="West Virginia">West Virginia</option>
-						    <option value="Wisconsin">Wisconsin</option>
-						    <option value="Wyoming">Wyoming</option>
-						</select>
-					</div>
-				</div>
-            </div>
-            <div class="col-md-1">
-				<span class="btn btn-default" ng-click="clearFilters()">Clear Filters</span>
-            </div>
+			<span><h4>FDA warns consumers about fraudulent Ebola treatment products: Virgina, Maryland, North Carolina...</h4></span>
         </div>
 	</div>
 	<div class="row">
-		<div class="col-md-7 col-lg-7">
-			<div id="map" style="width: 590px; height: 400px; border: solid 3px gray;"></div>
+		<div ng-show={{mapActive}} class="col-md-7 col-lg-7 visible-md visible-lg">
+			<div ng-show={{mapActive}} id="map" style="width: 590px; height: 400px;"></div>
+			<div ng-show={{!mapActive}} id="recallDetails" style="width: 590px; height: 400px;" ng-model="currentRecall">
+				<div><h3>{{currentRecall.recalling_firm}} Recall Detail</h3></div>
+				<a href="#" ng-click="showMap()">Back to Recall Map</a>
+			</div>
 		</div>
-		<div class="panel col-md-5 col-lg-5">
+		<div class="panel col-md-5 col-lg-5 col-sm-12 col-xs-12">
+			<div class="row">
 	        <div class="container col-md-12 col-sm-12 col-xs-12">
-	            <nav ng-if="alerts.length > 0">
-	                <ul class="pager">
-		                <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt; First</a></li>
-		                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
-		                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
-		                <li class="active"><a>{{page}}</a></li>
-		                <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
-		                <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
-		                <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>Last &gt;&gt;</a></li>
-	                </ul>
-	            </nav>
-	            <div class="card card-info col-sm-12 col-md-12"  ng-if="!alerts || alerts.length == 0">
-	                <h4>No alerts Found.</h4>
-	            </div>
-	            <div class="card card-info col-sm-12" ng-repeat="alert in alerts">
-	                <h4>{{alert.title}}</h4>
-	                <div ng-attr-class="{{alert.enclosureLink && 'col-sm-4' || 'hide-img'}}">
-	            		<img ng-if="alert.enclosureLink" ng-src="{{getImgUrl(alert.articleId)}}" alt="" class="pull-left img-thumbnail img-responsive">
-	                </div>
-	                <p>{{alert.body}}....</p>
-	                <br/>
-	                <a ng-href="{{alert.link}}" target="_blank">View Full Detail</a>
-	                <a class="pull-right" ng-href="{{flipUrl(alert.title,alert.link)}}" target="_blank">Flip</a>
-	
-	            </div>
-	            <nav ng-if="alerts.length > 0">
-	                <ul class="pager">
-	                    <li ng-show="links['first']" ng-click="loadPage(links['first'])"><a>&lt;&lt; First</a></li>
-	                    <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
-	                    <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
-	                    <li class="active"><a>{{page}}</a></li>
-	                    <li ng-show="page < links['last']" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
-	                    <li ng-show="page < links['last'] - 1" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
-	                    <li ng-show="links['last']" ng-click="loadPage(links['last'])"><a>Last &gt;&gt;</a></li>
-	                </ul>
-	            </nav>
+	        	<div><span><b>View Recalls for the past:</b></span></div>
+	        	<div class="btn-group btn-group-justified">
+	        		<div class="btn-group">
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('week')">Week</button>
+                  	</div>
+                  	<div class="btn-group">
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('month')">Month</button>
+                  	</div>
+                  	<div class="btn-group">
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('quarter')">Quarter</button>
+                  	</div>
+                  	<div class="btn-group">
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('year')">Year</button>
+                	</div>
+                </div>
+                <br>
+                <div><span><b>Top 10 Recalls for {{startDateValue}} - {{endDateValue}}:</b></span></div>
+		              <table class="table-bordered" style="width:100%">
+		                <thead bgcolor="#E3E3E3">
+		                  <tr>
+		                    <th>Food Recall Description</th>
+		                    <th>Severity</th>
+		                  </tr>
+		                </thead>
+		                <tbody>
+		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
+		                    <td>{{recall.product_description.substring(0,50)}}...</td>
+		                    <td>{{recall.classification}}</td>
+		                  </tr>
+		                </tbody>
+		            </table>
+		            <br>
+	        </div>
 	        </div>
 		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+			<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/US_FDA" data-widget-id="613665794346610688">Tweets by @US_FDA</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><div class="panel panel-default box follow-fda"><div class="panel-heading"><h3 class="panel-title">Follow FDA</h3></div><div class="panel-body"><ul style="list-style-type: none; padding-left: 0px"><li><a href="https://blogs.fda.gov/" id="anch_77"><span aria-hidden="true" class="icon-comments icon-large">&nbsp;&nbsp;</span> Read FDA Voice Blog Posts</a></li><li><a href="http://www.fda.gov/AboutFDA/ContactFDA/ucm2005606.htm" id="anch_78"><span aria-hidden="true" class="icon-inbox icon-large">&nbsp;&nbsp;</span> Sign Up for Email Updates</a></li><li><a href="http://www.fda.gov/AboutFDA/ContactFDA/ucm2005607.htm" id="anch_79"><span aria-hidden="true" class="icon-rss-sign icon-large">&nbsp;&nbsp;</span> Subscribe to RSS Feeds</a></li><li><a href="https://twitter.com/US_FDA" id="anch_80"><span aria-hidden="true" class="icon-twitter icon-large">&nbsp;&nbsp;</span> Follow FDA on Twitter</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_81"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="https://www.facebook.com/FDA" id="anch_82"><span aria-hidden="true" class="icon-facebook-sign icon-large">&nbsp;&nbsp;</span> Follow FDA on Facebook</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_83"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="http://www.flickr.com/photos/fdaphotos/" id="anch_84"><span aria-hidden="true" class="icon-flickr icon-large">&nbsp;&nbsp;</span> View FDA Photostream on Flickr</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_85"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="http://www.pinterest.com/usfda/" id="anch_86"><span aria-hidden="true" class="icon-pinterest icon-large">&nbsp;&nbsp;</span> Follow FDA on Pinterest</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_87"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="http://www.youtube.com/user/USFoodandDrugAdmin" id="anch_88"><span aria-hidden="true" class="icon-youtube-sign icon-large">&nbsp;&nbsp;</span> View FDA Videos on YouTube</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_89"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li></ul><p><a class="btn btn-sm btn-primary" title="Interactive Media" href="http://www.fda.gov/NewsEvents/InteractiveMedia/default.htm" id="anch_90"><span aria-hidden="true" class="icon-chevron-sign-right">&nbsp;&nbsp;</span> More Interactive Media</a></p></div></div><!-- /panel /box --></div>
 	</div>
 </div>
