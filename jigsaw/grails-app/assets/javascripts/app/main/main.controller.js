@@ -2,12 +2,14 @@
 
 angular.module('jigsawApp')
     .controller('MainController', function ($rootScope, $scope, $state, $timeout, RecallInfo) {
+    	var perRequest = 30;
     	var currentDate = new Date();
     	var startDate = new Date();
-    	$scope.startDateValue = startDate.toLocaleDateString("en-US");
+    	$scope.startDateValue = startDate.toJSON().substring(0, 10);
 
-    	$scope.endDateValue = currentDate.toLocaleDateString("en-US");
-    	$scope.selectedStates = null;
+    	$scope.endDateValue = currentDate.toJSON().substring(0, 10);
+    	$scope.selectedState = null;
+    	$scope.userSavedStates = null;
     	$scope.recalls = null;
     	$scope.currentRecall = "";
     	$scope.mapActive = true;
@@ -21,8 +23,22 @@ angular.module('jigsawApp')
     		$scope.mapActive = true;
     	}
     	
-    	$scope.getBriefRecallsByState = function(stateObj, start){
-    		RecallInfo.getRecallDetail(stateObj, 0, 10, function(data){
+    	$scope.getBriefRecallsByState = function(){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), 0, perRequest, function(data){
+    			if (data != null && data.numResults != null && data.numResults > 0) {
+        			$scope.recalls = data.results;	
+    			}
+    			else
+    			{
+    				$scope.recalls = null;
+    			}
+    		}, function(){
+    			
+    		});
+    	}
+    	
+    	$scope.getAllRecalls = function(){
+    		RecallInfo.getAllRecallDetail(function(data, headers){
     			$scope.recalls = data.results;
     		}, function(){
     			
@@ -48,13 +64,22 @@ angular.module('jigsawApp')
     			tempDate.setMonth(currentDate.getMonth() - 3);
     			break;
     		}
-    		$scope.startDateValue = tempDate.toLocaleDateString("en-US");
+    		$scope.startDateValue = tempDate.toJSON().substring(0, 10);
+    		
+    		if ($scope.selectedState != null)
+    		{
+    			$scope.getBriefRecallsByState();
+    		}
+    		else
+    		{
+    			$scope.getAllRecalls();
+    		}
     	}
     	
     	
     	$scope.getStateSeverity = function(stateObj){
     		var severity = "";
-    		RecallInfo.getStateCount(stateObj,
+    		RecallInfo.getStateCount(stateObj, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''),
     			function(data){
     				var stateAbr = data.stateCode;
     				data.results.forEach(function(element, index, array)
@@ -92,6 +117,10 @@ angular.module('jigsawApp')
     	};
     	
         angular.element(document).ready(function () {
+        	$(".btn-group > .btn").click(function(){
+        	    $(this).addClass("active").parent().siblings().children().removeClass("active");
+        	});
+        	
       	  $('#map').usmap({
         	'stateStyles': {fill: 'white', showLabels: true},
       	    'stateSpecificStyles': {
@@ -103,7 +132,8 @@ angular.module('jigsawApp')
       	    },
       	    
       	    'click' : function(event, data) {
-      	    	$scope.getBriefRecallsByState(data.name);
+      	    	$scope.selectedState = data.name;
+      	    	$scope.getBriefRecallsByState();
       	    }
       	  });
           $('#stateSelect').multiselect({
@@ -116,9 +146,11 @@ angular.module('jigsawApp')
               buttonWidth: '200px'
           });
         });
-
-        $scope.getBriefRecallsByState('VA', $scope.startDateValue);
         
         $scope.errors = {};
+        
+        if ($scope.startDateValue == $scope.endDateValue) {
+        	$scope.setDateRange('month');
+        }
 
     });
