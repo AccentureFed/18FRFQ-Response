@@ -1,13 +1,32 @@
+# INCLUDE LINK TO WORKING PROTOTYPE HERE
+
 ![alt tag](https://github.com/AccentureFed/jigsaw-documentation/blob/master/images/response-images/proposal-header.png?raw=true)
 
 # Request for Quotation 4QTFHS150004
 Multiple Award Blanket Purchase Agreement for Agile Delivery Services (ADS I) 
 
-Agile Scrum is the methodology we used. Or Agile Development Life Cycle combines the Scrum framework with engineering practices to provide the most inclusive Agile solution. This methodology and solution is tool agnostic.
+## Introduction
+Upon receipt of the RFQ, our team decomposed the RFQ to understand the scope and initial resources required for the effort. The following describes our approach and a bit of the history of this short lived project.  We adapted a few agile techniques including Scrum, Kanban, and XP to support this effort. 
 
-![alt tag](https://github.com/AccentureFed/jigsaw-documentation/blob/master/images/response-images/agile-methodology.png?raw=true)
+## Team & Environment
+Although we had been anticipating the release of this RFQ, our original team members that we had planned to be involved had other obligations that had prevented them to participate (vacation, business trips, customer deliveries, etc).  Inspite of the obvious challenge, we were able to pull another multidisciplinary team together fairly quickly as we have many experienced agile resources and a tremendous team oriented spirit.  A base team of six formed around the expertise of front end and back end developers, devops, Design, Agile Coaching and the input of a Product Manager. Note that non of these team members had worked together before.  The Product Manager/Owner Greg Pfister, has the ultimate authority and responsibility for meeting the needs of the users and in doing so prioritizing features accordingly.
 
-Upon receipt of the RFQ, our team decomposed the RFQ to understand the scope and initial resources required for the effort. A multidisciplinary team was formed, with a minimum of 5 labor categories from Pool 3, based on resource availability and skill sets required.  The team of six formed around the expertise of front end and back end developers, devops, Design, Agile Coaching and the input of a Product Manager. The Product Manager/Owner Greg Phister, has the ultimate authority and responsibility for meeting the needs of the users and in doing so prioritizing features accordingly. 
+## Process
+Due to nature of this project with very short timelines, very open requirements, and the need to keep overhead down to an absolute minimum, we decided to leverage a physical Kanban board.  On larger, longer lived, and/or distributed team environments we would typically leverage a modern Agile Lifecycle tool (e.g. Rally, VersionOne, JiraAgile, etc); in this case we had a mostly co-located team and decided to focus on a high visibility, flexibility and accountability model.  
+
+Understanding the needs of the end user was critical to ensure success and usability.  
+
+![alt tag](https://github.com/AccentureFed/jigsaw-documentation/blob/master/images/response-images/human-productowner.png?raw=true)
+
+Next, we worked with the Product Owner to review and identify a preferred dataset (FDA Food Recall Enforcement Reports) and then identify several end-user personas in order to understand their needs and vision.  Based on the personas and dataset, we created user stories and mapped these stories into feature sets.  With the Product Owner, the team characterized the vision of the prototype as an interactive tool used to inform and educate consumers of food product recalls that are in an open or closed status. 
+
+For our purposes, we effectively had one day sprints.  At 9am each morning we would have a sprint review to see a demonstration of the solution and discussion with the team and stakeholders.  Any suggestions/ideas were captured as a part of the backlog (reflected on the Kanban board).  This was followed with a 'sprint planning' session that represented the work for the day.  This model is outside of our typical 2 week sprint model; however, due to the short turn around and necessary high-touch engagement, this was the best approach to ensure the solution and team were aligned and focused on delivering the highest business value items.  Each afternoon we'd have a stand-up where the team took a step back to communicate what they have been able to accomplish, what remained and identify impediments to the team.  Since our team is very familiar with agile practices, each team 'ceremony' was an opportunity to make any process adjustments to help ensure that our process operated as effectively as possible.
+
+## Tools
+To remain Agile and lean, we leveraged several Agile Engineering Practices such as Continuous
+Integration (CI) and Test Driven Development (TDD). Our approach leveraged automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software FREQUENCY and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  Need to talk about configuration management and monitoring here.
+
+Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
 
 Due to limited time, a physical wall Kanban board was created to promote visibility, flexibility and accountability.  Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
 
@@ -17,17 +36,10 @@ Due to limited time, a physical wall Kanban board was created to promote visibil
 |       |                               |     |               |
 |       |                               |     |               |
 
-Next, we worked with the Product Owner to understand their needs and vision by creating user stories, and prioritizing them into feature sets. The concept of the proto-type was defined utilizing the FDA “Food Recall Enforcement Reports.”  With the Product Owner, the team characterized the vision of the prototype as an interactive tool used to inform and educate consumers of food product recalls that are in an open and or closed status.  Based on the priority, we identified a subset of requirements to be put into the Sprint backlog.  
 
-Understanding the needs of the end user was critical to ensure success and usability.  
+## Conclusion
+In spite of the very quick turn around and limited real world customer needs, we pulled together a very interesting and engaging prototype solution.  You can find further details about this project including pictures, videos, and the source code here.
+ 
 
-![alt tag](https://github.com/AccentureFed/jigsaw-documentation/blob/master/images/response-images/human-productowner.png?raw=true)
 
-Our Sprints were set at one day time-boxed iterations where the team focused on this subset of features and requirements. At the end of the Sprint, the Product Owner and team members gathered for a Sprint review which provided an empirical view into the team’s progress. During this review, we demonstrated the software and work products that were produced and passed acceptance tests. 
-Daily stand ups occurred at 9:00am in person and virtual. The team detailed what they completed yesterday, their goal for today and any impediments. In addition, a daily retrospective occurred at 3pm for the team to reflect on what happened that day and identify actions for improvement. 
-
-Adjustments to the product backlog as a result of the Sprint review or a better understanding of needs occurred at any time. The Sprint review uses an iterative approach, where feedback informed subsequent work or versions of the prototype.  The backlog was continuously prioritized allowing the team to produce the most valuable features. The Sprint process was repeated until the prototype was complete. 
-
-To remain Agile and lean, we leveraged several Agile Engineering Practices such as Continuous
-Integration (CI) and Test Driven Development (TDD). Our approach leveraged automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software FREQUENCY and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  Need to talk about configuration management and monitoring here.
 
