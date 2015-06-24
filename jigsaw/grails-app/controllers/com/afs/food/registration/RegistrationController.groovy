@@ -34,11 +34,11 @@ class RegistrationController {
 					states.add( st.getAbbreviation())
 				}
 			}
-			if (email != null && severity != null && !states.isEmpty()) {
-				Registration reg = new Registration();
-				reg.setClassification(severity);
-				reg.setStateList(states.join(","));
-				reg.setEmailAddress(email)
+			Registration reg = new Registration();
+			reg.setClassification(severity);
+			reg.setStateList(states.join(","));
+			reg.setEmailAddress(email)
+			if (reg.validate()) {
 				
 				registrationService.registerEmail(reg);
 				render reg as JSON;

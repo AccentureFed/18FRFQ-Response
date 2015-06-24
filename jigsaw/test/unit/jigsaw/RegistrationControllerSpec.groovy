@@ -3,6 +3,7 @@ package jigsaw
 import grails.test.mixin.*
 import spock.lang.Specification
 
+import com.afs.domain.Registration
 import com.afs.food.registration.RegistrationController
 import com.afs.food.registration.RegistrationService
 
@@ -10,6 +11,7 @@ import com.afs.food.registration.RegistrationService
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(RegistrationController)
+@Mock([Registration])
 class RegistrationControllerSpec extends Specification {
 
     def setup() {
@@ -25,12 +27,12 @@ class RegistrationControllerSpec extends Specification {
 		when :
         params.severity = 'high'
         params.stateCode = ['VA']
-        params.email ='email'
+        params.email ='email@email.com'
         controller.registerAlerts();
 		
 		then:
 		response.text.contains('"classification":{"enumType":"com.afs.jigsaw.fda.food.api.Classification","name":"HIGH"}')
-		response.text.contains('"emailAddress":"email"')
+		response.text.contains('"emailAddress":"email@email.com"')
 		response.text.contains('"stateList":"VA"')
 		1*controller.registrationService.registerEmail(_)
 	}
@@ -42,12 +44,12 @@ class RegistrationControllerSpec extends Specification {
 		when :
 		params.severity = 'MeDiUm'
 		params.stateCode = ['VA']
-		params.email ='email'
+		params.email ='email@email.com'
 		controller.registerAlerts();
 		
 		then:
 		response.text.contains('"classification":{"enumType":"com.afs.jigsaw.fda.food.api.Classification","name":"MEDIUM"}')
-		response.text.contains('"emailAddress":"email"')
+		response.text.contains('"emailAddress":"email@email.com"')
 		response.text.contains('"stateList":"VA"')
 		1*controller.registrationService.registerEmail(_)
 	}
@@ -59,12 +61,12 @@ class RegistrationControllerSpec extends Specification {
 		when :
 		params.severity = 'high'
 		params.stateCode = ['VA','Delaware', 'nh']
-		params.email ='email'
+		params.email ='email@email.com'
 		controller.registerAlerts();
 		
 		then:
 		response.text.contains('"classification":{"enumType":"com.afs.jigsaw.fda.food.api.Classification","name":"HIGH"}')
-		response.text.contains('"emailAddress":"email"')
+		response.text.contains('"emailAddress":"email@email.com"')
 		response.text.contains('"stateList":"VA,DE,NH"')
 		1*controller.registrationService.registerEmail(_)
 	}
