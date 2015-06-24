@@ -22,6 +22,12 @@ class FoodRecallService {
     private static final def BASE_URL = "https://api.fda.gov/food/enforcement.json?limit=${MAX_RESULTS}"
 	protected static final def BASE_COUNT_URL = "https://api.fda.gov/food/enforcement.json?"
 	
+	private static final def SEARCH_PREFIX = "search=(";
+	private static final def COUNT_BY_SEVERITY = "&count=classification.exact";
+	private static final def DATE_SEARCH_PREFIX = "+AND+report_date:[";
+	private static final def LIMIT_PREFIX = "&limit=";
+	private static final def SKIP_PREFIX="&skip=";
+	
     def stateNormalizationService
 	LocalDate lastNotified = LocalDate.now().minusMonths(2)
 
@@ -153,7 +159,7 @@ class FoodRecallService {
 		//these functions are separated out to facilitate unit testng code coverage
 		StringBuffer options = new StringBuffer("");
 		if (from != null && to != null) {
-			options.append("+AND+report_date:[").append(from.format("yyyyMMdd")).append("+TO+").append(to.format("yyyyMMdd")).append("]")
+			options.append(DATE_SEARCH_PREFIX).append(from.format("yyyyMMdd")).append("+TO+").append(to.format("yyyyMMdd")).append("]")
 		}
 		return options.toString();
 	}
@@ -170,10 +176,10 @@ class FoodRecallService {
 		//these functions are separated out to facilitate unit testng code coverage
 		StringBuffer options = new StringBuffer("");
 		if (limit != null) {
-			options.append("&limit=").append(Math.min(limit, MAX_RESULTS));
+			options.append(LIMIT_PREFIX).append(Math.min(limit, MAX_RESULTS));
 			if (skip != null) {
 				//the skip is only really useful for pagination if you have a specific limit to the number of results (a page size)
-				options.append("&skip="+skip);
+				options.append(SKIP_PREFIX) .append(skip);
 			}
 			options.append("");
 		}
@@ -197,7 +203,7 @@ class FoodRecallService {
 	 */
 	def getCountsByState(State state, Date from, Date to) {
 		//these functions are separated out to facilitate unit testng code coverage
-		def options = buildDateRange(from, to) +"&count=classification.exact"
+		def options = buildDateRange(from, to) + COUNT_BY_SEVERITY
 
 		try {		
 			def json = new JSONObject(new URL(buildCountUrl(state,options )).getText())
@@ -221,7 +227,7 @@ class FoodRecallService {
 	def buildCountUrl (State state, String options) {
 		String searchCriteria = new StateSearchCriteriaUtils().generateCriteria(state);
 		StringBuffer url = new StringBuffer();
-		url.append(BASE_COUNT_URL).append("search=(").append(searchCriteria).append(")").append(options);
+		url.append(BASE_COUNT_URL).append(SEARCH_PREFIX).append(searchCriteria).append(")").append(options);
 		
 		return url.toString();
 	}
