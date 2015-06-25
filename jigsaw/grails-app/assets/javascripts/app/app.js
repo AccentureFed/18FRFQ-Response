@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
-    'ngResource', 'ui.router', 'ngCookies', 'ngCacheBuster', 'infinite-scroll', 'angular-ladda'])
+    'ngResource', 'ui.router', 'ngCookies', 'ngCacheBuster', 'angular-ladda'])
 
     .run(function ($rootScope, $location, $window, $http, $state, ENV, VERSION) {
         $rootScope.ENV = ENV;
