@@ -6,8 +6,8 @@ angular.module('jigsawApp')
     	var currentDate = new Date();
     	var startDate = new Date();
     	$scope.startDateValue = startDate.toJSON().substring(0, 10);
-
     	$scope.endDateValue = currentDate.toJSON().substring(0, 10);
+        $scope.errors = {};
     	$scope.selectedState = null;
     	$scope.userSavedStates = null;
     	$scope.recalls = null;
@@ -17,6 +17,43 @@ angular.module('jigsawApp')
     	$scope.page = 1;
     	$scope.totalRecalls = 0;
     	
+    	
+    	$scope.mapObject = {
+    			  scope: 'usa',
+    			  options: {
+    			    width: 700,
+    			    labels: true,
+    			    legend: true,
+    			    legendHeight: 60 // optionally set the padding for the legend
+    			  },
+    			  geographyConfig: {
+    			    highlighBorderColor: '#EAA9A8',
+    			    highlighBorderWidth: 2
+    			  },
+    			  fills: {
+    			    'HIGH': '#FF0000',
+    			    'MEDIUM': '#FF6600',
+    			    'LOW': '#FFFF00',
+    			    'defaultFill': '#DDDDDD'
+    			  },
+    			  data: {
+    			    "CO": {
+    			      "fillKey": "HIGH",
+    			    },
+    			    "DE": {
+    			      "fillKey": "LOW",
+    			    },
+    			    "GA": {
+    			      "fillKey": "MEDIUM",
+    			    }
+    			  },
+    			  done: function(datamap) {
+    				  datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+		                $scope.selectedState = geography.id;
+		                $scope.getBriefRecallsByState();
+		            })}
+    			}
+
     	
     	$scope.showRecallDetail = function(recallInfo){
     		$scope.mapActive = false;
@@ -76,8 +113,7 @@ angular.module('jigsawApp')
     	}
     	
     	$scope.getAllRecalls = function(){
-    		//RecallInfo.getAllRecallDetail(function(data, headers){
-    			RecallInfo.getRecallDetail(null, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), 0, perRequest, function(data){
+    		RecallInfo.getAllRecallDetail(function(data, headers){
     			if (data != null && data.meta != null && data.meta.results != null && data.meta.results.total > 0) {
     				$scope.totalRecalls = data.meta.results.total;
         			$scope.recalls = data.results;
@@ -138,6 +174,10 @@ angular.module('jigsawApp')
     		}
     	}
     	
+    	$scope.handleMapClick = function(geography) {
+    		var statecode = geography.id;
+    	}
+    	
     	
     	$scope.getStateSeverity = function(stateObj){
     		var severity = "";
@@ -182,13 +222,11 @@ angular.module('jigsawApp')
         	$(".btn-group > .btn").click(function(){
         	    $(this).addClass("active").parent().siblings().children().removeClass("active");
         	});
+            
+            if ($scope.startDateValue == $scope.endDateValue) {
+            	$scope.setDateRange('month');
+            }
         	
         });
-        
-        $scope.errors = {};
-        
-        if ($scope.startDateValue == $scope.endDateValue) {
-        	$scope.setDateRange('month');
-        }
 
     });

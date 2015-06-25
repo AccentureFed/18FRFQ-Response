@@ -24,6 +24,10 @@
 //= require angular-dynamic-locale/src/tmhDynamicLocale.js
 //= require angular-local-storage/dist/angular-local-storage.js
 //= require angular-cache-buster/angular-cache-buster.js
+//= require d3/d3.js
+//= require topojson/topojson.js
+//= require datamaps/dist/datamaps.all.min.js
+//= require angular-datamaps/dist/angular-datamaps.min.js
 //= require app/app.js
 //= require app/app.constants.js
 //= require components/navbar/navbar.directive.js

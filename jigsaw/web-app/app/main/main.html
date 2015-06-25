@@ -6,11 +6,10 @@
         </div>
 	</div>
 	<div class="row">
-		<!-- <div id="mapCell" ng-show=mapActive class="col-md-7 col-lg-7">
-			<div id="map" style="width: 590px; height: 400px;"></div>
-			<datamap map="mapObject"></datamap> ng-show=!mapActive
-		</div> -->
-		<div id="detailsCell"  class="col-md-7 col-lg-7">
+		<div id="mapCell" ng-show=mapActive class="col-md-7 col-lg-7">
+			<datamap map="mapObject"></datamap> 
+		</div>
+		<div id="detailsCell" ng-show=!mapActive class="col-md-7 col-lg-7">
 			<div id="recallDetails" style="width: 100%;" ng-model="currentRecall">
 				<ol class="breadcrumb breadcrumb-arrow">
 					<li class="backup"><a ng-click="showMap()"><span><i class="fa fa-compass fa-2x"></i></span>&#xA0;<span>Map</span></a></li>
