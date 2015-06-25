@@ -37,3 +37,8 @@ Open source, modern technologies were chosen based on team preference, accounts 
 
 ## Conclusion
 Applying our expertise and proven understanding in applying Agile best practices allowed us to pull together a very interesting and engaging prototype in spite of a quick turn around and limited real world customer needs.  You can find further details about this project including pictures, videos, and the source code here.
+
+## OUTSTANDING
+WIP discussion and how we managed bottlenecks
+devops
+
