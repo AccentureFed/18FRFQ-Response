@@ -24,7 +24,7 @@
 //= require angular-dynamic-locale/src/tmhDynamicLocale.js
 //= require angular-local-storage/dist/angular-local-storage.js
 //= require angular-cache-buster/angular-cache-buster.js
-//= require ngInfiniteScroll/build/ng-infinite-scroll.js
+//= require nginfinitescroll/build/ng-infinite-scroll.min.js
 //= require spin.js/spin.js
 //= require ladda/dist/ladda.min.js
 //= require angular-ladda/dist/angular-ladda.min.js
