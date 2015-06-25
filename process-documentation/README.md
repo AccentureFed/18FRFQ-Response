@@ -23,11 +23,11 @@ For our purposes, we effectively followed one day sprints.  This is outside our 
 
 ## Tools
 To remain Agile and lean, we leveraged several Agile Engineering Practices such as Continuous
-Integration (CI) and Test Driven Development (TDD). Our approach leveraged automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software FREQUENCY and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  Need to talk about configuration management and monitoring here.
+Integration (CI) and Test Driven Development (TDD). Our approach applied automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software FREQUENCY and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  
+The team utilized Github its time stamps and the check in-check-out feature to work on the most recent code and document source source.
+Need to talk about monitoring here.
 
 Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
-
-Due to limited time, a physical wall Kanban board was created to promote visibility, flexibility and accountability.  Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
 
 |  Tool |            Purpose            | URL | Justification |
 |:-----:|:-----------------------------:|:---:|:-------------:|
@@ -35,10 +35,5 @@ Due to limited time, a physical wall Kanban board was created to promote visibil
 |       |                               |     |               |
 |       |                               |     |               |
 
-
 ## Conclusion
-In spite of the very quick turn around and limited real world customer needs, we pulled together a very interesting and engaging prototype solution.  You can find further details about this project including pictures, videos, and the source code here.
- 
-
-
-
+Applying our expertise and proven understanding in applying Agile best practices allowed us to pull together a very interesting and engaging prototype in spite of a quick turn around and limited real world customer needs.  You can find further details about this project including pictures, videos, and the source code here.
