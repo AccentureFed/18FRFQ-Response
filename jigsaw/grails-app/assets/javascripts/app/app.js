@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
-    'ngResource', 'ui.router', 'ngCookies', 'ngCacheBuster', 'angular-ladda'])
+    'ngResource', 'ui.router', 'ngCookies', 'ngCacheBuster'])
 
     .run(function ($rootScope, $location, $window, $http, $state, ENV, VERSION) {
         $rootScope.ENV = ENV;
@@ -53,9 +53,4 @@ angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
         });
 
 
-    })
-    .config(function (laddaProvider){
-    	laddaProvider.setOption({
-    		style: 'expand-left'
-    	});
     });

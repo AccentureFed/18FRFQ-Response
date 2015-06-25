@@ -17,6 +17,7 @@ angular.module('jigsawApp')
     	$scope.page = 1;
     	$scope.totalRecalls = 0;
     	
+    	
     	$scope.showRecallDetail = function(recallInfo){
     		$scope.mapActive = false;
     		$scope.currentRecall = recallInfo;
@@ -75,7 +76,8 @@ angular.module('jigsawApp')
     	}
     	
     	$scope.getAllRecalls = function(){
-    		RecallInfo.getAllRecallDetail(function(data, headers){
+    		//RecallInfo.getAllRecallDetail(function(data, headers){
+    			RecallInfo.getRecallDetail(null, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), 0, perRequest, function(data){
     			if (data != null && data.meta != null && data.meta.results != null && data.meta.results.total > 0) {
     				$scope.totalRecalls = data.meta.results.total;
         			$scope.recalls = data.results;
@@ -181,30 +183,6 @@ angular.module('jigsawApp')
         	    $(this).addClass("active").parent().siblings().children().removeClass("active");
         	});
         	
-      	  $('#map').usmap({
-        	'stateStyles': {fill: 'white', showLabels: true},
-      	    'stateSpecificStyles': {
-      	      'AK' : {fill: '#f00'},
-      	      'VA' : {fill: 'orange'}
-      	    },
-      	    'stateSpecificHoverStyles': {
-      	      'HI' : {fill: '#ff0'}
-      	    },
-      	    
-      	    'click' : function(event, data) {
-      	    	$scope.selectedState = data.name;
-      	    	$scope.getBriefRecallsByState();
-      	    }
-      	  });
-          $('#stateSelect').multiselect({
-              maxHeight: 200,
-              checkboxName: 'multiselect[]',
-              onChange: function(option, checked, select) {
-                  $scope.updateFilter(option, checked, select);
-              },
-              nonSelectedText: 'Select State(s)',
-              buttonWidth: '200px'
-          });
         });
         
         $scope.errors = {};

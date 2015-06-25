@@ -24,11 +24,6 @@
 //= require angular-dynamic-locale/src/tmhDynamicLocale.js
 //= require angular-local-storage/dist/angular-local-storage.js
 //= require angular-cache-buster/angular-cache-buster.js
-//= require spin.js/spin.js
-//= require ladda/dist/ladda.min.js
-//= require angular-ladda/dist/angular-ladda.min.js
-//= require us-map/lib/raphael.js
-//= require us-map/jquery.usmap.js
 //= require app/app.js
 //= require app/app.constants.js
 //= require components/navbar/navbar.directive.js

@@ -116,8 +116,6 @@ log4j.main = {
            'net.sf.ehcache.hibernate'
 }
 
-grails.views.javascript.library="jquery"
-
 grails {
 	mail {
 	  host = "smtp.gmail.com"
@@ -130,3 +128,8 @@ grails {
 			   "mail.smtp.socketFactory.fallback":"false"]
 	}
  }
+ 
+ grails.assets.minifyJs = false
+ grails.assets.bundle=true
+ 
+ 
