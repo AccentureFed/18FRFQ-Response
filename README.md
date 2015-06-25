@@ -8,10 +8,10 @@
 Upon receipt of the RFQ, our team decomposed the RFQ to understand the scope and initial resources required for the effort. The following describes our approach and a bit of the history of this short lived project.  We adapted a few agile techniques including Scrum, Kanban, and XP to support this effort. 
 
 ## Team & Environment
-Although we had been anticipating the release of this RFQ, our original team members slated to be involved had other obligations preventing them from participating (vacation, business trips, customer deliveries, etc).  Despite the challenge, we were able to assemble another multidisciplinary team together within 24 hours, utilizing our bench of experienced agile resources and a tremendous team oriented spirit.  A core team of six formed around the expertise of front and back end developers, devops, Design, Agile Coaching and Product Manager input. None of our team members had worked together perviously, and organized with a remote and physical presence.  The Product Manager/Owner Greg Pfister, had the ultimate authority and responsibility for meeting the needs of the users and in doing so prioritizing features accordingly.
+Although we had been anticipating the release of this RFQ, our original team members slated to be involved had other obligations preventing them from participating (vacation, business trips, customer deliveries, etc).  Despite the challenge, we were able to assemble another multidisciplinary team together within 24 hours, utilizing our bench of experienced agile resources and a tremendous team oriented spirit.  A core team of six formed around the expertise of front and back end developers, devops, Design, Agile Coaching and Product Manager input. None of our team members had worked together previously, and organized with a remote and physical presence.  The Product Manager/Owner Greg Pfister, had the ultimate authority and responsibility for meeting the needs of the users and in doing so prioritizing features accordingly.
 
 ## Process
-With a short delivery timeline, unrestricted requirements, and the need to keep team overhead down, we chose to leverage a physical Kanban board.  On large, long lived, and/or distributed team environments we  traditionally leverage a modern Agile Lifecycle tool (e.g. Rally, VersionOne, JiraAgile, etc); our current team was mostly co-located and those not, utilized skype and go-to meetings, decided to focus on a high visible, flexibile and accountable model.  
+With a short delivery timeline, unrestricted requirements, and the need to keep team overhead down, we chose to leverage a physical Kanban board.  On large, long lived, and/or distributed team environments we  traditionally leverage a modern Agile Lifecycle tool (e.g. Rally, VersionOne, JiraAgile, etc); our current team was mostly co-located and those not, utilized Skype and Go-to-Meeting, decided to focus on a high visible, flexible and accountable model.  
 
 Understanding the needs of the end user was critical to ensure success and usability.  User Centric Design drove backend requirements that were fed to the front end developers.
 
@@ -24,7 +24,7 @@ For our purposes, we effectively followed one day sprints.  This is outside our 
 ## Tools
 To remain Agile and lean, we leveraged several Agile Engineering Practices such as Continuous
 Integration (CI) and Test Driven Development (TDD). Our approach applied automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software FREQUENCY and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  
-The team utilized Github its time stamps and the check in-check-out feature to work on the most recent code and document source source.
+The team utilized Github its time stamps and the check in-check-out feature to work on the most recent code and document source.
 Need to talk about monitoring here.
 
 Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
