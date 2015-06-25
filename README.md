@@ -27,7 +27,7 @@ Integration (CI) and Test Driven Development (TDD). Our approach applied automat
 The team utilized Github its time stamps and the check in-check-out feature to work on the most recent code and document source.
 Need to talk about monitoring here.
 
-![Jenkins](http://52.7.254.19:8080/jenkins/static/930c8517/images/48x48/folder.png)
+![alt tag](http://52.7.254.19:8080/jenkins/static/930c8517/images/48x48/folder.png)
 
 Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
 
