@@ -1,5 +1,317 @@
-/*
-*= require bootstrap
-*/
+body {
+    background: #fafafa;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
 
-// Put styles here
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+/* ==========================================================================
+Theme
+========================================================================== */
+.pagination li.active>a {
+    background-color: #a0d468;
+    border-color: #a0d468;
+}
+
+ol.breadcrumb.breadcrumb-arrow.active {
+	background-color: #e6e9ed;
+	border-color: #e6e9ed;
+}
+
+ol.breadcrumb.breadcrumb-arrow.li.backup {
+	color: #fff;
+	background-color: #3bafda;
+	border-color: #3bafda;
+}
+
+tbody {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.modal-header hr {
+    margin-bottom:0;
+}
+
+.navbar-black {
+	color: #fff;
+    background-color: #323232;
+    border-color: #323232;
+}
+
+.navbar-blue {
+	color: #fff;
+    background-color: #003152;
+    border-color: #003152;
+    height: 100px;
+}
+
+.navbar-header {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.navbar-black .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #323232;
+}
+
+.navbar-black .navbar-toggle .icon-bar {
+    background-color: #323232;
+}
+
+.navbar-black .nav > li > a:hover, .navbar-blue .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #323232;
+}
+
+.navbar-black .navbar-nav>li>a, .navbar-default .navbar-text {
+    color: #323232;
+}
+
+.navbar-black .nav-pills>li>a:hover {
+    color: #fff;
+    background-color: #323232;
+}
+
+.footer {
+    padding: 10px 0;
+}
+
+#filter-affix.affix {
+top:10px;
+}
+
+@media (min-width: 768px) {
+    #filter-affix {
+        min-width:152.5px
+    }
+}
+@media (min-width: 992px) {
+    #filter-affix {
+        min-width: 207.5px
+    }
+}
+
+@media (min-width: 1200px) {
+    #filter-affix {
+        min-width: 257.5px
+    }
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.paddingLeft {
+	padding-left: 5px;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.error {
+    color: white;
+    background-color: red;
+}
+
+.logo {
+    display: inline-block;
+    background: url("http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/gov-fda-white-svg.svg");
+    background-color: #003152;
+}
+
+img.logo-navbar {
+    display:inline;
+    margin-top:2px;
+    margin-bottom:2px;
+    margin-left:10px;
+    margin-right:20px;
+    width:28px;
+    height: 30px;
+}
+
+img.fda-logo-navbar {
+    display:inline;
+    margin-top:2px;
+    margin-bottom:2px;
+    margin-left:10px;
+    margin-right:20px;
+    width:108px;
+    height: 46px;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+.alert .popover pre {
+    font-size: 10px;
+}
+
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
+
+
+
+.panel-default > .panel-heading {
+    color: #333;
+    background-color:inherit;
+    border-color: #ddd;
+}
+
+a{
+    cursor:pointer;
+}
+
+.spaced {
+	margin-right: 14px;
+	margin-bottom: 5px;
+}
+
+.card {
+    background: #fefefe;
+    color: #666666;
+    font-weight: bold;
+    font-size: small;
+    padding: 12px;
+    padding-left: 16px; 
+    border-top: solid 3px #CCCCCC;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+    -moz-box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+    box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+}
+.card h2:first-child, .card h3:first-child, .card h4:first-child, .card h5:first-child {
+    padding-top:0;
+    margin-top:0;
+}
+.card p {
+    font-weight: 400;
+    line-height: 1;
+    color: #777
+}
+.card-clear {
+    border-color: #fefefe;
+    -webkit-box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+    box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+}
+.card-info {
+    border-color: #b8dbf2;
+}
+.card-success {
+    border-color: #cef2b8;
+}
+.card-warning {
+    border-color: rgba(255,165,0,.5);
+}
+.card-danger {
+    border-color: #660000;
+    background-color: #FF0000;
+    color: white;
+}
+.card-primary {
+    border-color: #9ca6f1;
+}
+.card-magick {
+    border-color: #e0b8f2;
+}
+.card-info-text {
+    color: #39b3d7;
+}
+.card-success-text {
+    color: #80d651;
+}
+.card-warning-text {
+    color: #db9e34;
+}
+.card-danger-text {
+    color: #c9302c;
+}
+.card-primary-text {
+    color: rgba(47,106,215,.9);
+}
+.card-magick-text {
+    color: #bb39d7;
+}
+
+.glyphicon-remove {
+    color:#FF0004;
+}
+
+.glyphicon-ok {
+    color:#04FF00;
+}
+
+.img-fitted {
+	width: 30%;
+	object-fit: contain;
+}
+
+.hide-img {
+	display: none;
+}
+
+.feed-title {
+	color: #EEEEEE;
+ 	background-color: #666;
+ 	border-radius: .1em;
+}
+
+.led {
+    margin: 12px 12px auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px;
+}
+
+.led-red {
+    background-color: #940;
+    box-shadow: #000 0 -1px 7px 1px, inset #7e0104 -1px 9px, #F00 0 2px 12px;
+}
+
+.led-green {
+    background-color: #690;
+    box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.clickable-row:hover {
+	background-color: #E6E6E6;
+}
+

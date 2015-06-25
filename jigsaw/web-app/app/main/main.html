@@ -1,0 +1,122 @@
+<div class="container">
+	<h1>FDA Food Recalls</h1>
+	<div class="row">
+		<div class="card card-danger col-sm-12 col-md-12 col-lg-12">
+			<span><h4>FDA warns consumers about fraudulent Ebola treatment products: Virgina, Maryland, North Carolina...</h4></span>
+        </div>
+	</div>
+	<div class="row">
+		<div id="mapCell" ng-show=mapActive class="col-md-7 col-lg-7">
+			<div id="map" style="width: 590px; height: 400px;"></div>
+		</div>
+		<div id="detailsCell" ng-show=!mapActive class="col-md-7 col-lg-7">
+			<div id="recallDetails" style="width: 100%;" ng-model="currentRecall">
+				<ol class="breadcrumb breadcrumb-arrow">
+					<li class="backup"><a ng-click="showMap()"><span><i class="fa fa-compass fa-2x"></i></span>&#xA0;<span>Map</span></a></li>
+					<li class="active"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&#xA0;Recall details: <b>{{currentRecall.recalling_firm}}</b></span></li>
+				</ol>
+				<div class="panel panel-primary" style="height:310px; overflow:auto">
+				<table class="table-bordered" style="width:100%">
+	                <thead bgcolor="#E3E3E3">
+	                  <tr>
+	                    <th width="25%">Food Recall Detail</th>
+	                    <th>Value</th>
+	                  </tr>
+	                </thead>
+	                <tbody>
+	                  <tr>
+	                    <td>Reason for Recall</td>
+	                    <td>{{currentRecall.reason_for_recall}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Classification</td>
+	                    <td>{{currentRecall.classification}}</td>
+	                  </tr>
+					  <tr>
+	                    <td>Severity</td>
+	                    <td>{{(currentRecall.classification) == 'Class I' ? 'High' : (currentRecall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Recall Number</td>
+	                    <td>{{currentRecall.recall_number}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Quantity</td>
+	                    <td>{{currentRecall.product_quantity}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Code Info</td>
+	                    <td>{{currentRecall.code_info}}</td>
+	                  </tr>
+	                  <tr>
+	                    <td>Distribution</td>
+	                    <td>{{currentRecall.distribution_pattern}}</td>
+	                  </tr>
+	                </tbody>
+		        </table>
+		        </div>
+			</div>
+		</div>
+		<div class="panel col-md-5 col-lg-5 col-sm-12 col-xs-12">
+			<div class="row">
+	        <div class="container col-md-12 col-sm-12 col-xs-12">
+	        	<div><span><b>View Recalls for the past:</b></span></div>
+	        	<div class="btn-group btn-group-justified">
+	        		<div class="btn-group">
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('week')">Week</button>
+                  	</div>
+                  	<div class="btn-group">
+                  		<button type="button" class="btn btn-default active" ng-click="setDateRange('month')">Month</button>
+                  	</div>
+                  	<div class="btn-group">
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('quarter')">Quarter</button>
+                  	</div>
+                  	<div class="btn-group">
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('year')">Year</button>
+                	</div>
+                </div>
+                <br>
+                <div><span ng-show=selectedState><b>{{totalRecalls}} Recalls for {{startDateValue}} to {{endDateValue}}:</b></span><span ng-show=!selectedState><b>All Recalls: {{totalRecalls}} </b></span></div>
+                	<div style="height:300px; overflow:auto">
+		              <table class="table-bordered" style="width:100%">
+		                <thead bgcolor="#E3E3E3">
+		                  <tr>
+		                    <th>Food Recall Description</th>
+		                    <th>Severity</th>
+		                  </tr>
+		                </thead>
+		                <tbody>
+		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
+		                    <td>{{recall.product_description.substring(0,50)}}...</td>
+		                    <td>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+		                  </tr>
+		                  <tr ng-show=!recalls>
+		                  	<td>NO RECALL ALERTS</td>
+		                  	<td>N/A</td>
+		                  </tr>
+		                </tbody>
+		            </table>
+		            <nav ng-if="recalls.length > 0">
+		                <ul class="pagination">
+			                <li ng-show="page > 3" ng-click="loadPage(1)"><a>&lt;&lt; First</a></li>
+			                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
+			                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
+			                <li class="active"><a>{{page}}</a></li>
+			                <li ng-show="page < (numPages - 1)" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
+			                <li ng-show="page < (numPages - 2)" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
+			                <li ng-show="page < (numPages - 3)" ng-click="loadPage(numPages)"><a>Last &gt;&gt;</a></li>
+		                </ul>
+		            </nav>
+		        </div>
+	        </div>
+	        </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+			<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/US_FDA" data-widget-id="613665794346610688">Tweets by @US_FDA</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3"><div class="panel panel-default box follow-fda"><div class="panel-heading"><h3 class="panel-title">Follow FDA</h3></div><div class="panel-body"><ul style="list-style-type: none; padding-left: 0px"><li><a href="https://blogs.fda.gov/" id="anch_77"><span aria-hidden="true" class="icon-comments icon-large">&nbsp;&nbsp;</span> Read FDA Voice Blog Posts</a></li><li><a href="http://www.fda.gov/AboutFDA/ContactFDA/ucm2005606.htm" id="anch_78"><span aria-hidden="true" class="icon-inbox icon-large">&nbsp;&nbsp;</span> Sign Up for Email Updates</a></li><li><a href="http://www.fda.gov/AboutFDA/ContactFDA/ucm2005607.htm" id="anch_79"><span aria-hidden="true" class="icon-rss-sign icon-large">&nbsp;&nbsp;</span> Subscribe to RSS Feeds</a></li><li><a href="https://twitter.com/US_FDA" id="anch_80"><span aria-hidden="true" class="icon-twitter icon-large">&nbsp;&nbsp;</span> Follow FDA on Twitter</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_81"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="https://www.facebook.com/FDA" id="anch_82"><span aria-hidden="true" class="icon-facebook-sign icon-large">&nbsp;&nbsp;</span> Follow FDA on Facebook</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_83"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="http://www.flickr.com/photos/fdaphotos/" id="anch_84"><span aria-hidden="true" class="icon-flickr icon-large">&nbsp;&nbsp;</span> View FDA Photostream on Flickr</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_85"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="http://www.pinterest.com/usfda/" id="anch_86"><span aria-hidden="true" class="icon-pinterest icon-large">&nbsp;&nbsp;</span> Follow FDA on Pinterest</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_87"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li><li><a href="http://www.youtube.com/user/USFoodandDrugAdmin" id="anch_88"><span aria-hidden="true" class="icon-youtube-sign icon-large">&nbsp;&nbsp;</span> View FDA Videos on YouTube</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_89"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a></li></ul><p><a class="btn btn-sm btn-primary" title="Interactive Media" href="http://www.fda.gov/NewsEvents/InteractiveMedia/default.htm" id="anch_90"><span aria-hidden="true" class="icon-chevron-sign-right">&nbsp;&nbsp;</span> More Interactive Media</a></p></div></div><!-- /panel /box --></div>
+	</div>
+</div>

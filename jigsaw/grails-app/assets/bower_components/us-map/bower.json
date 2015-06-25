@@ -1,0 +1,28 @@
+{
+  "name": "us-map",
+  "version": "1.0.3",
+  "homepage": "https://github.com/JRhyne/us-map",
+  "authors": [
+    "New Signature <creative-accounts@newsignature.com>",
+    "Justin Rhyne <jrhyne27@gmail.com>"
+  ],
+  "description": "Easily add a an interactive map of the USA and States to your webpage without using Flash.",
+  "main": [
+    "lib/raphael.js",
+    "jquery.usmap.js",
+    "svg/Blank_US_Map.svg",
+    "svg/Blank_USA,_w_territories.svg"
+    ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "example"
+  ],
+  "dependencies": {
+    "jquery": ">=1.6.2"
+  }
+}

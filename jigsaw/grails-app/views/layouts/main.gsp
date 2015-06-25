@@ -1,21 +1,34 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><g:layoutTitle default="Jigsaw"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}" type="image/x-icon">
-		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
-		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-  		<asset:stylesheet src="application.css"/>
-  		<asset:stylesheet src="bootstrap.min.css"/>
-		<g:javascript library="jquery" plugin="jquery"/>
-		<asset:javascript src="bootstrap.min.js"/>
-		<asset:javascript src="application.js"/>
+		
+  		<asset:stylesheet href="application.css"/>
+  		<asset:javascript src="application.js"/>
+
+		<asset:link rel="shortcut icon" href="icon_fda.png" type="image/x-icon"/>
 		<g:layoutHead/>
 	</head>
-	<body>
-		<g:layoutBody/>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
+	<body ng-app="jigsawApp">
+        <!--[if lt IE 10]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="container-fluid">
+        	<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+			        <div ui-view="navbar" ng-cloak></div>
+			        <div class="well" ui-view="content"></div>
+			        <div class="footer navbar-black">
+			        	<p></p>
+			        </div>
+			    </div>
+			</div>
+		</div>
 	</body>
 </html>
