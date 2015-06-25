@@ -2,7 +2,7 @@
 
 angular.module('jigsawApp')
     .controller('MainController', function ($rootScope, $scope, $state, $timeout, RecallInfo) {
-    	var perRequest = 30;
+    	var perRequest = 10;
     	var currentDate = new Date();
     	var startDate = new Date();
     	$scope.startDateValue = startDate.toJSON().substring(0, 10);
@@ -13,6 +13,9 @@ angular.module('jigsawApp')
     	$scope.recalls = null;
     	$scope.currentRecall = "";
     	$scope.mapActive = true;
+    	$scope.numPages = 0;
+    	$scope.page = 1;
+    	$scope.totalRecalls = 0;
     	
     	$scope.showRecallDetail = function(recallInfo){
     		$scope.mapActive = false;
@@ -23,13 +26,16 @@ angular.module('jigsawApp')
     		$scope.mapActive = true;
     	}
     	
-    	$scope.getBriefRecallsByState = function(){
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), 0, perRequest, function(data){
+    	$scope.loadPage = function(pg2Load){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), pg2Load - 1, perRequest, function(data){
     			if (data != null && data.numResults != null && data.numResults > 0) {
-        			$scope.recalls = data.results;	
+        			$scope.recalls = data.results;
+        			$scope.page = pg2Load;
     			}
     			else
     			{
+    				$scope.numPages = 0;
+    				$scope.page = 0;
     				$scope.recalls = null;
     			}
     		}, function(){
@@ -37,11 +43,65 @@ angular.module('jigsawApp')
     		});
     	}
     	
+    	$scope.getBriefRecallsByState = function(){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), 0, perRequest, function(data){
+    			if (data != null && data.numResults != null && data.numResults > 0) {
+    				$scope.totalRecalls = data.numResults;
+        			$scope.recalls = data.results;
+        			if (perRequest > 0)
+        			{
+        				$scope.numPages = Math.ceil(data.numResults / perRequest)
+        				$scope.page = 1;
+        			}
+        			else
+        			{
+        				$scope.numPages = 0;
+        				$scope.page = 0;
+        			}
+    			}
+    			else
+    			{
+    				$scope.totalRecalls = 0;
+    				$scope.numPages = 0;
+    				$scope.page = 0;
+    				$scope.recalls = null;
+    			}
+    		}, function(){
+    			$scope.totalRecalls = 0;
+				$scope.numPages = 0;
+				$scope.page = 0;
+				$scope.recalls = null;
+    		});
+    	}
+    	
     	$scope.getAllRecalls = function(){
     		RecallInfo.getAllRecallDetail(function(data, headers){
-    			$scope.recalls = data.results;
+    			if (data != null && data.meta != null && data.meta.results != null && data.meta.results.total > 0) {
+    				$scope.totalRecalls = data.meta.results.total;
+        			$scope.recalls = data.results;
+        			if (perRequest > 0)
+        			{
+        				$scope.numPages = Math.ceil(data.numResults / perRequest)
+        				$scope.page = 1;
+        			}
+        			else
+        			{
+        				$scope.numPages = 0;
+        				$scope.page = 0;
+        			}
+    			}
+    			else
+    			{
+    				$scope.totalRecalls = 0;
+    				$scope.numPages = 0;
+    				$scope.page = 0;
+    				$scope.recalls = null;
+    			}
     		}, function(){
-    			
+    			$scope.totalRecalls = 0;
+				$scope.numPages = 0;
+				$scope.page = 0;
+				$scope.recalls = null;
     		});
     	}
     	

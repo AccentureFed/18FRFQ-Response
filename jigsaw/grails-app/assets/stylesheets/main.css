@@ -13,9 +13,20 @@ Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 /* ==========================================================================
 Theme
 ========================================================================== */
-.pager li.active>a {
+.pagination li.active>a {
     background-color: #a0d468;
     border-color: #a0d468;
+}
+
+ol.breadcrumb.breadcrumb-arrow.active {
+	background-color: #e6e9ed;
+	border-color: #e6e9ed;
+}
+
+ol.breadcrumb.breadcrumb-arrow.li.backup {
+	color: #fff;
+	background-color: #3bafda;
+	border-color: #3bafda;
 }
 
 tbody {

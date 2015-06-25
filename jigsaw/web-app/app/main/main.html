@@ -11,8 +11,10 @@
 		</div>
 		<div id="detailsCell" ng-show=!mapActive class="col-md-7 col-lg-7">
 			<div id="recallDetails" style="width: 100%;" ng-model="currentRecall">
-				<div><h3>{{currentRecall.recalling_firm}} Recall Detail</h3></div>
-				<a ng-click="showMap()"><span><i class="fa fa-compass fa-lg"></i></span>&#xA0;<span>Back to Recall Map</span></a>
+				<ol class="breadcrumb breadcrumb-arrow">
+					<li class="backup"><a ng-click="showMap()"><span><i class="fa fa-compass fa-2x"></i></span>&#xA0;<span>Map</span></a></li>
+					<li class="active"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&#xA0;Recall details: <b>{{currentRecall.recalling_firm}}</b></span></li>
+				</ol>
 				<div class="panel panel-primary" style="height:310px; overflow:auto">
 				<table class="table-bordered" style="width:100%">
 	                <thead bgcolor="#E3E3E3">
@@ -74,7 +76,7 @@
                 	</div>
                 </div>
                 <br>
-                <div><span ng-show=selectedState><b>Recalls for {{startDateValue}} - {{endDateValue}}:</b></span><span ng-show=!selectedState><b>All Recalls:</b></span></div>
+                <div><span ng-show=selectedState><b>{{totalRecalls}} Recalls for {{startDateValue}} to {{endDateValue}}:</b></span><span ng-show=!selectedState><b>All Recalls: {{totalRecalls}} </b></span></div>
                 	<div style="height:300px; overflow:auto">
 		              <table class="table-bordered" style="width:100%">
 		                <thead bgcolor="#E3E3E3">
@@ -94,7 +96,17 @@
 		                  </tr>
 		                </tbody>
 		            </table>
-		            <br>
+		            <nav ng-if="recalls.length > 0">
+		                <ul class="pagination">
+			                <li ng-show="page > 3" ng-click="loadPage(1)"><a>&lt;&lt; First</a></li>
+			                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
+			                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
+			                <li class="active"><a>{{page}}</a></li>
+			                <li ng-show="page < (numPages - 1)" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
+			                <li ng-show="page < (numPages - 2)" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
+			                <li ng-show="page < (numPages - 3)" ng-click="loadPage(numPages)"><a>Last &gt;&gt;</a></li>
+		                </ul>
+		            </nav>
 		        </div>
 	        </div>
 	        </div>
