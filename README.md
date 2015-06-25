@@ -23,24 +23,28 @@ For our purposes, we effectively followed one day sprints.  This is outside our 
 
 ## Tools
 To remain Agile and lean, we leveraged several Agile Engineering Practices such as Continuous
-Integration (CI) and Test Driven Development (TDD). Our approach applied automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software FREQUENCY and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  
+Integration (CI) and Test Driven Development (TDD). Our approach applied automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software frequently and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  
 The team utilized Github its time stamps and the check in-check-out feature to work on the most recent code and document source.
 Need to talk about monitoring here.
 
-<img src="http://52.7.254.19:8080/jenkins/static/930c8517/images/48x48/folder.png">
+Our development stack consists of:
+
+Insert PIC here
+
 
 Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
 
-|  Tool |            Purpose            | URL | Justification |
-|:-----:|:-----------------------------:|:---:|:-------------:|
-| Slack | Collaboration & Communication |     |               |
-|       |                               |     |               |
-|       |                               |     |               |
+
+Our deployment environment consists of:
+
+Insert Deploy Stack PIC here
+
+
 
 ## Conclusion
 Applying our expertise and proven understanding in applying Agile best practices allowed us to pull together a very interesting and engaging prototype in spite of a quick turn around and limited real world customer needs.  You can find further details about this project including pictures, videos, and the source code here.
 
 ## OUTSTANDING
 WIP discussion and how we managed bottlenecks
-devops
+devops - 
 
