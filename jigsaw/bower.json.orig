@@ -42,8 +42,10 @@
     "swagger-ui": "~2.1.0",
     "angular-bootstrap": "~0.13.0",
     "angular-datamaps": "~0.1.2",
+<<<<<<< HEAD
     "bootstrap-select": "~1.7.3"
-    "angular-datamaps": "~0.1.2",
+=======
     "ol3": "hastebrot/ol3-dist#~3.1.1"
+>>>>>>> master
   }
 }
