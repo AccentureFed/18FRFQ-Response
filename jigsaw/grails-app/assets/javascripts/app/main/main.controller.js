@@ -72,9 +72,7 @@ angular.module('jigsawApp')
     			  scope: 'usa',
     			  options: {
     			    width: 700,
-    			    labels: true,
-    			    legend: true,
-    			    legendHeight: 50 // optionally set the padding for the legend
+    			    labels: true
     			  },
     			  geographyConfig: {
     			    highlighBorderColor: '#EAA9A8',
