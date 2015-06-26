@@ -74,7 +74,7 @@ angular.module('jigsawApp')
     			    width: 700,
     			    labels: true,
     			    legend: true,
-    			    legendHeight: 60 // optionally set the padding for the legend
+    			    legendHeight: 50 // optionally set the padding for the legend
     			  },
     			  geographyConfig: {
     			    highlighBorderColor: '#EAA9A8',
@@ -321,6 +321,10 @@ angular.module('jigsawApp')
     	}
     	
         angular.element(document).ready(function () {
+        	$scope.mapObject.responsive = true;
+        	$(window).on('resize', function(){
+        		$scope.mapObject.resize();
+        	});
         	$(".btn-group > .btn").click(function(){
         	    $(this).addClass("active").parent().siblings().children().removeClass("active");
         	});
