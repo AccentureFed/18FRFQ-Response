@@ -25,7 +25,7 @@
 			        <div ui-view="navbar" ng-cloak></div>
 			        <div class="well" ui-view="content"></div>
 			        <div class="footer navbar-black">
-			        	<p></p>
+			        	<p><span class="pull-right">version: {{VERSION}}&nbsp;&nbsp;</span></p>
 			        </div>
 			    </div>
 			</div>
