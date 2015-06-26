@@ -12,7 +12,7 @@
 		    <p><span class="visible-md visible-lg">Protecting and Promoting Your Health</span></p>
 		</div>
 	</div>
-	<span class="fa fa-user" data-toggle="modal" data-target="#myModal" style="font-size:40px;position:absolute;top:0px;right:0px;color:white;cursor:pointer"></span>
+	<span class="fa fa-user" data-toggle="modal" data-target="#myModal" style="font-size:40px;position:absolute;top:0px;right:0px;color:white;cursor:pointer" tabindex=1></span>
 </nav>
 
 <!-- Modal -->
@@ -26,12 +26,12 @@
       <div class="modal-body">
         Specify the severity levels and state(s) that you would like to receive warnings of Food and Drug Recalls.
 	<div data-role="main" class="ui-content">
-    <form method="post" action="demoform.asp">
+    <form method="post" action="settingsForm">
 		<div class="control-group">
 		<label class="control-label" for="stateSelect">State(s)</label>
 		<div class="controls">
 		<select class="form-control" id="stateSelect" multiple="multiple" style="width=100%" ng-model="selectedStates">
-		<option name="Alabama" value="Alabama">Alabama</option>
+		   <option value="Alabama">Alabama</option>
 		   <option value="Alaska">Alaska</option>
 		   <option value="Arizona">Arizona</option>
 		   <option value="Arkansas">Arkansas</option>
@@ -88,8 +88,9 @@
       <div class="controlgroup">
         <label class="control-label">Severity Level</label>
 		    <div class="form-group">
-		        <label style="padding-right:10px" ng-repeat="severityName in severity">
+		        <label style="padding-right:10px" ng-repeat="severityName in severity" for="SEVLBL{{$id}}_1">
 				  <input
+				  	id="SEVLBL{{$id}}_1"
 				    type="checkbox"
 				    name="selectedSeverity[]"
 				    value="{{severityName}}"

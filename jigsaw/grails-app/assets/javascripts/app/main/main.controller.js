@@ -16,6 +16,56 @@ angular.module('jigsawApp')
     	$scope.numPages = 0;
     	$scope.page = 1;
     	$scope.totalRecalls = 0;
+    	$scope.states = ['Alaska',
+		   'Arizona',
+		   'Arkansas',
+		   'CCalifornia',
+		   'Colorado',
+		   'Connecticut',
+		   'Delaware',
+		   'Washington D.C.',
+		   'Florida',
+		   'Georgia',
+		   'Hawaii',
+		   'Idaho',
+		   'Illinois',
+		   'Indiana',
+		   'Iowa',
+		   'Kansas',
+		   'Kentucky',
+		   'Louisiana',
+		   'Maine',
+		   'Maryland',
+		   'Massachusetts',
+		   'Michigan',
+		   'Minnesota',
+		   'Mississippi',
+		   'Missouri',
+		   'Montana',
+		   'Nebraska',
+		   'Nevada',
+		   'New Hampshire',
+		   'New Jersey',
+		   'New Mexico',
+		   'New York',
+		   'North Carolina',
+		   'North Dakota',
+		   'Ohio',
+		   'Oklahoma',
+		   'Oregon',
+		   'Pennsylvania',
+		   'Rhode Island',
+		   'South Carolina',
+		   'South Dakota',
+		   'Tennessee',
+		   'Texas',
+		   'Utah',
+		   'Vermont',
+		   'Virginia',
+		   'Washington',
+		   'West Virginia',
+		   'Wisconsin',
+		   'Wyoming'];
     	
     	
     	$scope.mapObject = {
@@ -36,22 +86,69 @@ angular.module('jigsawApp')
     			    'LOW': '#FFFF00',
     			    'defaultFill': '#DDDDDD'
     			  },
-    			  data: {
-    			    "CO": {
-    			      "fillKey": "HIGH",
-    			    },
-    			    "DE": {
-    			      "fillKey": "LOW",
-    			    },
-    			    "GA": {
-    			      "fillKey": "MEDIUM",
-    			    }
-    			  },
     			  done: function(datamap) {
     				  datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
+    					if ($scope.selectedState != null && typeof $scope.selectedState != 'undefined') {
+    						$scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
+    					}
 		                $scope.selectedState = geography.id;
 		                $scope.getBriefRecallsByState();
-		            })}
+		                $scope.getStateSeverity($scope.selectedState);
+		            })},
+		            data: {
+		            	'AZ': {'fillKey': "defaultFill"},
+			            'AL': {'fillKey': "defaultFill"},
+			            'AK': {'fillKey': "defaultFill"},
+			            'AZ': {'fillKey': "defaultFill"},
+			            'AR': {'fillKey': "defaultFill"},
+			            'CA': {'fillKey': "defaultFill"},
+			            'CO': {'fillKey': "defaultFill"},
+			            'CT': {'fillKey': "defaultFill"},
+			            'DC': {'fillKey': "defaultFill"},
+			            'DE': {'fillKey': "defaultFill"},
+			            'FL': {'fillKey': "defaultFill"},
+			            'GA': {'fillKey': "defaultFill"},
+			            'HI': {'fillKey': "defaultFill"},
+			            'ID': {'fillKey': "defaultFill"},
+			            'IL': {'fillKey': "defaultFill"},
+			            'IN': {'fillKey': "defaultFill"},
+			            'IA': {'fillKey': "defaultFill"},
+			            'KS': {'fillKey': "defaultFill"},
+			            'KY': {'fillKey': "defaultFill"},
+			            'LA': {'fillKey': "defaultFill"},
+			            'ME': {'fillKey': "defaultFill"},
+			            'MD': {'fillKey': "defaultFill"},
+			            'MA': {'fillKey': "defaultFill"},
+			            'MI': {'fillKey': "defaultFill"},
+			            'MN': {'fillKey': "defaultFill"},
+			            'MS': {'fillKey': "defaultFill"},
+			            'MO': {'fillKey': "defaultFill"},
+			            'MT': {'fillKey': "defaultFill"},
+			            'NE': {'fillKey': "defaultFill"},
+			            'NV': {'fillKey': "defaultFill"},
+			            'NH': {'fillKey': "defaultFill"},
+			            'NJ': {'fillKey': "defaultFill"},
+			            'NM': {'fillKey': "defaultFill"},
+			            'NY': {'fillKey': "defaultFill"},
+			            'NC': {'fillKey': "defaultFill"},
+			            'ND': {'fillKey': "defaultFill"},
+			            'OH': {'fillKey': "defaultFill"},
+			            'OK': {'fillKey': "defaultFill"},
+			            'OR': {'fillKey': "defaultFill"},
+			            'PA': {'fillKey': "defaultFill"},
+			            'RI': {'fillKey': "defaultFill"},
+			            'SC': {'fillKey': "defaultFill"},
+			            'SD': {'fillKey': "defaultFill"},
+			            'TN': {'fillKey': "defaultFill"},
+			            'TX': {'fillKey': "defaultFill"},
+			            'UT': {'fillKey': "defaultFill"},
+			            'VT': {'fillKey': "defaultFill"},
+			            'VA': {'fillKey': "defaultFill"},
+			            'WA': {'fillKey': "defaultFill"},
+			            'WV': {'fillKey': "defaultFill"},
+			            'WI': {'fillKey': "defaultFill"},
+			            'WY': {'fillKey': "defaultFill"}
+		            }
     			}
 
     	
@@ -174,49 +271,54 @@ angular.module('jigsawApp')
     		}
     	}
     	
-    	$scope.handleMapClick = function(geography) {
-    		var statecode = geography.id;
-    	}
-    	
     	
     	$scope.getStateSeverity = function(stateObj){
     		var severity = "";
     		RecallInfo.getStateCount(stateObj, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''),
-    			function(data){
-    				var stateAbr = data.stateCode;
-    				data.results.forEach(function(element, index, array)
+    			function(data, status){
+    				if (status != null && status == 200) {
+    					if (typeof data.results != 'undefined') {
+		    				var stateAbr = data.stateCode;
+		    				data.results.forEach(function(element, index, array)
+		    				{
+		    					stateAbr;
+		    					if (element.severity == "high" && severity != "high")
+		    					{
+		    						$scope.mapObject.data[stateAbr]['fillKey'] = "HIGH";
+		    						severity = element.severity;
+		    						return;
+		    					}
+		    					else if (element.severity == "medium" && severity != "high")
+		    					{
+		    						$scope.mapObject.data[stateAbr]['fillKey'] = "MEDIUM";
+		    						severity = element.severity;
+		    					}
+		    					else if (element.severity == "low" && severity == "")
+		    					{
+		    						$scope.mapObject.data[stateAbr]['fillKey'] = "LOW";
+		    						severity = element.severity;
+		    					}
+		    				});
+    					}
+    				}
+    				else
     				{
-    					stateAbr;
-    					if (element.severity == "high")
-    					{
-    						$('#map').usmap({
-    				      	    'stateSpecificStyles': {
-    				      	    	stateAbr : {fill: 'red'}
-    				        	    }
-    						});
-    					}
-    					else if (element.severity == "medium" && severity != "high")
-    					{
-    						$('#map').usmap({
-    				      	    'stateSpecificStyles': {
-    				      	    	stateAbr : {fill: 'orange'}
-    				        	    }
-    						});
-    					}
-    					else if (element.severity == "low" && severity == null)
-    					{
-    						$('#map').usmap({
-    				      	    'stateSpecificStyles': {
-    				      	    	stateAbr : {fill: 'yellow'}
-    				        	    }
-    						});
-    					}
-    				});
+    					$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
+    				}
     			},
     			function(){
-    				angular.noop;
+    				$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
     			});
-    	};
+    	}
+    	
+    	$scope.updateHeatMap = function(){
+    		if (typeof $scope.states != 'undefined')
+    		{
+	    		$scope.states.forEach(function(element, index, array){
+	    			$scope.getStateSeverity(element);
+	    		});
+    		}
+    	}
     	
         angular.element(document).ready(function () {
         	$(".btn-group > .btn").click(function(){

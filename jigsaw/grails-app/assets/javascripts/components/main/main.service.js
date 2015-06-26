@@ -12,8 +12,8 @@ angular.module('jigsawApp')
 
                 $http({url: 'foodRecall/count',
                 	method: "GET",
-                	params: {stateCode: stateObj, startDate: startDate, endDate: endDate}}).success(function(data) {
-                    callback(data);
+                	params: {stateCode: stateObj, startDate: startDate, endDate: endDate}}).success(function(data, status) {
+                    callback(data, status);
                 }).
                     error(error);
             },
@@ -24,8 +24,8 @@ angular.module('jigsawApp')
 
                 $http({url: 'foodRecall/getAll',
                 	method: "GET",
-                	params: {stateCode: stateObj, startDate: startDate, endDate: endDate, skip:page, limit: limit}}).success(function(data, headers) {
-                    callback(data, headers);
+                	params: {stateCode: stateObj, startDate: startDate, endDate: endDate, skip:page, limit: limit}}).success(function(data, status) {
+                    callback(data, status);
                 }).
                     error(error);
             },
@@ -35,8 +35,8 @@ angular.module('jigsawApp')
                 error = error || angular.noop;
 
                 $http({url: 'foodRecall/recalls',
-                	method: "GET"}).success(function(data, headers) {
-                    callback(data, headers);
+                	method: "GET"}).success(function(data, status) {
+                    callback(data, status);
                 }).
                     error(error);
             }
