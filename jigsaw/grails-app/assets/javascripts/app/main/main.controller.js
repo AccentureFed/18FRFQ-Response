@@ -8,6 +8,7 @@ angular.module('jigsawApp')
     	$scope.startDateValue = startDate.toJSON().substring(0, 10);
     	$scope.endDateValue = currentDate.toJSON().substring(0, 10);
         $scope.errors = {};
+    	$scope.oldState = null;
     	$scope.selectedState = null;
     	$scope.userSavedStates = null;
     	$scope.recalls = null;
@@ -16,10 +17,11 @@ angular.module('jigsawApp')
     	$scope.numPages = 0;
     	$scope.page = 1;
     	$scope.totalRecalls = 0;
+    	$scope.upcCode = null;
     	$scope.states = ['Alaska',
 		   'Arizona',
 		   'Arkansas',
-		   'CCalifornia',
+		   'California',
 		   'Colorado',
 		   'Connecticut',
 		   'Delaware',
@@ -91,6 +93,8 @@ angular.module('jigsawApp')
     						$scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
     					}
 		                $scope.selectedState = geography.id;
+		                $scope.oldState = geography.id;
+		                $('#state_select').selectpicker('val', $scope.selectedState);
 		                $scope.getBriefRecallsByState();
 		                $scope.getStateSeverity($scope.selectedState);
 		            })},
@@ -156,12 +160,27 @@ angular.module('jigsawApp')
     		$scope.currentRecall = recallInfo;
     	}
     	
+    	$scope.stateChanged = function(){
+			if ($scope.oldState != null && typeof $scope.oldState  != 'undefined') {
+				$scope.mapObject.data[$scope.oldState]['fillKey'] = "defaultFill";
+			}
+			if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null) {
+	            $scope.oldState = $scope.selectedState;
+	            $scope.getBriefRecallsByState();
+	            $scope.getStateSeverity($scope.selectedState);
+			}
+			else {
+				$scope.getAllRecalls();
+			}
+				
+    	}
+    	
     	$scope.showMap = function() {
     		$scope.mapActive = true;
     	}
     	
     	$scope.loadPage = function(pg2Load){
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), pg2Load - 1, perRequest, function(data){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, pg2Load - 1, perRequest, function(data){
     			if (data != null && data.numResults != null && data.numResults > 0) {
         			$scope.recalls = data.results;
         			$scope.page = pg2Load;
@@ -178,7 +197,7 @@ angular.module('jigsawApp')
     	}
     	
     	$scope.getBriefRecallsByState = function(){
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), 0, perRequest, function(data){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, 0, perRequest, function(data){
     			if (data != null && data.numResults != null && data.numResults > 0) {
     				$scope.totalRecalls = data.numResults;
         			$scope.recalls = data.results;
@@ -254,8 +273,11 @@ angular.module('jigsawApp')
     		case 'year':
     			tempDate.setFullYear(currentDate.getFullYear() - 1);
     			break;
+    		case 'forever':
+    			tempDate.setFullYear(currentDate.getFullYear() - 5);
+    			break;
     		default:
-    			tempDate.setMonth(currentDate.getMonth() - 3);
+    			tempDate.setMonth(currentDate.getMonth() - 1);
     			break;
     		}
     		$scope.startDateValue = tempDate.toJSON().substring(0, 10);
@@ -273,6 +295,7 @@ angular.module('jigsawApp')
     	
     	
     	$scope.getStateSeverity = function(stateObj){
+    		if (typeof stateObj != 'undefined' && stateObj != null) {
     		var severity = "";
     		RecallInfo.getStateCount(stateObj, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''),
     			function(data, status){
@@ -323,6 +346,7 @@ angular.module('jigsawApp')
 						$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
 					}
     			});
+    		}
     	}
     	
     	$scope.updateHeatMap = function(){
@@ -333,8 +357,14 @@ angular.module('jigsawApp')
 	    		});
     		}
     	}
-    	
+        
+        $('.selectpicker').selectpicker({
+        	style:'btn-default',
+        	size: 8
+        });
+        
         angular.element(document).ready(function () {
+            
         	$scope.mapObject.responsive = true;
         	$(window).on('resize', function(){
         		$scope.mapObject.resize();

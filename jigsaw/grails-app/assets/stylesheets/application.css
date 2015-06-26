@@ -10,6 +10,7 @@
 *= require bootstrap/dist/css/bootstrap.min.css
 *= require bootstrap/dist/css/bootstrap.css
 *= require bootstrap-multiselect/dist/css/bootstrap-multiselect.css
+*= require bootstrap-select/dist/css/bootstrap-select.min.css
 *= require bootflat/css/bootflat.css
 *= require bootflat/css/bootflat.min.css
 *= require fontawesome/css/font-awesome.css
