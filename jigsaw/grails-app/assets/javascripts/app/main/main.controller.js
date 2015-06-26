@@ -278,7 +278,7 @@ angular.module('jigsawApp')
     		var severity = "";
     		RecallInfo.getStateCount(stateObj, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''),
     			function(data, status){
-    				if (status != null && status == 200) {
+    				if (!data.error && status != null && status == 200) {
     					if (typeof data.results != 'undefined') {
 		    				var stateAbr = data.stateCode;
 		    				data.results.forEach(function(element, index, array)
@@ -305,8 +305,7 @@ angular.module('jigsawApp')
     				}
     				else
     				{	
-    					//$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
-    					if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null && $scope.selectedState == stateObj)
+    					if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null)
     					{
     						$scope.mapObject.data[stateObj]['fillKey'] = "NO_RECALLS";
     					}
@@ -317,7 +316,14 @@ angular.module('jigsawApp')
     				}
     			},
     			function(){
-    				$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
+					if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null)
+					{
+						$scope.mapObject.data[stateObj]['fillKey'] = "NO_RECALLS";
+					}
+					else
+					{
+						$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
+					}
     			});
     	}
     	
