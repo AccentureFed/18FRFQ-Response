@@ -43,5 +43,7 @@
     "angular-bootstrap": "~0.13.0",
     "angular-datamaps": "~0.1.2",
     "bootstrap-select": "~1.7.3"
+    "angular-datamaps": "~0.1.2",
+    "ol3": "hastebrot/ol3-dist#~3.1.1"
   }
 }

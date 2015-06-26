@@ -1,0 +1,24 @@
+{
+  "name": "ol3",
+  "version": "3.1.1",
+  "main": [
+    "dist/ol.js",
+    "dist/ol.css"
+  ],
+  "ignore": [],
+  "homepage": "https://github.com/hastebrot/ol3-dist",
+  "_release": "3.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "3.1.1",
+    "commit": "ae9821f8ea26a2197e19cc92026a2eba770bc704"
+  },
+  "_source": "git://github.com/hastebrot/ol3-dist.git",
+  "_target": "~3.1.1",
+<<<<<<< HEAD
+  "_originalSource": "hastebrot/ol3-dist",
+  "_direct": true
+=======
+  "_originalSource": "hastebrot/ol3-dist"
+>>>>>>> feature/geolocation
+}
