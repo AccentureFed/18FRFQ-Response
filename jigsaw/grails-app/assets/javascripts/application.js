@@ -38,5 +38,7 @@
 //= require app/main/main.controller.js
 //= require app/map/map.js
 //= require app/map/map.controller.js
+//= require ol3/dist/ol.js
+
 //= require_tree views
 //= require_self

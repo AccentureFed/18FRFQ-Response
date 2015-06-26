@@ -41,6 +41,7 @@
     "modernizer": "~2.8.2",
     "swagger-ui": "~2.1.0",
     "angular-bootstrap": "~0.13.0",
-    "angular-datamaps": "~0.1.2"
+    "angular-datamaps": "~0.1.2",
+    "ol3": "hastebrot/ol3-dist#~3.1.1"
   }
 }
