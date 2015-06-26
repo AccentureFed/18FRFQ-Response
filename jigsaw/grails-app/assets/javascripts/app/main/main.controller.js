@@ -170,6 +170,7 @@ angular.module('jigsawApp')
 	            $scope.getStateSeverity($scope.selectedState);
 			}
 			else {
+				$scope.oldState = null;
 				$scope.getAllRecalls();
 			}
 				
@@ -197,34 +198,40 @@ angular.module('jigsawApp')
     	}
     	
     	$scope.getBriefRecallsByState = function(){
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, 0, perRequest, function(data){
-    			if (data != null && data.numResults != null && data.numResults > 0) {
-    				$scope.totalRecalls = data.numResults;
-        			$scope.recalls = data.results;
-        			if (perRequest > 0)
-        			{
-        				$scope.numPages = Math.ceil(data.numResults / perRequest)
-        				$scope.page = 1;
-        			}
-        			else
-        			{
-        				$scope.numPages = 0;
-        				$scope.page = 0;
-        			}
-    			}
-    			else
-    			{
-    				$scope.totalRecalls = 0;
-    				$scope.numPages = 0;
-    				$scope.page = 0;
-    				$scope.recalls = null;
-    			}
-    		}, function(){
-    			$scope.totalRecalls = 0;
-				$scope.numPages = 0;
-				$scope.page = 0;
-				$scope.recalls = null;
-    		});
+    		if ($scope.selectStates != null && typeof $scope.selectedStates != 'undefined') {
+	    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, 0, perRequest, function(data){
+	    			if (data != null && data.numResults != null && data.numResults > 0) {
+	    				$scope.totalRecalls = data.numResults;
+	        			$scope.recalls = data.results;
+	        			if (perRequest > 0)
+	        			{
+	        				$scope.numPages = Math.ceil(data.numResults / perRequest)
+	        				$scope.page = 1;
+	        			}
+	        			else
+	        			{
+	        				$scope.numPages = 0;
+	        				$scope.page = 0;
+	        			}
+	    			}
+	    			else
+	    			{
+	    				$scope.totalRecalls = 0;
+	    				$scope.numPages = 0;
+	    				$scope.page = 0;
+	    				$scope.recalls = null;
+	    			}
+	    		}, function(){
+	    			$scope.totalRecalls = 0;
+					$scope.numPages = 0;
+					$scope.page = 0;
+					$scope.recalls = null;
+	    		});
+    		}
+    		else
+    		{
+    			$scope.getAllRecalls();
+    		}
     	}
     	
     	$scope.getAllRecalls = function(){
