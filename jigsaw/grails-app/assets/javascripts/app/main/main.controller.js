@@ -84,6 +84,7 @@ angular.module('jigsawApp')
     			    'HIGH': '#FF0000',
     			    'MEDIUM': '#FF6600',
     			    'LOW': '#FFFF00',
+    			    'NO_RECALLS': '#80CCFF',
     			    'defaultFill': '#DDDDDD'
     			  },
     			  done: function(datamap) {
@@ -264,6 +265,7 @@ angular.module('jigsawApp')
     		if ($scope.selectedState != null)
     		{
     			$scope.getBriefRecallsByState();
+    			$scope.getStateSeverity($scope.selectedState);
     		}
     		else
     		{
@@ -302,8 +304,16 @@ angular.module('jigsawApp')
     					}
     				}
     				else
-    				{
-    					$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
+    				{	
+    					//$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
+    					if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null && $scope.selectedState == stateObj)
+    					{
+    						$scope.mapObject.data[stateObj]['fillKey'] = "NO_RECALLS";
+    					}
+    					else
+    					{
+    						$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
+    					}
     				}
     			},
     			function(){
