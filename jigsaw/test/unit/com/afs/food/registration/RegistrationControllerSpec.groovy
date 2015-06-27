@@ -1,4 +1,4 @@
-package jigsaw
+package com.afs.food.registration
 
 import grails.test.mixin.*
 import spock.lang.Specification

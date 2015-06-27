@@ -8,79 +8,63 @@ class FoodRecallController {
 
     def foodRecallService
 
-    def recalls() {
-        render foodRecallService.getRecalls() 
+    /**
+     * Used to return a count metadata for recalls within a specific set of search criteria.
+     *
+     *<p>
+     * params include:<br />
+     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation of a state<br />
+     * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     *</p>
+     *
+     * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
+     *
+     * @return - up to 3 counts are returned.  One each for high, medium and low severity recalls matching the criteria.
+     */
+    def count() {
+        def state = params.stateCode ? State.fromString(params.stateCode) : null
+        def startDate = null
+        def endDate = null
+        try {
+            startDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate)
+            endDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate)
+        } catch(all) {
+            //invalid dates, do nothing
+        }
+
+        render foodRecallService.getCountsByState(state, startDate, endDate)
     }
-	
-	def readRSS() {
-		render foodRecallService.readRss()
-	}
-	
-	def sendNotifications() {
-		render foodRecallService.sendNotifications()
-	}
 
-	/**
-	 * Used to return a count metadata for recalls within a specific set of search criteria.
-	 *
-	 * params include:
-	 * state - optional.  If optional, then no state specific searching will be performed. Can be any name or abbreviation of a state
-	 * startDate - optional. Date in yyyyMMdd format
-	 * endDate - optinoal. Date in yyyyMMdd format
-	 *
-	 * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
-	 *
-	 * @return - up to 3 counts are returned.  One each for high, medium and low severity recalls matching the criteria.
-	 */
-	def count() {
-		
-		def state = params.stateCode == null ? null : State.fromString(params.stateCode)
-		def startDate
-		def endDate
-		try {
-			startDate = new SimpleDateFormat("yyyyMMdd").parse( params.startDate)
-			endDate = new SimpleDateFormat("yyyyMMdd").parse( params.endDate)
-		}catch(Exception e) {
-			//invalid dates
-			startDate = null
-			endDate = null
-		}
-
-		render foodRecallService.getCountsByState(state, startDate, endDate);
-		
-	}
-
-	/**
-	 * Used to render a list of recalls with pagination and enriched values.  This response format includes the 
-	 * FDA format with an addditional normalized_distribution_pattern field as a CSV of formal state names
-	 * 
-	 * params include:
-	 * state - optional.  If optional, then no state specific searching will be performed. Can be any name or abbreviation of a state
-	 * limit - optional.  Numeric.  The number of results to return. 10 is defualt
-	 * skip - optional.  Numeric.  Allows pagination.  default is 0 (start at beginning of list)
-	 * startDate - optional. Date in yyyyMMdd format
-	 * endDate - optinoal. Date in yyyyMMdd format
-	 * 
-	 * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
-	 * 
-	 * @return
-	 */
-	def getAll() {
-		def limit = params.limit == null ? 10 : params.limit.toInteger();
-		def skip = params.skip == null ? 0 : params.skip.toInteger();
-		def state = params.stateCode == null ? null : State.fromString(params.stateCode)
-		def upc = params.upc == null ? null : UpcBarcode.buildBarcode(params.upc)
-		def startDate
-		def endDate
-		try {
-			startDate = new SimpleDateFormat("yyyyMMdd").parse( params.startDate)
-			endDate = new SimpleDateFormat("yyyyMMdd").parse( params.endDate)
-		}catch(Exception e) {
-			//invalid dates
-			startDate = null
-			endDate = null
-		}
-		render foodRecallService.getPageByState(state, limit,  skip, startDate, endDate, upc);
-	}
-
+    /**
+     * Used to render a list of recalls with pagination and enriched values.  This response format includes the
+     * FDA format with an additional normalized_distribution_pattern field as a json array of formal state abbreviations.
+     *<p>
+     * params include:<br />
+     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation of a state<br />
+     * <strong>limit</strong> - Optional.  Numeric.  The number of results to return. 10 is default<br />
+     * <strong>skip</strong> - Optional.  Numeric.  Allows pagination.  default is 0 (start at beginning of list)<br />
+     * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     * </p>
+     *
+     * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
+     *
+     * @return a list of recalls for the given parameters
+     */
+    def recalls() {
+        def limit = params.limit ? params.int('limit') : 10
+        def skip = params.skip ? params.int('skip')  : 0
+        def state = params.stateCode ? State.fromString(params.stateCode) : null
+        def upc = params.upc ? UpcBarcode.buildBarcode(params.upc) : null
+        def startDate = null
+        def endDate = null
+        try {
+            startDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate)
+            endDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate)
+        } catch(all) {
+            //invalid dates, do nothing
+        }
+        render foodRecallService.getPageByState(state, limit,  skip, startDate, endDate, upc)
+    }
 }
