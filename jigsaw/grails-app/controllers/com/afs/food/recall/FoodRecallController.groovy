@@ -57,23 +57,25 @@ class FoodRecallController {
      * FDA format with an additional normalized_distribution_pattern field as a json array of formal state abbreviations.
      *<p>
      * params include:<br />
-     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation of a state<br />
+     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can
+     * be any name or abbreviation of a state<br />
      * <strong>limit</strong> - Optional.  Numeric.  The number of results to return. 10 is default<br />
-     * <strong>skip</strong> - Optional.  Numeric.  Allows pagination.  default is 0 (start at beginning of list)<br />
+     * <strong>skip</strong> - Optional.  Numeric.  The page number to get. The first recall record will be from the offset of limit*skip.
+     * Default is 0 (The page numbers are 0-based)<br />
      * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * </p>
      *
      * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
      *
-     * @return a list of recalls for the given parameters
+     * @return a JSON object with a limit, skip, numResults (the total for your query), and results.  The results is an array of all the recalls requested.
      */
     def recalls() {
         def limit = params.limit ? params.int('limit') : 10
         limit = limit > 0 ? limit : 10 // ensure it is valid
 
-        def skip = params.skip ? params.int('skip')  : 0
-        skip = skip >= 0 ? skip : 0 //ensure it is valid
+        def skip = params.skip ? params.int('skip') : 0
+        skip = skip >= 0 ? skip*limit : 0 //ensure it is valid
 
         def state = params.stateCode ? State.fromString(params.stateCode) : null
         def upc = params.upc ? UpcBarcode.buildBarcode(params.upc) : null
@@ -82,6 +84,6 @@ class FoodRecallController {
 
         def recalls = foodRecallService.getRecalls(state, upc, startDate, endDate, limit, skip)
         def resultsJSON = recalls*.originalPayload.collect { new JSONObject(it) }
-        render ([limit: limit, skip: skip, numResults: recalls.getTotalCount(), results: resultsJSON] as JSON)
+        render ([limit: limit, skip: skip/limit, numResults: recalls.getTotalCount(), results: resultsJSON] as JSON)
     }
 }

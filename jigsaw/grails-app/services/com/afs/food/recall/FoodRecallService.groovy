@@ -140,6 +140,7 @@ class FoodRecallService {
             }
 
             order('reportDate', 'desc')
+            order('recallNumber', 'desc')
         }
     }
 
