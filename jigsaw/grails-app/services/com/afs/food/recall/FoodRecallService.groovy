@@ -127,8 +127,6 @@ class FoodRecallService {
 
         def crit = FoodRecall.createCriteria()
         return crit.list(max: max, offset: offset) {
-            order('reportDate', 'desc')
-
             if(start) {
                 ge('reportDate', start)
             }
@@ -140,6 +138,8 @@ class FoodRecallService {
             if(state) {
                 distributionStates { 'in'('state', state) }
             }
+
+            order('reportDate', 'desc')
         }
     }
 
