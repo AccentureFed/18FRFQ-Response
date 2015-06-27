@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('jigsawApp')
-    .controller('NavbarController', function ($scope, $location, $state) {
+    .controller('NavbarController', function ($scope, $location, $state, NavInfo) {
         $scope.$state = $state;
 
         $scope.severity = ['low', 'medium', 'high'];
