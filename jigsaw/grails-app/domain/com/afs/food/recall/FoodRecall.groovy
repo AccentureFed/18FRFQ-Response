@@ -10,16 +10,19 @@ class FoodRecall {
     String originalPayload
 
     /**
+     * Date that the FDA issued the enforcement report for the product recall.<br /><br />
      * Storing for sorting purposes, more enriching
      */
     Date reportDate
 
     /**
+     * A numerical designation assigned by FDA to a specific recall event used for tracking purposes.<br /><br />
      * Used for filtering out duplicate recalls that is in the API
      */
     String recallNumber
 
     /**
+     * Numerical designation (low, medium, or high) that is assigned by FDA to a particular product recall that indicates the relative degree of health hazard.<br /><br />
      * Used for grouping the counts by severity
      */
     String severity

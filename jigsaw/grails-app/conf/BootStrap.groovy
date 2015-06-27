@@ -18,7 +18,6 @@ class BootStrap {
 
         if (Environment.current != Environment.TEST) {
             // load all recalls, enrich the data and cache them locally
-            def max = 100
             def dateFormatter = new SimpleDateFormat(FoodRecallService.DATE_FORMAT)
 
             def start = System.nanoTime()
@@ -37,7 +36,7 @@ class BootStrap {
                 // cache the enriched data to the database
                 while(skip < total) {
                     // get next batch
-                    json = foodRecallService.fetchRecallsFromApi(year, max, skip)
+                    json = foodRecallService.fetchRecallsFromApi(year, skip)
 
                     json.results.each { result ->
                         def foodRecall = new FoodRecall()

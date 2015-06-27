@@ -4,6 +4,8 @@ import grails.converters.JSON
 
 import java.text.SimpleDateFormat
 
+import org.codehaus.groovy.grails.web.json.JSONObject
+
 import com.afs.jigsaw.fda.food.api.*
 
 class FoodRecallController {
@@ -68,13 +70,18 @@ class FoodRecallController {
      */
     def recalls() {
         def limit = params.limit ? params.int('limit') : 10
+        limit = limit > 0 ? limit : 10 // ensure it is valid
+
         def skip = params.skip ? params.int('skip')  : 0
+        skip = skip >= 0 ? skip : 0 //ensure it is valid
+
         def state = params.stateCode ? State.fromString(params.stateCode) : null
         def upc = params.upc ? UpcBarcode.buildBarcode(params.upc) : null
         def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
         def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
 
-        def recalls = foodRecallService.getRecalls(state, upc, startDate, endDate, limit,  skip)
-        render ([numResults: recalls.getTotalCount(), results: recalls*.originalPayload] as JSON)
+        def recalls = foodRecallService.getRecalls(state, upc, startDate, endDate, limit, skip)
+        def resultsJSON = recalls*.originalPayload.collect { new JSONObject(it) }
+        render ([limit: limit, skip: skip, numResults: recalls.getTotalCount(), results: resultsJSON] as JSON)
     }
 }
