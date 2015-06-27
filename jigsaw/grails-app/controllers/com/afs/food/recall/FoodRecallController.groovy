@@ -18,20 +18,12 @@ class FoodRecallController {
      * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      *</p>
      *
-     * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
-     *
-     * @return - up to 3 counts are returned.  One each for high, medium and low severity recalls matching the criteria.
+     * @return - The count for the desired state/date range
      */
     def count() {
         def state = params.stateCode ? State.fromString(params.stateCode) : null
-        def startDate = null
-        def endDate = null
-        try {
-            startDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate)
-            endDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate)
-        } catch(all) {
-            //invalid dates, do nothing
-        }
+        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
+        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
 
         render foodRecallService.getCountsByState(state, startDate, endDate)
     }
@@ -57,14 +49,9 @@ class FoodRecallController {
         def skip = params.skip ? params.int('skip')  : 0
         def state = params.stateCode ? State.fromString(params.stateCode) : null
         def upc = params.upc ? UpcBarcode.buildBarcode(params.upc) : null
-        def startDate = null
-        def endDate = null
-        try {
-            startDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate)
-            endDate = new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate)
-        } catch(all) {
-            //invalid dates, do nothing
-        }
+        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
+        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
+
         render foodRecallService.getPageByState(state, limit,  skip, startDate, endDate, upc)
     }
 }
