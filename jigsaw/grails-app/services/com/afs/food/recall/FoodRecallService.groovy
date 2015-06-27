@@ -41,7 +41,7 @@ class FoodRecallService {
     /**
      * Fetches recalls from the API for the given year and offset. Results will be given at {@link #MAX_RESULTS} at a time.
      * @param year The year to get recalls for. Must be >= {@link #START_YEAR}
-     * @param offset The offset to start at. Must be >=0.
+     * @param offset The record offset to start at. Must be >=0.
      * @return A {@link JSONObject} representing the recalls. Each recall result will have an added JSON Array field called
      * 'normalized_distribution_pattern' that will contain all of the state codes each recall was distributed in.
      */
