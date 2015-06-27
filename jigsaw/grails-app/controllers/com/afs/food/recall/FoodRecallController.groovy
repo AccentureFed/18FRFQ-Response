@@ -1,5 +1,7 @@
 package com.afs.food.recall
 
+import grails.converters.JSON
+
 import java.text.SimpleDateFormat
 
 import com.afs.jigsaw.fda.food.api.*
@@ -23,23 +25,29 @@ class FoodRecallController {
     }
 
     /**
-     * Used to return a count metadata for recalls within a specific set of search criteria.
+     * Used to return a count of recalls for each severity for the given params
      *
      *<p>
      * params include:<br />
-     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation of a state<br />
+     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation
+     * of a state<br />
      * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      *</p>
      *
-     * @return - The count for the desired state/date range
+     * @return - The count of each severity for the desired state/date range, ex:
+     * {"stateCode":"null","results":[{"severity":"high","count":3757},{"severity":"low","count":269},{"severity":"medium","count":3779}]}
      */
     def count() {
         def state = params.stateCode ? State.fromString(params.stateCode) : null
         def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
         def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
 
-        render foodRecallService.getCountsByState(state, startDate, endDate)
+        def severityCounts = foodRecallService.getCountsByState(state, startDate, endDate)
+        def resultsList = severityCounts.collect { it ->
+            [severity: it[0], count: it[1]]
+        }
+        render ([stateCode: params.stateCode, results: resultsList] as JSON)
     }
 
     /**

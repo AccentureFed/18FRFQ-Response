@@ -7,18 +7,8 @@ import org.codehaus.groovy.grails.web.json.JSONArray
 import org.codehaus.groovy.grails.web.json.JSONObject
 
 import com.afs.jigsaw.fda.food.api.*
-import com.google.common.collect.Maps
 
 class FoodRecallService {
-
-    /**
-     * The maximum amount of results to return from the FDA Food service.<br /><br />
-     *
-     * Note: The API will not support returning more than 100, do not set above 100
-     */
-    private static final def MAX_RESULTS = 100
-    private static final def BASE_URL = "https://api.fda.gov/food/enforcement.json"
-    protected static final def BASE_COUNT_URL = "https://api.fda.gov/food/enforcement.json?"
 
     /**
      * There is no data in the API before this date
@@ -30,6 +20,19 @@ class FoodRecallService {
      */
     public static def DATE_FORMAT = 'yyyyMMdd'
 
+    /**
+     * Maps a Classification to a severity level (low, medium, high)
+     */
+    public static final Map<String, String> CLASSIFICATION_TO_SEVERITY = ['Class I': 'high', 'Class II': 'medium', 'Class III': 'low']
+
+    /**
+     * The maximum amount of results to return from the FDA Food service.<br /><br />
+     *
+     * Note: The API will not support returning more than 100, do not set above 100
+     */
+    private static final def MAX_RESULTS = 100
+    private static final def BASE_URL = "https://api.fda.gov/food/enforcement.json"
+    private static final def BASE_COUNT_URL = "https://api.fda.gov/food/enforcement.json?"
     private static final def SEARCH_PREFIX = "search=("
     private static final def COUNT_BY_SEVERITY = "&count=classification.exact"
     private static final def DATE_SEARCH_PREFIX = "+AND+report_date:["
@@ -38,18 +41,6 @@ class FoodRecallService {
 
     def stateNormalizationService
     private def lastNotified = LocalDate.now().minusMonths(2)
-
-
-    /*
-     *  this creates are "nlp phrases" list
-     *  states with multi words will be treated as a single phrase
-     */
-    private static final Map<String, String> CLASSIFICATION_TO_SEVERITY = Maps.newHashMap()
-    static {
-        CLASSIFICATION_TO_SEVERITY.put("Class I", "high")
-        CLASSIFICATION_TO_SEVERITY.put("Class II", "medium")
-        CLASSIFICATION_TO_SEVERITY.put("Class III", "low")
-    }
 
     /**
      * Returns the first {@link #MAX_RESULTS} recalls from the FDA Service API.  The data is passed back as a {@link JSONObject}.<br /><br />
@@ -80,6 +71,59 @@ class FoodRecallService {
 
         return json
     }
+
+    /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def getCountOfRecallsWithNoStates() {
+        return FoodRecall.withCriteria { isEmpty 'distributionStates' }.size()
+    }
+
+    /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def getDistributionPatternOfRecallsWithNoStates() {
+        def array = new JSONArray(FoodRecall.withCriteria { isEmpty 'distributionStates' }*.originalPayload)
+        def pattern = []
+        array.each { pattern << new JSONObject(it).distribution_pattern }
+        return pattern
+    }
+
+    /**
+     * Gets the count of recalls grouped by severity for the given parameters.  All parameters are optional.
+     * @param state The state to get counts for. If no state is given, then nationwide counts are returned.
+     * @param start The start date to get counts from. If not given, then the counts will be from the beginning of time.
+     * @param end The end date to get counts up to. If not given, then the counts will go until current.
+     * @return A list of lists, each list represents the severity as the 1st element and count as the 2nd, ex: [['high', 3757], ['low', 269], ['medium', 3779]]
+     */
+    def getCountsByState(final State state, final Date start, final Date end) {
+        return FoodRecall.withCriteria {
+            projections {
+                groupProperty('severity')
+                countDistinct 'recallNumber'
+            }
+
+            if(start) {
+                ge('reportDate', start)
+            }
+
+            if(end) {
+                le('reportDate', end)
+            }
+
+            if(state) {
+                distributionStates { 'in'('state', state) }
+            }
+        }
+    }
+
+
+
+
+
+
+
+    // TODO -------------- ANYTHING UNDER HERE SUBJECT TO REMOVAL ---------------------
 
     /**
      * Determines if there has been an update since the last notification
@@ -240,48 +284,6 @@ class FoodRecallService {
         }
         return options.toString()
     }
-
-    /**
-     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
-     */
-    def getCountOfRecallsWithNoStates() {
-        return FoodRecall.withCriteria { isEmpty 'distributionStates' }.size()
-    }
-
-    /**
-     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
-     */
-    def getDistributionPatternOfRecallsWithNoStates() {
-        def array = new JSONArray(FoodRecall.withCriteria { isEmpty 'distributionStates' }*.originalPayload)
-        def pattern = []
-        array.each { pattern << new JSONObject(it).distribution_pattern }
-        return pattern
-    }
-
-    /**
-     * Gets the count of recalls for the given parameters.  All parameters are optional.
-     * @param state The state to get counts for. If no state is given, then nationwide counts are returned.
-     * @param start The start date to get counts from. If not given, then the counts will be from the beginning of time.
-     * @param end The end date to get counts up to. If not given, then the counts will go until current.
-     * @return The count
-     */
-    def getCountsByState(final State state, final Date start, final Date end) {
-        return RecallState.withCriteria {
-            if(state) { eq('state', state) }
-
-            foodRecalls {
-                projections { countDistinct 'recallNumber' }
-                if(start) {
-                    ge('reportDate', start)
-                }
-
-                if(end) {
-                    le('reportDate', end)
-                }
-            }
-        }[0] // withCriteria returns a list, but we only asked for a single item, rowCount
-    }
-
 
     /**
      * Uses utilities available to build the url for fetching a singular states' count results

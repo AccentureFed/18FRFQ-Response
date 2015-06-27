@@ -44,6 +44,7 @@ class BootStrap {
                         foodRecall.originalPayload = result.toString()
                         foodRecall.reportDate = dateFormatter.parse(result.report_date)
                         foodRecall.recallNumber = result.recall_number
+                        foodRecall.severity = FoodRecallService.CLASSIFICATION_TO_SEVERITY[result.classification]
 
                         result.normalized_distribution_pattern.each { stateAbbreviation ->
                             def state = State.fromString(stateAbbreviation)
