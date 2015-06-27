@@ -110,7 +110,7 @@
 		                <tbody>
 		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
 		                    <td>{{recall.product_description.substring(0,50)}}...</td>
-		                    <td>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+		                    <td bgcolor="{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}}">{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
 		                  </tr>
 		                  <tr ng-show=!recalls>
 		                  	<td>NO RECALL ALERTS</td>
