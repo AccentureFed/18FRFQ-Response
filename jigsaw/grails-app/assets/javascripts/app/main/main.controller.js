@@ -587,7 +587,6 @@ angular.module('jigsawApp')
 		    				var stateAbr = data.stateCode;
 		    				data.results.forEach(function(element, index, array)
 		    				{
-		    					stateAbr;
 		    					if (element.severity == "high" && severity != "high")
 		    					{
 		    						$scope.mapObject.data[stateAbr]['fillKey'] = "HIGH";
