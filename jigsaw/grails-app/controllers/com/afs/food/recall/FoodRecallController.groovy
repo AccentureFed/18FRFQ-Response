@@ -9,6 +9,20 @@ class FoodRecallController {
     def foodRecallService
 
     /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def countRecallsNoState() {
+        render foodRecallService.getCountOfRecallsWithNoStates()
+    }
+
+    /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def distributionRecallsNoState() {
+        render foodRecallService.getDistributionPatternOfRecallsWithNoStates()
+    }
+
+    /**
      * Used to return a count metadata for recalls within a specific set of search criteria.
      *
      *<p>

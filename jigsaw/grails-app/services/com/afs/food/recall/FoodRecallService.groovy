@@ -3,6 +3,7 @@ package com.afs.food.recall
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+import org.codehaus.groovy.grails.web.json.JSONArray
 import org.codehaus.groovy.grails.web.json.JSONObject
 
 import com.afs.jigsaw.fda.food.api.*
@@ -69,7 +70,12 @@ class FoodRecallService {
         final Set<String> distributionStates = []
         json.results.each { result ->
             // try to find the states in the natural language value and add it to the result
-            result.normalized_distribution_pattern = stateNormalizationService.getStates(result.distribution_pattern)*.getAbbreviation()
+            def distributionPattern = result.distribution_pattern
+            if(distributionPattern.toLowerCase().contains('on site retail')) {
+                // this was distributed at site in the state where it is made
+                distributionPattern = "${result.distribution_pattern} ${result.state}"
+            }
+            result.normalized_distribution_pattern = stateNormalizationService.getStates(distributionPattern)*.getAbbreviation()
         }
 
         return json
@@ -236,6 +242,23 @@ class FoodRecallService {
     }
 
     /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def getCountOfRecallsWithNoStates() {
+        return FoodRecall.withCriteria { isEmpty 'distributionStates' }.size()
+    }
+
+    /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def getDistributionPatternOfRecallsWithNoStates() {
+        def array = new JSONArray(FoodRecall.withCriteria { isEmpty 'distributionStates' }*.originalPayload)
+        def pattern = []
+        array.each { pattern << new JSONObject(it).distribution_pattern }
+        return pattern
+    }
+
+    /**
      * Gets the count of recalls for the given parameters.  All parameters are optional.
      * @param state The state to get counts for. If no state is given, then nationwide counts are returned.
      * @param start The start date to get counts from. If not given, then the counts will be from the beginning of time.
@@ -243,28 +266,11 @@ class FoodRecallService {
      * @return The count
      */
     def getCountsByState(final State state, final Date start, final Date end) {
-        // no state, query the recall table
-        if(!state) {
-            return FoodRecall.withCriteria {
-                projections { rowCount() }
-
-                if(start) {
-                    ge('reportDate', start)
-                }
-
-                if(end) {
-                    le('reportDate', end)
-                }
-            }[0] // withCriteria returns a list, but we only asked for a single item, rowCount
-        }
-
-        // we have a state, look at the state table for counts
         return RecallState.withCriteria {
-            projections { rowCount() }
-
-            eq('state', state)
+            if(state) { eq('state', state) }
 
             foodRecalls {
+                projections { countDistinct 'recallNumber' }
                 if(start) {
                     ge('reportDate', start)
                 }
