@@ -47,14 +47,15 @@ class FoodRecallController {
 
         def severityCounts = foodRecallService.getCountsByState(state, startDate, endDate)
         def resultsList = severityCounts.collect { it ->
-            [severity: it[0], count: it[1]]
+            [severity: it[0].toString().toLowerCase(), count: it[1]]
         }
         render ([stateCode: params.stateCode, results: resultsList] as JSON)
     }
 
     /**
      * Used to render a list of recalls with pagination and enriched values.  This response format includes the
-     * FDA format with an additional normalized_distribution_pattern field as a json array of formal state abbreviations.
+     * FDA format with an additional normalized_distribution_pattern field as a json array of formal state abbreviations and normalized_barcodes field
+     * as a json array or upc barcodes.
      *<p>
      * params include:<br />
      * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can
@@ -78,12 +79,11 @@ class FoodRecallController {
         skip = skip >= 0 ? skip*limit : 0 //ensure it is valid
 
         def state = params.stateCode ? State.fromString(params.stateCode) : null
-        def upc = params.upc ? UpcBarcode.buildBarcode(params.upc) : null
         def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
         def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
 
-        def recalls = foodRecallService.getRecalls(state, upc, startDate, endDate, limit, skip)
-        def resultsJSON = recalls*.originalPayload.collect { new JSONObject(it) }
+        def recalls = foodRecallService.getRecalls(state, params.upc, startDate, endDate, limit, skip)
+        def resultsJSON = recalls*.enrichedJSONPayload.collect { new JSONObject(it) }
         render ([limit: limit, skip: skip/limit, numResults: recalls.getTotalCount(), results: resultsJSON] as JSON)
     }
 }

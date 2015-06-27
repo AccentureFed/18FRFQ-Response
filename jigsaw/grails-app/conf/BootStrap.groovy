@@ -7,6 +7,8 @@ import java.util.concurrent.TimeUnit
 import com.afs.food.recall.FoodRecall
 import com.afs.food.recall.FoodRecallService
 import com.afs.food.recall.RecallState
+import com.afs.food.recall.UPCBarcode
+import com.afs.jigsaw.fda.food.api.Severity
 import com.afs.jigsaw.fda.food.api.State
 
 class BootStrap {
@@ -40,10 +42,10 @@ class BootStrap {
 
                     json.results.each { result ->
                         def foodRecall = new FoodRecall()
-                        foodRecall.originalPayload = result.toString()
+                        foodRecall.enrichedJSONPayload = result.toString()
                         foodRecall.reportDate = dateFormatter.parse(result.report_date)
                         foodRecall.recallNumber = result.recall_number
-                        foodRecall.severity = FoodRecallService.CLASSIFICATION_TO_SEVERITY[result.classification]
+                        foodRecall.severity = Severity.getByFdaValue(result.classification)
 
                         result.normalized_distribution_pattern.each { stateAbbreviation ->
                             def state = State.fromString(stateAbbreviation)
@@ -51,6 +53,13 @@ class BootStrap {
                             recallState.state = state
 
                             foodRecall.addToDistributionStates(recallState)
+                        }
+
+                        result.normalized_barcodes.each { upcNumber ->
+                            def barcode = new UPCBarcode()
+                            barcode.upcNumber = upcNumber
+
+                            foodRecall.addToBarcodes(barcode)
                         }
 
                         if(!foodRecall.save()) {

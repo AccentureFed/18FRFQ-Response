@@ -22,11 +22,6 @@ class FoodRecallService {
     public static def DATE_FORMAT = 'yyyyMMdd'
 
     /**
-     * Maps a Classification to a severity level (low, medium, high)
-     */
-    public static final Map<String, String> CLASSIFICATION_TO_SEVERITY = ['Class I': 'high', 'Class II': 'medium', 'Class III': 'low']
-
-    /**
      * The maximum amount of results to return from the FDA Food service.<br /><br />
      *
      * Note: The API will not support returning more than 100, do not set above 100
@@ -35,15 +30,18 @@ class FoodRecallService {
 
     private static final def BASE_URL = "https://api.fda.gov/food/enforcement.json"
 
-    def stateNormalizationService
     private def lastNotified = LocalDate.now().minusMonths(2)
+
+    def stateNormalizationService
+    def barcodeNormalizationService
 
     /**
      * Fetches recalls from the API for the given year and offset. Results will be given at {@link #MAX_RESULTS} at a time.
      * @param year The year to get recalls for. Must be >= {@link #START_YEAR}
      * @param offset The record offset to start at. Must be >=0.
      * @return A {@link JSONObject} representing the recalls. Each recall result will have an added JSON Array field called
-     * 'normalized_distribution_pattern' that will contain all of the state codes each recall was distributed in.
+     * 'normalized_distribution_pattern' that will contain all of the state codes each recall was distributed in AND a 'normalized_barcodes'
+     * field that will contain a list of all the upc barcodes.
      */
     def fetchRecallsFromApi(final int year, final int offset) {
         Preconditions.checkArgument(year >= START_YEAR, 'Year must be >= the START_YEAR (2012)')
@@ -53,8 +51,12 @@ class FoodRecallService {
 
         final Set<String> distributionStates = []
         json.results.each { result ->
-            // try to find the states in the natural language value and add it to the result
+            // try to find the states in the natural language value and add it to the result AND find UPC barcodes
             def distributionPattern = result.distribution_pattern
+            def codeInfo = result.code_info
+
+            result.normalized_barcodes = barcodeNormalizationService.getUPCBarcodeNumbers("${distributionPattern} ${codeInfo}")
+
             if(distributionPattern.toLowerCase().contains('on site retail')) {
                 // this was distributed at site in the state where it is made
                 distributionPattern = "${result.distribution_pattern} ${result.state}"
@@ -76,7 +78,7 @@ class FoodRecallService {
      * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
      */
     def getDistributionPatternOfRecallsWithNoStates() {
-        def array = new JSONArray(FoodRecall.withCriteria { isEmpty 'distributionStates' }*.originalPayload)
+        def array = new JSONArray(FoodRecall.withCriteria { isEmpty 'distributionStates' }*.enrichedJSONPayload)
         def pattern = []
         array.each { pattern << new JSONObject(it).distribution_pattern }
         return pattern
@@ -87,7 +89,7 @@ class FoodRecallService {
      * @param state The state to get counts for. If no state is given, then nationwide counts are returned.
      * @param start The start date to get counts from. If not given, then the counts will be from the beginning of time.
      * @param end The end date to get counts up to. If not given, then the counts will go until current.
-     * @return A list of lists, each list represents the severity as the 1st element and count as the 2nd, ex: [['high', 3757], ['low', 269], ['medium', 3779]]
+     * @return A list of lists, each list represents the severity as the 1st element and count as the 2nd, ex: [['HIGH', 3757], ['LOW', 269], ['MEDIUM', 3779]]
      */
     def getCountsByState(final State state, final Date start, final Date end) {
         return FoodRecall.withCriteria {
@@ -127,16 +129,21 @@ class FoodRecallService {
 
         def crit = FoodRecall.createCriteria()
         return crit.list(max: max, offset: offset) {
+
+            if(state) {
+                distributionStates { 'in'('state', state) }
+            }
+
+            if(upc) {
+                barcodes { 'in'('upcNumber', upc) }
+            }
+
             if(start) {
                 ge('reportDate', start)
             }
 
             if(end) {
                 le('reportDate', end)
-            }
-
-            if(state) {
-                distributionStates { 'in'('state', state) }
             }
 
             order('reportDate', 'desc')
@@ -191,35 +198,4 @@ class FoodRecallService {
         rss.channel.item.each { item-> println "- ${item.title}" }​
     }
 
-    /**
-     * Builds criteria for the FDA API URL for using the manufacturer portion
-     * of the upc to identify recalls specific to that manufacturer
-     * @param upc - can be null
-     * @return returns an empty string if null otherwise a partial string for the "search" parameter
-     */
-    def buildManufacturerOnlyCriteria(UpcBarcode upc) {
-        if (upc == null) {
-            return ""
-        }
-        return new StringBuffer("+AND+(product_description:")
-                .append(upc.getManufacturer())
-                .append("+code_info:")
-                .append(upc.getManufacturer())
-                .append(")")
-                .toString()
-    }
-
-    def buildManufacturerAndProductCriteria(UpcBarcode upc) {
-        if (upc == null) {
-            return ""
-        }
-        String val = '"' + upc.getEncoding() + '+'+ upc.getManufacturer() + '+' + upc.getProduct() + '+' + upc.getCheckDigit() + '"'
-        return new StringBuffer("+AND+(product_description:").append(val)
-                .append("+code_info:").append(val)
-                .append("+product_description:").append(upc.toString())
-                .append("+code_info:").append(upc.toString())
-                .append(")")
-                .toString()
-
-    }
 }
