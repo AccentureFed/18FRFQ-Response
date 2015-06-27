@@ -12,6 +12,7 @@
 //= require jquery-ui/jquery-ui.js
 //= require bootstrap/dist/js/bootstrap.js
 //= require bootstrap-multiselect/dist/js/bootstrap-multiselect.js
+//= require bootstrap-select/dist/js/bootstrap-select.min.js
 //= require bootflat/js/icheck.min.js
 //= require bootflat/js/jquery.fs.selecter.min.js
 //= require bootflat/js/jquery.fs.stepper.min.js
