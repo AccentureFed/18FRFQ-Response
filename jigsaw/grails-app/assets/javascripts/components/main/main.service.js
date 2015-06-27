@@ -22,7 +22,7 @@ angular.module('jigsawApp')
                 callback = callback || angular.noop;
                 error = error || angular.noop;
 
-                $http({url: 'foodRecall/getAll',
+                $http({url: 'foodRecall/recalls',
                 	method: "GET",
                 	params: {stateCode: stateObj, startDate: startDate, endDate: endDate, upc: upc, skip:page, limit: limit}}).success(function(data, status) {
                     callback(data, status);

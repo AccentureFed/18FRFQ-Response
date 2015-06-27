@@ -71,4 +71,90 @@ class StateNormalizationServiceSpec extends Specification {
         ]
         states == expected
     }
+
+    void "test multi-word state lowercalse"() {
+        given:
+        def stateService = new StateNormalizationService()
+
+        when:
+        def states = stateService.getStates("new york")
+
+        then:
+        Set<State> expected = [
+            State.NEW_YORK
+        ]
+        states == expected
+    }
+
+    void "test no spaces city"() {
+        given:
+        def stateService = new StateNormalizationService()
+
+        when:
+        def states = stateService.getStates("Austin,TX")
+
+        then:
+        Set<State> expected = [
+            State.TEXAS
+        ]
+        states == expected
+    }
+
+    void "test no spaces list"() {
+        given:
+        def stateService = new StateNormalizationService()
+
+        when:
+        def states = stateService.getStates("AL,FL,GA,IL,KY,MS,NC,NE,NM,NV,OH,OK,SC,TN,TX,WI")
+
+        then:
+        Set<State> expected = [
+            State.ALABAMA,
+            State.FLORIDA,
+            State.GEORGIA,
+            State.ILLINOIS,
+            State.KENTUCKY,
+            State.MISSISSIPPI,
+            State.NORTH_CAROLINA,
+            State.NEBRASKA,
+            State.NEW_MEXICO,
+            State.NEVADA,
+            State.OHIO,
+            State.OKLAHOMA,
+            State.SOUTH_CAROLINA,
+            State.TENNESSEE,
+            State.TEXAS,
+            State.WISCONSIN
+        ]
+        states == expected
+    }
+
+    void "test state slashes"() {
+        given:
+        def stateService = new StateNormalizationService()
+
+        when:
+        def states = stateService.getStates("MD/VA")
+
+        then:
+        Set<State> expected = [
+            State.MARYLAND,
+            State.VIRGINIA
+        ]
+        states == expected
+    }
+
+    void "test state inside parens"() {
+        given:
+        def stateService = new StateNormalizationService()
+
+        when:
+        def states = stateService.getStates("(El Paso,TX)")
+
+        then:
+        Set<State> expected = [
+            State.TEXAS
+        ]
+        states == expected
+    }
 }
