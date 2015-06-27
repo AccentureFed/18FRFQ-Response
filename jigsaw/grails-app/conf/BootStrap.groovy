@@ -31,7 +31,7 @@ class BootStrap {
                 def skip = 0
                 def json
 
-                def total = foodRecallService.fetchRecallsFromApi(year, max, skip).meta.results.total.toInteger()
+                def total = foodRecallService.fetchRecallsFromApi(year, skip).meta.results.total.toInteger()
 
                 // cache the enriched data to the database
                 while(skip < total) {
