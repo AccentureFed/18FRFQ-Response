@@ -12,6 +12,7 @@
 //= require jquery-ui/jquery-ui.js
 //= require bootstrap/dist/js/bootstrap.js
 //= require bootstrap-multiselect/dist/js/bootstrap-multiselect.js
+//= require bootstrap-select/dist/js/bootstrap-select.min.js
 //= require bootflat/js/icheck.min.js
 //= require bootflat/js/jquery.fs.selecter.min.js
 //= require bootflat/js/jquery.fs.stepper.min.js
@@ -30,14 +31,15 @@
 //= require angular-datamaps/dist/angular-datamaps.min.js
 //= require app/app.js
 //= require app/app.constants.js
-//= require components/navbar/navbar.directive.js
-//= require components/navbar/navbar.controller.js
+//= require app/navbar/navbar.directive.js
+//= require app/navbar/navbar.controller.js
+//= require app/footer/footer.controller.js
+//= require components/navbar/navbar.service.js
 //= require components/main/main.service.js
+//= require components/footer/footer.service.js
 //= require app/error/error.js
 //= require app/main/main.js
 //= require app/main/main.controller.js
-//= require app/map/map.js
-//= require app/map/map.controller.js
 //= require ol3/dist/ol.js
 //= require app/main/state-features.min.js
 

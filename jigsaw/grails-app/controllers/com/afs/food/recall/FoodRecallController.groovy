@@ -1,6 +1,10 @@
 package com.afs.food.recall
 
+import grails.converters.JSON
+
 import java.text.SimpleDateFormat
+
+import org.codehaus.groovy.grails.web.json.JSONObject
 
 import com.afs.jigsaw.fda.food.api.*
 
@@ -8,79 +12,76 @@ class FoodRecallController {
 
     def foodRecallService
 
-    def recalls() {
-        render foodRecallService.getRecalls() 
+    /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def countRecallsNoState() {
+        render foodRecallService.getCountOfRecallsWithNoStates()
     }
-	
-	def readRSS() {
-		render foodRecallService.readRss()
-	}
-	
-	def sendNotifications() {
-		render foodRecallService.sendNotifications()
-	}
 
-	/**
-	 * Used to return a count metadata for recalls within a specific set of search criteria.
-	 *
-	 * params include:
-	 * state - optional.  If optional, then no state specific searching will be performed. Can be any name or abbreviation of a state
-	 * startDate - optional. Date in yyyyMMdd format
-	 * endDate - optinoal. Date in yyyyMMdd format
-	 *
-	 * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
-	 *
-	 * @return - up to 3 counts are returned.  One each for high, medium and low severity recalls matching the criteria.
-	 */
-	def count() {
-		
-		def state = params.stateCode == null ? null : State.fromString(params.stateCode)
-		def startDate
-		def endDate
-		try {
-			startDate = new SimpleDateFormat("yyyyMMdd").parse( params.startDate)
-			endDate = new SimpleDateFormat("yyyyMMdd").parse( params.endDate)
-		}catch(Exception e) {
-			//invalid dates
-			startDate = null
-			endDate = null
-		}
+    /**
+     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
+     */
+    def distributionRecallsNoState() {
+        render foodRecallService.getDistributionPatternOfRecallsWithNoStates()
+    }
 
-		render foodRecallService.getCountsByState(state, startDate, endDate);
-		
-	}
+    /**
+     * Used to return a count of recalls for each severity for the given params
+     *
+     *<p>
+     * params include:<br />
+     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation
+     * of a state<br />
+     * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     *</p>
+     *
+     * @return - The count of each severity for the desired state/date range, ex:
+     * {"stateCode":"null","results":[{"severity":"high","count":3757},{"severity":"low","count":269},{"severity":"medium","count":3779}]}
+     */
+    def count() {
+        def state = params.stateCode ? State.fromString(params.stateCode) : null
+        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
+        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
 
-	/**
-	 * Used to render a list of recalls with pagination and enriched values.  This response format includes the 
-	 * FDA format with an addditional normalized_distribution_pattern field as a CSV of formal state names
-	 * 
-	 * params include:
-	 * state - optional.  If optional, then no state specific searching will be performed. Can be any name or abbreviation of a state
-	 * limit - optional.  Numeric.  The number of results to return. 10 is defualt
-	 * skip - optional.  Numeric.  Allows pagination.  default is 0 (start at beginning of list)
-	 * startDate - optional. Date in yyyyMMdd format
-	 * endDate - optinoal. Date in yyyyMMdd format
-	 * 
-	 * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
-	 * 
-	 * @return
-	 */
-	def getAll() {
-		def limit = params.limit == null ? 10 : params.limit.toInteger();
-		def skip = params.skip == null ? 0 : params.skip.toInteger();
-		def state = params.stateCode == null ? null : State.fromString(params.stateCode)
-		def upc = params.upc == null ? null : UpcBarcode.buildBarcode(params.upc)
-		def startDate
-		def endDate
-		try {
-			startDate = new SimpleDateFormat("yyyyMMdd").parse( params.startDate)
-			endDate = new SimpleDateFormat("yyyyMMdd").parse( params.endDate)
-		}catch(Exception e) {
-			//invalid dates
-			startDate = null
-			endDate = null
-		}
-		render foodRecallService.getPageByState(state, limit,  skip, startDate, endDate, upc);
-	}
+        def severityCounts = foodRecallService.getCountsByState(state, startDate, endDate)
+        def resultsList = severityCounts.collect { it ->
+            [severity: it[0], count: it[1]]
+        }
+        render ([stateCode: params.stateCode, results: resultsList] as JSON)
+    }
 
+    /**
+     * Used to render a list of recalls with pagination and enriched values.  This response format includes the
+     * FDA format with an additional normalized_distribution_pattern field as a json array of formal state abbreviations.
+     *<p>
+     * params include:<br />
+     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation of a state<br />
+     * <strong>limit</strong> - Optional.  Numeric.  The number of results to return. 10 is default<br />
+     * <strong>skip</strong> - Optional.  Numeric.  Allows pagination.  default is 0 (start at beginning of list)<br />
+     * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     * </p>
+     *
+     * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
+     *
+     * @return a list of recalls for the given parameters
+     */
+    def recalls() {
+        def limit = params.limit ? params.int('limit') : 10
+        limit = limit > 0 ? limit : 10 // ensure it is valid
+
+        def skip = params.skip ? params.int('skip')  : 0
+        skip = skip >= 0 ? skip : 0 //ensure it is valid
+
+        def state = params.stateCode ? State.fromString(params.stateCode) : null
+        def upc = params.upc ? UpcBarcode.buildBarcode(params.upc) : null
+        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
+        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
+
+        def recalls = foodRecallService.getRecalls(state, upc, startDate, endDate, limit, skip)
+        def resultsJSON = recalls*.originalPayload.collect { new JSONObject(it) }
+        render ([limit: limit, skip: skip, numResults: recalls.getTotalCount(), results: resultsJSON] as JSON)
+    }
 }

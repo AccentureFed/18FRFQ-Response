@@ -8,6 +8,7 @@ angular.module('jigsawApp')
     	$scope.startDateValue = startDate.toJSON().substring(0, 10);
     	$scope.endDateValue = currentDate.toJSON().substring(0, 10);
         $scope.errors = {};
+    	$scope.oldState = null;
     	$scope.selectedState = null;
     	$scope.userSavedStates = null;
     	$scope.recalls = null;
@@ -16,245 +17,246 @@ angular.module('jigsawApp')
     	$scope.numPages = 0;
     	$scope.page = 1;
     	$scope.totalRecalls = 0;
+    	$scope.upcCode = null;
         $scope.statesData = statesData;
-                      $scope.abbreviationsMap = [
-                                                    {
-                                                        "name": "Alabama",
-                                                        "abbreviation": "AL"
-                                                    },
-                                                    {
-                                                        "name": "Alaska",
-                                                        "abbreviation": "AK"
-                                                    },
-                                                    {
-                                                        "name": "American Samoa",
-                                                        "abbreviation": "AS"
-                                                    },
-                                                    {
-                                                        "name": "Arizona",
-                                                        "abbreviation": "AZ"
-                                                    },
-                                                    {
-                                                        "name": "Arkansas",
-                                                        "abbreviation": "AR"
-                                                    },
-                                                    {
-                                                        "name": "California",
-                                                        "abbreviation": "CA"
-                                                    },
-                                                    {
-                                                        "name": "Colorado",
-                                                        "abbreviation": "CO"
-                                                    },
-                                                    {
-                                                        "name": "Connecticut",
-                                                        "abbreviation": "CT"
-                                                    },
-                                                    {
-                                                        "name": "Delaware",
-                                                        "abbreviation": "DE"
-                                                    },
-                                                    {
-                                                        "name": "District Of Columbia",
-                                                        "abbreviation": "DC"
-                                                    },
-                                                    {
-                                                        "name": "Federated States Of Micronesia",
-                                                        "abbreviation": "FM"
-                                                    },
-                                                    {
-                                                        "name": "Florida",
-                                                        "abbreviation": "FL"
-                                                    },
-                                                    {
-                                                        "name": "Georgia",
-                                                        "abbreviation": "GA"
-                                                    },
-                                                    {
-                                                        "name": "Guam",
-                                                        "abbreviation": "GU"
-                                                    },
-                                                    {
-                                                        "name": "Hawaii",
-                                                        "abbreviation": "HI"
-                                                    },
-                                                    {
-                                                        "name": "Idaho",
-                                                        "abbreviation": "ID"
-                                                    },
-                                                    {
-                                                        "name": "Illinois",
-                                                        "abbreviation": "IL"
-                                                    },
-                                                    {
-                                                        "name": "Indiana",
-                                                        "abbreviation": "IN"
-                                                    },
-                                                    {
-                                                        "name": "Iowa",
-                                                        "abbreviation": "IA"
-                                                    },
-                                                    {
-                                                        "name": "Kansas",
-                                                        "abbreviation": "KS"
-                                                    },
-                                                    {
-                                                        "name": "Kentucky",
-                                                        "abbreviation": "KY"
-                                                    },
-                                                    {
-                                                        "name": "Louisiana",
-                                                        "abbreviation": "LA"
-                                                    },
-                                                    {
-                                                        "name": "Maine",
-                                                        "abbreviation": "ME"
-                                                    },
-                                                    {
-                                                        "name": "Marshall Islands",
-                                                        "abbreviation": "MH"
-                                                    },
-                                                    {
-                                                        "name": "Maryland",
-                                                        "abbreviation": "MD"
-                                                    },
-                                                    {
-                                                        "name": "Massachusetts",
-                                                        "abbreviation": "MA"
-                                                    },
-                                                    {
-                                                        "name": "Michigan",
-                                                        "abbreviation": "MI"
-                                                    },
-                                                    {
-                                                        "name": "Minnesota",
-                                                        "abbreviation": "MN"
-                                                    },
-                                                    {
-                                                        "name": "Mississippi",
-                                                        "abbreviation": "MS"
-                                                    },
-                                                    {
-                                                        "name": "Missouri",
-                                                        "abbreviation": "MO"
-                                                    },
-                                                    {
-                                                        "name": "Montana",
-                                                        "abbreviation": "MT"
-                                                    },
-                                                    {
-                                                        "name": "Nebraska",
-                                                        "abbreviation": "NE"
-                                                    },
-                                                    {
-                                                        "name": "Nevada",
-                                                        "abbreviation": "NV"
-                                                    },
-                                                    {
-                                                        "name": "New Hampshire",
-                                                        "abbreviation": "NH"
-                                                    },
-                                                    {
-                                                        "name": "New Jersey",
-                                                        "abbreviation": "NJ"
-                                                    },
-                                                    {
-                                                        "name": "New Mexico",
-                                                        "abbreviation": "NM"
-                                                    },
-                                                    {
-                                                        "name": "New York",
-                                                        "abbreviation": "NY"
-                                                    },
-                                                    {
-                                                        "name": "North Carolina",
-                                                        "abbreviation": "NC"
-                                                    },
-                                                    {
-                                                        "name": "North Dakota",
-                                                        "abbreviation": "ND"
-                                                    },
-                                                    {
-                                                        "name": "Northern Mariana Islands",
-                                                        "abbreviation": "MP"
-                                                    },
-                                                    {
-                                                        "name": "Ohio",
-                                                        "abbreviation": "OH"
-                                                    },
-                                                    {
-                                                        "name": "Oklahoma",
-                                                        "abbreviation": "OK"
-                                                    },
-                                                    {
-                                                        "name": "Oregon",
-                                                        "abbreviation": "OR"
-                                                    },
-                                                    {
-                                                        "name": "Palau",
-                                                        "abbreviation": "PW"
-                                                    },
-                                                    {
-                                                        "name": "Pennsylvania",
-                                                        "abbreviation": "PA"
-                                                    },
-                                                    {
-                                                        "name": "Puerto Rico",
-                                                        "abbreviation": "PR"
-                                                    },
-                                                    {
-                                                        "name": "Rhode Island",
-                                                        "abbreviation": "RI"
-                                                    },
-                                                    {
-                                                        "name": "South Carolina",
-                                                        "abbreviation": "SC"
-                                                    },
-                                                    {
-                                                        "name": "South Dakota",
-                                                        "abbreviation": "SD"
-                                                    },
-                                                    {
-                                                        "name": "Tennessee",
-                                                        "abbreviation": "TN"
-                                                    },
-                                                    {
-                                                        "name": "Texas",
-                                                        "abbreviation": "TX"
-                                                    },
-                                                    {
-                                                        "name": "Utah",
-                                                        "abbreviation": "UT"
-                                                    },
-                                                    {
-                                                        "name": "Vermont",
-                                                        "abbreviation": "VT"
-                                                    },
-                                                    {
-                                                        "name": "Virgin Islands",
-                                                        "abbreviation": "VI"
-                                                    },
-                                                    {
-                                                        "name": "Virginia",
-                                                        "abbreviation": "VA"
-                                                    },
-                                                    {
-                                                        "name": "Washington",
-                                                        "abbreviation": "WA"
-                                                    },
-                                                    {
-                                                        "name": "West Virginia",
-                                                        "abbreviation": "WV"
-                                                    },
-                                                    {
-                                                        "name": "Wisconsin",
-                                                        "abbreviation": "WI"
-                                                    },
-                                                    {
-                                                        "name": "Wyoming",
-                                                        "abbreviation": "WY"
-                                                    }
-                                                ];
+        $scope.abbreviationsMap = [
+            {
+                "name": "Alabama",
+                "abbreviation": "AL"
+            },
+            {
+                "name": "Alaska",
+                "abbreviation": "AK"
+            },
+            {
+                "name": "American Samoa",
+                "abbreviation": "AS"
+            },
+            {
+                "name": "Arizona",
+                "abbreviation": "AZ"
+            },
+            {
+                "name": "Arkansas",
+                "abbreviation": "AR"
+            },
+            {
+                "name": "California",
+                "abbreviation": "CA"
+            },
+            {
+                "name": "Colorado",
+                "abbreviation": "CO"
+            },
+            {
+                "name": "Connecticut",
+                "abbreviation": "CT"
+            },
+            {
+                "name": "Delaware",
+                "abbreviation": "DE"
+            },
+            {
+                "name": "District Of Columbia",
+                "abbreviation": "DC"
+            },
+            {
+                "name": "Federated States Of Micronesia",
+                "abbreviation": "FM"
+            },
+            {
+                "name": "Florida",
+                "abbreviation": "FL"
+            },
+            {
+                "name": "Georgia",
+                "abbreviation": "GA"
+            },
+            {
+                "name": "Guam",
+                "abbreviation": "GU"
+            },
+            {
+                "name": "Hawaii",
+                "abbreviation": "HI"
+            },
+            {
+                "name": "Idaho",
+                "abbreviation": "ID"
+            },
+            {
+                "name": "Illinois",
+                "abbreviation": "IL"
+            },
+            {
+                "name": "Indiana",
+                "abbreviation": "IN"
+            },
+            {
+                "name": "Iowa",
+                "abbreviation": "IA"
+            },
+            {
+                "name": "Kansas",
+                "abbreviation": "KS"
+            },
+            {
+                "name": "Kentucky",
+                "abbreviation": "KY"
+            },
+            {
+                "name": "Louisiana",
+                "abbreviation": "LA"
+            },
+            {
+                "name": "Maine",
+                "abbreviation": "ME"
+            },
+            {
+                "name": "Marshall Islands",
+                "abbreviation": "MH"
+            },
+            {
+                "name": "Maryland",
+                "abbreviation": "MD"
+            },
+            {
+                "name": "Massachusetts",
+                "abbreviation": "MA"
+            },
+            {
+                "name": "Michigan",
+                "abbreviation": "MI"
+            },
+            {
+                "name": "Minnesota",
+                "abbreviation": "MN"
+            },
+            {
+                "name": "Mississippi",
+                "abbreviation": "MS"
+            },
+            {
+                "name": "Missouri",
+                "abbreviation": "MO"
+            },
+            {
+                "name": "Montana",
+                "abbreviation": "MT"
+            },
+            {
+                "name": "Nebraska",
+                "abbreviation": "NE"
+            },
+            {
+                "name": "Nevada",
+                "abbreviation": "NV"
+            },
+            {
+                "name": "New Hampshire",
+                "abbreviation": "NH"
+            },
+            {
+                "name": "New Jersey",
+                "abbreviation": "NJ"
+            },
+            {
+                "name": "New Mexico",
+                "abbreviation": "NM"
+            },
+            {
+                "name": "New York",
+                "abbreviation": "NY"
+            },
+            {
+                "name": "North Carolina",
+                "abbreviation": "NC"
+            },
+            {
+                "name": "North Dakota",
+                "abbreviation": "ND"
+            },
+            {
+                "name": "Northern Mariana Islands",
+                "abbreviation": "MP"
+            },
+            {
+                "name": "Ohio",
+                "abbreviation": "OH"
+            },
+            {
+                "name": "Oklahoma",
+                "abbreviation": "OK"
+            },
+            {
+                "name": "Oregon",
+                "abbreviation": "OR"
+            },
+            {
+                "name": "Palau",
+                "abbreviation": "PW"
+            },
+            {
+                "name": "Pennsylvania",
+                "abbreviation": "PA"
+            },
+            {
+                "name": "Puerto Rico",
+                "abbreviation": "PR"
+            },
+            {
+                "name": "Rhode Island",
+                "abbreviation": "RI"
+            },
+            {
+                "name": "South Carolina",
+                "abbreviation": "SC"
+            },
+            {
+                "name": "South Dakota",
+                "abbreviation": "SD"
+            },
+            {
+                "name": "Tennessee",
+                "abbreviation": "TN"
+            },
+            {
+                "name": "Texas",
+                "abbreviation": "TX"
+            },
+            {
+                "name": "Utah",
+                "abbreviation": "UT"
+            },
+            {
+                "name": "Vermont",
+                "abbreviation": "VT"
+            },
+            {
+                "name": "Virgin Islands",
+                "abbreviation": "VI"
+            },
+            {
+                "name": "Virginia",
+                "abbreviation": "VA"
+            },
+            {
+                "name": "Washington",
+                "abbreviation": "WA"
+            },
+            {
+                "name": "West Virginia",
+                "abbreviation": "WV"
+            },
+            {
+                "name": "Wisconsin",
+                "abbreviation": "WI"
+            },
+            {
+                "name": "Wyoming",
+                "abbreviation": "WY"
+            }
+        ];
     	$scope.states = ['Alaska',
 		   'Arizona',
 		   'Arkansas',
@@ -330,6 +332,8 @@ angular.module('jigsawApp')
     						$scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
     					}
 		                $scope.selectedState = geography.id;
+		                $scope.oldState = geography.id;
+		                $('#state_select').selectpicker('val', $scope.selectedState);
 		                $scope.getBriefRecallsByState();
 		                $scope.getStateSeverity($scope.selectedState);
 		            })},
@@ -395,6 +399,22 @@ angular.module('jigsawApp')
     		$scope.currentRecall = recallInfo;
     	}
     	
+    	$scope.stateChanged = function(){
+			if ($scope.oldState != null && typeof $scope.oldState  != 'undefined') {
+				$scope.mapObject.data[$scope.oldState]['fillKey'] = "defaultFill";
+			}
+			if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null) {
+	            $scope.oldState = $scope.selectedState;
+	            $scope.getBriefRecallsByState();
+	            $scope.getStateSeverity($scope.selectedState);
+			}
+			else {
+				$scope.oldState = null;
+				$scope.getAllRecalls();
+			}
+				
+    	}
+    	
     	$scope.showMap = function() {
     		$scope.mapActive = true;
     	}
@@ -429,16 +449,15 @@ angular.module('jigsawApp')
 
 				if (state == $scope.abbreviationsMap[abbrev]["name"]){
 					$scope.selectedState = $scope.abbreviationsMap[abbrev]["abbreviation"];
+					$('#state_select').selectpicker('val', $scope.selectedState);
 					$scope.getBriefRecallsByState();
                    	$scope.getStateSeverity($scope.selectedState);
-                   	//select state for dropdown here
 				}
 			}
 		}
 
     	$scope.loadPage = function(pg2Load){
-
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), pg2Load - 1, perRequest, function(data){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, pg2Load - 1, perRequest, function(data){
     			if (data != null && data.numResults != null && data.numResults > 0) {
         			$scope.recalls = data.results;
         			$scope.page = pg2Load;
@@ -455,34 +474,40 @@ angular.module('jigsawApp')
     	}
     	
     	$scope.getBriefRecallsByState = function(){
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), 0, perRequest, function(data){
-    			if (data != null && data.numResults != null && data.numResults > 0) {
-    				$scope.totalRecalls = data.numResults;
-        			$scope.recalls = data.results;
-        			if (perRequest > 0)
-        			{
-        				$scope.numPages = Math.ceil(data.numResults / perRequest)
-        				$scope.page = 1;
-        			}
-        			else
-        			{
-        				$scope.numPages = 0;
-        				$scope.page = 0;
-        			}
-    			}
-    			else
-    			{
-    				$scope.totalRecalls = 0;
-    				$scope.numPages = 0;
-    				$scope.page = 0;
-    				$scope.recalls = null;
-    			}
-    		}, function(){
-    			$scope.totalRecalls = 0;
-				$scope.numPages = 0;
-				$scope.page = 0;
-				$scope.recalls = null;
-    		});
+    		if ($scope.selectedState != null && typeof $scope.selectedState != 'undefined') {
+	    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, 0, perRequest, function(data){
+	    			if (data != null && data.numResults != null && data.numResults > 0) {
+	    				$scope.totalRecalls = data.numResults;
+	        			$scope.recalls = data.results;
+	        			if (perRequest > 0)
+	        			{
+	        				$scope.numPages = Math.ceil(data.numResults / perRequest)
+	        				$scope.page = 1;
+	        			}
+	        			else
+	        			{
+	        				$scope.numPages = 0;
+	        				$scope.page = 0;
+	        			}
+	    			}
+	    			else
+	    			{
+	    				$scope.totalRecalls = 0;
+	    				$scope.numPages = 0;
+	    				$scope.page = 0;
+	    				$scope.recalls = null;
+	    			}
+	    		}, function(){
+	    			$scope.totalRecalls = 0;
+					$scope.numPages = 0;
+					$scope.page = 0;
+					$scope.recalls = null;
+	    		});
+    		}
+    		else
+    		{
+    			$scope.getAllRecalls();
+    		}
     	}
     	
     	$scope.getAllRecalls = function(){
@@ -531,8 +556,11 @@ angular.module('jigsawApp')
     		case 'year':
     			tempDate.setFullYear(currentDate.getFullYear() - 1);
     			break;
+    		case 'forever':
+    			tempDate.setFullYear(currentDate.getFullYear() - 5);
+    			break;
     		default:
-    			tempDate.setMonth(currentDate.getMonth() - 3);
+    			tempDate.setMonth(currentDate.getMonth() - 1);
     			break;
     		}
     		$scope.startDateValue = tempDate.toJSON().substring(0, 10);
@@ -550,6 +578,7 @@ angular.module('jigsawApp')
     	
     	
     	$scope.getStateSeverity = function(stateObj){
+    		if (typeof stateObj != 'undefined' && stateObj != null) {
     		var severity = "";
     		RecallInfo.getStateCount(stateObj, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''),
     			function(data, status){
@@ -558,7 +587,6 @@ angular.module('jigsawApp')
 		    				var stateAbr = data.stateCode;
 		    				data.results.forEach(function(element, index, array)
 		    				{
-		    					stateAbr;
 		    					if (element.severity == "high" && severity != "high")
 		    					{
 		    						$scope.mapObject.data[stateAbr]['fillKey'] = "HIGH";
@@ -600,6 +628,7 @@ angular.module('jigsawApp')
 						$scope.mapObject.data[stateObj]['fillKey'] = "defaultFill";
 					}
     			});
+    		}
     	}
     	
     	$scope.updateHeatMap = function(){
@@ -610,12 +639,16 @@ angular.module('jigsawApp')
 	    		});
     		}
     	}
-    	
+        
+        $('.selectpicker').selectpicker({
+        	style:'btn-default',
+        	size: 8
+        });
+        
         angular.element(document).ready(function () {
+            
         	$scope.mapObject.responsive = true;
-        	$(window).on('resize', function(){
-        		$scope.mapObject.resize();
-        	});
+
         	$(".btn-group > .btn").click(function(){
         	    $(this).addClass("active").parent().siblings().children().removeClass("active");
         	});
