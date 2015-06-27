@@ -74,6 +74,7 @@ class FoodRecallController {
         def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
         def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
 
-        render foodRecallService.getPageByState(state, limit,  skip, startDate, endDate, upc)
+        def recalls = foodRecallService.getRecalls(state, upc, startDate, endDate, limit,  skip)
+        render ([numResults: recalls.getTotalCount(), results: recalls*.originalPayload] as JSON)
     }
 }

@@ -48,15 +48,15 @@ class FoodRecallService {
      * Each return will have an added JSON Array field called 'normalized_distribution_pattern' that will contain all of the state codes each recall was distributed in.
      * @return A {@link JSONObject} representing the recalls.
      */
-    def fetchRecallsFromApi(int year, int limit, int skip) {
-        if(limit > MAX_RESULTS) {
-            limit = MAX_RESULTS
+    def fetchRecallsFromApi(final int year, int max, int offset) {
+        if(max > MAX_RESULTS) {
+            max = MAX_RESULTS
         }
-        if(skip < 0) {
-            skip = 0
+        if(offset < 0) {
+            offset = 0
         }
 
-        def json = new JSONObject(new URL("${BASE_URL}?limit=${limit}&skip=${skip}&search=report_date:[${year}0101+TO+${year}1231]").getText())
+        def json = new JSONObject(new URL("${BASE_URL}?limit=${max}&skip=${offset}&search=report_date:[${year}0101+TO+${year}1231]").getText())
 
         final Set<String> distributionStates = []
         json.results.each { result ->
@@ -102,6 +102,32 @@ class FoodRecallService {
                 groupProperty('severity')
                 countDistinct 'recallNumber'
             }
+
+            if(start) {
+                ge('reportDate', start)
+            }
+
+            if(end) {
+                le('reportDate', end)
+            }
+
+            if(state) {
+                distributionStates { 'in'('state', state) }
+            }
+        }
+    }
+
+    def getRecalls(final State state, final String upc, final Date start, final Date end, int max, int offset) {
+        if(max > MAX_RESULTS) {
+            max = MAX_RESULTS
+        }
+        if(offset < 0) {
+            offset = 0
+        }
+
+        def crit = FoodRecall.createCriteria()
+        return crit.list(max: max, offset: offset) {
+            order('reportDate', 'desc')
 
             if(start) {
                 ge('reportDate', start)
