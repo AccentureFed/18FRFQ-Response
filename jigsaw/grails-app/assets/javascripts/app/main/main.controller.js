@@ -427,10 +427,16 @@ angular.module('jigsawApp')
             }
 		}
 		$scope.setUserState = function(state){
+		    var stateCode = "";
+		    var stateName = "";
 			for (abbrev in $scope.abbreviationsMap){
-
-				if (state == $scope.abbreviationsMap[abbrev]["name"]){
-					$scope.selectedState = $scope.abbreviationsMap[abbrev]["abbreviation"];
+                stateCode = $scope.abbreviationsMap[abbrev]["abbreviation"];
+                stateName = $scope.abbreviationsMap[abbrev]["name"];
+				if (state == stateName){
+				    if ($scope.selectedState){
+				       $scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
+				    }
+					$scope.selectedState = stateCode;
 					$scope.getBriefRecallsByState();
                    	$scope.getStateSeverity($scope.selectedState);
                    	//select state for dropdown here
