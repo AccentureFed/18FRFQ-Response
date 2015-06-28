@@ -64,6 +64,7 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:2.1.5"
         compile ":mail:1.0.8-SNAPSHOT"
         compile ":quartz:1.0.2"
+        compile ":quartz-monitor:1.0"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18"
