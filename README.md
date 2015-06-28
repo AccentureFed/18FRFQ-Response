@@ -1,4 +1,4 @@
-![Working Prototype Link](https://jigsaw.agilex-devcloud.com:8443/jigsaw/#/)
+[Working Prototype](https://jigsaw.agilex-devcloud.com:8443/jigsaw/#/)
 
 ![alt tag](/images/response-images/proposal-header.png?raw=true)
 
