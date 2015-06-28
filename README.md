@@ -29,8 +29,7 @@ Need to talk about monitoring here.
 
 Our development stack consists of:
 
-Insert PIC here
-
+![alt tag](/images/design/tool-diagram.png)
 
 Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
 
