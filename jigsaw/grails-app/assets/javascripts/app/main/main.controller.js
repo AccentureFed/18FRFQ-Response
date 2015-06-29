@@ -451,8 +451,12 @@ angular.module('jigsawApp')
 
 					if ($scope.selectedState != null && typeof $scope.selectedState != 'undefined') {
                         $scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
-                        					}
+                    }
+                    if ($scope.oldState){
+                        $scope.mapObject.data[$scope.oldState]['fillKey'] = "defaultFill";
+                    }
 					$scope.selectedState = $scope.abbreviationsMap[abbrev]["abbreviation"];
+                    $scope.oldState = $scope.selectedState;
 					$('#state_select').selectpicker('val', $scope.selectedState);
 					$scope.getBriefRecallsByState();
                    	$scope.getStateSeverity($scope.selectedState);
@@ -613,9 +617,8 @@ angular.module('jigsawApp')
                                 });
                              }
                              //if no results for that part, set it to no recalls
-                        	else if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null)
-                            	{
-                            		$scope.mapObject.data[stateObj]['fillKey'] = "NO_RECALLS";
+                        else    {
+                            		$scope.mapObject.data[$scope.selectedState]['fillKey'] = "NO_RECALLS";
 
                             	}
     					}
