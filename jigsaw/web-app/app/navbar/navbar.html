@@ -12,7 +12,8 @@
 		    <p><span class="visible-md visible-lg">Protecting and Promoting Your Health</span></p>
 		</div>
 	</div>
-	<span ng-if="viewSettings" class="fa fa-user" data-toggle="modal" data-target="#myModal" style="font-size:40px;position:absolute;top:0px;right:0px;color:white;cursor:pointer" tabindex=1></span>
+	<span ng-if="viewUserSettings" class="fa fa-user" data-toggle="modal" data-target="#myModal" style="font-size:40px;position:absolute;top:0px;right:0px;color:white;cursor:pointer" tabindex=1></span>
+	<span ng-if="viewSettings" class="fa fa-cogs" ng-click="showAppSettings()" style="font-size:40px;position:absolute;top:0px;right:0px;color:white;cursor:pointer" tabindex=1></span>
 </nav>
 
 <!-- Modal -->
@@ -110,3 +111,34 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+    <div class="modal fade" id="mySettingsModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form name="appSettingsForm" role="form" novalidate ng-submit="updateAppSettings()" show-validation>
+                    <div class="modal-header">
+                        <h4 class="modal-title">Food Recall App Settings</h4>
+                        <hr>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger" ng-show="appSettingsError">
+                            <strong>There was an error updating the settings.</strong>
+                        </div>
+                        <div class="form-group">
+                            <label>Alert Message (this message will be displayed as an ALERT on the home page)</label>
+                            <textarea type="text" class="form-control" name="appAlertInput" ng-model="tempAppAlert" id="appAlertText" required/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" id="settingsCancel">
+                            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+                        </button>
+                        <button ladda="adding" type="submit" ng-disabled="appSettings.$invalid" class="btn btn-success" ng-click="updateAppSettings()">
+                            <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;<span>Add</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
