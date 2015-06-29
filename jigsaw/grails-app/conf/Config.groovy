@@ -129,7 +129,9 @@ grails {
 	}
  }
  
- grails.assets.minifyJs = false
- grails.assets.bundle=true
+grails.assets.minifyJs = false
+grails.assets.bundle=true
  
- 
+metrics.servlet.rateUnit = "days"
+metrics.servlet.durationUnit = "hours"
+metrics.core.prependClassName = false
