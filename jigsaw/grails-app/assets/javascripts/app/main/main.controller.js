@@ -439,7 +439,7 @@ angular.module('jigsawApp')
 					$scope.selectedState = stateCode;
 					$scope.getBriefRecallsByState();
                    	$scope.getStateSeverity($scope.selectedState);
-                   $('#state_select').selectpicker('val', $scope.selectedState);
+                  // $('#state_select').selectpicker('val', $scope.selectedState);
 				}
 			}
 		}
