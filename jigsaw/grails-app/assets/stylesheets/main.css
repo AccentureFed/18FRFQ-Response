@@ -1,5 +1,5 @@
 body {
-    background: #fafafa;
+    background: #eeeeee;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -38,22 +38,40 @@ tbody {
     margin-bottom:0;
 }
 
+.navbar {
+	border:none;
+	width: 1000px;
+	margin: 0 auto;
+}
+
 .navbar-black {
 	color: #fff;
     background-color: #323232;
     border-color: #323232;
+	height:40px;
+	border-bottom:1px solid #646464;
 }
 
 .navbar-blue {
 	color: #fff;
     background-color: #003152;
     border-color: #003152;
-    height: 100px;
+    height: 80px;
+}
+
+.fda-header {
+	padding:0;
+}
+
+.navbar-brand {
+	margin: 13px 0 0 10px;
+	padding: 0;
 }
 
 .navbar-header {
 	display: table-cell;
 	vertical-align: middle;
+	height:40px;
 }
 
 .navbar-black .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -151,7 +169,7 @@ img.logo-navbar {
     margin-top:2px;
     margin-bottom:2px;
     margin-left:10px;
-    margin-right:20px;
+    margin-right:10px;
     width:28px;
     height: 30px;
 }
@@ -160,8 +178,8 @@ img.fda-logo-navbar {
     display:inline;
     margin-top:2px;
     margin-bottom:2px;
-    margin-left:10px;
-    margin-right:20px;
+    margin-left:0px;
+    margin-right:10px;
     width:108px;
     height: 46px;
 }
@@ -232,7 +250,11 @@ a{
     box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
 }
 .card-info {
-    border-color: #b8dbf2;
+    height: 60px;
+	border: none;
+	border-bottom: 2px solid #323232;
+	border-radius: 0;
+	padding:0;
 }
 .card-success {
     border-color: #cef2b8;
@@ -241,9 +263,13 @@ a{
     border-color: rgba(255,165,0,.5);
 }
 .card-danger {
-    border-color: #660000;
-    background-color: #FF0000;
     color: white;
+	height: 30px;
+	margin-top: 5px;
+	border-radius: 5px;
+	background-color: rgb(195, 55, 32);
+	border: none;
+	padding:7px;
 }
 .card-primary {
     border-color: #9ca6f1;
@@ -315,3 +341,75 @@ a{
 	background-color: #E6E6E6;
 }
 
+/* Final Design Custom Styling - Russell */
+#content{
+	margin: 0 auto;
+	width: 1000px;
+	float: none;
+	padding:0;
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+#hhsDescription {
+	letter-spacing: 1px;
+	font-size: 9px;
+	margin-top: 12px;
+	display: inline-block;
+}
+
+#fdaDescription {
+	font-size:20px;
+	font-weight:bold;
+	margin-top: 13px;
+	display: inline-block;
+}
+
+#fdaTagline {
+	font-size:16px;
+}
+
+#fdaTaglineInnerSpan {
+	font-style:italic;
+}
+
+#mainContent {
+	border-radius: 0;
+	border: 1px solid #a2a2a2;
+	background-color: white;
+	padding:10px;
+}
+
+.container {
+	padding: 0;
+	width: 100%;
+	position: relative;
+}
+
+.h1 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.h2 {
+	font-size:16px;
+	font-weight:bold;
+}
+
+.row {
+	margin:0;
+}
+
+label {
+	font-size: 0px;
+	visibility: hidden;
+}
+
+.col-lg-4 {
+	padding:0;
+}
+
+.btn , input{
+	height:30px;
+	padding:5px;
+}
