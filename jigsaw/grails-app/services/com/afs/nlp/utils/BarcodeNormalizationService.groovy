@@ -6,8 +6,10 @@ import com.google.common.base.Preconditions
 
 class BarcodeNormalizationService {
 
-    private static final Pattern UPC_PATTERN = ~/(?i)UPC(:)?(\sCode:?)?(\s\#)?(\sNumber:?)?\s([0-9-\s]+[0-9]+)/
-
+    private static final Pattern UPC_PATTERN = ~/(?i)UPC(:|-)?(\sCode:?)?(\s\#)?(\sNumber:?)?\s([0-9- \t]+[0-9]+)/
+	private static final Pattern UPCS_PATTERN = ~/(?i)UPCs(:|-)?(\sCode:?)?(\s\#)?(\sNumber:?)? ([0-9- \t,&(and)]+[0-9]+)/
+	private static final Pattern UPCS_PATTERN2 = ~/(?i)UPCs(:|-)?(\sCode:?)?(\s\#)?(\sNumber:?)?\n([0-9-\s]+[0-9]+)/
+	
     /**
      * Finds all of the UPC Barcode numbers inside of a natural language string.
      * @param naturalLanguageString The string to find upc numbers from. Must not be null.
@@ -16,10 +18,24 @@ class BarcodeNormalizationService {
     def getUPCBarcodeNumbers(def naturalLanguageString) {
         Preconditions.checkNotNull(naturalLanguageString)
         def matcher = UPC_PATTERN.matcher(naturalLanguageString)
-
+		def multiMatcher = UPCS_PATTERN.matcher(naturalLanguageString)
+		def multiMatcher2 = UPCS_PATTERN2.matcher(naturalLanguageString)
+		
         def upcBarcodes = []
         while (matcher.find()) {
             upcBarcodes << matcher.group(5).replace(' ', '').replace('-', '')
+        }
+        while (multiMatcher.find()) {
+            multiMatcher.group(5).replace(' ', '').replace('-', '').split(",|&|and").each {
+				upcBarcodes << it
+			}
+        }
+		
+        while (multiMatcher2.find()) {
+			println("hI" + multiMatcher2.group(5))
+            multiMatcher2.group(5).replace(' ', '').replace('-', '').split("\n").each {
+				upcBarcodes << it
+			}
         }
         return upcBarcodes
     }
