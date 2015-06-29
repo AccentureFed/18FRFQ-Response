@@ -52,6 +52,8 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         compile "com.google.guava:guava:18.0"
+        compile 'com.codahale.metrics:metrics-jvm:3.0.2'
+        compile 'com.codahale.metrics:metrics-servlet:3.0.2'
     }
 
     plugins {
@@ -64,6 +66,10 @@ grails.project.dependency.resolution = {
         compile ":asset-pipeline:2.1.5"
         compile ":mail:1.0.8-SNAPSHOT"
         compile ":quartz:1.0.2"
+        compile ":rest-client-builder:2.1.1"
+        compile(":release:3.1.1",
+                ":rest-client-builder:2.1.1") { export = false }
+        compile ":yammer-metrics:3.0.1-2"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18"

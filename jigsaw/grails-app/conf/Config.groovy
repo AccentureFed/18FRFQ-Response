@@ -135,17 +135,21 @@ log4j.main = {
 }
 
 grails {
-    mail {
-        host = "smtp.gmail.com"
-        port = 465
-        username = "accenturefedjigsaw@gmail.com"
-        password = "18FAccentureAgilex"
-        props = ["mail.smtp.auth":"true",
-            "mail.smtp.socketFactory.port":"465",
-            "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-            "mail.smtp.socketFactory.fallback":"false"]
-    }
-}
-
+	mail {
+	  host = "smtp.gmail.com"
+	  port = 465
+	  username = "accenturefedjigsaw@gmail.com"
+	  password = "18FAccentureAgilex"
+	  props = ["mail.smtp.auth":"true",
+			   "mail.smtp.socketFactory.port":"465",
+			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+			   "mail.smtp.socketFactory.fallback":"false"]
+	}
+ }
+ 
 grails.assets.minifyJs = false
 grails.assets.bundle=true
+ 
+metrics.servlet.rateUnit = "days"
+metrics.servlet.durationUnit = "hours"
+metrics.core.prependClassName = false

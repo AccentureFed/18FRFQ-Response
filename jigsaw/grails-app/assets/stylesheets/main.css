@@ -4,6 +4,10 @@ body {
     color: #333;
 }
 
+.badge {
+	background-color:#666;
+}
+
 /* ==========================================================================
 Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
 ========================================================================== */
@@ -317,6 +321,10 @@ a{
 	color: #EEEEEE;
  	background-color: #666;
  	border-radius: .1em;
+}
+
+.progress span {
+	color: black;
 }
 
 .led {
