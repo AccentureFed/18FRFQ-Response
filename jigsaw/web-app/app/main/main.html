@@ -175,29 +175,20 @@
                 <div><h2 class="h2" ng-show=selectedState>{{totalRecalls}} Recalls for {{selectedState}} between {{startDateValue}} and {{endDateValue}}:</h2><h2 class="h2" ng-show=!selectedState>All Recalls for USA: {{totalRecalls}}</h2></div>
 					<p>Click a description to see more details</p>
                 	<div style="height:300px; overflow:auto">
-		              <table class="table-bordered" style="width:100%; cursor:pointer"">
+		              <table class="table-bordered" style="width:100%; cursor:pointer">
 		                <thead>
 		                  <tr>
-<<<<<<< HEAD
+
 		                    <th scope="col"><h2 class="h2">Food Recall Description</h2></th>
 		                    <th scope="col"><h2 class="h2">Date</h2></th>
 		                    <th scope="col"><h2 class="h2">Severity</h2></th>
-=======
-		                    <th scope="col">Food Recall Description</th>
-		                    <th scope="col">Date</th>
-		                    <th scope="col">Severity</th>
->>>>>>> origin/master
 		                  </tr>
 		                </thead>
 		                <tbody>
 		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
 		                    <td>{{recall.product_description.substring(0,50)}}...</td>
 		                    <td>{{recall.report_date}}</td>
-<<<<<<< HEAD
 		                    <td><div class="severityIndicator" bgcolor="{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}}"></div>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
-=======
-		                    <td bgcolor="{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}}">{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
->>>>>>> origin/master
 		                  </tr>
 		                  <tr ng-show=!recalls>
 		                  	<td>NO RECALL ALERTS</td>
@@ -301,7 +292,6 @@
 			</div><!-- /panel /box -->
 		</div>
 		<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-<<<<<<< HEAD
 			<div class="panel panel-default box follow-fda">
 				<div class="panel-heading">
 					<h2 class="h2 panel-title">Recent FDA Recall Tweets</h2>
@@ -322,21 +312,6 @@
 					</script>
 				</div>
 			</div>
-=======
-			<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/US_FDA" target="_blank" data-widget-id="613665794346610688">Tweets by @US_FDA</a>
-			<script>
-				!function(d,s,id){
-					var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-					if(!d.getElementById(id)){
-						js=d.createElement(s);
-						js.id=id;
-						js.src=p+"://platform.twitter.com/widgets.js";
-						fjs.parentNode.insertBefore(js,fjs);
-					}
-				}
-				(document,"script","twitter-wjs");
-			</script>
->>>>>>> origin/master
 		</div>
 	</div>
 </div>
