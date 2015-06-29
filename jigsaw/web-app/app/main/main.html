@@ -2,22 +2,13 @@
 	<h1 class="h1">FDA Food Recalls</h1>
 	<div class="row">
 		<div class="card card-danger col-sm-12 col-md-12 col-lg-12">
-<<<<<<< HEAD
-<<<<<<< HEAD
-			<span><h2 class="h2">FDA warns consumers about fraudulent Ebola treatment products: Virgina, Maryland, North Carolina...</h2></span>
-=======
-			<span><h4>ALERT: FDA warns consumers about fraudulent Ebola treatment products: Virgina, Maryland, North Carolina...</h4></span>
->>>>>>> origin/master
-=======
-			<span><h4>ALERT: FDA warns consumers about fraudulent Ebola treatment products: Virgina, Maryland, North Carolina...</h4></span>
->>>>>>> origin/master
+
+			<span><h2 class="h2">Alert:FDA warns consumers about fraudulent Ebola treatment products: Virgina, Maryland, North Carolina...</h2></span>
         </div>
 	</div>
 	<div class="row">
 		<div class="card card-info col-sm-12 col-md-12 col-lg-12">
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-<<<<<<< HEAD
-<<<<<<< HEAD
 				<div><h2 class="h2">Filter FDA Food Recalls</h2></div>
                 <div class="hidden"><span><label for="upcSearch" style="width:50%">Search by UPC:</label></span></div>
                 <div class="input-group">
@@ -85,11 +76,6 @@
 				</select>
 			</div>
 			<div id="dateContainer"  class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-=======
-=======
->>>>>>> origin/master
-	        	<div><span><b>View Recalls for the past:</b></span></div>
->>>>>>> origin/master
 	        	<div class="btn-group btn-group-justified">
 	        		<div class="btn-group">
                   		<button type="button" class="btn btn-default" ng-click="setDateRange('week')">Week</button>
@@ -108,11 +94,6 @@
                 	</div>
                 </div>
             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/master
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
             	<div><label for="state_select">State</label></div>
 				<select id="state_select" class="selectpicker" ng-model="selectedState" data-style="header:'States'" ng-change="stateChanged()">
@@ -179,22 +160,12 @@
 				    </span>
                 </div>
         	</div>
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 		</div>
 	</div>
 	<div class="row">
 		<div id="mapCell" ng-show=mapActive class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-<<<<<<< HEAD
-<<<<<<< HEAD
 			<h2>Filter FDA Food Recalls</h2>
 			<p>Click a state to see food recalls specific to that state</p>
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
 			<datamap map="mapObject" style="cursor:pointer"></datamap> 
 		</div>
 		<div class="panel col-md-5 col-lg-5 col-sm-12 col-xs-12">
@@ -214,15 +185,7 @@
 		                <tbody>
 		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
 		                    <td>{{recall.product_description.substring(0,50)}}...</td>
-<<<<<<< HEAD
-<<<<<<< HEAD
 		                    <td><div class="severityIndicator" bgcolor="{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}}"></div>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
-=======
-		                    <td bgcolor="{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}}">{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
->>>>>>> origin/master
-=======
-		                    <td bgcolor="{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}}">{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
->>>>>>> origin/master
 		                  </tr>
 		                  <tr ng-show=!recalls>
 		                  	<td>NO RECALL ALERTS</td>

@@ -23,25 +23,11 @@
         	<div class="row">
 				<div id="content" class="col-md-10 col-md-offset-1">
 			        <div ui-view="navbar" ng-cloak></div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			        <div id="mainContent" class="well" ui-view="content"></div>
 			        <div class="footer navbar-black">
 			        	<p><span class="pull-right">version: {{VERSION}}&nbsp;&nbsp;</span></p>
 			        </div>
-=======
-			        <div class="well" ui-view="content"></div>
-			        <div ui-view="footer"></div>
->>>>>>> origin/master
-=======
-			        <div class="well" ui-view="content"></div>
-			        <div ui-view="footer"></div>
->>>>>>> origin/master
-=======
-			        <div class="well" ui-view="content"></div>
-			        <div ui-view="footer"></div>
->>>>>>> origin/master
+
 			    </div>
 			</div>
 		</div>
