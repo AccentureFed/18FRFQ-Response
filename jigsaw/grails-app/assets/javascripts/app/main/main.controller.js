@@ -673,7 +673,7 @@ angular.module('jigsawApp')
         	});
             
             if ($scope.startDateValue == $scope.endDateValue) {
-            	$scope.setDateRange('month');
+            	$scope.setDateRange('quarter');
             }
     		$scope.getGeoLocation();
         });
