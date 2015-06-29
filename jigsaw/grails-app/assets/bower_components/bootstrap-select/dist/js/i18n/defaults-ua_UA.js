@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
  *
@@ -6,6 +7,15 @@
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
 
+=======
+/*!
+ * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
+ *
+ * Copyright 2013-2015 bootstrap-select
+ * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
+ */
+
+>>>>>>> origin/master
 =======
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
@@ -32,6 +42,7 @@
 }(this, function () {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 (function ($) {
   $.fn.selectpicker.defaults = {
     noneSelectedText: 'Нічого не вибрано',
@@ -41,6 +52,17 @@
     multipleSeparator: ', '
   };
 })(jQuery);
+=======
+(function ($) {
+  $.fn.selectpicker.defaults = {
+    noneSelectedText: 'Нічого не вибрано',
+    noneResultsText: 'Збігів не знайдено {0}',
+    countSelectedText: 'Вибрано {0} із {1}',
+    maxOptionsText: ['Досягнута межа ({n} {var} максимум)', 'Досягнута межа в групі ({n} {var} максимум)', ['items', 'item']],
+    multipleSeparator: ', '
+  };
+})(jQuery);
+>>>>>>> origin/master
 =======
 (function ($) {
   $.fn.selectpicker.defaults = {

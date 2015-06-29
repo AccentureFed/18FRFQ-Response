@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
  *
@@ -6,6 +7,15 @@
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
 
+=======
+/*!
+ * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
+ *
+ * Copyright 2013-2015 bootstrap-select
+ * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
+ */
+
+>>>>>>> origin/master
 =======
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
@@ -32,6 +42,7 @@
 }(this, function () {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 (function ($) {
   $.fn.selectpicker.defaults = {
     noneSelectedText: 'Inget valt',
@@ -50,6 +61,26 @@
     multipleSeparator: ', '
   };
 })(jQuery);
+=======
+(function ($) {
+  $.fn.selectpicker.defaults = {
+    noneSelectedText: 'Inget valt',
+    noneResultsText: 'Inget sökresultat matchar {0}',
+    countSelectedText: function (numSelected, numTotal) {
+      return (numSelected === 1) ? "{0} alternativ valt" : "{0} alternativ valda";
+    },
+    maxOptionsText: function (numAll, numGroup) {
+      return [
+        'Gräns uppnåd (max {n} alternativ)',
+        'Gräns uppnåd (max {n} gruppalternativ)'
+      ];
+    },
+    selectAllText: 'Markera alla',
+    deselectAllText: 'Avmarkera alla',
+    multipleSeparator: ', '
+  };
+})(jQuery);
+>>>>>>> origin/master
 =======
 (function ($) {
   $.fn.selectpicker.defaults = {

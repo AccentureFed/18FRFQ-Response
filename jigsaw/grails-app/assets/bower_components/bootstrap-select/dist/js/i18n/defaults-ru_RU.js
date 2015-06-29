@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
  *
@@ -6,6 +7,15 @@
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
 
+=======
+/*!
+ * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
+ *
+ * Copyright 2013-2015 bootstrap-select
+ * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
+ */
+
+>>>>>>> origin/master
 =======
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
@@ -32,6 +42,7 @@
 }(this, function () {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 (function ($) {
   $.fn.selectpicker.defaults = {
     noneSelectedText: 'Ничего не выбрано',
@@ -42,6 +53,18 @@
     multipleSeparator: ', '
   };
 })(jQuery);
+=======
+(function ($) {
+  $.fn.selectpicker.defaults = {
+    noneSelectedText: 'Ничего не выбрано',
+    noneResultsText: 'Совпадений не найдено {0}',
+    countSelectedText: 'Выбрано {0} из {1}',
+    maxOptionsText: ['Достигнут предел ({n} {var} максимум)', 'Достигнут предел в группе ({n} {var} максимум)', ['items', 'item']],
+    doneButtonText: 'Закрыть',
+    multipleSeparator: ', '
+  };
+})(jQuery);
+>>>>>>> origin/master
 =======
 (function ($) {
   $.fn.selectpicker.defaults = {
