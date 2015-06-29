@@ -448,10 +448,19 @@ angular.module('jigsawApp')
 			for (abbrev in $scope.abbreviationsMap){
 
 				if (state == $scope.abbreviationsMap[abbrev]["name"]){
+
+					if ($scope.selectedState != null && typeof $scope.selectedState != 'undefined') {
+                        $scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
+                    }
+                    if ($scope.oldState){
+                        $scope.mapObject.data[$scope.oldState]['fillKey'] = "defaultFill";
+                    }
 					$scope.selectedState = $scope.abbreviationsMap[abbrev]["abbreviation"];
+                    $scope.oldState = $scope.selectedState;
 					$('#state_select').selectpicker('val', $scope.selectedState);
 					$scope.getBriefRecallsByState();
                    	$scope.getStateSeverity($scope.selectedState);
+
 				}
 			}
 		}
@@ -579,38 +588,47 @@ angular.module('jigsawApp')
     	
     	$scope.getStateSeverity = function(stateObj){
     		if (typeof stateObj != 'undefined' && stateObj != null) {
-    		var severity = "";
-    		RecallInfo.getStateCount(stateObj, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''),
+    		    var severity = "";
+    		    RecallInfo.getStateCount(stateObj, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''),
     			function(data, status){
     				if (!data.error && status != null && status == 200) {
     					if (typeof data.results != 'undefined') {
 		    				var stateAbr = data.stateCode;
-		    				data.results.forEach(function(element, index, array)
-		    				{
-		    					if (element.severity == "high" && severity != "high")
-		    					{
-		    						$scope.mapObject.data[stateAbr]['fillKey'] = "HIGH";
-		    						severity = element.severity;
-		    						return;
-		    					}
-		    					else if (element.severity == "medium" && severity != "high")
-		    					{
-		    						$scope.mapObject.data[stateAbr]['fillKey'] = "MEDIUM";
-		    						severity = element.severity;
-		    					}
-		    					else if (element.severity == "low" && severity == "")
-		    					{
-		    						$scope.mapObject.data[stateAbr]['fillKey'] = "LOW";
-		    						severity = element.severity;
-		    					}
-		    				});
+                            if (data.results.length > 0)
+                            {
+                                data.results.forEach(function(element, index, array)
+                                {
+                                  if (element.severity == "high" && severity != "high")
+                                    {
+                                        $scope.mapObject.data[stateAbr]['fillKey'] = "HIGH";
+                                        severity = element.severity;
+                                        return;
+                                    }
+                                    else if (element.severity == "medium" && severity != "high")
+                                    {
+                                        $scope.mapObject.data[stateAbr]['fillKey'] = "MEDIUM";
+                                        severity = element.severity;
+                                    }
+                                    else if (element.severity == "low" && severity == "")
+                                    {
+                                        $scope.mapObject.data[stateAbr]['fillKey'] = "LOW";
+                                        severity = element.severity;
+                                    }
+                                });
+                             }
+                             //if no results for that part, set it to no recalls
+                        else    {
+                            		$scope.mapObject.data[$scope.selectedState]['fillKey'] = "NO_RECALLS";
+
+                            	}
     					}
     				}
     				else
-    				{	
+    				{
     					if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null)
     					{
     						$scope.mapObject.data[stateObj]['fillKey'] = "NO_RECALLS";
+
     					}
     					else
     					{
@@ -619,6 +637,7 @@ angular.module('jigsawApp')
     				}
     			},
     			function(){
+
 					if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null)
 					{
 						$scope.mapObject.data[stateObj]['fillKey'] = "NO_RECALLS";
