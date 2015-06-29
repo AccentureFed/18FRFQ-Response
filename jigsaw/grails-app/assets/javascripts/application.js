@@ -34,8 +34,11 @@
 //= require app/navbar/navbar.directive.js
 //= require app/navbar/navbar.controller.js
 //= require app/footer/footer.controller.js
+//= require app/appMetrics/appMetrics.controller.js
+//= require app/appMetrics/appMetrics.js
 //= require components/navbar/navbar.service.js
 //= require components/main/main.service.js
+//= require components/appMetrics/appMetrics.service.js
 //= require components/footer/footer.service.js
 //= require app/error/error.js
 //= require app/main/main.js

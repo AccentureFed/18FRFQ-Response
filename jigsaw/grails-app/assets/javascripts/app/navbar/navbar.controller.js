@@ -3,6 +3,7 @@
 angular.module('jigsawApp')
     .controller('NavbarController', function ($scope, $location, $state, NavInfo) {
         $scope.$state = $state;
+        $scope.viewSettings = $state.is('home');
 
         $scope.severity = ['low', 'medium', 'high'];
 
@@ -19,10 +20,6 @@ angular.module('jigsawApp')
             $scope.severitySelection.push(severityName);
           }
           alert($scope.severitySelection);
-        };
-        
-        $scope.toggleStateSelection = function toggleStateSelection(option, checked, select) {
-        	alert($scope.selectedStates);
         };
         
         $('#stateSelect').multiselect({
