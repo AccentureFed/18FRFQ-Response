@@ -81,10 +81,10 @@
                   		<button type="button" class="btn btn-default" ng-click="setDateRange('week')">Week</button>
                   	</div>
                   	<div class="btn-group">
-                  		<button type="button" class="btn btn-default active" ng-click="setDateRange('month')">Month</button>
+                  		<button type="button" class="btn btn-default" ng-click="setDateRange('month')">Month</button>
                   	</div>
                   	<div class="btn-group">
-                  		<button type="button" class="btn btn-default" ng-click="setDateRange('quarter')">Quarter</button>
+                  		<button type="button" class="btn btn-default active" ng-click="setDateRange('quarter')">Quarter</button>
                   	</div>
                   	<div class="btn-group">
                   		<button type="button" class="btn btn-default" ng-click="setDateRange('year')">Year</button>
@@ -178,17 +178,24 @@
 		              <table class="table-bordered" style="width:100%; cursor:pointer"">
 		                <thead>
 		                  <tr>
+<<<<<<< HEAD
 		                    <th scope="col"><h2 class="h2">Food Recall Description</h2></th>
+=======
+		                    <th scope="col">Food Recall Description</th>
+		                    <th scope="col">Date</th>
+>>>>>>> origin/master
 		                    <th scope="col">Severity</th>
 		                  </tr>
 		                </thead>
 		                <tbody>
 		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
 		                    <td>{{recall.product_description.substring(0,50)}}...</td>
+		                    <td>{{recall.report_date}}</td>
 		                    <td><div class="severityIndicator" bgcolor="{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}}"></div>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
 		                  </tr>
 		                  <tr ng-show=!recalls>
 		                  	<td>NO RECALL ALERTS</td>
+		                  	<td>N/A</td>
 		                  	<td>N/A</td>
 		                  </tr>
 		                </tbody>
@@ -269,19 +276,19 @@
 							<a href="http://www.fda.gov/AboutFDA/ContactFDA/ucm2005607.htm" id="anch_79"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> Subscribe to RSS Feeds</a>
 						</li>
 						<li>
-							<a href="https://twitter.com/US_FDA" id="anch_80"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> Follow FDA on Twitter</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_81"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
+							<a href="https://twitter.com/US_FDA" target="_blank" id="anch_80"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> Follow FDA on Twitter</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_81"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
 						</li>
 						<li>
-							<a href="https://www.facebook.com/FDA" id="anch_82"><span aria-hidden="true" class="fa  fa-lg">&nbsp;&nbsp;</span> Follow FDA on Facebook</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_83"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
+							<a href="https://www.facebook.com/FDA" target="_blank" id="anch_82"><span aria-hidden="true" class="fa  fa-lg">&nbsp;&nbsp;</span> Follow FDA on Facebook</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_83"><img alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
 						</li>
 						<li>
-							<a href="http://www.flickr.com/photos/fdaphotos/" id="anch_84"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> View FDA Photostream on Flickr</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_85"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
+							<a href="http://www.flickr.com/photos/fdaphotos/" target="_blank" id="anch_84"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> View FDA Photostream on Flickr</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_85"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
 						</li>
 						<li>
-							<a href="http://www.pinterest.com/usfda/" id="anch_86"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> Follow FDA on Pinterest</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_87"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
+							<a href="http://www.pinterest.com/usfda/" target="_blank" id="anch_86"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> Follow FDA on Pinterest</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_87"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
 						</li>
 						<li>
-							<a href="http://www.youtube.com/user/USFoodandDrugAdmin" id="anch_88"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> View FDA Videos on YouTube</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_89"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
+							<a href="http://www.youtube.com/user/USFoodandDrugAdmin" target="_blank" id="anch_88"><span aria-hidden="true" class="fa fa-lg">&nbsp;&nbsp;</span> View FDA Videos on YouTube</a> &nbsp;<a title="Disclaimer Icon" href="http://www.fda.gov/AboutFDA/AboutThisWebsite/WebsitePolicies/Disclaimers/default.htm" id="anch_89"><img border="0" alt="disclaimer icon" style="border-bottom: 0px; border-left: 0px; margin-top: -0.25em; width: 10px; height: 10px; border-top: 0px; border-right: 0px" src="http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/img_fdagov_exitdisclaimer.png"></a>
 						</li>
 					</ul>
 				</div>
@@ -308,7 +315,6 @@
 					</script>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 </div>
