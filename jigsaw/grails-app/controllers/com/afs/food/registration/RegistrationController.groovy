@@ -3,7 +3,7 @@ package com.afs.food.registration
 import grails.converters.JSON
 
 import com.afs.domain.Registration
-import com.afs.jigsaw.fda.food.api.Classification
+import com.afs.jigsaw.fda.food.api.Severity
 import com.afs.jigsaw.fda.food.api.State
 
 class RegistrationController {
@@ -25,7 +25,7 @@ class RegistrationController {
 	def registerAlerts() {
 		try {
 			def email = params.email
-			def severity = params.severity == null ? null : Classification.valueOf(params.severity.toUpperCase())
+			def severity = params.severity == null ? null : Severity.valueOf(params.severity.toUpperCase())
 			def states = new ArrayList<String>();
 			
 			params.stateCode.each  { val ->

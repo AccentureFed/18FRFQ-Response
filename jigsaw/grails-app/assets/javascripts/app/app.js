@@ -3,9 +3,8 @@
 angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
     'ngResource', 'ui.router', 'ngCookies', 'ngCacheBuster', 'datamaps',])
 
-    .run(function ($rootScope, $location, $window, $http, $state, ENV, VERSION) {
+    .run(function ($rootScope, $location, $window, $http, $state, ENV) {
         $rootScope.ENV = ENV;
-        $rootScope.VERSION = VERSION;
         $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
             $rootScope.toState = toState;
             $rootScope.toStateParams = toStateParams;
@@ -42,12 +41,16 @@ angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
             'abstract': true,
             views: {
                 'navbar@': {
-                    templateUrl: 'components/navbar/navbar.html',
+                    templateUrl: 'app/navbar/navbar.html',
                     controller: 'NavbarController'
                 },
                 'content@': {
                     templateUrl: 'app/main/main.html',
                     controller: 'MainController'
+                },
+                'footer@': {
+                    templateUrl: 'app/footer/footer.html',
+                    controller: 'FooterController'
                 }
             }
         });

@@ -15,6 +15,10 @@
   },
   "_source": "git://github.com/hastebrot/ol3-dist.git",
   "_target": "~3.1.1",
+<<<<<<< HEAD
   "_originalSource": "hastebrot/ol3-dist",
   "_direct": true
+=======
+  "_originalSource": "hastebrot/ol3-dist"
+>>>>>>> feature/geolocation
 }

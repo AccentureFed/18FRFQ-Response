@@ -1,6 +1,6 @@
 package com.afs.domain
 
-import com.afs.jigsaw.fda.food.api.Classification;
+import com.afs.jigsaw.fda.food.api.Severity;
 
 /**
  * Represents a user's registration for notifications
@@ -32,7 +32,7 @@ class Registration {
 	 */
 	String stateList; 
 	
-	Classification classification;
+	Severity classification;
 
 
 	public String getEmailAddress() {
@@ -51,11 +51,11 @@ class Registration {
 		this.stateList = stateList;
 	}
 
-	public Classification getClassification() {
+	public Severity getClassification() {
 		return classification;
 	}
 
-	public void setClassification(Classification classification) {
+	public void setClassification(Severity classification) {
 		this.classification = classification;
 	}
 	

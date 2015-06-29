@@ -206,9 +206,9 @@ img.fda-logo-navbar {
 
 
 .panel-default > .panel-heading {
-    color: #333;
-    background-color:inherit;
-    border-color: #ddd;
+	color: white;
+	background-color: #003152;
+	border-color: #646464;
 }
 
 a{
@@ -250,7 +250,7 @@ a{
     box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
 }
 .card-info {
-    height: 60px;
+    height: 70px;
 	border: none;
 	border-bottom: 2px solid #323232;
 	border-radius: 0;
@@ -377,6 +377,7 @@ a{
 	border: 1px solid #a2a2a2;
 	background-color: white;
 	padding:10px;
+	margin-bottom: 0;
 }
 
 .container {
@@ -394,15 +395,18 @@ a{
 .h2 {
 	font-size:16px;
 	font-weight:bold;
+	color:black;
 }
 
 .row {
 	margin:0;
 }
 
-label {
+.hidden{
 	font-size: 0px;
 	visibility: hidden;
+	height: 0px;
+	padding: 0px;
 }
 
 .col-lg-4 {
@@ -412,4 +416,56 @@ label {
 .btn , input{
 	height:30px;
 	padding:5px;
+}
+
+#stateContainer {
+	margin-top:27px;
+	margin-left:10px;
+	width:initial;
+}
+
+#dateContainer {
+	margin-top:27px;
+	margin-left:10px;
+}
+
+.btn-default, .btn-group {
+	background-color:#eeeeee;
+	border:2px solid #323232;
+	color:black;
+}
+
+.btn-group .btn:first-child , .btn-group .btn:last-child  {
+	border:2px solid #323232;
+}
+
+.btn-group .btn {
+	border-right:none;
+}
+
+.btn-group .btn:last-child  {
+	border-right:border:2px solid #323232;
+}
+
+.table-bordered thead {
+	background-color:#003152;
+	border:1px solid #646464;
+	color:white;
+}
+
+.table-bordered tbody {
+	font-size:16px;
+}
+
+.table-bordered td, .table-bordered th {
+	padding:5px;
+}
+
+.severityIndicator {
+	width: 10px;
+	height: 10px;
+	margin: 10px 3px 0 0;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 5px;
+	display:inline-block;
 }
