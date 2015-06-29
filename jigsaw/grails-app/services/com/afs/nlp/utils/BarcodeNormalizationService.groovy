@@ -6,7 +6,7 @@ import com.google.common.base.Preconditions
 
 class BarcodeNormalizationService {
 
-    private static final Pattern UPC_PATTERN = ~/(?i)UPC(:)?(\sCode:?)?(\sNumber:?)?\s([0-9-\s]+[0-9]+)/
+    private static final Pattern UPC_PATTERN = ~/(?i)UPC(:)?(\sCode:?)?(\s\#)?(\sNumber:?)?\s([0-9-\s]+[0-9]+)/
 
     /**
      * Finds all of the UPC Barcode numbers inside of a natural language string.
@@ -19,7 +19,7 @@ class BarcodeNormalizationService {
 
         def upcBarcodes = []
         while (matcher.find()) {
-            upcBarcodes << matcher.group(4).replace(' ', '').replace('-', '')
+            upcBarcodes << matcher.group(5).replace(' ', '').replace('-', '')
         }
         return upcBarcodes
     }

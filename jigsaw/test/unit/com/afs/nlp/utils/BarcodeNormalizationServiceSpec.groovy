@@ -1,6 +1,6 @@
 package com.afs.nlp.utils
 
-import grails.test.mixin.TestFor
+import grails.test.mixin.*
 import spock.lang.Specification
 
 /**
@@ -76,5 +76,16 @@ class BarcodeNormalizationServiceSpec extends Specification {
 
         then:
         upcNumbers == ['091037544537']
+    }
+
+    void "test find upc numbers 6"() {
+        given:
+        def barcodeService = new BarcodeNormalizationService()
+
+        when:
+        def upcNumbers = barcodeService.getUPCBarcodeNumbers('Hanna ford Gourmet Cookie Platter (36 oz. package),  Includes oatmeal raisin cookies\nUPC # 04126874662')
+
+        then:
+        upcNumbers == ['04126874662']
     }
 }
