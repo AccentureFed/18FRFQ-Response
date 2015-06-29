@@ -58,9 +58,10 @@ class FoodRecallService {
         json.results.each { result ->
             // try to find the states in the natural language value and add it to the result AND find UPC barcodes
             def distributionPattern = result.distribution_pattern
-            def codeInfo = result.code_info
+            def productDescription = result.product_description
+			def codeInfo = result.code_info
 
-            result.normalized_barcodes = barcodeNormalizationService.getUPCBarcodeNumbers("${distributionPattern} ${codeInfo}")
+            result.normalized_barcodes = barcodeNormalizationService.getUPCBarcodeNumbers("${productDescription} ${codeInfo}")
 
             if(distributionPattern.toLowerCase().contains('on site retail')) {
                 // this was distributed at site in the state where it is made
