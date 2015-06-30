@@ -37,6 +37,5 @@
   },
   "_source": "git://github.com/silviomoreto/bootstrap-select.git",
   "_target": "~1.7.3",
-  "_originalSource": "bootstrap-select",
-  "_direct": true
+  "_originalSource": "bootstrap-select"
 }

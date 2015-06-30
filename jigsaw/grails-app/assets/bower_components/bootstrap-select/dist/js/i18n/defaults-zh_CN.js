@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
  *
@@ -7,24 +5,6 @@
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
 
-=======
-/*!
- * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
- *
- * Copyright 2013-2015 bootstrap-select
- * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
- */
-
->>>>>>> origin/master
-=======
-/*!
- * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
- *
- * Copyright 2013-2015 bootstrap-select
- * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
- */
-
->>>>>>> origin/master
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
@@ -41,8 +21,6 @@
   }
 }(this, function () {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 (function ($) {
   $.fn.selectpicker.defaults = {
     noneSelectedText: '没有选中任何项',
@@ -52,28 +30,6 @@
     multipleSeparator: ', '
   };
 })(jQuery);
-=======
-(function ($) {
-  $.fn.selectpicker.defaults = {
-    noneSelectedText: '没有选中任何项',
-    noneResultsText: '没有找到匹配项',
-    countSelectedText: '选中{1}中的{0}项',
-    maxOptionsText: ['超出限制 (最多选择{n}项)', '组选择超出限制(最多选择{n}组)'],
-    multipleSeparator: ', '
-  };
-})(jQuery);
->>>>>>> origin/master
-=======
-(function ($) {
-  $.fn.selectpicker.defaults = {
-    noneSelectedText: '没有选中任何项',
-    noneResultsText: '没有找到匹配项',
-    countSelectedText: '选中{1}中的{0}项',
-    maxOptionsText: ['超出限制 (最多选择{n}项)', '组选择超出限制(最多选择{n}组)'],
-    multipleSeparator: ', '
-  };
-})(jQuery);
->>>>>>> origin/master
 
 
 }));

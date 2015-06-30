@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 /*!
  * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
  *
@@ -7,24 +5,6 @@
  * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
  */
 
-=======
-/*!
- * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
- *
- * Copyright 2013-2015 bootstrap-select
- * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
- */
-
->>>>>>> origin/master
-=======
-/*!
- * Bootstrap-select v1.7.3 (http://silviomoreto.github.io/bootstrap-select)
- *
- * Copyright 2013-2015 bootstrap-select
- * Licensed under MIT (https://github.com/silviomoreto/bootstrap-select/blob/master/LICENSE)
- */
-
->>>>>>> origin/master
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module unless amdModuleId is set
@@ -41,8 +21,6 @@
   }
 }(this, function () {
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 (function ($) {
   $.fn.selectpicker.defaults = {
     noneSelectedText: 'Válasszon!',
@@ -61,46 +39,6 @@
     multipleSeparator: ', '
   };
 })(jQuery);
-=======
-(function ($) {
-  $.fn.selectpicker.defaults = {
-    noneSelectedText: 'Válasszon!',
-    noneResultsText: 'Nincs találat {0}',
-    countSelectedText: function (numSelected, numTotal) {
-      return '{n} elem kiválasztva';
-    },
-    maxOptionsText: function (numAll, numGroup) {
-      return [
-        'Legfeljebb {n} elem választható',
-        'A csoportban legfeljebb {n} elem választható'
-      ];
-    },
-    selectAllText: 'Mind',
-    deselectAllText: 'Egyik sem',
-    multipleSeparator: ', '
-  };
-})(jQuery);
->>>>>>> origin/master
-=======
-(function ($) {
-  $.fn.selectpicker.defaults = {
-    noneSelectedText: 'Válasszon!',
-    noneResultsText: 'Nincs találat {0}',
-    countSelectedText: function (numSelected, numTotal) {
-      return '{n} elem kiválasztva';
-    },
-    maxOptionsText: function (numAll, numGroup) {
-      return [
-        'Legfeljebb {n} elem választható',
-        'A csoportban legfeljebb {n} elem választható'
-      ];
-    },
-    selectAllText: 'Mind',
-    deselectAllText: 'Egyik sem',
-    multipleSeparator: ', '
-  };
-})(jQuery);
->>>>>>> origin/master
 
 
 }));

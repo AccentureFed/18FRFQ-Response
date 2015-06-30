@@ -32,16 +32,9 @@ class BarcodeNormalizationService {
         }
 		
         while (multiMatcher2.find()) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 			println("hI" + multiMatcher2.group(5))
->>>>>>> origin/feature/style_updates
-=======
->>>>>>> origin/master
-=======
->>>>>>> origin/master
+
             multiMatcher2.group(5).replace(' ', '').replace('-', '').split("\n").each {
 				upcBarcodes << it
 			}
