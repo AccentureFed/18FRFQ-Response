@@ -387,6 +387,7 @@ a{
 	background-color: white;
 	padding:10px;
 	margin-bottom: 0;
+	overflow-x:hidden;
 }
 
 .container {
@@ -521,6 +522,15 @@ a{
 
 #mapCell {
 	padding:0;
+	width:30%;
+}
+
+#listCell {
+	width:20%;
+}
+
+#detailsCell {
+	width:30%;
 }
 
 .h2 {
@@ -536,6 +546,36 @@ a{
 #recallsRow {
 	border-bottom: 2px solid #646464;
 	margin-bottom: 20px;
+	width: 200%;
+	margin-left: -25%;
+}
+
+@keyframes slideMapLeft {
+    from {margin-left:30%;}
+    to {margin-left:0%;}
+}
+
+@-webkit-keyframes slideMapLeft {
+	from {margin-left:30%;}
+    to {margin-left:0%;}
+}
+
+@keyframes slideMapRight {
+    from {margin-left:0%;}
+    to {margin-left:30%;}
+}
+
+@-webkit-keyframes slideMapRight {
+    from {margin-left:0%;}
+    to {margin-left:30%;}
+}
+
+.slideLeft {
+	animation: slideMapLeft 2s ease-in-out;
+}
+
+.slideRight {
+	animation: slideMapRight 2s ease-in-out;
 }
 
 @media (max-width: 1050px) { 
@@ -577,8 +617,18 @@ a{
 		font-size:11px;
 	}
 }
+
 @media (max-width: 768px) { 
 	#mapCell {
+		display:none;
+	}
+	
+	#listCell {
+		margin-left:30%;
+		width:50%;
+	}
+	
+	#detailsCell {
 		display:none;
 	}
 	
