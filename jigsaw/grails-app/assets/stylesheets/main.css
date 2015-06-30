@@ -424,6 +424,7 @@ a{
 .btn , input{
 	height:30px;
 	padding:5px;
+	font-weight:normal;
 }
 
 #stateContainer {
@@ -437,7 +438,7 @@ a{
 	margin-left:10px;
 }
 
-.btn-default, .btn-group {
+.btn-default, input {
 	background-color:#eeeeee;
 	border:2px solid #323232;
 	color:black;
@@ -455,6 +456,10 @@ a{
 	border-right:border:2px solid #323232;
 }
 
+.table-bordered {
+	border:none;
+}
+
 .table-bordered thead {
 	background-color:#003152;
 	border:1px solid #646464;
@@ -465,8 +470,18 @@ a{
 	font-size:16px;
 }
 
-.table-bordered td, .table-bordered th {
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
 	padding:5px;
+	border-collapse: separate;
+	border: 1px solid #646464;
+}
+
+.table-bordered th:first-child{
+	border-top-left-radius:4px;
+}
+
+.table-bordered th:last-child{
+	border-top-right-radius:4px;
 }
 
 .severityIndicator {
@@ -477,3 +492,10 @@ a{
 	border-radius: 5px;
 	display:inline-block;
 }
+
+.panel-title, .table-bordered th, .card-danger  .h2  {
+	color:white;
+}
+
+
+
