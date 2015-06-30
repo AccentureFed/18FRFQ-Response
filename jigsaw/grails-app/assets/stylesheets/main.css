@@ -1,5 +1,5 @@
 body {
-    background: #fafafa;
+    background: #eeeeee;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #333;
 }
@@ -42,22 +42,40 @@ tbody {
     margin-bottom:0;
 }
 
+.navbar {
+	border:none;
+	width: 1000px;
+	margin: 0 auto;
+}
+
 .navbar-black {
 	color: #fff;
     background-color: #323232;
     border-color: #323232;
+	height:40px;
+	border-bottom:1px solid #646464;
 }
 
 .navbar-blue {
 	color: #fff;
     background-color: #003152;
     border-color: #003152;
-    height: 100px;
+    height: 80px;
+}
+
+.fda-header {
+	padding:0;
+}
+
+.navbar-brand {
+	padding: 0;
 }
 
 .navbar-header {
 	display: table-cell;
 	vertical-align: middle;
+	height:40px;
+	padding:0;
 }
 
 .navbar-black .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -155,7 +173,7 @@ img.logo-navbar {
     margin-top:2px;
     margin-bottom:2px;
     margin-left:10px;
-    margin-right:20px;
+    margin-right:10px;
     width:28px;
     height: 30px;
 }
@@ -164,8 +182,8 @@ img.fda-logo-navbar {
     display:inline;
     margin-top:2px;
     margin-bottom:2px;
-    margin-left:10px;
-    margin-right:20px;
+    margin-left:0px;
+    margin-right:10px;
     width:108px;
     height: 46px;
 }
@@ -192,9 +210,9 @@ img.fda-logo-navbar {
 
 
 .panel-default > .panel-heading {
-    color: #333;
-    background-color:inherit;
-    border-color: #ddd;
+	color: white;
+	background-color: #003152;
+	border-color: #646464;
 }
 
 a{
@@ -236,7 +254,11 @@ a{
     box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
 }
 .card-info {
-    border-color: #b8dbf2;
+    height: 70px;
+	border: none;
+	border-bottom: 2px solid #323232;
+	border-radius: 0;
+	padding:0;
 }
 .card-success {
     border-color: #cef2b8;
@@ -245,9 +267,13 @@ a{
     border-color: rgba(255,165,0,.5);
 }
 .card-danger {
-    border-color: #660000;
-    background-color: #FF0000;
     color: white;
+	height: 30px;
+	margin-top: 5px;
+	border-radius: 5px;
+	background-color: rgb(195, 55, 32);
+	border: none;
+	padding:7px;
 }
 .card-primary {
     border-color: #9ca6f1;
@@ -321,5 +347,157 @@ a{
 
 .clickable-row:hover {
 	background-color: #E6E6E6;
+}
+
+/* Final Design Custom Styling - Russell */
+#content{
+	margin: 0 auto;
+	width: 1000px;
+	float: none;
+	padding:0;
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+#hhsDescription {
+	letter-spacing: 1px;
+	font-size: 9px;
+	margin-top: 12px;
+	display: inline-block;
+}
+
+#fdaDescription {
+	font-size:20px;
+	font-weight:bold;
+	margin-top: 13px;
+	display: inline-block;
+}
+
+#fdaTagline {
+	font-size:16px;
+}
+
+#fdaTaglineInnerSpan {
+	font-style:italic;
+}
+
+#mainContent {
+	border-radius: 0;
+	border: 1px solid #a2a2a2;
+	background-color: white;
+	padding:10px;
+	margin-bottom: 0;
+}
+
+.container {
+	padding: 0;
+	width: 100%;
+	position: relative;
+}
+
+.h1 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.h2 {
+	font-size:16px;
+	font-weight:bold;
+	color:black;
+}
+
+.row {
+	margin:0;
+}
+
+.hidden{
+	font-size: 0px;
+	visibility: hidden;
+	height: 0px;
+	padding: 0px;
+}
+
+.col-lg-4 {
+	padding:0;
+}
+
+.btn , input{
+	height:30px;
+	padding:5px;
+	font-weight:normal;
+}
+
+#stateContainer {
+	margin-top:27px;
+	margin-left:10px;
+	width:initial;
+}
+
+#dateContainer {
+	margin-top:27px;
+	margin-left:10px;
+}
+
+.btn-default, input {
+	background-color:#eeeeee;
+	border:2px solid #323232;
+	color:black;
+}
+
+.btn-group .btn:first-child , .btn-group .btn:last-child  {
+	border:2px solid #323232;
+}
+
+.btn-group .btn {
+	border-right:none;
+}
+
+.btn-group .btn:last-child  {
+	border-right:border:2px solid #323232;
+}
+
+.table-bordered {
+	border:none;
+}
+
+.table-bordered thead {
+	background-color:#003152;
+	border:1px solid #646464;
+	color:white;
+}
+
+.table-bordered tbody {
+	font-size:16px;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+	padding:5px;
+	border-collapse: separate;
+	border: 1px solid #646464;
+}
+
+.table-bordered th:first-child{
+	border-top-left-radius:4px;
+}
+
+.table-bordered th:last-child{
+	border-top-right-radius:4px;
+}
+
+.severityIndicator {
+	width: 10px;
+	height: 10px;
+	margin: 10px 3px 0 0;
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 5px;
+	display:inline-block;
+}
+
+.panel-title, .table-bordered th, .card-danger  .h2  {
+	color:white;
+}
+
+.panel-body , .panel-heading{
+	border:2px solid #323232;
 }
 
