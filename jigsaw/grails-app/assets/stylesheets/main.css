@@ -538,7 +538,7 @@ a{
 	margin-bottom: 20px;
 }
 
-@media (min-width: 1050px) { 
+@media (max-width: 1050px) { 
 	.container-fluid {
 		padding:0;
 	}
@@ -577,7 +577,7 @@ a{
 		font-size:11px;
 	}
 }
-@media (min-width: 768px) { 
+@media (max-width: 768px) { 
 	#mapCell {
 		display:none;
 	}
