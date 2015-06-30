@@ -497,5 +497,7 @@ a{
 	color:white;
 }
 
-
+.panel-body , .panel-heading{
+	border:2px solid #323232;
+}
 
