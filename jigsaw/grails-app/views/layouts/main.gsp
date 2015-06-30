@@ -21,10 +21,11 @@
         <![endif]-->
         <div class="container-fluid">
         	<div class="row">
-				<div class="col-md-10 col-md-offset-1">
+				<div id="content" class="col-md-10 col-md-offset-1">
 			        <div ui-view="navbar" ng-cloak></div>
-			        <div class="well" ui-view="content"></div>
+			        <div id="mainContent" class="well" ui-view="content"></div>
 			        <div ui-view="footer"></div>
+
 			    </div>
 			</div>
 		</div>
