@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('jigsawApp')
-    .factory('NavInfo', function ($http) {
-
+    .factory('NavInfo', function ($http, $resource) {
         return {
             getVersion: function(callback, error)
             {
@@ -26,15 +25,15 @@ angular.module('jigsawApp')
                 }).
                     error(error);
             },
-            updateAppSettings: function(appSettings, callback, error)
+            updateAppSettings: function(appAlert, callback, error)
             {
                 callback = callback || angular.noop;
                 error = error || angular.noop;
+                
                 $http({url: 'appSettings/updateSettings',
                 	method: "POST",
-                	headers: {'Content-Type': 'application/json'},
-                	data: {appAlert: appSettings}}).success(function(data, status) {
-                    callback(data, status);
+                	params: {appAlert: appAlert}}).success(function(status) {
+                    callback(status);
                 }).
                     error(error);
             }

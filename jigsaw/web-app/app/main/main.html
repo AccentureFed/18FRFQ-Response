@@ -1,10 +1,10 @@
 <div class="container">
 	<h1 class="h1">FDA Food Recalls</h1>
 	<div class="row">
-		<div class="card card-danger col-sm-12 col-md-12 col-lg-12">
-
-			<span><h2 class="h2">Alert:FDA warns consumers about fraudulent Ebola treatment products: Virgina, Maryland, North Carolina...</h2></span>
+		<div class="card card-danger col-sm-12 col-md-12 col-lg-12" ng-show="(appAlert && appAlert != '')">
+			<span><h2 class="h2" ng-model="appAlert">Alert: {{appAlert}}</h2></span>
         </div>
+        <hr ng-hide="appAlert">
 	</div>
 	<div class="row">
 		<div class="card card-info col-sm-12 col-md-12 col-lg-12">

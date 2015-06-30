@@ -19,10 +19,12 @@ class AppSettingsController {
      * @return N/A
      */
     def updateSettings() {
-    	def newAlert = params.appAlert ? params.appAlert : null
-    	if (newAlert) {
-    		def result = appSettingsService.updateAppAlert(newAlert)
-    	}
+    	def returnResult = false
+    	def newAlert = params.appAlert ? params.appAlert : ""
+    	if (newAlert != null) {
+    		returnResult = appSettingsService.updateAppAlert(newAlert)
+    	} 
+    	render returnResult
     }
     
      /**
@@ -31,7 +33,7 @@ class AppSettingsController {
      */
     def getSettings() {
     	def alert = appSettingsService.getAppAlert()
-    	if (alert){
+    	if (alert != null){
     		render (contentType: "application/json"){ appAlert: alert }
     	} else {
     		render (contentType: "application/json"){ appAlert: "" }

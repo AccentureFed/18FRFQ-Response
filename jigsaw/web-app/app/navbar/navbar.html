@@ -116,7 +116,7 @@
     <div class="modal fade" id="mySettingsModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
-                <form name="appSettingsForm" role="form" novalidate ng-submit="updateAppSettings()" show-validation>
+                <form name="appSettingsForm" role="form">
                     <div class="modal-header">
                         <h4 class="modal-title">Food Recall App Settings</h4>
                         <hr>
@@ -134,8 +134,8 @@
                         <button type="button" class="btn btn-warning" data-dismiss="modal" id="settingsCancel">
                             <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
                         </button>
-                        <button ladda="adding" type="submit" ng-disabled="appSettings.$invalid" class="btn btn-success">
-                            <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;<span>Add</span>
+                        <button type="button" class="btn btn-success" ng-click="updateAppSettings()">
+                            <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;<span>Save</span>
                         </button>
                     </div>
                 </form>

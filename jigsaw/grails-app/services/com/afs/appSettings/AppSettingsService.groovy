@@ -14,16 +14,14 @@ class AppSettingsService {
      */
     @Transactional
     def updateAppAlert(String appAlert) {
-    	def newAlert
-		if (appAlert){
-			newAlert = getAppAlert()
-			if (newAlert)
-			{
-				newAlert.setAppAlert(appAlert)
-				return newAlert.save(flush: true)
-			}
+    	def returnResult = false
+    	def newAlert = getAppAlert()
+		newAlert.setAppAlert(appAlert)
+		def result = newAlert.save(flush: true)
+		if (result) {
+			returnResult = true
 		}
-		return null 
+		return returnResult
     }
 
 
@@ -34,9 +32,9 @@ class AppSettingsService {
     @Transactional(readOnly = true)
     def getAppAlert() {
 		def appAlert = AppSettings.first()
-		if (!appAlert){
+		if (appAlert == null){
 			appAlert = new AppSettings(appSettings: "")
-			appAlert.save();
+			appAlert.save(flush:true)
 		}
 		return appAlert
     }
