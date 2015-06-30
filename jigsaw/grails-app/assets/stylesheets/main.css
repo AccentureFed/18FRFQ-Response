@@ -333,6 +333,7 @@ a{
     height: 10px;
     border-radius: 50%;
     box-shadow: #000 0 -1px 7px 1px;
+    display:inline-block;
 }
 
 .led-red {
@@ -343,6 +344,16 @@ a{
 .led-green {
     background-color: #690;
     box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.led-yellow {
+    background-color: #A90;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;
+}
+
+.led-orange {
+    background-color: #FF7000;
+    box-shadow: #000 0 -1px 7px 1px, inset #630 0 -1px 9px, #FF7000 0 2px 12px;
 }
 
 .clickable-row:hover {
@@ -488,7 +499,7 @@ a{
 	width: 10px;
 	height: 10px;
 	margin: 10px 3px 0 0;
-	border: 1px solid rgb(0, 0, 0);
+	/*border: 1px solid rgb(0, 0, 0);*/
 	border-radius: 5px;
 	display:inline-block;
 }
