@@ -435,7 +435,11 @@ a{
 #stateContainer {
 	margin-top:27px;
 	margin-left:10px;
-	width:initial;
+	width:31%;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+	width:100%;
 }
 
 #dateContainer {
