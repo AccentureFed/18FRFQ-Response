@@ -17,7 +17,7 @@ import jigsaw.CacheUpdateJob
 class BootStrap {
 
     def init = { servletContext ->
-            
+            if(Environment.current != Environment.TEST) {
         /**
         *Adding Metrics
         */
@@ -39,6 +39,7 @@ class BootStrap {
 
 		//run cache job
         CacheUpdateJob.triggerNow()
+            }
     }
 
     def destroy = {
