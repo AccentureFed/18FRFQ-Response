@@ -36,7 +36,11 @@ angular.module('jigsawApp')
         
         $scope.loadAppSettings = function(){
         	NavInfo.getAppSettings(function(data, status){
-        		$scope.homePageAlert = data;
+        		if (data.appAlert) {
+        			$scope.homePageAlert = data.appAlert;
+        		} else {
+        			$scope.homePageAlert = "";
+        		}
         		$scope.tempAppAlert = $scope.homePageAlert;
         	}, function(){
         		$scope.homePageAlert = "";
@@ -44,15 +48,25 @@ angular.module('jigsawApp')
         }
         
         $scope.updateAppSettings = function(){
-        	NavInfo.updateAppSettings($scope.tempAppAlert);
+        	NavInfo.updateAppSettings($scope.tempAppAlert, function(status){
+        		$scope.hideAppSettings();
+        		$scope.loadAppSettings();
+        	}, function(){
+        		$scope.loadAppSettings();
+        	});
         }
         
         $scope.showAppSettings = function(){
+        	$scope.loadAppSettings();
     		$("#mySettingsModal").modal({
     			backdrop: 'static',
     			keyboard: false,
     			show: true
     			});
+        }
+        
+        $scope.hideAppSettings = function(){
+    		$("#mySettingsModal").modal('toggle');
         }
         
     });

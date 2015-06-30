@@ -20,7 +20,7 @@ angular.module('jigsawApp')
                 callback = callback || angular.noop;
                 error = error || angular.noop;
 
-                $http({url: 'application/appSettings',
+                $http({url: 'appSettings/getSettings',
                 	method: "GET"}).success(function(data, status) {
                     callback(data, status);
                 }).
@@ -30,8 +30,11 @@ angular.module('jigsawApp')
             {
                 callback = callback || angular.noop;
                 error = error || angular.noop;
-                $http.post('application/updateSettings/', {settings: appSettings}).success(function(status) {
-                    callback(status);
+                $http({url: 'appSettings/updateSettings',
+                	method: "POST",
+                	headers: {'Content-Type': 'application/json'},
+                	data: {appAlert: appSettings}}).success(function(data, status) {
+                    callback(data, status);
                 }).
                     error(error);
             }

@@ -3,29 +3,22 @@ package com.afs.domain
 /**
  * Represents the site settings  
  * 
- * @author josh baker
- *
  */
 class AppSettings {
 
     static constraints = {
-		appAlert blank:true, unique: true
+		appAlert blank:true, unique: true, nullable: false
     }
 	
 	String appAlert
-	DateTime lastUpdated
 
 
 	public String getAppAlert() {
-		return appAlert;
+		return appAlert
 	}
 
-	public void setAppAlert(String newAlert) {
-		this.appAlert = newAlert;
-	}
-	
-	public getLastUpdated() {
-		return this.lastUpdated;
+	public void setAppAlert(String appAlert) {
+		this.appAlert = appAlert
 	}
 	
 }
