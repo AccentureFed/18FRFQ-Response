@@ -68,7 +68,6 @@ tbody {
 }
 
 .navbar-brand {
-	margin: 13px 0 0 10px;
 	padding: 0;
 }
 
@@ -76,6 +75,7 @@ tbody {
 	display: table-cell;
 	vertical-align: middle;
 	height:40px;
+	padding:0;
 }
 
 .navbar-black .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
