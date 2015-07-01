@@ -395,6 +395,7 @@ angular.module('jigsawApp')
 		            }
     			}
 
+    	$scope.mapObject.responsive = true;
     	
     	$scope.showRecallDetail = function(recallInfo){
     		$scope.mapActive = false;
@@ -684,7 +685,6 @@ angular.module('jigsawApp')
         
         angular.element(document).ready(function () {
         	$scope.loadAppSettings();
-        	$scope.mapObject.responsive = true;
 
         	$(".btn-group > .btn").click(function(){
         	    $(this).addClass("active").parent().siblings().children().removeClass("active");
