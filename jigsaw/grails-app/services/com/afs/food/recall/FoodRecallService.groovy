@@ -5,10 +5,8 @@ import grails.transaction.Transactional
 
 import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 
-import org.codehaus.groovy.grails.web.json.JSONArray
 import org.codehaus.groovy.grails.web.json.JSONObject
 
 import com.afs.jigsaw.fda.food.api.*
@@ -59,7 +57,7 @@ class FoodRecallService {
             // try to find the states in the natural language value and add it to the result AND find UPC barcodes
             def distributionPattern = result.distribution_pattern
             def productDescription = result.product_description
-			def codeInfo = result.code_info
+            def codeInfo = result.code_info
 
             result.normalized_barcodes = barcodeNormalizationService.getUPCBarcodeNumbers("${productDescription} ${codeInfo}")
 
@@ -119,6 +117,8 @@ class FoodRecallService {
                     foodRecall.reportDate = dateFormatter.parse(result.report_date)
                     foodRecall.recallNumber = result.recall_number
                     foodRecall.severity = Severity.getByFdaValue(result.classification)
+                    foodRecall.productDescription = result.product_description
+                    foodRecall.recallingFirm = result.recalling_firm
 
                     result.normalized_distribution_pattern.each { stateAbbreviation ->
                         def state = State.fromString(stateAbbreviation)
@@ -149,25 +149,6 @@ class FoodRecallService {
 
         def end = System.nanoTime()
         log.debug("Took ${TimeUnit.NANOSECONDS.toSeconds(end-start)} seconds to cache ${FoodRecall.count()} recalls")
-    }
-
-    /**
-     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
-     */
-    @Transactional(readOnly = true)
-    def getCountOfRecallsWithNoStates() {
-        return FoodRecall.withCriteria { isEmpty 'distributionStates' }.size()
-    }
-
-    /**
-     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
-     */
-    @Transactional(readOnly = true)
-    def getDistributionPatternOfRecallsWithNoStates() {
-        def array = new JSONArray(FoodRecall.withCriteria { isEmpty 'distributionStates' }*.enrichedJSONPayload)
-        def pattern = []
-        array.each { pattern << new JSONObject(it).distribution_pattern }
-        return pattern
     }
 
     /**
@@ -203,7 +184,8 @@ class FoodRecallService {
      * Gets the recalls for the given search criteria.  All fields search fields are optional (state, upc, and start/end dates).
      * Fields that are given are 'AND'ed together.  The results will be ordered by the {@link FoodRecall#reportDate} descending field.
      * @param state The state to get recalls for. If not given, all recalls will be given.
-     * @param upc The upc barcode to get results for. If not given, ignored.
+     * @param searchText Any free-form text to me matched with a UPC (exact match), Product Description (substring match),
+     * or Recalling Firm (substring match). If not given, ignored.
      * @param start The start date to get recalls from. If not given, then the recalls will be from the beginning of time.
      * @param end The end date to get recalls up to. If not given, then the recalls will go until current.
      * @param max The max amount of recalls to get at once. Must be > 0
@@ -211,7 +193,7 @@ class FoodRecallService {
      * @return A list of {@link FoodRecall} recalls that matched the given query, ordered by {@link FoodRecall#reportDate} descending.
      */
     @Transactional(readOnly = true)
-    def getRecalls(final State state, final String upc, final Date start, final Date end, final int max, final int offset) {
+    def getRecalls(final State state, final String searchText, final Date start, final Date end, final int max, final int offset) {
         Preconditions.checkArgument(max > 0, 'The max to get must be > 0')
         Preconditions.checkArgument(offset >=0, 'The offset must be >= 0')
 
@@ -222,8 +204,12 @@ class FoodRecallService {
                 distributionStates { 'in'('state', state) }
             }
 
-            if(upc) {
-                barcodes { 'in'('upcNumber', upc) }
+            if(searchText) {
+                or {
+                    barcodes { 'in'('upcNumber', searchText) }
+                    ilike('productDescription', "%${searchText}%")
+                    ilike('recallingFirm', "%${searchText}%")
+                }
             }
 
             if(start) {
@@ -237,35 +223,6 @@ class FoodRecallService {
             order('reportDate', 'desc')
             order('recallNumber', 'desc')
         }
-    }
-
-    // TODO -------------- ANYTHING UNDER HERE SUBJECT TO REMOVAL ---------------------
-    /**
-     * Send new notifications since the last notification date (in recall_initiation_date)
-     * @return
-     */
-    def sendNotifications() {
-        println("Last notified: ${lastNotified}")
-        if(needUpdate()){
-            println("Sending notifications")
-            def json = new JSONObject(new URL("https://api.fda.gov/food/enforcement.json?search=recall_initiation_date:[${lastNotified}+TO+${LocalDate.now()}]&limit=100").getText())
-            final Set<String> distributionStates = []
-            json.results.each { result ->
-                println("${result.recall_number} - ${result.recall_initiation_date}")
-            }
-            lastNotified = LocalDate.parse(json.meta.last_updated, DateTimeFormatter.ofPattern("yyyy-MM-dd"))
-        }
-    }
-
-    /**
-     * May be OBE - reads RSS feed
-     * @return
-     */
-    def readRss() {
-        def url = "http://www2c.cdc.gov/podcasts/createrss.asp?c=146"
-        def rss = new XmlSlurper().parse(url)
-        println rss.channel.title
-        rss.channel.item.each { item-> println "- ${item.title}" }​
     }
 
 }

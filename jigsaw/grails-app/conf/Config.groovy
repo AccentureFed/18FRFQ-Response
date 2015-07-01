@@ -135,21 +135,45 @@ log4j.main = {
 }
 
 grails {
-	mail {
-	  host = "smtp.gmail.com"
-	  port = 465
-	  username = "accenturefedjigsaw@gmail.com"
-	  password = "18FAccentureAgilex"
-	  props = ["mail.smtp.auth":"true",
-			   "mail.smtp.socketFactory.port":"465",
-			   "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
-			   "mail.smtp.socketFactory.fallback":"false"]
-	}
- }
- 
+    mail {
+        host = "smtp.gmail.com"
+        port = 465
+        username = "accenturefedjigsaw@gmail.com"
+        password = "18FAccentureAgilex"
+        props = ["mail.smtp.auth":"true",
+            "mail.smtp.socketFactory.port":"465",
+            "mail.smtp.socketFactory.class":"javax.net.ssl.SSLSocketFactory",
+            "mail.smtp.socketFactory.fallback":"false"]
+    }
+}
+
 grails.assets.minifyJs = false
 grails.assets.bundle=true
- 
+
 metrics.servlet.rateUnit = "days"
 metrics.servlet.durationUnit = "hours"
 metrics.core.prependClassName = false
+
+security.adminRole = 'ROLE_ADMIN'
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.afs.security.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.afs.security.UserRole'
+grails.plugin.springsecurity.authority.className = 'com.afs.security.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+    '/**/appMetrics/**':[security.adminRole],
+    '/metrics/**':      [security.adminRole],
+    '/appSettings/**':  [security.adminRole],
+    '/':                ['permitAll'],
+    '/#':               ['permitAll'],
+    '/app/**':          ['permitAll'],
+    '/index':           ['permitAll'],
+    '/index.gsp':       ['permitAll'],
+    '/assets/**':       ['permitAll'],
+    '/**/js/**':        ['permitAll'],
+    '/**/css/**':       ['permitAll'],
+    '/**/images/**':    ['permitAll'],
+    '/**/favicon.ico':  ['permitAll'],
+    '/foodRecall/**':   ['permitAll'],
+    '/application/**':  ['permitAll']]
+

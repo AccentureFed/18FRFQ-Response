@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('jigsawApp')
-    .controller('MainController', function ($rootScope, $scope, $state, $timeout, RecallInfo) {
+    .controller('MainController', function ($rootScope, $scope, $state, $timeout, RecallInfo, NavInfo) {
     	var perRequest = 10;
     	var currentDate = new Date();
     	var startDate = new Date();
     	$scope.startDateValue = startDate.toJSON().substring(0, 10);
     	$scope.endDateValue = currentDate.toJSON().substring(0, 10);
+    	$scope.appAlert = null;
         $scope.errors = {};
     	$scope.oldState = null;
     	$scope.selectedState = null;
@@ -17,7 +18,7 @@ angular.module('jigsawApp')
     	$scope.numPages = 0;
     	$scope.page = 1;
     	$scope.totalRecalls = 0;
-    	$scope.upcCode = null;
+    	$scope.searchText = null;
         $scope.statesData = statesData;
         $scope.abbreviationsMap = [
             {
@@ -312,9 +313,8 @@ angular.module('jigsawApp')
     	$scope.mapObject = {
     			  scope: 'usa',
     			  options: {
-    			    width: 700,
-    			    labels: true,
-    			    responsive: true
+    			    width: 600,
+    			    labels: true
     			  },
     			  geographyConfig: {
     			    highlightBorderColor: '#EAA9A8',
@@ -395,6 +395,7 @@ angular.module('jigsawApp')
 		            }
     			}
 
+    	$scope.mapObject.responsive = true;
     	
     	$scope.showRecallDetail = function(recallInfo){
     		$scope.mapActive = false;
@@ -469,7 +470,7 @@ angular.module('jigsawApp')
 		}
 
     	$scope.loadPage = function(pg2Load){
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, pg2Load - 1, perRequest, function(data){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.searchText, pg2Load - 1, perRequest, function(data){
     			if (data != null && data.numResults != null && data.numResults > 0) {
         			$scope.recalls = data.results;
         			$scope.page = pg2Load;
@@ -487,7 +488,7 @@ angular.module('jigsawApp')
     	
     	$scope.getBriefRecallsByState = function(){
     		if ($scope.selectedState != null && typeof $scope.selectedState != 'undefined') {
-	    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, 0, perRequest, function(data){
+	    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.searchText, 0, perRequest, function(data){
 	    			if (data != null && data.numResults != null && data.numResults > 0) {
 	    				$scope.totalRecalls = data.numResults;
 	        			$scope.recalls = data.results;
@@ -599,32 +600,32 @@ angular.module('jigsawApp')
 		    				var stateAbr = data.stateCode;
 		    			    if ($scope.mapObject.data[stateAbr]){
 		    			        if (data.results.length > 0)
-                                                            {
-                                                                data.results.forEach(function(element, index, array)
-                                                                {
-                                                                  if (element.severity == "high" && severity != "high")
-                                                                    {
-                                                                        $scope.mapObject.data[stateAbr]['fillKey'] = "HIGH";
-                                                                        severity = element.severity;
-                                                                        return;
-                                                                    }
-                                                                    else if (element.severity == "medium" && severity != "high")
-                                                                    {
-                                                                        $scope.mapObject.data[stateAbr]['fillKey'] = "MEDIUM";
-                                                                        severity = element.severity;
-                                                                    }
-                                                                    else if (element.severity == "low" && severity == "")
-                                                                    {
-                                                                        $scope.mapObject.data[stateAbr]['fillKey'] = "LOW";
-                                                                        severity = element.severity;
-                                                                    }
-                                                                });
-                                                             }
-                                                             //if no results for that part, set it to no recalls
-                                                        else    {
-                                                            		$scope.mapObject.data[stateAbr]['fillKey'] = "NO_RECALLS";
+                                {
+                                    data.results.forEach(function(element, index, array)
+                                    {
+                                      if (element.severity == "high" && severity != "high")
+                                        {
+                                            $scope.mapObject.data[stateAbr]['fillKey'] = "HIGH";
+                                            severity = element.severity;
+                                            return;
+                                        }
+                                        else if (element.severity == "medium" && severity != "high")
+                                        {
+                                            $scope.mapObject.data[stateAbr]['fillKey'] = "MEDIUM";
+                                            severity = element.severity;
+                                        }
+                                        else if (element.severity == "low" && severity == "")
+                                        {
+                                            $scope.mapObject.data[stateAbr]['fillKey'] = "LOW";
+                                            severity = element.severity;
+                                        }
+                                    });
+                                 }
+                                 //if no results for that part, set it to no recalls
+		    			         else{
+                                		$scope.mapObject.data[stateAbr]['fillKey'] = "NO_RECALLS";
 
-                                                            	}
+                                 }
 		    			    }
 
     					}
@@ -670,7 +671,20 @@ angular.module('jigsawApp')
         	size: 8
         });
         
+        $scope.loadAppSettings = function(){
+        	NavInfo.getAppSettings(function(data, status){
+        		if (data.appAlert) {
+        			$scope.appAlert = data.appAlert;
+        		} else {
+        			$scope.appAlert = "";
+        		}
+        	}, function(){
+        		$scope.appAlert = null;
+        	});
+        }
+        
         angular.element(document).ready(function () {
+        	$scope.loadAppSettings();
 
         	$(".btn-group > .btn").click(function(){
         	    $(this).addClass("active").parent().siblings().children().removeClass("active");

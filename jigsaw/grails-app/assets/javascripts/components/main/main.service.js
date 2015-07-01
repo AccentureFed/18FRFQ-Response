@@ -17,14 +17,14 @@ angular.module('jigsawApp')
                 }).
                     error(error);
             },
-            getRecallDetail: function(stateObj, startDate, endDate, upc, page, limit, callback, error)
+            getRecallDetail: function(stateObj, startDate, endDate, textToSearch, page, limit, callback, error)
             {
                 callback = callback || angular.noop;
                 error = error || angular.noop;
 
                 $http({url: 'foodRecall/recalls',
                 	method: "GET",
-                	params: {stateCode: stateObj, startDate: startDate, endDate: endDate, upc: upc, skip:page, limit: limit}}).success(function(data, status) {
+                	params: {stateCode: stateObj, startDate: startDate, endDate: endDate, searchText: textToSearch, skip:page, limit: limit}}).success(function(data, status) {
                     callback(data, status);
                 }).
                     error(error);
