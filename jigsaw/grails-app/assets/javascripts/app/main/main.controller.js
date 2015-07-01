@@ -313,7 +313,7 @@ angular.module('jigsawApp')
     	$scope.mapObject = {
     			  scope: 'usa',
     			  options: {
-    			    width: 700,
+    			    width: 600,
     			    labels: true
     			  },
     			  geographyConfig: {
