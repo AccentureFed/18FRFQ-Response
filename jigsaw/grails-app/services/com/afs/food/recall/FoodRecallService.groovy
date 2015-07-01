@@ -119,6 +119,7 @@ class FoodRecallService {
                     foodRecall.severity = Severity.getByFdaValue(result.classification)
                     foodRecall.productDescription = result.product_description
                     foodRecall.recallingFirm = result.recalling_firm
+                    foodRecall.reasonForRecall = result.reason_for_recall
 
                     result.normalized_distribution_pattern.each { stateAbbreviation ->
                         def state = State.fromString(stateAbbreviation)
@@ -185,7 +186,7 @@ class FoodRecallService {
      * Fields that are given are 'AND'ed together.  The results will be ordered by the {@link FoodRecall#reportDate} descending field.
      * @param state The state to get recalls for. If not given, all recalls will be given.
      * @param searchText Any free-form text to me matched with a UPC (exact match), Product Description (substring match),
-     * or Recalling Firm (substring match). If not given, ignored.
+     * Recalling Firm (substring match), or Reason for Recall (substring match). If not given, ignored.
      * @param start The start date to get recalls from. If not given, then the recalls will be from the beginning of time.
      * @param end The end date to get recalls up to. If not given, then the recalls will go until current.
      * @param max The max amount of recalls to get at once. Must be > 0
@@ -209,6 +210,7 @@ class FoodRecallService {
                     barcodes { 'in'('upcNumber', searchText) }
                     ilike('productDescription', "%${searchText}%")
                     ilike('recallingFirm', "%${searchText}%")
+                    ilike('reasonForRecall', "%${searchText}%")
                 }
             }
 
