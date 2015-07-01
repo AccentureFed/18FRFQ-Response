@@ -162,7 +162,6 @@ grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.afs.securi
 grails.plugin.springsecurity.authority.className = 'com.afs.security.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/**/appMetrics/**':[security.adminRole],
-    '/registraion/**':  [security.adminRole],
     '/metrics/**':      [security.adminRole],
     '/appSettings/**':  [security.adminRole],
     '/':                ['permitAll'],

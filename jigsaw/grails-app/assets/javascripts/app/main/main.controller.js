@@ -18,7 +18,7 @@ angular.module('jigsawApp')
     	$scope.numPages = 0;
     	$scope.page = 1;
     	$scope.totalRecalls = 0;
-    	$scope.upcCode = null;
+    	$scope.searchText = null;
         $scope.statesData = statesData;
         $scope.abbreviationsMap = [
             {
@@ -470,7 +470,7 @@ angular.module('jigsawApp')
 		}
 
     	$scope.loadPage = function(pg2Load){
-    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, pg2Load - 1, perRequest, function(data){
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.searchText, pg2Load - 1, perRequest, function(data){
     			if (data != null && data.numResults != null && data.numResults > 0) {
         			$scope.recalls = data.results;
         			$scope.page = pg2Load;
@@ -488,7 +488,7 @@ angular.module('jigsawApp')
     	
     	$scope.getBriefRecallsByState = function(){
     		if ($scope.selectedState != null && typeof $scope.selectedState != 'undefined') {
-	    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.upcCode, 0, perRequest, function(data){
+	    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.searchText, 0, perRequest, function(data){
 	    			if (data != null && data.numResults != null && data.numResults > 0) {
 	    				$scope.totalRecalls = data.numResults;
 	        			$scope.recalls = data.results;
