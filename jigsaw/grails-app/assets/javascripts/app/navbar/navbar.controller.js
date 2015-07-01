@@ -3,9 +3,9 @@
 angular.module('jigsawApp')
     .controller('NavbarController', function ($scope, $location, $state, NavInfo) {
         $scope.$state = $state;
-        $scope.viewUserSettings = $state.is('home');
         $scope.viewSettings = $state.is('metrics');
         $scope.homePageAlert = "";
+        $scope.tempAppAlert = "";
 
         $scope.severity = ['low', 'medium', 'high'];
 
