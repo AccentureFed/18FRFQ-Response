@@ -164,6 +164,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/**/appMetrics/**':[security.adminRole],
     '/registraion/**':  [security.adminRole],
     '/metrics/**':      [security.adminRole],
+    '/appSettings/**':  [security.adminRole],
     '/':                ['permitAll'],
     '/#':               ['permitAll'],
     '/app/**':          ['permitAll'],
