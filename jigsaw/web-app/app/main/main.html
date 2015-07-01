@@ -96,7 +96,7 @@
             </div>
    		</div>
 	</div>
-	<div class="row">
+	<div id="recallsRow" class="row">
 		<div id="mapCell" ng-show=mapActive class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
 			<h2 class="h2">National FDA Recalls</h2>
 			<p>Click a state to see food recalls specific to that state</p>
@@ -105,7 +105,6 @@
 		<div class="panel col-md-5 col-lg-5 col-sm-12 col-xs-12">
 			<div class="row">
 	        <div class="container col-md-12 col-sm-12 col-xs-12">
-                <br>
                 <div><h2 class="h2" ng-show=selectedState>{{totalRecalls}} Recalls for {{selectedState}} between {{startDateValue}} and {{endDateValue}}:</h2><h2 class="h2" ng-show=!selectedState>All Recalls for USA: {{totalRecalls}}</h2></div>
 					<p>Click a description to see more details</p>
                 	<div style="height:300px; overflow:auto">
@@ -122,7 +121,7 @@
 		                  <tr class="clickable-row" ng-repeat="recall in recalls" ng-model="recalls" data-code={{recall.recall_number}} ng-click="showRecallDetail(recall)">
 		                    <td>{{recall.product_description.substring(0,50)}}...</td>
 		                    <td>{{recall.report_date}}</td>
-		                    <td><div class="severityIndicator {{(recall.classification) == 'Class I' ? 'led-red' : (recall.classification) == 'Class II' ? 'led-orange' : 'led-yellow'}}"></div>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+		                    <td><div class="severityIndicator" style="background-color:{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}};"></div>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
 		                  </tr>
 		                  <tr ng-show=!recalls>
 		                  	<td>NO RECALL ALERTS</td>
@@ -196,7 +195,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+		<div id="recentTweets" class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
 			<div class="panel panel-default box follow-fda">
 				<div class="panel-heading">
 					<h2 class="h2 panel-title">Recent FDA Recall Tweets</h2>
@@ -218,7 +217,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+		<div id="followFDA" class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
 			<div class="panel panel-default box follow-fda">
 				<div class="panel-heading">
 					<h2 class="h2 panel-title">Follow FDA</h2>

@@ -182,8 +182,9 @@ img.fda-logo-navbar {
     display:inline;
     margin-top:2px;
     margin-bottom:2px;
-    margin-left:0px;
+    margin-left:10px;
     margin-right:10px;
+	margin-top:13px;
     width:108px;
     height: 46px;
 }
@@ -256,7 +257,7 @@ a{
 .card-info {
     height: 70px;
 	border: none;
-	border-bottom: 2px solid #323232;
+	border-bottom: 2px solid #646464;
 	border-radius: 0;
 	padding:0;
 }
@@ -432,16 +433,24 @@ a{
 	padding:0;
 }
 
-.btn , input{
+.btn , #upcSearch{
 	height:30px;
 	padding:5px;
 	font-weight:normal;
+	background-color:#eeeeee;
+	border:2px solid #646464;
+	color:black;
+	line-height:initial;
 }
 
 #stateContainer {
 	margin-top:27px;
 	margin-left:10px;
-	width:initial;
+	width:31%;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+	width:100%;
 }
 
 #dateContainer {
@@ -449,14 +458,8 @@ a{
 	margin-left:10px;
 }
 
-.btn-default, input {
-	background-color:#eeeeee;
-	border:2px solid #323232;
-	color:black;
-}
-
 .btn-group .btn:first-child , .btn-group .btn:last-child  {
-	border:2px solid #323232;
+	border:2px solid #646464;
 }
 
 .btn-group .btn {
@@ -464,7 +467,7 @@ a{
 }
 
 .btn-group .btn:last-child  {
-	border-right:border:2px solid #323232;
+	border-right:border:2px solid #646464;
 }
 
 .table-bordered {
@@ -488,11 +491,11 @@ a{
 }
 
 .table-bordered th:first-child{
-	border-top-left-radius:4px;
+	border-top-left-radius:0px;
 }
 
 .table-bordered th:last-child{
-	border-top-right-radius:4px;
+	border-top-right-radius:0px;
 }
 
 .severityIndicator {
@@ -504,11 +507,118 @@ a{
 	display:inline-block;
 }
 
-.panel-title, .table-bordered th, .card-danger  .h2  {
+.panel-title, .table-bordered th .h2, .card-danger  .h2  {
 	color:white;
 }
 
-.panel-body , .panel-heading{
-	border:2px solid #323232;
+.table-bordered th .h2 {
+	padding-top:10px;
 }
 
+.panel-body , .panel-heading{
+	border:1px solid #646464;
+}
+
+.panel-body {
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default, .btn:hover, .btn:focus, .btn:active {
+	background-color:#003152;
+	color:white;
+	border: 2px solid #646464;
+}
+
+#mapCell {
+	padding:0;
+}
+
+.h2 {
+	margin-top:0;
+}
+
+.panel {
+	box-shadow:none;
+	-webkit-box-shadow:none;
+	border:none;
+}
+
+#recallsRow {
+	border-bottom: 2px solid #646464;
+	margin-bottom: 20px;
+}
+
+@media (max-width: 1050px) { 
+	.container-fluid {
+		padding:0;
+	}
+	
+	#content {
+		width:100%;
+	}
+	
+	#mainContent {
+		border:none;
+	}
+	
+	.navbar {
+		width:100%;
+	}
+	
+	.card-danger {
+		height:auto;
+	}
+	
+	.card-danger  .h2  {
+		margin-bottom:0;
+	}
+	
+	#img.fda-logo-navbar {
+		width:80px;
+		margin-top:5px;
+	}
+	
+	#fdaDescription {
+		font-size:16px;
+		margin-top:18px;
+	}
+	
+	.btn {
+		font-size:11px;
+	}
+}
+@media (max-width: 768px) { 
+	#mapCell {
+		display:none;
+	}
+	
+	.btn {
+		font-size:14px;
+	}
+	
+	#stateContainer, #dateContainer {
+		margin-left:0;
+		margin-top:10px;
+	}
+	
+	#stateContainer {
+		width:100%;
+	}
+	
+	.card-info {
+		height:155px;
+	}
+	
+	#fdaDescription {
+		font-size:11px;
+	}
+	
+	.navbar-blue {
+		height:55px;
+	}
+	
+	#recentTweets, #followFDA {
+		padding:0;
+	}
+}
