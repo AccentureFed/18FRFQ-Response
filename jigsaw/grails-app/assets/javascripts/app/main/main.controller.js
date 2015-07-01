@@ -313,7 +313,8 @@ angular.module('jigsawApp')
     			  scope: 'usa',
     			  options: {
     			    width: 700,
-    			    labels: true
+    			    labels: true,
+    			    responsive: true
     			  },
     			  geographyConfig: {
     			    highlightBorderColor: '#EAA9A8',
@@ -670,8 +671,6 @@ angular.module('jigsawApp')
         });
         
         angular.element(document).ready(function () {
-            
-        	$scope.mapObject.responsive = true;
 
         	$(".btn-group > .btn").click(function(){
         	    $(this).addClass("active").parent().siblings().children().removeClass("active");
