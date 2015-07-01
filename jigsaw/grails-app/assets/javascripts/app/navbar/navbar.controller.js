@@ -3,7 +3,9 @@
 angular.module('jigsawApp')
     .controller('NavbarController', function ($scope, $location, $state, NavInfo) {
         $scope.$state = $state;
-        $scope.viewSettings = $state.is('home');
+        $scope.viewUserSettings = $state.is('home');
+        $scope.viewSettings = $state.is('metrics');
+        $scope.homePageAlert = "";
 
         $scope.severity = ['low', 'medium', 'high'];
 
@@ -31,5 +33,40 @@ angular.module('jigsawApp')
             nonSelectedText: 'Select State(s)',
             buttonWidth: '200px'
         });
+        
+        $scope.loadAppSettings = function(){
+        	NavInfo.getAppSettings(function(data, status){
+        		if (data.appAlert) {
+        			$scope.homePageAlert = data.appAlert;
+        		} else {
+        			$scope.homePageAlert = "";
+        		}
+        		$scope.tempAppAlert = $scope.homePageAlert;
+        	}, function(){
+        		$scope.homePageAlert = "";
+        	});
+        }
+        
+        $scope.updateAppSettings = function(){
+        	NavInfo.updateAppSettings($scope.tempAppAlert, function(status){
+        		$scope.hideAppSettings();
+        		$scope.loadAppSettings();
+        	}, function(){
+        		$scope.loadAppSettings();
+        	});
+        }
+        
+        $scope.showAppSettings = function(){
+        	$scope.loadAppSettings();
+    		$("#mySettingsModal").modal({
+    			backdrop: 'static',
+    			keyboard: false,
+    			show: true
+    			});
+        }
+        
+        $scope.hideAppSettings = function(){
+    		$("#mySettingsModal").modal('toggle');
+        }
         
     });

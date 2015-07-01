@@ -20,7 +20,7 @@ import com.codahale.metrics.servlet.InstrumentedFilter
 import jigsaw.CacheUpdateJob
 
 class BootStrap {
-    
+
     def grailsApplication
 
     def init = { servletContext ->
@@ -62,7 +62,7 @@ class BootStrap {
             HealthChecks.register("filestorage",new StorageHealthCheck())
 
             //run cache job
-            //CacheUpdateJob.triggerNow()
+            CacheUpdateJob.triggerNow()
         }
     }
 
