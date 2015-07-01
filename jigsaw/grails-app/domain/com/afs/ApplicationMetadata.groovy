@@ -3,7 +3,7 @@ package com.afs
 class ApplicationMetadata {
 
     String metadataKey
-    String metadataValue
+    String metadataValue = ''
 
     static constraints = {
         metadataKey unique: true, blank: false, nullable: false

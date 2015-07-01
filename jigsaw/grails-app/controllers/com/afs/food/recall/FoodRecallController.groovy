@@ -13,20 +13,6 @@ class FoodRecallController {
     def foodRecallService
 
     /**
-     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
-     */
-    def countRecallsNoState() {
-        render foodRecallService.getCountOfRecallsWithNoStates()
-    }
-
-    /**
-     * TODO: REMOVE -- FOR TESTING PURPOSES ONLY
-     */
-    def distributionRecallsNoState() {
-        render foodRecallService.getDistributionPatternOfRecallsWithNoStates()
-    }
-
-    /**
      * Used to return a count of recalls for each severity for the given params
      *
      *<p>
@@ -60,11 +46,13 @@ class FoodRecallController {
      * params include:<br />
      * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can
      * be any name or abbreviation of a state<br />
+     * <strong>searchText</strong> - Optional. Any free-form text to me matched with a UPC (exact match), Product Description (substring match),
+     * or Recalling Firm (substring match)<br />
+     * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
+     * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * <strong>limit</strong> - Optional.  Numeric.  The number of results to return. 10 is default<br />
      * <strong>skip</strong> - Optional.  Numeric.  The page number to get. The first recall record will be from the offset of limit*skip.
      * Default is 0 (The page numbers are 0-based)<br />
-     * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
-     * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * </p>
      *
      * Only if both dates are provided will a date specific search be used.  If either is not provided, then no date constraint will be added to the search.
@@ -82,7 +70,7 @@ class FoodRecallController {
         def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
         def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
 
-        def recalls = foodRecallService.getRecalls(state, params.upc, startDate, endDate, limit, skip)
+        def recalls = foodRecallService.getRecalls(state, params.searchText, startDate, endDate, limit, skip)
         def resultsJSON = recalls*.enrichedJSONPayload.collect { new JSONObject(it) }
         render ([limit: limit, skip: skip/limit, numResults: recalls.getTotalCount(), results: resultsJSON] as JSON)
     }

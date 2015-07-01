@@ -1,42 +1,38 @@
 package com.afs.appSettings
-import com.afs.domain.AppSettings
-
 import grails.transaction.Transactional
+
+import com.afs.ApplicationMetadata
 
 
 class AppSettingsService {
 
+    private static final def APP_BANNER_KEY = 'appBanner'
 
     /**
-     * Updates singleton AppSettings row
-     * @param appAlert the new appAlert to save
-     * @return boolean
+     * Updates the app banner setting
+     * @param appAlert the new app banner text to use
+     * @return boolean True if the update succeeded; False otherwise
      */
     @Transactional
-    def updateAppAlert(String appAlert) {
-    	def returnResult = false
-    	def newAlert = getAppAlert()
-		newAlert.setAppAlert(appAlert)
-		def result = newAlert.save(flush: true)
-		if (result) {
-			returnResult = true
-		}
-		return returnResult
+    def updateAppAlert(def String appAlert) {
+        def banner = ApplicationMetadata.findByMetadataKey(APP_BANNER_KEY) ?: new ApplicationMetadata()
+        banner.metadataKey = APP_BANNER_KEY
+        banner.metadataValue = appAlert
+        if(!banner.save()) {
+            log.error("Error saving the app banner update: ${banner.errors}")
+            return false
+        }
+        return true
     }
 
 
     /**
-     * Gets the AppSettings
-     * @return singleton AppSettings row
+     * Gets the App Banner setting
+     * @return The app banner string
      */
     @Transactional(readOnly = true)
     def getAppAlert() {
-		def appAlert = AppSettings.first()
-		if (appAlert == null){
-			appAlert = new AppSettings(appSettings: "")
-			appAlert.save(flush:true)
-		}
-		return appAlert
+        def banner = ApplicationMetadata.findByMetadataKey(APP_BANNER_KEY) ?: new ApplicationMetadata()
+        return banner.metadataValue
     }
-
 }
