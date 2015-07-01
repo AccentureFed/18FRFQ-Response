@@ -31,16 +31,31 @@ class FoodRecall {
     Severity severity
 
     /**
+     * A product description of the food item. Used for keyword search enrichment purposes.
+     */
+    String productDescription
+
+    /**
+     * The recalling firm of the food item. Used for keyword search enrichment purposes.
+     */
+    String recallingFirm
+
+    /**
      * Contains our enriched distribution pattern
      */
     static hasMany = [distributionStates: RecallState, barcodes: UPCBarcode]
 
-    static mapping = { enrichedJSONPayload type: 'text' }
+    static mapping = {
+        enrichedJSONPayload type: 'text'
+        productDescription type: 'text'
+    }
 
     static constraints = {
         enrichedJSONPayload blank: false, nullable: false
         recallNumber unique: true, blank: false, nullable: false
         reportDate nullable: false
         severity blank: false, nullable: false
+        productDescription blank: false, nullable: false
+        recallingFirm blank: false, nullable: false
     }
 }
