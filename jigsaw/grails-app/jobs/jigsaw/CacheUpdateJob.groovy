@@ -18,7 +18,7 @@ class CacheUpdateJob {
         cron name: 'cacheUpdater', cronExpression: "0 0 4 * * ?"
     }
     def group = 'Jigsaw'
-    def description = 'Updates the Jigsaw cache with new data.
+    def description = 'Updates the Jigsaw cache with new data.'
 
     private static final def log = LoggerFactory.getLogger(CacheUpdateJob.class)
     private static final def LAST_UPDATED_METADATA_KEY = 'lastUpdated'
