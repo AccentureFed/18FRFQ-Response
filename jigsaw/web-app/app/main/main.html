@@ -8,7 +8,7 @@
 	</div>
 	<div class="row">
 		<div class="card card-info col-sm-12 col-md-12 col-lg-12">
-			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 				<div><h2 class="h2">Filter FDA Food Recalls</h2></div>
                 <div class="hidden"><span><label for="textSearch" style="width:50%">Search:</label></span></div>
                 <div class="input-group">
@@ -18,7 +18,7 @@
 				    </span>
                 </div>
         	</div>
-            <div id="stateContainer" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div id="stateContainer" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
             	<div class="hidden"><label for="state_select">State</label></div>
 				<select id="state_select" class="selectpicker" ng-model="selectedState" data-style="header:'States'" ng-change="stateChanged()">
 					<option value={{null}}>Select State</option>				
@@ -75,7 +75,7 @@
 					<option value="WY">Wyoming</option>
 				</select>
 			</div>
-			<div id="dateContainer"  class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+			<div id="dateContainer"  class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 	        	<div class="btn-group btn-group-justified">
 	        		<div class="btn-group">
                   		<button type="button" class="btn btn-default" ng-click="setDateRange('week')">Week</button>
@@ -102,13 +102,13 @@
 			<p>Click a state to see food recalls specific to that state</p>
 			<datamap map="mapObject" style="left: -14%; padding-top: 10px; cursor:pointer"></datamap>
 		</div>
-		<div class="panel col-md-5 col-lg-5 col-sm-12 col-xs-12">
+		<div id="recallListCell" class="panel col-md-5 col-lg-5 col-sm-6 col-xs-12">
 			<div class="row">
 	        <div class="container col-md-12 col-sm-12 col-xs-12">
                 <div><h2 class="h2" ng-show=selectedState>{{totalRecalls}} Recalls for {{selectedState}} between {{startDateValue}} and {{endDateValue}}:</h2><h2 class="h2" ng-show=!selectedState>All Recalls for USA: {{totalRecalls}}</h2></div>
 					<p>Click a description to see more details</p>
-                	<div style="height:300px; overflow:auto">
-		              <table class="table-bordered" style="width:100%; cursor:pointer">
+                	<div style="height:300px;">
+		              <table id="recallListTable" class="table-bordered">
 		                <thead>
 		                  <tr>
 
@@ -124,9 +124,9 @@
 		                    <td><div class="severityIndicator" style="background-color:{{(recall.classification) == 'Class I' ? 'red' : (recall.classification) == 'Class II' ? 'orange' : 'yellow'}};"></div>{{(recall.classification) == 'Class I' ? 'High' : (recall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
 		                  </tr>
 		                  <tr ng-show=!recalls>
-		                  	<td>NO RECALL ALERTS</td>
-		                  	<td>N/A</td>
-		                  	<td>N/A</td>
+		                  	<td style="width:215px;">NO RECALL ALERTS</td>
+		                  	<td style="width:83px;">N/A</td>
+		                  	<td style="width:108px;">N/A</td>
 		                  </tr>
 		                </tbody>
 		            </table>
