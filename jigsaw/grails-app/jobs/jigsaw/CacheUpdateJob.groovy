@@ -45,7 +45,7 @@ class CacheUpdateJob {
                 }
             }
         } catch(all) {
-            log.error('An error occurred while updating the cache, will try again in 5 minnutes...')
+            log.error('An error occurred while updating the cache, will try again in 5 minnutes...', all)
 
             def currentDate = new Date()
             def scheduledDate

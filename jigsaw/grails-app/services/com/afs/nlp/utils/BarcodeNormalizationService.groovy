@@ -3,6 +3,7 @@ package com.afs.nlp.utils
 import java.util.regex.Pattern
 
 import com.google.common.base.Preconditions
+import com.google.common.collect.Lists
 
 class BarcodeNormalizationService {
 
@@ -21,7 +22,7 @@ class BarcodeNormalizationService {
         def multiMatcher = UPCS_PATTERN.matcher(naturalLanguageString)
         def multiMatcher2 = UPCS_PATTERN2.matcher(naturalLanguageString)
 
-        def upcBarcodes = []
+        Set<String> upcBarcodes = []
         while (matcher.find()) {
             upcBarcodes << matcher.group(5).replace(' ', '').replace('-', '')
         }
@@ -32,6 +33,6 @@ class BarcodeNormalizationService {
         while (multiMatcher2.find()) {
             multiMatcher2.group(5).replace(' ', '').replace('-', '').split("\n").each { upcBarcodes << it }
         }
-        return upcBarcodes
+        return Lists.newArrayList(upcBarcodes)
     }
 }
