@@ -14,7 +14,7 @@ Local and remote usability testing was conducted.
 
 [![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/alison-usability.png?raw=true)](https://vimeo.com/132240054)
 
-[![ScreenShot](https://github.com/AccentureFed/jigsaw-documentation/blob/master/screenshots/6-24-go-to-meeting-capture.png)](https://vimeo.com/132240058)
+[![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/6-24-go-to-meeting-capture.png?raw=true)](https://vimeo.com/132240058)
 
 
 Based on feedback received, the designs were refined and iterations made. 
@@ -23,14 +23,14 @@ A field survey was conducted at a local grocery chain to gain hands on feedback 
 
 The Site Survey entailed the following questions:
 
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true
+[Survey Responses](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true)
 
 Jeff, was one of our respondants 
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true)
 
 Our team brought in a 508 SME in addition to our designer to facilitate 508 testing.   508 testing was done utilizing JAWS, the Wat tool bar and Keyboard Accessibility. 
 
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/508-testing.MOV?raw=true
+[[!ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/508-testing.png?raw=true)](https://vimeo.com/132240055)
 
 Through hands on testing feedback drove substantial design and functionality changes within the prototype. These changes were added to the backlog and the product owner prioritized them amongst the other outstanding tasks. 
 
