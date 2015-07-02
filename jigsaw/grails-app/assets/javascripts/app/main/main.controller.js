@@ -398,8 +398,12 @@ angular.module('jigsawApp')
     	$scope.mapObject.responsive = true;
     	
     	$scope.showRecallDetail = function(recallInfo){
-    		$scope.mapActive = false;
     		$scope.currentRecall = recallInfo;
+    		$("#recallDetailsModal").modal({
+    			backdrop: 'static',
+    			keyboard: false,
+    			show: true
+    			});
     	}
     	
     	$scope.stateChanged = function(){

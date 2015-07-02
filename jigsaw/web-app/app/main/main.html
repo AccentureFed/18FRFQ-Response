@@ -97,7 +97,7 @@
    		</div>
 	</div>
 	<div id="recallsRow" class="row">
-		<div id="mapCell" ng-show=mapActive class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+		<div id="mapCell" class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
 			<h2 class="h2">National FDA Recalls</h2>
 			<p>Click a state to see food recalls specific to that state</p>
 			<datamap map="mapObject" style="left: -14%; padding-top: 10px; cursor:pointer"></datamap>
@@ -144,54 +144,6 @@
 		        </div>
 	        </div>
 	        </div>
-		</div>
-		<div id="detailsCell" ng-show=!mapActive class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-			<div id="recallDetails" style="width: 100%;" ng-model="currentRecall">
-				<ol class="breadcrumb breadcrumb-arrow">
-					<li class="backup"><a ng-click="showMap()"><span><i class="fa fa-compass fa-2x"></i></span>&#xA0;<span>Map</span></a></li>
-					<li class="active"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&#xA0;Recall details: <b>{{currentRecall.recalling_firm}}</b></span></li>
-				</ol>
-				<div class="panel panel-primary" style="height:310px; overflow:auto">
-				<table class="table-bordered" style="width:100%">
-	                <thead>
-	                  <tr>
-	                    <th width="25%" scope="col"><h2 class="h2 panel-title">Food Recall Detail</h2></th>
-	                    <th scope="col"><h2 class="h2 panel-title">Value</h2></th>
-	                  </tr>
-	                </thead>
-	                <tbody>
-	                  <tr>
-	                    <td>Reason for Recall</td>
-	                    <td>{{currentRecall.reason_for_recall}}</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Classification</td>
-	                    <td>{{currentRecall.classification}}</td>
-	                  </tr>
-					  <tr>
-	                    <td>Severity</td>
-	                    <td>{{(currentRecall.classification) == 'Class I' ? 'High' : (currentRecall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Recall Number</td>
-	                    <td>{{currentRecall.recall_number}}</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Quantity</td>
-	                    <td>{{currentRecall.product_quantity}}</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Code Info</td>
-	                    <td>{{currentRecall.code_info}}</td>
-	                  </tr>
-	                  <tr>
-	                    <td>Distribution</td>
-	                    <td>{{currentRecall.distribution_pattern}}</td>
-	                  </tr>
-	                </tbody>
-		        </table>
-		        </div>
-			</div>
 		</div>
 	</div>
 	<div class="row">
@@ -247,4 +199,71 @@
 			</div><!-- /panel /box -->
 		</div>
 	</div>
+</div>
+
+<!-- Modal used to display the recall details -->
+<div id="recallDetailsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Recall Deatails</h4>
+            </div>
+            <div class="modal-body well">
+            	<div class="container-fluid">
+            		<div id="detailsCell">
+						<div id="recallDetails" style="width: 100%;" ng-model="currentRecall">
+							<ol class="breadcrumb breadcrumb-arrow">
+								<li class="backup"><a data-dismiss="modal"><span><i class="fa fa-compass fa-2x"></i></span>&#xA0;<span>Map</span></a></li>
+								<li class="active"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&#xA0;Recall details: <b>{{currentRecall.recalling_firm}}</b></span></li>
+							</ol>
+							<div class="panel panel-primary" style="height:310px; overflow:auto">
+							<table class="table-bordered" style="width:100%">
+				                <thead>
+				                  <tr>
+				                    <th width="25%" scope="col"><h2 class="h2 panel-title">Food Recall Detail</h2></th>
+				                    <th scope="col"><h2 class="h2 panel-title">Value</h2></th>
+				                  </tr>
+				                </thead>
+				                <tbody>
+				                  <tr>
+				                    <td>Reason for Recall</td>
+				                    <td>{{currentRecall.reason_for_recall}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Classification</td>
+				                    <td>{{currentRecall.classification}}</td>
+				                  </tr>
+								  <tr>
+				                    <td>Severity</td>
+				                    <td>{{(currentRecall.classification) == 'Class I' ? 'High' : (currentRecall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Recall Number</td>
+				                    <td>{{currentRecall.recall_number}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Quantity</td>
+				                    <td>{{currentRecall.product_quantity}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Code Info</td>
+				                    <td>{{currentRecall.code_info}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Distribution</td>
+				                    <td>{{currentRecall.distribution_pattern}}</td>
+				                  </tr>
+				                </tbody>
+					        </table>
+					        </div>
+						</div>
+            		</div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

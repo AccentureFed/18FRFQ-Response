@@ -16,5 +16,9 @@ angular.module('jigsawApp')
         	});
         }
         
+        $scope.showMetrics = function () {
+        	$scope.$state.go('metrics');
+        }
+        
         $scope.getVersion();
     });

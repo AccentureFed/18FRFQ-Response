@@ -51,6 +51,10 @@ angular.module('jigsawApp')
     		$("#threadBtn").disabled = false;
         }
         
+        $scope.showRecalls = function() {
+        	$scope.$state.go('home');
+        }
+        
         $scope.getMetrics();
         
     });
