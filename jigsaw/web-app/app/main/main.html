@@ -207,15 +207,12 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="h2 modal-title" id="myModalLabel">Recall Deatails</h2>
+                <h2 class="h2 modal-title" id="myModalLabel"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&nbsp;Recall Deatails: {{currentRecall.recalling_firm}}</h2>
             </div>
             <div class="modal-body well">
             	<div class="container-fluid">
             		<div id="detailsCell">
 						<div id="recallDetails" style="width: 100%;" ng-model="currentRecall">
-							<ol class="breadcrumb breadcrumb-arrow">
-								<li class="active"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&#xA0;Recall details: <b>{{currentRecall.recalling_firm}}</b></span></li>
-							</ol>
 							<div class="panel panel-primary" style="height:310px; overflow:auto">
 							<table class="table-bordered" style="width:100%">
 				                <thead>
