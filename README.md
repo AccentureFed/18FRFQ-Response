@@ -1,4 +1,4 @@
-[Working Prototype](https://jigsaw.agilex-devcloud.com:8443/jigsaw/#/)
+[Working Prototype](http://52.1.100.220:8080/jigsaw/#/)
 
 ![alt tag](/agile-process-photos/response-images/proposal-header.png?raw=true)
 
