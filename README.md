@@ -28,9 +28,9 @@ Usability testing was implemented in a series of steps.  Multiple iterations wer
 ## Technology Choices 
 Open source technologies allowed our team to drive efficiencies through cost, time, reliability and value.   The underlying platforms used in our prototype are openly licensed and free.  A complete list of tools used can be found here: PLACE URL HERE 
 ## Development 
-# Used 4 API's (List them)  
-# UCD drove API's (List them)  
-# Front end development drove APIs (List them) - front end developers produced the spec's and the backend developers created the working API', as identified.  
+1. Used 4 API's (List them)  
+2. UCD drove API's (List them)  
+3. Front end development drove APIs (List them) - front end developers produced the spec's and the backend developers created the working API', as identified.  
 The team both provided and consumed a RESTfull API (List them).  Development dependencies across layers of the architecture was mitigated by first creating a shell end-point available to begin to integrate with.    Developer review and interaction with the shell end-points results in feedback and resulting changes.  Ultimately a final API is established with appropriate unit tests are committed for build.  Our API's enriched the data set by normalizing state recall information that was embedded in the free text.  A specific data element was added to easily represent the formal list of states associated with the recall.  
 The team utilized Github for configuration management. Three backend developers each worked part time, to ensure continuity and CM best practices they used Github time stamps and the check in-check-out feature to work on the most recent code sources.  The team built in the ability to trace any warfile back to the Jenkins Job/Build and commit reference in Github. This allowed tractability and a testing reference for each build.  
 ## Deployment 
