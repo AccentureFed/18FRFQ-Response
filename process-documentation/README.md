@@ -1,6 +1,6 @@
 [Working Prototype](https://jigsaw.agilex-devcloud.com:8443/jigsaw/#/)
 
-![alt tag](/images/response-images/proposal-header.png?raw=true)
+![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/proposal-header.png)
 
 # Request for Quotation 4QTFHS150004 Multiple Award Blanket Purchase Agreement for Agile Delivery Services (ADS I) 
 
@@ -15,7 +15,7 @@ With a short delivery timeline, unrestricted requirements, and the need to keep 
 
 Understanding the needs of the end user was critical to ensure success and usability.  User Centric Design drove backend requirements that were fed to the front end developers.
 
-![alt tag](/images/response-images/human-productowner.png?raw=true)
+![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/human-productowner.png)
 
 Working with the Product Owner, we reviewed and identified a preferred dataset (FDA Food Recall Enforcement Reports) and generated several end-user personas to understand their needs and vision.  Based on the personas and dataset, we created user stories and mapped these stories into feature sets.  With the Product Owner, the team characterized the vision of the prototype as an interactive tool used to inform and educate consumers of food product recalls that are in an open or closed status. 
 
