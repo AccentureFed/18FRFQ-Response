@@ -47,7 +47,7 @@ class FoodRecallController {
      * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can
      * be any name or abbreviation of a state<br />
      * <strong>searchText</strong> - Optional. Any free-form text to me matched with a UPC (exact match), Product Description (substring match),
-     * or Recalling Firm (substring match)<br />
+     * Recalling Firm (substring match), or Reason for Recall (substring match). If not given, ignored.<br />
      * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * <strong>limit</strong> - Optional.  Numeric.  The number of results to return. 10 is default<br />

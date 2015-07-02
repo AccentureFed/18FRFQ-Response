@@ -7,6 +7,6 @@ class ApplicationMetadata {
 
     static constraints = {
         metadataKey unique: true, blank: false, nullable: false
-        metadataValue blank: false, nullable: false
+        metadataValue nullable: false
     }
 }

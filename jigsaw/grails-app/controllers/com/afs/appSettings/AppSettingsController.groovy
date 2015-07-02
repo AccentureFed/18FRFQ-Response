@@ -20,12 +20,10 @@ class AppSettingsController {
      * @return N/A
      */
     def updateSettings() {
-        if (params.appAlert) {
-            if(!appSettingsService.updateAppAlert(params.appAlert)) {
-                // return 501 if it fails
-                render(status: 501)
-                return
-            }
+        if(!appSettingsService.updateAppAlert(params.appAlert)) {
+            // return 501 if it fails
+            render(status: 501)
+            return
         }
         render(status: 200)
     }

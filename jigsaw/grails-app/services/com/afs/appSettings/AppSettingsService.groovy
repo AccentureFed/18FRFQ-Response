@@ -17,7 +17,7 @@ class AppSettingsService {
     def updateAppAlert(def String appAlert) {
         def banner = ApplicationMetadata.findByMetadataKey(APP_BANNER_KEY) ?: new ApplicationMetadata()
         banner.metadataKey = APP_BANNER_KEY
-        banner.metadataValue = appAlert
+        banner.metadataValue = (appAlert == null) ? '' : appAlert
         if(!banner.save()) {
             log.error("Error saving the app banner update: ${banner.errors}")
             return false

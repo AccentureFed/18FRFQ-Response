@@ -41,6 +41,11 @@ class FoodRecall {
     String recallingFirm
 
     /**
+     * The reason for the recall. Used for keyword search enrichment purposes.
+     */
+    String reasonForRecall
+
+    /**
      * Contains our enriched distribution pattern
      */
     static hasMany = [distributionStates: RecallState, barcodes: UPCBarcode]
@@ -48,6 +53,7 @@ class FoodRecall {
     static mapping = {
         enrichedJSONPayload type: 'text'
         productDescription type: 'text'
+        reasonForRecall type: 'text'
     }
 
     static constraints = {
@@ -57,5 +63,6 @@ class FoodRecall {
         severity blank: false, nullable: false
         productDescription blank: false, nullable: false
         recallingFirm blank: false, nullable: false
+        reasonForRecall blank: false, nullable: false
     }
 }
