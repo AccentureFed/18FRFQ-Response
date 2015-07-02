@@ -30,12 +30,15 @@ Open source technologies allowed our team to drive efficiencies through cost, ti
 ## Development 
 1. Used 4 API's (List them)  
 2. UCD drove API's (List them)  
-3. Front end development drove APIs (List them) - front end developers produced the spec's and the backend developers created the working API', as identified.  
+3. Front end development drove APIs (List them) - front end developers produced the spec's and the backend developers created the working API', as identified.
+
 The team both provided and consumed a RESTfull API (List them).  Development dependencies across layers of the architecture was mitigated by first creating a shell end-point available to begin to integrate with.    Developer review and interaction with the shell end-points results in feedback and resulting changes.  Ultimately a final API is established with appropriate unit tests are committed for build.  Our API's enriched the data set by normalizing state recall information that was embedded in the free text.  A specific data element was added to easily represent the formal list of states associated with the recall.  
 The team utilized Github for configuration management. Three backend developers each worked part time, to ensure continuity and CM best practices they used Github time stamps and the check in-check-out feature to work on the most recent code sources.  The team built in the ability to trace any warfile back to the Jenkins Job/Build and commit reference in Github. This allowed tractability and a testing reference for each build.  
+
 ## Deployment 
 Deployed to AWS - Need follow up here. AWS IaaS with Jenkins deploying to Tomcat (Describe the deployment process and ultimate IaaS environment)  
-1. Docker, explain why we used docker ?(Sean & Josh EXPAND)  
+1. Docker, explain why we used docker ?(Sean & Josh EXPAND) 
+
 Continuous Monitoring 
 To provide continuous monitoring the team developed an administrative view to a dynamic page. This url is not accessible from the main page but is available here: http://52.7.254.19:8080/jigsaw/#/appMetricsMetrics .   This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data and do not require any authentication, there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.   
 ## Conclusion 
