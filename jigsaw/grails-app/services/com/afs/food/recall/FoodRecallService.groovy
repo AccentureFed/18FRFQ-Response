@@ -211,7 +211,7 @@ class FoodRecallService {
         Preconditions.checkArgument(offset >=0, 'The offset must be >= 0')
 
         def crit = FoodRecall.createCriteria()
-        return crit.list(max: max, offset: offset) {
+        return crit.listDistinct(max: max, offset: offset) {
 
             if(state) {
                 distributionStates { 'in'('state', state) }

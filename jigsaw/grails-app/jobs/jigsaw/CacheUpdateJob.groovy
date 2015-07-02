@@ -33,7 +33,7 @@ class CacheUpdateJob {
         log.info('Checking for cache update...')
         try {
             if(updateNeeded()) {
-                log.info(''Cache update is needed, starting to update')
+                log.info('Cache update is needed, starting to update')
                 foodRecallService.updateLocalCache()
 
                 // get the current or a new one
