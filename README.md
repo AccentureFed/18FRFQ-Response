@@ -16,9 +16,9 @@ Due to the very short turn around we took a modified agile management approach b
 Human Centered Design stood as the backbone of our prototype. The end user desiring information pertinent to FDA Food Recalls, their needs, wants and desires drove a prototype tailored uniquely to them.  The following summarizes our basic approach. 
 
 1. Understand User Context. Three personas were developed to depict multiple user bases for the prototype. 
-1. Ann Jordan a Mom searching for information for her children 
-2. Steven Jones an FDA Administrator monitoring site metrics and updating public information 
-3. Kathy Miller a Nutritionist looking for update for her client base 
+ 1. Ann Jordan a Mom searching for information for her children 
+ 2. Steven Jones an FDA Administrator monitoring site metrics and updating public information 
+ 3. Kathy Miller a Nutritionist looking for update for her client base 
 2. User stories  with acceptance criteria were defined to help understand end-user aspirations.  We conducted an end-user survey at a local grocery store with four people matching our Personas to further understanding.  PO engagement ensured their requirements were incorporated.   Our personas described a need where the solution had to be versatile, responsive, interactive and seamlessly support a variety of end-user devices.  Using responsive design techniques, the UX designers focused on crafting each targeted device to provide optimal viewing and interactive experiences. Users are presented different layouts based on devices and content also adapts to specific device types and its orientation.  Users of higher resolution devices are presented with appropriate content.  Mobile users will be presented with content and layout more appropriate for limited real estate and quick access to critical information.    
 3. Once our understanding evolved, rapid prototyping allowed for design iterations and quick changes driven by continual feedback from the PO, usability and 508 testing, surveys and the team.  Stories were created and prioritized to ensure the most valued work was addressed to respond to user needs.  
 4. We conducted usability testing with local/remote testers along with remote observers using COT usability tool Morae allowing collaboration between test administrators and remote observers. 508 and accessibility testing using JAWS screen reader, the WAT toolbar and Keyboard Accessibility helped drive continuous improvement and enhance usability for disable users.   
