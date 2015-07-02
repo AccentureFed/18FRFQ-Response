@@ -10,11 +10,12 @@ Link TO EVIDENCVE SHEET
 
 
 
-Our Kanban board served as ou rworkflow visualization tool that enabled the team to optimize the flow of our work. We choose to utilize the "arts and crafts" type board exposing the prototype backlog, in-work, and done tasks on a large physical wall. Our Kanban board was co-located with the team allowing them a visual depiction of the work in progress.  Tasks on the board moved daily as the prototype progressed with new items being added to the backlog, and moving through the in-work and done phases. 
+Our Kanban board served as our workflow visualization tool that enabled the team to optimize the flow of our work while insuring feedback was driving our tasks. We choose to utilize the "arts and crafts" type board exposing the prototype backlog, in-work, and done tasks on a large physical wall. Our Kanban board was co-located with the team allowing them a visual depiction of the work in progress.  Tasks on the board moved daily as the prototype progressed with new items being added to the backlog, and moving through the in-work and done phases. 
 
-New items were added, work reprioritized and the backlog continually grommed based on iterative feedback that was recieved daily.  Feedback was derived from Sprint reviews where the PO provided input, through testing with Users, 508 and UAT, the team frequently offered their throughts based on development or UI acknowledgements.  Embracing an iterative approach, and incorporting ideas and feedback allowed the team to continually ensure they were working on the most important tasks.
+New items were added, work reprioritized and the backlog continually groomed based on iterative feedback that was received daily.  Feedback was derived from Sprint reviews where the PO provided input, through testing with Users, 508 and UAT, the team frequently offered their thoughts based on development or UI acknowledgements.  Embracing an iterative approach, and incorporating ideas and feedback allowed the team to continually ensure they were working on the most important tasks.
 
 Below is a representation of our Kanban board progression across the lifecycle of the project:
+
 
 June 18 - Thursday - Kanban Board Creation
 
