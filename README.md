@@ -19,6 +19,8 @@ Kathy Miller a Nutritionist looking for update for her client base
 2)  User stories  with acceptance criteria were defined to help understand end-user aspirations.  We conducted an end-user survey at a local grocery store with four people matching our Personas to further understanding.  PO engagement ensured their requirements were incorporated.   Our personas described a need where the solution had to be versatile, responsive, interactive and seamlessly support a variety of end-user devices.  Using responsive design techniques, the UX designers focused on crafting each targeted device to provide optimal viewing and interactive experiences. Users are presented different layouts based on devices and content also adapts to specific device types and its orientation.  Users of higher resolution devices are presented with appropriate content.  Mobile users will be presented with content and layout more appropriate for limited real estate and quick access to critical information.    
 3) Once our understanding evolved, rapid prototyping allowed for design iterations and quick changes driven by continual feedback from the PO, usability and 508 testing, surveys and the team.  Stories were created and prioritized to ensure the most valued work was addressed to respond to user needs.  
 4) We conducted usability testing with local/remote testers along with remote observers using COT usability tool Morae allowing collaboration between test administrators and remote observers. 508 and accessibility testing using JAWS screen reader, the WAT toolbar and Keyboard Accessibility helped drive continuous improvement and enhance usability for disable users.   
+![alt img](/agile-process-photos/design/high-level-overview.png)
+
 ## Design Style Guide 
 Our user first focus leveraged pattern libraries (e.g. Font Awesome, Bootstrap) and a lightweight design guide to drive the UX and design patterns to help maintain a consistent user experience among our designers and across multiple devices.  Bootstrap was used to develop our multi-device framework.  This encouraged collective code ownership, making it easier for our developers to work across the code base.  The team had two UX designers, one remote and one onsite with the team.  Developing and implementing Pattern libraries and UI libraries also allowed the team to have functionality and design elements that could be reused, and compliant with 508, keeping cost and time at a minimum.  
 ## Testing 
@@ -27,6 +29,8 @@ Usability testing was implemented in a series of steps.  Multiple iterations wer
 508 testing was done utilizing JAWS, the Wat toolbar and Keyboard Accessibility. Results highlighted areas of our implemented design were not conducive to individuals with disabilities. These critical tests allowed our team to ensure our prototype vision was accessible for all users.    
 ## Technology Choices 
 Open source technologies allowed our team to drive efficiencies through cost, time, reliability and value.   The underlying platforms used in our prototype are openly licensed and free.  A complete list of tools used can be found here: PLACE URL HERE 
+![alt tag](/agile-process-photos/design/tool-diagram.png)
+
 ## Development 
 1. Used 4 API's (List them)  
 2. UCD drove API's (List them)  
