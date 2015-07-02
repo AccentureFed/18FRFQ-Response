@@ -1,3 +1,4 @@
+![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/proposal-header.png)
 # jigsaw-deployment
 Docker file and directions to setup Jigsaw on a new server
 
@@ -27,3 +28,4 @@ stops it. You can view all containers with 'docker ps -a'. You can delete all
 containers with 'docker rm $(docker ps -a -q)'
 
 NOTE: The running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat accordingly.
+
