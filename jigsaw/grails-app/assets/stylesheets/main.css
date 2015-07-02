@@ -524,7 +524,7 @@ a{
 	border-bottom-right-radius:4px;
 }
 
-.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default, .btn:hover, .btn:focus, .btn:active , .btn-default.active, .pagination li.active>a, .pagination > li > a:hover{
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default, .btn:hover, .btn:focus, .btn:active , .btn-default.active, .pagination li.active>a, .pagination > li > a:hover, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default{
 	background-color:#003152;
 	color:white;
 	border: 2px solid #646464;
@@ -543,7 +543,6 @@ a{
 }
 
 #mapCell {
-	overflow-x:auto;
 }
 
 #recentTweets {
@@ -622,6 +621,10 @@ a{
 
 .dropdown-menu li a {
 	color:black;
+}
+
+.card-danger + hr {
+	border-top:2px solid #646464;
 }
   
 
