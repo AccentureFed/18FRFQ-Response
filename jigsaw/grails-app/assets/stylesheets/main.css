@@ -646,10 +646,6 @@ a{
 }
 
 @media (max-width: 1050px) { 
-	#recallListCell {
-		width:100%;
-	}
-	
 	.container-fluid {
 		padding:0;
 	}
