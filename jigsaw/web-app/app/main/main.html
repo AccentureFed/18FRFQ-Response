@@ -97,15 +97,15 @@
    		</div>
 	</div>
 	<div id="recallsRow" class="row">
+		<h2 class="h2" ng-show=selectedState>{{totalRecalls}} Recalls for {{selectedState}} between {{startDateValue}} and {{endDateValue}}:</h2><h2 class="h2" ng-show=!selectedState>National FDA Recalls: {{totalRecalls}}</h2>
 		<div id="mapCell" class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
-			<h2 class="h2" ng-show=selectedState>{{totalRecalls}} Recalls for {{selectedState}} between {{startDateValue}} and {{endDateValue}}:</h2><h2 class="h2" ng-show=!selectedState>National FDA Recalls: {{totalRecalls}}</h2>
 			<p>Click a state to see food recalls specific to that state</p>
 			<datamap map="mapObject" style="left: -10%; padding-top: 10px; cursor:pointer"></datamap>
 		</div>
 		<div id="recallListCell" class="panel col-md-5 col-lg-5 col-sm-6 col-xs-12">
 			<div class="row">
 	        <div class="container col-md-12 col-sm-12 col-xs-12">
-                <div><h2 class="h2">&nbsp;</h2></div>
+                
 					<p>Click a description to see more details</p>
                 	<div>
 		              <table id="recallListTable" class="table-bordered">
