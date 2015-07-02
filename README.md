@@ -1,6 +1,6 @@
 [Working Prototype](https://jigsaw.agilex-devcloud.com:8443/jigsaw/#/)
 
-![alt tag](/images/response-images/proposal-header.png?raw=true)
+![alt tag](/agile-process-photos/response-images/proposal-header.png?raw=true)
 
 # Request for Quotation 4QTFHS150004 Multiple Award Blanket Purchase Agreement for Agile Delivery Services (ADS I) 
 
@@ -37,6 +37,8 @@ The team utilized Github for configuration management. Three backend developers 
 
 ## Deployment 
 Deployed to AWS - Need follow up here. AWS IaaS with Jenkins deploying to Tomcat (Describe the deployment process and ultimate IaaS environment)  
+![alt tag](/agile-process-photos/design/deploy-stack.png)
+
 1. Docker, explain why we used docker ?(Sean & Josh EXPAND) 
 
 Continuous Monitoring 
