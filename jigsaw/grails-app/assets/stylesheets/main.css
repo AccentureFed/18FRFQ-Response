@@ -480,7 +480,7 @@ a{
 	color:white;
 }
 
-.table-bordered tbody, p {
+.table-bordered tbody, p , a{
 	font-size:12px;
 }
 
