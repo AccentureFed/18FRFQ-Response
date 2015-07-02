@@ -230,12 +230,20 @@
 				                    <td>{{currentRecall.reason_for_recall}}</td>
 				                  </tr>
 				                  <tr>
-				                    <td>Classification</td>
-				                    <td>{{currentRecall.classification}}</td>
+				                  	<td>Product Description</td>
+				                  	<td>{{currentRecall.product_description}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Recall Date</td>
+				                    <td>{{currentRecall.recall_initiation_date}}</td>
 				                  </tr>
 								  <tr>
 				                    <td>Severity</td>
-				                    <td>{{(currentRecall.classification) == 'Class I' ? 'High' : (currentRecall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+				                    <td><div class="severityIndicator" style="background-color:{{(currentRecall.classification) == 'Class I' ? 'red' : (currentRecall.classification) == 'Class II' ? 'orange' : 'yellow'}};"></div>{{(currentRecall.classification) == 'Class I' ? 'High' : (currentRecall.classification) == 'Class II' ? 'Medium' : 'Low'}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Classification</td>
+				                    <td>{{currentRecall.classification}}</td>
 				                  </tr>
 				                  <tr>
 				                    <td>Recall Number</td>
@@ -252,6 +260,18 @@
 				                  <tr>
 				                    <td>Distribution</td>
 				                    <td>{{currentRecall.distribution_pattern}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Voluntary or Mandated</td>
+				                    <td>{{currentRecall.voluntary_mandated}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Status</td>
+				                    <td>{{currentRecall.status}}</td>
+				                  </tr>
+				                  <tr>
+				                    <td>Reported Date</td>
+				                    <td>{{currentRecall.report_date}}</td>
 				                  </tr>
 				                </tbody>
 					        </table>

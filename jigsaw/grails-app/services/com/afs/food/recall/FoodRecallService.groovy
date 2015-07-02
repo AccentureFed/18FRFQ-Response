@@ -22,7 +22,12 @@ class FoodRecallService {
     /**
      * This is the format for the API
      */
-    private static def DATE_FORMAT = 'yyyyMMdd'
+    private static def INPUT_DATE_FORMAT = 'yyyyMMdd'
+
+    /**
+     * Better readability date format
+     */
+    private static def DISPLAY_DATE_FORMAT = 'MM/dd/yy'
 
     /**
      * The maximum amount of results to return from the FDA Food service.<br /><br />
@@ -52,8 +57,13 @@ class FoodRecallService {
 
         def json = new JSONObject(new URL("${BASE_URL}?limit=${MAX_RESULTS}&skip=${offset}&search=report_date:[${year}0101+TO+${year}1231]").getText())
 
+        def inputFormat = new SimpleDateFormat(INPUT_DATE_FORMAT)
         final Set<String> distributionStates = []
         json.results.each { result ->
+            // reformat the dates to easier to an easier to read format
+            result.report_date = inputFormat.parse(result.report_date).format(DISPLAY_DATE_FORMAT)
+            result.recall_initiation_date = inputFormat.parse(result.recall_initiation_date).format(DISPLAY_DATE_FORMAT)
+
             // try to find the states in the natural language value and add it to the result AND find UPC barcodes
             def distributionPattern = result.distribution_pattern
             def productDescription = result.product_description
@@ -93,7 +103,9 @@ class FoodRecallService {
         RecallState.executeUpdate('delete from RecallState')
 
         // load all recalls, enrich the data and cache them locally
-        def dateFormatter = new SimpleDateFormat(DATE_FORMAT)
+
+        // the date was already normalized to the display date when it was fetched
+        def dateFormatter = new SimpleDateFormat(DISPLAY_DATE_FORMAT)
 
         /**
          * We can only pull 5,000 items at a time, so pull by year to get all recalls

@@ -28,8 +28,8 @@ class FoodRecallController {
      */
     def count() {
         def state = params.stateCode ? State.fromString(params.stateCode) : null
-        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
-        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
+        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.INPUT_DATE_FORMAT).parse(params.startDate) : null
+        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.INPUT_DATE_FORMAT).parse(params.endDate) : null
 
         def severityCounts = foodRecallService.getCountsByState(state, startDate, endDate)
         def resultsList = severityCounts.collect { it ->
@@ -67,8 +67,8 @@ class FoodRecallController {
         skip = skip >= 0 ? skip*limit : 0 //ensure it is valid
 
         def state = params.stateCode ? State.fromString(params.stateCode) : null
-        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.startDate) : null
-        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.DATE_FORMAT).parse(params.endDate) : null
+        def startDate = params.startDate ? new SimpleDateFormat(FoodRecallService.INPUT_DATE_FORMAT).parse(params.startDate) : null
+        def endDate = params.endDate ? new SimpleDateFormat(FoodRecallService.INPUT_DATE_FORMAT).parse(params.endDate) : null
 
         def recalls = foodRecallService.getRecalls(state, params.searchText, startDate, endDate, limit, skip)
         def resultsJSON = recalls*.enrichedJSONPayload.collect { new JSONObject(it) }
