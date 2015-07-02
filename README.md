@@ -52,5 +52,5 @@ Continuous Monitoring
 To provide continuous monitoring the team developed an administrative view to a dynamic page. This url is not accessible from the main page but is available here: http://52.7.254.19:8080/jigsaw/#/appMetricsMetrics .   This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data and do not require any authentication, there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.  
 
 ## Conclusion 
-All of our evidence is in this Git repository and can be leveraged as needed.  Our evidence summary is located here:
+All of our evidence is in this Git repository and can be leveraged as needed.  Click here for our [evidence summary](evidence)
 
