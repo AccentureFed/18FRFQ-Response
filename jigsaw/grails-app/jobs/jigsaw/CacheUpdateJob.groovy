@@ -1,5 +1,7 @@
 package jigsaw
 
+import groovy.time.TimeCategory
+
 import java.text.SimpleDateFormat
 
 import org.slf4j.LoggerFactory
@@ -15,8 +17,8 @@ class CacheUpdateJob {
         // runs at 4am everyday
         cron name: 'cacheUpdater', cronExpression: "0 0 4 * * ?"
     }
-    def group = "Jigsaw"
-    def description = "Updates the Jigsaw cache with new data."
+    def group = 'Jigsaw'
+    def description = 'Updates the Jigsaw cache with new data.
 
     private static final def log = LoggerFactory.getLogger(CacheUpdateJob.class)
     private static final def LAST_UPDATED_METADATA_KEY = 'lastUpdated'
@@ -28,20 +30,31 @@ class CacheUpdateJob {
      * Run at cron trigger interval listed above for the class
      */
     def execute() {
-        log.info("Checking for cache update...")
-        if(updateNeeded()) {
-            log.info("Cache update is needed, starting to update")
-            foodRecallService.updateLocalCache()
+        log.info('Checking for cache update...')
+        try {
+            if(updateNeeded()) {
+                log.info(''Cache update is needed, starting to update')
+                foodRecallService.updateLocalCache()
 
-            // get the current or a new one
-            def metadata = ApplicationMetadata.findByMetadataKey(LAST_UPDATED_METADATA_KEY) ?: new ApplicationMetadata()
-            metadata.metadataKey = LAST_UPDATED_METADATA_KEY
-            metadata.metadataValue = new SimpleDateFormat(LAST_UPDATE_FORMAT).format(new Date())
-            if(!metadata.save()) {
-                log.error("Error saving the last updated metadata: ${metadata.errors}")
+                // get the current or a new one
+                def metadata = ApplicationMetadata.findByMetadataKey(LAST_UPDATED_METADATA_KEY) ?: new ApplicationMetadata()
+                metadata.metadataKey = LAST_UPDATED_METADATA_KEY
+                metadata.metadataValue = new SimpleDateFormat(LAST_UPDATE_FORMAT).format(new Date())
+                if(!metadata.save()) {
+                    log.error("Error saving the last updated metadata: ${metadata.errors}")
+                }
             }
+        } catch(all) {
+            log.error('An error occurred while updating the cache, will try again in 5 minnutes...')
+
+            def currentDate = new Date()
+            def scheduledDate
+            use(TimeCategory) {
+                scheduledDate = currentDate + 5.minutes
+            }
+            CacheUpdateJob.schedule(scheduledDate)
         }
-        log.info("Cache update finished")
+        log.info('Cache update finished')
     }
 
     /**
