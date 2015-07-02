@@ -18,42 +18,42 @@ Below is a representation of our Kanban board progression across the lifecycle o
 
 June 18 - Thursday - Kanban Board Creation
 
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.18.2015%2014.03%20-%20kanban%20board.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.18.2015%2014.03%20-%20kanban%20board.jpg?raw=true "Title is optional")
 
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.18.2015%2013.59%20-%20kanban%20board.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.18.2015%2013.59%20-%20kanban%20board.jpg?raw=true "Title is optional")
 
 June 19 - Friday 
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.19.2015.0907%20-%20standup.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.19.2015.0907%20-%20standup.jpg?raw=true "Title is optional")
 
 June - 22 Monday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.22.2015.0917%20-%20backlog.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.22.2015.0917%20-%20backlog.jpg?raw=true "Title is optional")
 
 June 23 - Tuesday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.23.2015.020735%20-%20backlog.png?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.23.2015.020735%20-%20backlog.png?raw=true "Title is optional")
 
 June 23 - Tuesday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.23.2015.020735%20-%20backlog.png?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.23.2015.020735%20-%20backlog.png?raw=true "Title is optional")
 
 June 24 - Wednesday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.24.2015%2016.30%20-%20backlog.JPG?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.24.2015%2016.30%20-%20backlog.JPG?raw=true "Title is optional")
 
 June 25 - Thursday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-25%2015.23.09%20-%20review.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-25%2015.23.09%20-%20review.jpg?raw=true "Title is optional")
 
 June 26 - Friday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-26%2009.44.09%20-%20standup.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-26%2009.44.09%20-%20standup.jpg?raw=true "Title is optional")
 
 June 29 - Monday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-29%2009.07.40%20-%20backlog.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-29%2009.07.40%20-%20backlog.jpg?raw=true "Title is optional")
 
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-29%2015.22.47%20backlog.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-29%2015.22.47%20backlog.jpg?raw=true "Title is optional")
 
 June 30 - Tuesday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.30.2015%2009.54%20-%20standup.JPG?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/6.30.2015%2009.54%20-%20standup.JPG?raw=true "Title is optional")
 
 July 1 - Wednesday
 
 July 2- Thursday
-https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-07-02%2009.22.02%20-%20backlog.jpg?raw=true
+![picture alt]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-07-02%2009.22.02%20-%20backlog.jpg?raw=true "Title is optional")
 
 
