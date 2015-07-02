@@ -5,42 +5,38 @@
 # Request for Quotation 4QTFHS150004 Multiple Award Blanket Purchase Agreement for Agile Delivery Services (ADS I) 
 
 ## Introduction
-Upon receipt of the RFQ, our team decomposed the RFQ to understand the scope and initial resources required for the effort. The following describes our approach and a bit of the history of this short lived project.  We adapted a few agile techniques including Scrum, Kanban, and XP to support this effort. 
-
-## Team & Environment
-Although we had been anticipating the release of this RFQ, our original team members slated to be involved had other obligations preventing them from participating (vacation, business trips, customer deliveries, etc).  Despite the challenge, we were able to assemble another multidisciplinary team together within 24 hours, utilizing our bench of experienced agile resources and a tremendous team oriented spirit.  A core team of six formed around the expertise of front and back end developers, devops, Design, Agile Coaching and Product Manager input. None of our team members had worked together previously, and organized with a remote and physical presence.  The Product Manager/Owner Greg Pfister, had the ultimate authority and responsibility for meeting the needs of the users and in doing so prioritizing features accordingly.
-
-## Process
-With a short delivery timeline, unrestricted requirements, and the need to keep team overhead down, we chose to leverage a physical Kanban board.  On large, long lived, and/or distributed team environments we  traditionally leverage a modern Agile Lifecycle tool (e.g. Rally, VersionOne, JiraAgile, etc); our current team was mostly co-located and those not, utilized Skype and Go-to-Meeting, decided to focus on a high visible, flexible and accountable model.  
-
-Understanding the needs of the end user was critical to ensure success and usability.  User Centric Design drove backend requirements that were fed to the front end developers.
-
-![alt tag](/images/response-images/human-productowner.png?raw=true)
-
-Working with the Product Owner, we reviewed and identified a preferred dataset (FDA Food Recall Enforcement Reports) and generated several end-user personas to understand their needs and vision.  Based on the personas and dataset, we created user stories and mapped these stories into feature sets.  With the Product Owner, the team characterized the vision of the prototype as an interactive tool used to inform and educate consumers of food product recalls that are in an open or closed status. 
-
-![alt img](/images/design/high-level-overview.png)
-
-For our purposes, we effectively followed one day sprints.  This is outside our typical 2 week sprint model; however, due to the short turn around and necessary high-touch engagement, this was the best approach to ensure the solution and team were aligned and focused on delivering the highest business value items. At 9am each morning the team held a sprint review to demonstrate the solution and discuss with the team and stakeholders.  Any suggestions/ideas were captured as a part of the backlog (reflected on the Kanban board).  This was followed with a 'sprint planning' session that represented the work for the day.  At 3pm daily, we held a stand-up to take a step back to communicate what had been accomplished, what remained and identify impediments.  Our team, very experienced employing agile practices, used each team 'ceremony' as an opportunity to make process adjustments to help ensure we operated as effectively as possible.
-
-## Tools
-To remain Agile and lean, we leveraged several Agile Engineering Practices such as Continuous
-Integration (CI) and Test Driven Development (TDD). Our approach applied automation in all facets of software development. We automated the software integration/build, unit testing, and acceptance testing. This approach integrated the developed software frequently and re-validated the software every time through automated unit and acceptance tests. Incrementally growing and testing the software resulted in a higher quality and timely solution.  
-The team utilized Github its time stamps and the check in-check-out feature to work on the most recent code and document source.
-Need to talk about monitoring here.
-
-Our development stack consists of:
-![alt tag](/images/design/tool-diagram.png)
-
-Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
-
-Our deployment environment consists of:
-![alt tag](/images/design/deploy-stack.png)
-
-## Conclusion
-Applying our expertise and proven understanding in applying Agile best practices allowed us to pull together a very interesting and engaging prototype in spite of a quick turn around and limited real world customer needs.  You can find further details about this project including pictures, videos, and the source code here.
-
-## OUTSTANDING
-WIP discussion and how we managed bottlenecks
-devops - 
+Upon receipt of the RFQ, our team decomposed the RFQ to understand the scope and initial resources required for the effort. The following describes our approach and a bit of the history of this short lived project. We adapted a few agile techniques including Scrum, Kanban, and XP to support this effort. 
+## Team 
+Extenuating circumstances upon RFQ drop, required us to redefine 100% of our resources. Within 24 hours, our full multidisciplinary team had been assigned, covering eight labor categories -Agile Coach, Visual Designer, Interaction Designer, Back End Developer, DevOps Engineer, Front End Developer, Product manager and Business Analyst.  Our Team’s Corporate reach back helps to address surge and evolving needs by tapping 3,800 US based Agile resources, 1,800 scrum masters and 800 DevOps practitioners. Our proven experience executing Agile processes that has been applied to over 1,000 Agile Scrum, Kanban & Lean projects, spanning Federal & commercial projects, provided the framework and tools to quickly define sprint zero needs, and enable the teams to begin sprinting.  Our team was empowered, self-organized and accountable for delivering value daily within each 'daily' sprint. Although not ideal or typical, our team did not have the luxury of each member dedicating 100% of their time to the RFQ.  Some roles were shared as team members came in and out. With this, it was imperative that the team openly communicate, share dependencies, maintain high visibility, and resolve impediments together.  
+## Basic Agile Process 
+Due to the very short turn around we took a modified agile management approach based on Scrum and Kanban leveraging a physical task board. We had daily 'sprints' where we had a team stand-up in the morning to understand where each team member was regarding what had been completed, what was to be worked on next, and any issues/impediments that was of concern. This kept all the tasks very visible, lightweight, fast moving, and easy for all to see the current state of the project.  Each afternoon we had a sprint review where the team met to review the progress made for the day and begin planning for the next day's sprint.  Once new stories, features, defects, functionality or change requests had been captured via stickies on the task-board, the product owner would prioritize the backlog based on user impact, time and value. This prioritization enabled the PO during our daily sprint planning to set the sprint goals, and allow the team to define how those goals would be implemented and what could be taken on during the sprint.    
+##Human Centered Design 
+Human Centered Design stood as the backbone of our prototype. The end user desiring information pertinent to FDA Food Recalls, their needs, wants and desires drove a prototype tailored uniquely to them.  The following summarizes our basic approach. 
+1) Understand User Context. Three personas were developed to depict multiple user bases for the prototype. 
+Ann Jordan a Mom searching for information for her children 
+Steven Jones an FDA Administrator monitoring site metrics and updating public information 
+Kathy Miller a Nutritionist looking for update for her client base 
+2)  User stories  with acceptance criteria were defined to help understand end-user aspirations.  We conducted an end-user survey at a local grocery store with four people matching our Personas to further understanding.  PO engagement ensured their requirements were incorporated.   Our personas described a need where the solution had to be versatile, responsive, interactive and seamlessly support a variety of end-user devices.  Using responsive design techniques, the UX designers focused on crafting each targeted device to provide optimal viewing and interactive experiences. Users are presented different layouts based on devices and content also adapts to specific device types and its orientation.  Users of higher resolution devices are presented with appropriate content.  Mobile users will be presented with content and layout more appropriate for limited real estate and quick access to critical information.    
+3) Once our understanding evolved, rapid prototyping allowed for design iterations and quick changes driven by continual feedback from the PO, usability and 508 testing, surveys and the team.  Stories were created and prioritized to ensure the most valued work was addressed to respond to user needs.  
+4) We conducted usability testing with local/remote testers along with remote observers using COT usability tool Morae allowing collaboration between test administrators and remote observers. 508 and accessibility testing using JAWS screen reader, the WAT toolbar and Keyboard Accessibility helped drive continuous improvement and enhance usability for disable users.   
+Design Style Guide 
+Our user first focus leveraged pattern libraries (e.g. Font Awesome, Bootstrap) and a lightweight design guide to drive the UX and design patterns to help maintain a consistent user experience among our designers and across multiple devices.  Bootstrap was used to develop our multi-device framework.  This encouraged collective code ownership, making it easier for our developers to work across the code base.  The team had two UX designers, one remote and one onsite with the team.  Developing and implementing Pattern libraries and UI libraries also allowed the team to have functionality and design elements that could be reused, and compliant with 508, keeping cost and time at a minimum.  
+## Testing 
+Unit Tests - For the backend unit testing we utilized JUnit and Spock.  All components received unit tests, especially corner cases and null.  Unit tests were created simultaneously as code was developed. Unit tests *(NUMBER OF TESTS) * were run on every Jenkins build  (NUMBER OF BUILDS).  If defects and or bugs were identified, the developer would resolve the defect within the same sprint.  No known defects were identified that were handled out of the sprint boundary.   
+Usability testing was implemented in a series of steps.  Multiple iterations were created through moc-ups and wire frame development. At the daily sprint review, designs were reviewed and feedback from the development team, product owner and stakeholders was incorporated to subsequent designs. Within 48 hours of the initial product direction a solid design was conceptualized in an interactive, clickable wireframe. In 72 hours, usability test cases were created and testing was administered with real users against that design with individuals who matched the personas created for the prototype. Local and remote testing was conducted. Based on feedback received, the designs were refined and iterations made.  
+508 testing was done utilizing JAWS, the Wat toolbar and Keyboard Accessibility. Results highlighted areas of our implemented design were not conducive to individuals with disabilities. These critical tests allowed our team to ensure our prototype vision was accessible for all users.    
+## Technology Choices 
+Open source technologies allowed our team to drive efficiencies through cost, time, reliability and value.   The underlying platforms used in our prototype are openly licensed and free.  A complete list of tools used can be found here: PLACE URL HERE 
+## Development 
+Used 4 API's (List them)  
+UCD drove API's (List them)  
+Front end development drove APIs (List them) - front end developers produced the spec's and the backend developers created the working API', as identified.  
+The team both provided and consumed a RESTfull API (List them).  Development dependencies across layers of the architecture was mitigated by first creating a shell end-point available to begin to integrate with.    Developer review and interaction with the shell end-points results in feedback and resulting changes.  Ultimately a final API is established with appropriate unit tests are committed for build.  Our API's enriched the data set by normalizing state recall information that was embedded in the free text.  A specific data element was added to easily represent the formal list of states associated with the recall.  
+The team utilized Github for configuration management. Three backend developers each worked part time, to ensure continuity and CM best practices they used Github time stamps and the check in-check-out feature to work on the most recent code sources.  The team built in the ability to trace any warfile back to the Jenkins Job/Build and commit reference in Github. This allowed tractability and a testing reference for each build.  
+## Deployment 
+Deployed to AWS - Need follow up here. AWS IaaS with Jenkins deploying to Tomcat (Describe the deployment process and ultimate IaaS environment)  
+1. Docker, explain why we used docker ?(Sean & Josh EXPAND)  
+Continuous Monitoring 
+To provide continuous monitoring the team developed an administrative view to a dynamic page. This url is not accessible from the main page but is available here: http://52.7.254.19:8080/jigsaw/#/appMetricsMetrics .   This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data and do not require any authentication, there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.   
+## Conclusion 
 
