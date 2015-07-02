@@ -413,7 +413,7 @@ a{
 }
 
 .h2 {
-	font-size:16px;
+	font-size:14px;
 	font-weight:bold;
 	color:black;
 }
@@ -480,8 +480,8 @@ a{
 	color:white;
 }
 
-.table-bordered tbody {
-	font-size:14px;
+.table-bordered tbody, p {
+	font-size:12px;
 }
 
 .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
@@ -569,7 +569,6 @@ a{
 }
 
 #recallListTable {
-	width: 100%;
 	cursor: pointer;
 	height: 325px;
 }
@@ -626,9 +625,28 @@ a{
 .card-danger + hr {
 	border-top:2px solid #646464;
 }
-  
+
+#mapCell {
+	width:55%;
+}
+
+#recallListCell {
+	width:45%;
+}
+
+#recentTweets {
+	width:55%;
+}  
+
+#followFDA {
+	width:45%;
+}
 
 @media (max-width: 1050px) { 
+	#recallListCell {
+		width:100%;
+	}
+	
 	.container-fluid {
 		padding:0;
 	}
@@ -668,6 +686,14 @@ a{
 	}
 }
 @media (max-width: 768px) { 
+	#recentTweets {
+		width:100%;
+	}  
+
+	#followFDA {
+		width:100%;
+	}
+	
 	#mapCell {
 		display:none;
 	}
