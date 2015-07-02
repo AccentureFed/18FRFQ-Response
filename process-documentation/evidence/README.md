@@ -1,3 +1,5 @@
+![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/proposal-header.png)
+
 Below is an identical replica of our Attachment E submission.  To further elaborate on the evidence, we have provided a link to additional information reflecting images, videos, and documentation such as design mockups, to further demonstrate our understanding.
 
 
