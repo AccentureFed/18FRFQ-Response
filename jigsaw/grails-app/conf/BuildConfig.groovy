@@ -64,9 +64,7 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.1.2"
         compile ':cache:1.1.8'
         compile ":asset-pipeline:2.1.5"
-        compile ":mail:1.0.8-SNAPSHOT"
         compile ":quartz:1.0.2"
-        compile ":rest-client-builder:2.1.1"
         compile(":release:3.1.1",
                 ":rest-client-builder:2.1.1") { export = false }
         compile ":yammer-metrics:3.0.1-2"
