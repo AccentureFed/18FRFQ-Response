@@ -498,7 +498,7 @@ angular.module('jigsawApp')
 	        			$scope.recalls = data.results;
 	        			if (perRequest > 0)
 	        			{
-	        				$scope.numPages = Math.ceil(data.numResults / perRequest)
+	        				$scope.numPages = Math.ceil(data.numResults / perRequest);
 	        				$scope.page = 1;
 	        			}
 	        			else
@@ -534,7 +534,7 @@ angular.module('jigsawApp')
         			$scope.recalls = data.results;
         			if (perRequest > 0)
         			{
-        				$scope.numPages = Math.ceil(data.numResults / perRequest)
+        				$scope.numPages = Math.ceil(data.numResults / perRequest);
         				$scope.page = 1;
         			}
         			else
