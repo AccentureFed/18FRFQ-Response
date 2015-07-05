@@ -12,11 +12,11 @@
 		    <p><span id="fdaTagline" class="visible-md visible-lg">Protecting and Promoting <span id="fdaTaglineInnerSpan">Your</span> Health</span></p>
 		</div>
 	</div>
-	<span ng-if="viewSettings" class="fa fa-cogs" ng-click="showAppSettings()" style="font-size:40px;position:absolute;top:0px;right:0px;color:white;cursor:pointer" tabindex=1></span>
+	<span ng-if="isAuthenticated && viewSettings" class="fa fa-cogs" ng-click="showAppSettings()" style="font-size:40px;position:absolute;top:0px;right:0px;color:white;cursor:pointer" tabindex=1></span>
 </nav>
 
 <!-- Modal -->
-    <div class="modal fade" id="mySettingsModal" role="dialog">
+    <div ng-if="isAuthenticated" class="modal fade" id="mySettingsModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <form name="appSettingsForm" role="form">
@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group">
                             <label>Alert Message (this message will be displayed as an ALERT on the home page)</label>
-                            <textarea type="text" class="form-control" name="appAlertInput" ng-model="tempAppAlert" id="appAlertText" required/>
+                            <textarea type="text" ng-model="tempAppAlert.data" class="form-control" name="appAlertInput" id="appAlertText" ></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
