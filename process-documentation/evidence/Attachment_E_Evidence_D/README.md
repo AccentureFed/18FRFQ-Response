@@ -1,7 +1,10 @@
 ![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/proposal-header.png)
 
-[Back to Evidence](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
+[Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
 
 |#|criteria|evidence|
 |-------|---------------|------------------|
-|d|used at least three "human-centered design" techniques or tools|X|
+|d|used at least three "human-centered design" techniques or tools|Human Centered Design stood as the backbone of our prototype.  The end user desiring information pertinent to FDA Food Recalls, their needs, wants and desires drove a prototype tailored uniquely to them. The First technique used, Understand User Context.  Three personas were developed to depict multiple user bases for the prototype, a Mom searching for information for her children, a Nutritionist looking for updates for her client base and an FDA Administrator monitoring site metrics and updating public information. Second technique, understand the aspirations of the end user. User stories describing the type of user, what they want and why with acceptance criteria was defined.  A survey was conducted at a local grocery store with four people matching our Personas to further understand functionality they envisioned.  Heavy PO engagement ensured their requirements were incorporated.  Technique Three, Implement Rapid Prototyping.  Once our understanding evolved, rapid prototyping allowed for design iterations and quick changes driven by continual feedback from the PO, Usability and 508 testing and the team.  Tasks were created and prioritized to ensure the most important work was being done to respond to user needs. Technique four, Test and Evaluate. We conducted usability testing with local and remote testers along with remote observers using a usability tool to allow collaboration between test administrators and remote observers. 508 and Accessibility testing using JAWS screen reader, the WAT tool bar and Keyboard Accessibility helped drive continuous improvement and enhance usability for disabled users.|
+
+[Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
+
