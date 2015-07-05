@@ -1,25 +1,23 @@
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/raw/master/process-documentation/agile-process-photos/response-images/proposal-header.png)
 
-[Back to Evidence](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
-
+[Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
 
 |#|criteria|evidence|
 |-------|---------------|------------------|
-|a|assigned one leader, gave that person authority and responsibility, and held that person accountable for the quality of the prototype submitted| X |
+|a|assigned one leader, gave that person authority and responsibility, and held that person accountable for the quality of the prototype submitted| Upon RFQ receipt, a Product Owner (PO) was assigned. He had extensive expertise in Agile coaching putting him in a position to assess alternatives and weigh tradeoffs related to the prototype. He was given authority to allocate resources and funding to ensure the appropriate skill sets were available.   The team was aware the PO had the ultimate authority to define features, assign tasks and prioritize the backlog.  The PO worked with the team to characterize the prototype vision, "an interactive tool used to inform and educate consumers of food product recalls in an open or closed status" and associated features. The PO was actively involved daily in contributing and soliciting feedback at sprint reviews and during the retro. Daily he conducted backlog grooming and prioritized tasks to ensure the team was working on the most important tasks. User stories, defects and infrastructure needs were balanced and prioritized against user value and time. |
 
+Upon RFQ receipt, a Product Owner (PO) was assigned. He has extensive expertise in Agile coaching putting him in a position to assess alternatives and weigh trade offs related to the prototype. He was given authority to allocate resources and funding to ensure the appropriate skill sets were available. The team was aware the PO had the ultimate authority to define features, assign tasks and prioritize the backlog. The PO worked with the team to characterize the prototype vision, "an interactive tool used to inform and educate consumers of food product recalls in an open or closed status" and associated features. The PO was actively involved daily in contributing and soliciting feedback at sprint review and retro. Daily he conducted backlog grooming and prioritized tasks to ensure the team was working on the most important tasks. User stories, defects and infrastructure needs were balanced and prioritized against user value and time.
 
-Our Product Owner, Mr. Greg Phister acted as our umtimate decision making authority on the project.  He drove the team to deliver and execute on tasks that delivered the highest value to the end user. The Product Owner lead the prototype  from day one by articulating his vision to our teeam.  At this white board session his high level concept of how he envisioned the prototype being utilized to display the FDA Food Recall Data. 
+Our product owner, shown in the plaid shirt, was instrumental in provding feedback in the early hours to drive design elements.
 
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20%28added%206.23.2015%29.png
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/prototype-discussion%20%28added%206.23%29.png>)
 
-High level features of the phototype were conveyed.  The ability to Search the data set, Alert users of changes, display information in a dashboard and enable security features to mitigate risk. 
+https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/user-interaction-discussion.mp4?raw=true
 
-These festures were fully fleshed out and
+https://raw.githubusercontent.com/AccentureFed/18FRFQ-Response/master/process-documentation/process-video/user-interface-discussion.mp4
 
+He attended daily retros with the team providing his constructive feedback and direction foe work demo'ed.
 
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/6.24.2015%2009.33%20-%20standup.JPG?raw=true>)
 
-
-, outlining work in the Product Backlog, and prioritizing it based on business value.
-
-
-
+[Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
