@@ -41,7 +41,7 @@ June 26 - Friday
 ![alt tag](https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-26%2009.44.09%20-%20standup.jpg?raw=true>)
 
 June 29 - Monday
-![alt tag]https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-29%2009.07.40%20-%20backlog.jpg?raw=true>)
+![alt tag](https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-29%2009.07.40%20-%20backlog.jpg?raw=true>)
 
 ![alt tag](https://github.com/AccentureFed/process-documentation/blob/master/agile-process-photos/process-photos/2015-06-29%2015.22.47%20backlog.jpg?raw=true>)
 
