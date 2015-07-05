@@ -14,7 +14,7 @@ https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentatio
 
 High level features of the phototype were conveyed.  The ability to Search the data set, Alert users of changes, display information in a dashboard and enable security features to mitigate risk. 
 
-These festures were fully fleshed out a
+These festures were fully fleshed out and
 
 
 
