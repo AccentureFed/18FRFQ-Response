@@ -10,7 +10,7 @@ Upon RFQ receipt, a Product Owner (PO) was assigned. He has extensive expertise 
 
 Our product owner, shown in the plaid shirt, was instrumental in provding feedback in the early hours to drive design elements.
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/prototype-discussion%20%28added%206.23%29.png>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/prototype-discussion%20%28added%206.23%29.png)
 
 https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/user-interaction-discussion.mp4?raw=true
 
