@@ -156,17 +156,29 @@ metrics.core.prependClassName = false
 
 security.adminRole = 'ROLE_ADMIN'
 
-// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.auth.loginFormUrl = "/#/login/"
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.afs.security.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.afs.security.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.afs.security.Role'
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-    '/**/appMetrics/**':[security.adminRole],
-    '/metrics/**':      [security.adminRole],
-    '/appSettings/**':  [security.adminRole],
+grails.plugin.springsecurity.securityConfigType = 'InterceptUrlMap'
+grails.plugin.springsecurity.interceptUrlMap = [
     '/':                ['permitAll'],
     '/#':               ['permitAll'],
+    '/login/**':        ['permitAll'],
+    '/jigsaw/login/':   ['permitAll'],
+    '/login': 			['permitAll'],
+    '/login.*':   		['permitAll'],
+    '/login/*':   		['permitAll'],
+    '/jigsaw/logout/':  ['permitAll'],
+    '/logout/':		    ['permitAll'],
+    '/logout.*':	    ['permitAll'],
+    '/logout/*':	    ['permitAll'],
+    '/api/login/':      ['permitAll'],
+    '/api/logout/':     ['permitAll'],
     '/app/**':          ['permitAll'],
+    '/components/**':   ['permitAll'],
+    '/api/**':          ['permitAll'],
+    '/appSettings/getSettings/**':	['permitAll'],
     '/index':           ['permitAll'],
     '/index.gsp':       ['permitAll'],
     '/assets/**':       ['permitAll'],
@@ -175,5 +187,20 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
     '/**/images/**':    ['permitAll'],
     '/**/favicon.ico':  ['permitAll'],
     '/foodRecall/**':   ['permitAll'],
-    '/application/**':  ['permitAll']]
+    '/application/**':  ['permitAll'],
+    '/metrics/**':      ['isFullyAuthenticated()'],
+    '/appMetrics/**':   ['isFullyAuthenticated()'],
+    '/appSettings/updateSettings/**':  ['isFullyAuthenticated()']]
 
+
+grails.plugin.springsecurity.rest.login.endpointUrl="/api/login"
+grails.plugin.springsecurity.rest.login.active=true
+grails.plugin.springsecurity.rememberMe.persistent = false
+grails.plugin.springsecurity.rest.login.useJsonCredentials = true
+grails.plugin.springsecurity.rest.login.failureStatusCode = 401
+grails.plugin.springsecurity.rest.token.storage.useGorm = true
+grails.plugin.springsecurity.rest.token.storage.gorm.tokenDomainClassName = 'com.afs.security.AuthenticationToken'
+grails.plugin.springsecurity.rest.token.storage.gorm.tokenValuePropertyName = 'token'
+grails.plugin.springsecurity.rest.token.storage.gorm.usernamePropertyName = 'username'
+grails.plugin.springsecurity.rest.token.validation.headerName = 'X-Auth-Token'
+grails.plugin.springsecurity.rest.token.validation.useBearerToken = false

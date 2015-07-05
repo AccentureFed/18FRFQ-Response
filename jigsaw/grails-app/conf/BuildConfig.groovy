@@ -71,6 +71,10 @@ grails.project.dependency.resolution = {
                 ":rest-client-builder:2.1.1") { export = false }
         compile ":yammer-metrics:3.0.1-2"
         compile ':spring-security-core:2.0-RC5'
+        
+        compile ":spring-security-rest:1.5.1", {
+        	excludes ('cors','spring-security-core')
+        }
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.8.1" // or ":hibernate:3.6.10.18"
