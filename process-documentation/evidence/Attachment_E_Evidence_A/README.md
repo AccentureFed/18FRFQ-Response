@@ -16,7 +16,7 @@ https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentatio
 
 https://raw.githubusercontent.com/AccentureFed/18FRFQ-Response/master/process-documentation/process-video/user-interface-discussion.mp4
 
-He attended daily retros with the team providing his constructive feedback and direction foe work demo'ed.
+He attended daily retros with the team providing his constructive feedback and direction for work demo'ed.
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/6.24.2015%2009.33%20-%20standup.JPG?raw=true>)
 
