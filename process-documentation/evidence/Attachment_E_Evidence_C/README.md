@@ -55,7 +55,7 @@ Design Concept 2
 
 **Testing**
 
-Usability and <a href="https://vimeo.com/132240055" target="_blank">508 Testing</a> was conducted to understand the user needs and allow the team to build functionality based on those desires.
+Usability and 508 Testing was conducted to understand the user needs and allow the team to build functionality based on those desires.
 
 <a href="https://vimeo.com/132240054" target="_blank">![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true) </a> 
 <br>
