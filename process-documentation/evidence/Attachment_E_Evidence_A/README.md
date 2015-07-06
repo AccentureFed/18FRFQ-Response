@@ -8,7 +8,7 @@
 
 Upon RFQ receipt, a Product Owner (PO) was assigned. He had extensive expertise in Agile coaching putting him in a position to assess alternatives and weigh trade offs related to the prototype. He was given authority to allocate resources and funding to ensure the appropriate skill sets were available. The team was aware the PO had the ultimate authority to define features, assign tasks and prioritize the backlog. The PO worked with the team to characterize the prototype vision, "an interactive tool used to inform and educate consumers of food product recalls in an open or closed status" and associated features. 
 
-For details on our protoype, click **[here](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Prototypes/README.md)** for an overview. 
+For details on our protoype, click **<a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Prototypes/" target="_blank">here</a>** for an overview. 
 
 Our product owner, shown in the plaid shirt, was instrumental in providing feedback in the early hours to drive design elements. Below he is reviewing original mockups with the team.
 
