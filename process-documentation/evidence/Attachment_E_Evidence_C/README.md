@@ -15,19 +15,19 @@ Our Human Centered Design Overview graphic, shown below, articulates the evoluti
 
 Team needs first evolved when our PO worked with the team to define the vision and high level concept of the prototype.
 
-*Visioning*
+**Visioning**
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20(added%206.23.2015).png?raw=true).
 
 In collaboration with the PO, the team took the vision and developed a high level concept of the prototype artuculating the basic features needed by the end user.
 
-*Concept*
+**Concept**
 
 [Concept Overview](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
 Persona development made the needs of the end user come alive.  Three unique Personas told a compelling story articulating the needs of each user.
 
-*Personas* 
+**Personas** 
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona1.jpg?raw=true>)
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona2.jpg?raw=true>)
@@ -35,7 +35,7 @@ Persona development made the needs of the end user come alive.  Three unique Per
 
 The wireframes allowed the prototype to take shape capturing the needs of the user but also the structure, outline and functionality requirements the team needed. 
 
-*WireFrame*
+**WireFrame**
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png>)
 
@@ -53,7 +53,7 @@ Design Concept 2
 
 <a href="https://vimeo.com/132240054" target="_blank">Usability </a>  and <a href="https://vimeo.com/132240055" target="_blank">508 Testing</a> was conducted to understand the user needs and allow the team to build functionality based on those desires.
 
-
+**Testing**
 <a href="https://docs.google.com/forms/d/1uvt2dUzJS2DMylwZzvDNS0poexIlP8lTrJQjYab4EEs/viewform" target="_blank" >A field survey</a> was conducted to gain "real-life" feedback from people matching our personas.
 
 
