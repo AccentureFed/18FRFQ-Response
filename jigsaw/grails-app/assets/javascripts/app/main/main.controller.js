@@ -660,7 +660,12 @@ angular.module('jigsawApp')
         
        
         angular.element(document).ready(function () {
-    	    
+        	$(document).keypress(function(e){
+        	    if (e.which == 13){
+        	        $("#searchButton").click();
+        	    }
+        	});
+        	
         	$scope.loadAppSettings();
 
         	$(".btn-group > .btn").click(function(){
