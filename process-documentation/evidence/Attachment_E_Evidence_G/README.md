@@ -88,7 +88,7 @@ Below is a representation of our Kanban board and design/prototype changes that 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/6.30.2015%2009.54%20-%20standup.JPG?raw=true)
 
 ### July 1 - Wednesday
-NEED IMAGE
+Image not documented
 
 ### July 2- Thursday
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/2015-07-02%2009.22.02%20-%20backlog.jpg?raw=true)
