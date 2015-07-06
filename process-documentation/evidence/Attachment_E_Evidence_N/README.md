@@ -18,6 +18,7 @@ View as an FDA Administrator of Metrics Main Page
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/metric_main_page.jpg?raw=true>)
 
 Thread View
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/metric_threadinfo.jpg?raw=true>)
 
 An FDA Administrator has a built in capability to post Alerts to the main FDA Food Recalls page.  This Alert banner can be modified via the settings on the authenticated Administrative page. When the text is entered and the Administrator hits save, the main screen banner will be populated.  See screen displays below:
