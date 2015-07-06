@@ -25,6 +25,7 @@ Our initial white board visioning session with our team and Product Owner provid
 Creating Personas allowed the end users to come alive.  Their needs, desires and purpose for use stood as the foundation for our user base.
 
 *Concept*
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
 *Persona Development*
