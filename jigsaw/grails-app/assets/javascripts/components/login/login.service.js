@@ -8,7 +8,7 @@ angular.module('jigsawApp')
                 callback = callback || angular.noop;
                 error = error || angular.noop;
                 
-                $http.post('api/login', { username: username, password: password }, getAuthModuleHttpConfig()).
+                $http.post('api/login', { username: username.toLowerCase(), password: password }, getAuthModuleHttpConfig()).
                 success(function(data) {
                     $cookieStore.put("loggedIn", "true");
                     $cookieStore.put("currentUser", data.username);

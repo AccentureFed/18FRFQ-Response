@@ -444,7 +444,7 @@ a{
 }
 
 #stateContainer {
-	margin-top:27px;
+	margin-top:25px;
 	margin-left:10px;
 	width:30%;
 }
@@ -454,7 +454,7 @@ a{
 }
 
 #dateContainer {
-	margin-top:27px;
+	margin-top:25px;
 	margin-left:10px;
 }
 
@@ -483,12 +483,12 @@ a{
 	color:white;
 }
 
-.table-bordered tbody, p , a{
+.table-bordered tbody, p , a, span {
 	font-size:12px;
 }
 
 .table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
-	padding:5px;
+ 	padding:5px;
 	border-collapse: separate;
 	border: 1px solid #646464;
 }
@@ -579,6 +579,7 @@ a{
 #recallListTable thead{
 	display: block;
 	width: 100%;
+	padding-bottom: 10px;
 }
 
 #recallListTable thead tr th:first-child {
@@ -587,6 +588,7 @@ a{
 
 #recallListTable thead tr th {
 	width:83px;
+	border:none;
 }
 
 #recallListTable thead tr th:last-child {
@@ -598,7 +600,9 @@ a{
 	overflow-y: auto;
 	width: 100%;
 	height: 284px;
+	border-left: none;
 }
+
 
 #recallListTable tbody tr td:first-child {
 	width: 215px;
@@ -610,6 +614,10 @@ a{
 
 #recallListTable tbody tr td:last-child {
 	width: 90px;
+}
+
+#recallListTable>tbody>tr:first-child *{
+	border-top: none;
 }
 
 .bootstrap-select.btn-group .dropdown-menu {
@@ -645,7 +653,29 @@ a{
 	width:45%;
 }
 
-@media (max-width: 1050px) { 
+.modal-body.well {
+	background-color: white;
+	border: none;
+	box-shadow:none;
+}
+
+.modal-header {
+	border-bottom: 2px solid #646464;
+}
+
+#recallDetailsTable {
+	border: 1px solid #646464;	
+}
+
+#recallDetailsTable  thead tr th{
+	border-radius:0;
+}
+
+.modal-body {
+	margin-bottom:0;
+}
+
+@media (max-width: 1024px) { 
 	.container-fluid {
 		padding:0;
 	}
@@ -709,6 +739,14 @@ a{
 	#stateContainer {
 		width:100%;
 	}
+
+	#searchContainer {
+		width:100%;
+	}
+	
+	#dateContainer {
+		width:100%;
+	}	
 	
 	.card-info {
 		height:155px;
@@ -724,5 +762,45 @@ a{
 	
 	#recentTweets, #followFDA {
 		padding:0;
+	}
+	
+	#recallListCell {
+		width:100%;
+	}
+	
+	#recallListTable {
+		width:100%;
+		position:relative;
+	}
+	
+	#recallListTable  thead{
+		position:absolute;
+	}
+	
+	#recallListTable thead tr th:first-child, #recallListTable tbody tr td:first-child {
+		width:24%;
+	}
+	
+	#recallListTable thead tr th {
+		width:10%;
+	}
+	
+	#recallListTable tbody tr td {
+		width:10%;
+	}
+	
+	#recallListTable thead tr th:last-child, #recallListTable tbody tr td:last-child {
+		width:9%;
+	}
+	
+	#recallListTable  tbody{
+		position:absolute;
+		top:35px;
+	}	
+}
+
+@media (max-width: 400px) { 
+	#recallListTable  tbody{
+		top:50px;
 	}
 }
