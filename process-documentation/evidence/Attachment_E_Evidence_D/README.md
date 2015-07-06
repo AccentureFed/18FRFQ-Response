@@ -8,20 +8,23 @@
 
 The team applied four human-centered design techniques in our prototype development.  Our process started and ended with people being at the center of our design and prototype creation. The below graphics depicts our Human Centered Design Process and the steps the team took to reach our final prototype design.
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Process%20Overview.pdf)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/UCD-Process-for-8F_2.jpg?raw=true>)
 
 An initial UX Timeline was created upon RFQ reciept to ensure we built in multiple ways to capture and incorporate feedback. 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/6.29.2015%2014.09%20-%20ux-timeline.JPG)
 
 As described above in our evidence response, four Human-Centered Design Techniques were used in our prototype development.
 
-**Technique 1 - Understand User Concept**
-Our initial white board visioning session with our team and Product Owner provided foresight into the prototype functionality, user base and purpose.
+**Technique 1 - Understand User Concept** 
+Our initial white board visioning session with our team and Product Owner provided foresight into the prototype functionality, user base and purpose. 
 
 *Visioning*
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20(added%206.23.2015).png?raw=true)
 
 Creating Personas allowed the end users to come alive.  Their needs, desires and purpose for use stood as the foundation for our user base.
+
+*Concept*
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
 *Persona Development*
 
@@ -36,19 +39,16 @@ https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentatio
 
 Defining and understanding the needs and desires of the end user was critical to ensure we hit the mark with our user base. Our initial concept defined early on what was needed and desired.
 
-*Concept*
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
-
 User stories were used to describe our user, what they wanted and why. These stories created a simplified description of a requirement that the team then turned into tasks. 
 
 *User Stories*
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/features(added%206.23).png?raw=true)
 
 A field survey was conducted to gain additional insight and understanding at a local grocery store.
+
 *Survey*
 
-Survey Template
-NEED
+<a href="https://docs.google.com/forms/d/1uvt2dUzJS2DMylwZzvDNS0poexIlP8lTrJQjYab4EEs/viewform" target="_blank" >A field survey</a> was conducted to gain "real-life" feedback from people matching our personas.
 
 [Survey Responses](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true)
 
@@ -57,6 +57,7 @@ Survey participant who agreed to take a photo!
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true>)
 
 Continual and iterative feedback from our product owner drove functionality requirements and aided in prioritization.
+
 **Product Owner Feedback:**
 
 <a href="https://vimeo.com/132240357" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/user-interface-discussion.png?raw=true)]</a><br>
@@ -75,6 +76,19 @@ Rapid Prototyping allowed the designers to quickly mock up the various features 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)<br>
 
 *Design Iterations*
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_2.jpg?raw=true>)
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_5.jpg?raw=true>)
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_6.jpg?raw=true>)
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_7.jpg?raw=true>)
+
+**Application FrontEnd Development**
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_9.jpg?raw=true>)
+
 
 **Technique 4 - Test and Evaluate**
 
