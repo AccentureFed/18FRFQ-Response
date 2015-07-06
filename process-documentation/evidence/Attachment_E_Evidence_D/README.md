@@ -1,4 +1,4 @@
-![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/proposal-header.png)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/response-images/proposal-header.png?raw=true)
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
 
@@ -42,7 +42,7 @@ Defining and understanding the needs and desires of the end user was critical to
 User stories were used to describe our user, what they wanted and why. These stories created a simplified description of a requirement that the team then turned into tasks. 
 
 *User Stories*
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/features(added%206.23).png?raw=true>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/features(added%206.23).png?raw=true)
 
 A field survey was conducted to gain additional insight and understanding at a local grocery store.
 *Survey*
@@ -50,8 +50,7 @@ A field survey was conducted to gain additional insight and understanding at a l
 Survey Template
 NEED
 
-Survey Responses
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true
+[Survey Responses](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true)
 
 Survey participant who agreed to take a photo!
 
@@ -60,9 +59,9 @@ Survey participant who agreed to take a photo!
 Continual and iterative feedback from our product owner drove functionality requirements and aided in prioritization.
 *Product Owner Feedback*
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/user-interface-discussion.png?raw=true>)
+<a href="https://vimeo.com/132240357" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/user-interface-discussion.png?raw=true)]</a>
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/state-discussion.png?raw=true>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/state-discussion.png?raw=true)
 
 https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/state-discussion.mp4?raw=true
 
