@@ -38,9 +38,6 @@ Open source technologies allowed our team to drive efficiencies (cost, time, rel
 ![alt tag](/process-documentation/agile-process-photos/design/tool-diagram.png)
 
 ## Development 
-1. Used 4 API's (List them)  
-2. UCD drove API's (List them)  
-3. Front end development drove APIs (List them) - front end developers produced the spec's and the backend developers created the working API', as identified.
 
 The team both developed and consumed a RESTfull API (Details Here).  Development dependencies across layers of the architecture was mitigated by first creating a shell end-point available to begin to integrate with.    Developer review and interaction with the shell end-points results in feedback and resulting changes.  Ultimately a final API is established with appropriate unit tests are committed for build.  Our API's enriched the data set by normalizing state recall information that was embedded in the free text.  A specific data element was added to easily represent the formal list of states associated with the recall.  
 The team utilized Github for configuration management. Three backend developers each worked part time, to ensure continuity and CM best practices they used Github time stamps and the check in-check-out feature to work on the most recent code sources.  The team built in the ability to trace any warfile back to the Jenkins Job/Build and commit reference in Github. This allowed tractability and a testing reference for each build.  
