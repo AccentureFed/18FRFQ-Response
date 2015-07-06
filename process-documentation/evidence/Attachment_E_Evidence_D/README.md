@@ -57,11 +57,13 @@ Survey participant who agreed to take a photo!
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true>)
 
 Continual and iterative feedback from our product owner drove functionality requirements and aided in prioritization.
-*Product Owner Feedback*
+**Product Owner Feedback:**
 
-<a href="https://vimeo.com/132240357" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/user-interface-discussion.png?raw=true)]</a>
+<a href="https://vimeo.com/132240357" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/user-interface-discussion.png?raw=true)]</a><br>
+**UI Discussion**
 
-<a href="https://vimeo.com/132240053" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/state-discussion.png?raw=true)</a>
+<a href="https://vimeo.com/132240053" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/state-discussion.png?raw=true)</a><br>
+**UX Discussion**
 
 
 **Technique 3 - Implement Rapid Prototyping**
@@ -70,7 +72,7 @@ Rapid Prototyping allowed the designers to quickly mock up the various features 
 
 *WireFrame*
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)<br>
 
 *Design Iterations*
 
@@ -82,16 +84,13 @@ Various testing methods such as usability and 508, allowed the team to gain unbi
 
 **Local and Remote Usability Testing**
 
-Usability Testing Video
-<a href="https://vimeo.com/132240054" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true)</a>
+<a href="https://vimeo.com/132240054" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true)</a><br>
+**Usability Testing Video**
 
-
-
-*508 Testing*
 
 Rachel, our visually impaired Tester. 
-<a href="https://vimeo.com/132240055" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/508-testing.png?raw=true)</a>
-
+<a href="https://vimeo.com/132240055" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/508-testing.png?raw=true)</a><br>
+**508 Testing**
 
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
