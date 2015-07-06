@@ -83,14 +83,14 @@ Various testing methods such as usability and 508, allowed the team to gain unbi
 **Local and Remote Usability Testing**
 
 Usability Testing Video
-<a href="https://vimeo.com/132240054" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/alison-usability.png?raw=true)</a>
+<a href="https://vimeo.com/132240054" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true)</a>
 
 
 
 *508 Testing*
 
 Rachel, our visually impaired Tester. 
-<a href="https://vimeo.com/132240055" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/508-testing.png?raw=true)</a>
+<a href="https://vimeo.com/132240055" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/508-testing.png?raw=true)</a>
 
 
 
