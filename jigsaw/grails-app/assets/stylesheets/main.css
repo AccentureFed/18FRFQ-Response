@@ -646,6 +646,28 @@ a{
 	width:45%;
 }
 
+.modal-body.well {
+	background-color: white;
+	border: none;
+	box-shadow:none;
+}
+
+.modal-header {
+	border-bottom: 2px solid #646464;
+}
+
+#recallDetailsTable {
+	border: 1px solid #646464;	
+}
+
+#recallDetailsTable  thead tr th{
+	border-radius:0;
+}
+
+.modal-body {
+	margin-bottom:0;
+}
+
 @media (max-width: 1050px) { 
 	.container-fluid {
 		padding:0;
