@@ -1,21 +1,21 @@
 ##Jigsaw REST API
 
 We enrich the data in a few ways: 
-We normalize the distribution_pattern by using NLP (natural language processing) to find which US states an item was distributed in.  This allows us to effectively search by state, where their API would not allow this due to no standard state syntax and other troubles, such as a search for “OR” (for Oregon) would return all recalls that had the word “or” in the statement which caused false positives.  Our API can also find distribution states that are listed as “on site retail” and map that to the manufacturing state, which is another limitation of the given API.
-We normalize the UPC codes using NLP to find all of the barcodes a recall affects.  In the FDA dataset, UPCs can be in the distribution_pattern or code_info payload, which makes it hard to work with.  We can now create an array of just the UPC codes for searching.
-We store the report_date so that we can order results by the date (most recent first).  The FDA API does not indicate that ordering is possible.
-For free-text searches, we restrict the search to product_description, reason_for_recall, recalling_firm, and barcodes to provide a better user experience and not searching on fields that are not public domain which allows for better results for our target user.
-Furthermore, we can return as many results as a user wants instead of only 100 at a time.  We also do not have a skip limit of 5,000 for a query that the API has.
-Lastly, we strip out the duplicate food recall data that is in the API.
+- We normalize the distribution_pattern by using NLP (natural language processing) to find which US states an item was distributed in.  This allows us to effectively search by state, where their API would not allow this due to no standard state syntax and other troubles, such as a search for “OR” (for Oregon) would return all recalls that had the word “or” in the statement which caused false positives.  Our API can also find distribution states that are listed as “on site retail” and map that to the manufacturing state, which is another limitation of the given API.
+- We normalize the UPC codes using NLP to find all of the barcodes a recall affects.  In the FDA dataset, UPCs can be in the distribution_pattern or code_info payload, which makes it hard to work with.  We can now create an array of just the UPC codes for searching.
+- We store the report_date so that we can order results by the date (most recent first).  The FDA API does not indicate that ordering is possible.
+- For free-text searches, we restrict the search to product_description, reason_for_recall, recalling_firm, and barcodes to provide a better user experience and not searching on fields that are not public domain which allows for better results for our target user.
+- Furthermore, we can return as many results as a user wants instead of only 100 at a time.  We also do not have a skip limit of 5,000 for a query that the API has.
+- Lastly, we strip out the duplicate food recall data that is in the API.
 
 
-All of the endpoints are assumed to have the host/port and application root at the beginning.  Such that <host>/application/version would expand to something like https://jigsaw.agilex-devcloud.com/jigsaw/application/version
+All of the endpoints are assumed to have the host/port and application root at the beginning.  Such that `<host>/application/version` would expand to something like `https://jigsaw.agilex-devcloud.com/jigsaw/application/version`
 
-<host>/application/version - GET
+**host/application/version - GET**
 Returns JSON of the application version number, as seen below:
-    {
+ `   {
       "version": "1.0.120"
-    }
+    } `
 The version can be read as <major>.<minor>.<build_number>
 
 
