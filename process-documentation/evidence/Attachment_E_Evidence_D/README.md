@@ -31,11 +31,13 @@ Creating Personas allowed the end users to come alive.  Their needs, desires and
 *Persona Development*
 
 The template to display and present Personas was first developed.
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Personas/persona%20description.png?raw=true
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona2.jpg?raw=true)
 
 *Personas*
 Three unique Personas depicted our user base.
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Personas/Pesonas%20for%208F.docx?raw=true
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona1.jpg?raw=true)
 
 **Technique 2 - Understand the Aspirations of the End User**
 
