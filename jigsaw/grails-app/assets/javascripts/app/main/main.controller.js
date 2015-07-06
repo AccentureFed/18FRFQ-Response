@@ -328,17 +328,19 @@ angular.module('jigsawApp')
     			    'defaultFill': '#DDDDDD'
     			  },
     			  done: function(datamap) {
-    				  datamap.svg.selectAll('.datamaps-subunit').on('click', function(geography) {
-    			      if ($scope.selectedState != null && typeof $scope.mapObject.data[$scope.selectedState] != 'undefined') {
-    					    $scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
-                            }
-                        $scope.selectedState = geography.id;
-                        $scope.oldState = geography.id;
-                        $('#state_select').selectpicker('val', $scope.selectedState);
-                        $scope.getBriefRecallsByState();
-                        $scope.getStateSeverity($scope.selectedState);
+    				  var clickEvent = function(geography) {
+        			      if ($scope.selectedState != null && typeof $scope.mapObject.data[$scope.selectedState] != 'undefined') {
+      					    $scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
+                              }
+                          $scope.selectedState = geography.id;
+                          $scope.oldState = geography.id;
+                          $('#state_select').selectpicker('val', $scope.selectedState);
+                          $scope.getBriefRecallsByState();
+                          $scope.getStateSeverity($scope.selectedState);
 
-		            })},
+  		            }
+    				  datamap.svg.selectAll('.datamaps-subunit').on('click', clickEvent);
+    				  datamap.svg.selectAll('.datamaps-subunit').on('touchstart', clickEvent);},
 		            data: {
 		            	'AZ': {'fillKey': "defaultFill"},
 			            'AL': {'fillKey': "defaultFill"},
