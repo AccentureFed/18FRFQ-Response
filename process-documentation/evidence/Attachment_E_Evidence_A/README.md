@@ -13,7 +13,7 @@ Prototype Overview
 
 The PO was actively involved daily in contributing and soliciting feedback at sprint review and retro. Daily he conducted backlog grooming and prioritized tasks to ensure the team was working on the most important tasks. User stories, defects and infrastructure needs were balanced and prioritized against user value and time.
 
-Our product owner, shown in the plaid shirt, was instrumental in provding feedback in the early hours to drive design elements.
+Our product owner, shown in the plaid shirt, was instrumental in providing feedback in the early hours to drive design elements.
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/prototype-discussion%20%28added%206.23%29.png)
 
