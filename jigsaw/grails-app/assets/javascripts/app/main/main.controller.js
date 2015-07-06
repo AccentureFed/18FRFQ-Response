@@ -411,7 +411,7 @@ angular.module('jigsawApp')
 			if ($scope.oldState != null && typeof $scope.mapObject.data[$scope.oldState]  != 'undefined') {
 				$scope.mapObject.data[$scope.oldState]['fillKey'] = "defaultFill";
 			}
-			if (typeof $scope.selectedState != 'undefined' && $scope.selectedState != null) {
+			if (!!$scope.selectedState) {
 	            $scope.oldState = $scope.selectedState;
 	            $scope.getBriefRecallsByState();
 	            $scope.getStateSeverity($scope.selectedState);
@@ -427,48 +427,57 @@ angular.module('jigsawApp')
     		$scope.mapActive = true;
     	}
 
+        
+        var geoErrors = function(error) {
+            switch(error.code) {
+                default:
+                	$scope.getBriefRecallsByState();
+            }
+        }
+        
     	   	//gets the latlong position
         $scope.getGeoLocation = function(){
             $scope.userLocation = "";
             if (navigator.geolocation) {
-                    $scope.userLocation = navigator.geolocation.getCurrentPosition($scope.processPosition);
-                        }
-            	}
+            	$scope.userLocation = navigator.geolocation.getCurrentPosition($scope.processPosition, geoErrors);
+            } else {
+            	//the user may have manually chosen a state by this point
+            	$scope.getBriefRecallsByState();
+            }
+        }
+
+        
 		$scope.processPosition = function(position){
-			var lat = position.coords.latitude;
-			var long = position.coords.longitude;
-			var parser = new ol.format.GeoJSON();
-            var features = parser.readFeatures($scope.statesData);
-            var point = new ol.geom.Point([long, lat]);
-            var geom;
-            var state = ""
-            for( var i = 0; i< features.length; i++ ){
-            	  geom = features[i].getGeometry();
-                  if (point.intersectsExtent(geom.getExtent())){
-					state = features[i].getProperties()["NAME"];
-                }
-            }
-            if (state){
-            	$scope.setUserState(state);
-            }
+			if (!!position && position.coords && position.coords.latitude && position.coords.longitude) {
+				var lat = position.coords.latitude;
+				var long = position.coords.longitude;
+				var parser = new ol.format.GeoJSON();
+	            var features = parser.readFeatures($scope.statesData);
+	            var point = new ol.geom.Point([long, lat]);
+	            var geom;
+	            var state = ""
+	            for( var i = 0; i< features.length; i++ ){
+	            	  geom = features[i].getGeometry();
+	            	  if (point.intersectsExtent(geom.getExtent())){
+	            		  state = features[i].getProperties()["NAME"];
+	            	  }
+	            }
+	            if (state){
+	            	$scope.setUserState(state);
+	            } else {
+	            	$scope.selectedState = null;
+	            	$scope.getAllRecalls();
+	            }
+			}
 		}
+		
 		$scope.setUserState = function(state){
 			for (abbrev in $scope.abbreviationsMap){
 
 				if (state == $scope.abbreviationsMap[abbrev]["name"]){
-
-					if (!!$scope.selectedState) {
-                        $scope.mapObject.data[$scope.selectedState]['fillKey'] = "defaultFill";
-                    }
-                    if ($scope.oldState && typeof $scope.mapObject.data[$scope.oldState] != 'undefined'){
-                        $scope.mapObject.data[$scope.oldState]['fillKey'] = "defaultFill";
-                    }
 					$scope.selectedState = $scope.abbreviationsMap[abbrev]["abbreviation"];
-                    $scope.oldState = $scope.selectedState;
-					$('#state_select').selectpicker('val', $scope.selectedState);
-					$scope.getBriefRecallsByState();
-                   	$scope.getStateSeverity($scope.selectedState);
-
+					$scope.stateChanged();
+                   	break;
 				}
 			}
 		}
@@ -529,8 +538,8 @@ angular.module('jigsawApp')
     	
     	$scope.getAllRecalls = function(){
     		RecallInfo.getAllRecallDetail(function(data, headers){
-    			if (data != null && data.meta != null && data.meta.results != null && data.meta.results.total > 0) {
-    				$scope.totalRecalls = data.meta.results.total;
+    			if (data != null && data.numResults != null && data.results != null && data.numResults > 0) {
+    				$scope.totalRecalls = data.numResults;
         			$scope.recalls = data.results;
         			if (perRequest > 0)
         			{
