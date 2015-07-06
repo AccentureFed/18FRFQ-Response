@@ -61,11 +61,8 @@ Continual and iterative feedback from our product owner drove functionality requ
 
 <a href="https://vimeo.com/132240357" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/user-interface-discussion.png?raw=true)]</a>
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/state-discussion.png?raw=true)
+<a href="https://vimeo.com/132240053" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/state-discussion.png?raw=true)</a>
 
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/state-discussion.mp4?raw=true
-
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/user-interaction-discussion.mp4?raw=true
 
 **Technique 3 - Implement Rapid Prototyping**
 
