@@ -21,11 +21,10 @@ Based on feedback received, the designs were refined and iterations made.
 
 In addition to hands on keyboard testing, a field survey was conducted at a local grocery chain to gain hands on feedback from individuals who would be using our prototype amongst their daily lives.  Four individuals provided a response and gave constructive feedback to drive functionality. 
 
-The Site Survey entailed the following questions:
+These were the [Survey Questions.](https://docs.google.com/forms/d/1uvt2dUzJS2DMylwZzvDNS0poexIlP8lTrJQjYab4EEs/viewform)
+<br>
 
-[Survey Responses](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true)
-
-Josh, was one of our respondants.
+Josh, was one of our respondents.
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true)
 
 Our team brought in a 508 SME in addition to our designer to facilitate 508 testing.   508 testing was done utilizing JAWS, the Wat tool bar and Keyboard Accessibility. <br>
