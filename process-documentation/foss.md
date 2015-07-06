@@ -1,13 +1,3 @@
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/response-images/proposal-header.png?raw=true)
-
-[Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
-
-
-|#|criteria|evidence|
-|-------|---------------|------------------|
-|q|prototype and underlying platforms used to create and run the prototype are openly licensed and free of charge| Our prototype and the underlying 51 platforms used to create and run the prototype are openly licensed and free of charge. In the supporting evidence link, a full list of all 51 technologies, their license agreement and cost reference data have been provided.  | 
-
-
 |            Technology            |                              Documentation URL                              |         License        |                                            License URL                                            |
 |:--------------------------------:|:---------------------------------------------------------------------------:|:----------------------:|:-------------------------------------------------------------------------------------------------:|
 |              Grails              |                              https://grails.org                             |         Apache         |                                  https://grails.org/wiki/License                                  |
@@ -61,7 +51,3 @@
 | Spring Security Rest             | https://grails.org/plugin/spring-security-rest                              | Apache                 | http://www.apache.org/licenses/LICENSE-2.0.html                                                   |
 | Hibernate(Grails)                | https://grails.org/plugin/hibernate                                         |                        | http://www.apache.org/licenses/LICENSE-2.0.html                                                   |
 |                                  |                                                                             |                        |                                                                                                   |
-
-
-[Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
-
