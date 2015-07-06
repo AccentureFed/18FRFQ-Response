@@ -16,6 +16,7 @@ An initial UX Timeline was created upon RFQ reciept to ensure we built in multip
 As described above in our evidence response, four Human-Centered Design Techniques were used in our prototype development.
 
 **Technique 1 - Understand User Concept** 
+
 Our initial white board visioning session with our team and Product Owner provided foresight into the prototype functionality, user base and purpose. 
 
 *Visioning*
@@ -35,6 +36,7 @@ The template to display and present Personas was first developed.
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona2.jpg?raw=true)
 
 *Personas*
+
 Three unique Personas depicted our user base.
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona1.jpg?raw=true)
