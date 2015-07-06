@@ -69,6 +69,7 @@ Continual and iterative feedback from our product owner drove functionality requ
 Rapid Prototyping allowed the designers to quickly mock up the various features of the prototype.  Quick iterations reflected in mockups were continually built to allow for daily design changes. The ability of the team to visually see the changes and incorporated feedback within a design provided context and clarity.
 
 *WireFrame*
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)
 
 *Design Iterations*
@@ -79,19 +80,18 @@ Various testing methods such as usability and 508, allowed the team to gain unbi
 
 *Usability Testing*
 
-Local and Remote Usability Testing
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/alison-usability.png?raw=true>)
+**Local and Remote Usability Testing**
 
 Usability Testing Video
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/Alison%20usability%20test.mp4?raw=true
+<a href="https://vimeo.com/132240054" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/alison-usability.png?raw=true)</a>
+
+
 
 *508 Testing*
 
-Rachel, our visually impaired Tester
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/508-testing.png?raw=true>)
+Rachel, our visually impaired Tester. 
+<a href="https://vimeo.com/132240055" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/508-testing.png?raw=true)</a>
 
-Testing Video
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/508-testing.MOV?raw=true
 
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
