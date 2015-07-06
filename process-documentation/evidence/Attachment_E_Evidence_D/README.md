@@ -8,7 +8,7 @@
 
 The team applied four human-centered design techniques in our prototype development.  Our process started and ended with people being at the center of our design and prototype creation. The below graphics depicts our Human Centered Design Process and the steps the team took to reach our final prototype design.
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/UCD-Process-for-8F_2.jpg?raw=true>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/UCD-Process-for-8F_2.jpg?raw=true)
 
 An initial UX Timeline was created upon RFQ reciept to ensure we built in multiple ways to capture and incorporate feedback. 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/6.29.2015%2014.09%20-%20ux-timeline.JPG)
@@ -25,9 +25,7 @@ Our initial white board visioning session with our team and Product Owner provid
 
 Creating Personas allowed the end users to come alive.  Their needs, desires and purpose for use stood as the foundation for our user base.
 
-*Concept*
-
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
+**<a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.pdf" target="_blank">Concept</a>**
 
 *Persona Development*
 
