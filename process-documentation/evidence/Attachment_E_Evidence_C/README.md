@@ -10,59 +10,67 @@ Our team design process centered on including people, their ideas, feedback, cri
 
 Our Human Centered Design Overview graphic, shown below, articulates the evolution of our prototype design and depicts the critical role defining people’s needs played in its maturity.
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Process%20Overview.pdf)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/UCD-Process-for-8F_2.jpg?raw=true>)
 
 
 Team needs first evolved when our PO worked with the team to define the vision and high level concept of the prototype.
 
-*Visioning*
+**Visioning**
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20(added%206.23.2015).png?raw=true).
 
 In collaboration with the PO, the team took the vision and developed a high level concept of the prototype artuculating the basic features needed by the end user.
 
-*Concept*
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
+**Concept**
+
+[Concept Overview](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
 Persona development made the needs of the end user come alive.  Three unique Personas told a compelling story articulating the needs of each user.
 
-*Personas* 
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Personas/Pesonas%20for%208F.docx
+**Personas** 
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona1.jpg?raw=true>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona2.jpg?raw=true>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona3.jpg?raw=true>)
+
+<a href="https://docs.google.com/forms/d/1uvt2dUzJS2DMylwZzvDNS0poexIlP8lTrJQjYab4EEs/viewform" target="_blank" >A field survey</a> was conducted to gain "real-life" feedback from people matching our personas.
+
+**WireFrame**
 
 The wireframes allowed the prototype to take shape capturing the needs of the user but also the structure, outline and functionality requirements the team needed. 
-*WireFrame*
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)
 
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png>)
+
+**Designs**
 
 Multiple designs were created to provide a interface appealing and purposeful to users.
+
 Design Concept 1
-LINK
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_3.jpg?raw=true>)
 
 Design Concept 2
-LINK
 
-Usability  and 508 testing was conducted to understand the user needs and allow the team to build functionality based on those desires. 
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_4.jpg?raw=true>)
 
-<a href="https://vimeo.com/132240054" target="_blank">Usability Testing</a>
+**Testing**
 
-<a href="https://vimeo.com/132240055" target="_blank">508 Testing</a>
-
-
-A field survey was conducted to gain "real-life" feedback from people matching our personas.
-SURVEY LINK
+<a href="https://vimeo.com/132240054" target="_blank">Usability </a>  and <a href="https://vimeo.com/132240055" target="_blank">508 Testing</a> was conducted to understand the user needs and allow the team to build functionality based on those desires.
 
 Including people in the review and testing process drove iterative changes through the process to ensure we refined the needs of the end users matching our Personas as well as the needs of the team.
 
 UI Changes after Usability Testing
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/Changes%20to%20UI%20from%20Usability%20test.docx?raw=true
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_12.jpg?raw=true>)
 
 UI Changes after peer-peer designer review
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/Changes%20to%20UI%20from%20Usability%20test.docx?raw=true
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_10.jpg?raw=true>)
 
 UI Design Changes after additional Usability Testing 6/29
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/design%20comments6-29.docx?raw=true
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_17.jpg?raw=true>)
 
-The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below.
-LINK
+The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below with the live prototype, http://52.1.100.220:8080/jigsaw/#/ and seen below.
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_16.jpg?raw=true>)
 
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
