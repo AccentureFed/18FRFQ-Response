@@ -30,7 +30,7 @@ The team utilized Github its time stamps and the check in-check-out feature to w
 Need to talk about monitoring here.
 
 Our development stack consists of:
-![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/design/tool-diagram.png)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/design/tool-diagram.png?raw=true)
 
 Open source, modern technologies were chosen based on team preference, accounts created and access granted during this time. The Development team had access to all tools and began work on day one.
 
