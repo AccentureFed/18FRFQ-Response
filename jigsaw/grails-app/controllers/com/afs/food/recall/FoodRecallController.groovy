@@ -17,7 +17,7 @@ class FoodRecallController {
      *
      *<p>
      * params include:<br />
-     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can be any name or abbreviation
+     * <strong>state</strong> - Optional. String. If not present (or an invalid state), then no state specific searching will be performed. Can be any name or abbreviation
      * of a state<br />
      * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
@@ -44,9 +44,9 @@ class FoodRecallController {
      * as a json array or upc barcodes.
      *<p>
      * params include:<br />
-     * <strong>state</strong> - Optional. String. If not present (or and invalid state), then no state specific searching will be performed. Can
+     * <strong>stateCode</strong> - Optional. String. If not present (or an invalid state), then no state specific searching will be performed. Can
      * be any name or abbreviation of a state<br />
-     * <strong>searchText</strong> - Optional. Any free-form text to me matched with a UPC (exact match), Product Description (substring match),
+     * <strong>searchText</strong> - Optional. Any free-form text to be matched with a UPC (exact match), Product Description (substring match),
      * Recalling Firm (substring match), or Reason for Recall (substring match). If not given, ignored.<br />
      * <strong>startDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
      * <strong>endDate</strong> - Optional. DateString. Format of yyyyMMdd<br />
