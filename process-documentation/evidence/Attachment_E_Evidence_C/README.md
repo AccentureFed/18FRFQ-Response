@@ -6,28 +6,52 @@
 |-------|---------------|------------------|
 |c|understand what people need, by including people in the prototype development and design process |Our team took a twofold approach focusing (1) on the end-user and (2) on our own development team to ensure people’s needs were accounted for through development.  To meet the needs of our defined end-users Personas, our front and back end development was driven by User Centered Design practices and methodologies. Our PO worked to define the prototype vision, the team crafted three personas, Ann Jordan a Mom, Steven Jones an FDA Administrator and Kathy Miller a Nutritionist, to define the user stories that drive functionality. Our PO provided clarification and feedback at each Sprint review and demo.  A field survey with four people at a local grocery store, defined prototype functionality requirements with real world users’ needs and concerns expressed.  Wire frames and design mock ups evolved and were modified from feedback through surveys, usability testing, Persona development, sprint reviews, UAT, and 508 testing. To ensure clarity and priority for our development team, daily ceremonial activities such as Sprint reviews, Backlog grooming and prioritization where the KANBAN board was updated, occurred on a regular cadence (daily).  These events promoted open dialogue and a venue to discuss success, impediments, and collaborate. |
 
+Our team design process centered on including people, their ideas, feedback, criticisms and experiences.  These encounters drove our iterative design process to ensure we were not building our prototype in a vacuum. With a short turn around, it would have been easy to put our heads down and code and get to the end and realize our prototype was not intuitive or beneficial to any user.
 
-Our Human Centered Design Overview graphic articulates the evolution of our prototype design and depicts the critical role defining peoples needs played. 
+Our Human Centered Design Overview graphic, shown below, articulates the evolution of our prototype design and depicts the critical role defining people’s needs played in its maturity.
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Process%20Overview.pdf)
 
 
-*Visioning* - Our PO worked with the team to define the vision and high level concept of the prototype
+Team needs first evolved when our PO worked with the team to define the vision and high level concept of the prototype.
+
+*Visioning*
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20(added%206.23.2015).png?raw=true).
+
+In collaboration with the PO, the team took the vision and developed a high level concept of the prototype artuculating the basic features needed by the end user.
 
 *Concept*
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
+Persona development made the needs of the end user come alive.  Three unique Personas told a compelling story articulating the needs of each user.
+
 *Personas* 
 https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Personas/Pesonas%20for%208F.docx
 
+The wireframes allowed the prototype to take shape capturing the needs of the user but also the structure, outline and functionality requirements the team needed. 
 *WireFrame*
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)
 
+
+Multiple designs were created to provide a interface appealing and purposeful to users.
 Design Concept 1
 LINK
 
 Design Concept 2
 LINK
+
+Usability  and 508 testing was conducted to understand the user needs and allow the team to build functionality based on those desires. 
+
+Usability Testing
+https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/Alison%20usability%20test.mp4?raw=true
+
+508 Testing
+https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/508-testing.MOV?raw=true
+
+A field survey was conducted to gain "real-life" feedback from people matching our personas.
+SURVEY LINK
+
+Including people in the review and testing process drove iterative changes through the process to ensure we refined the needs of the end users matching our Personas as well as the needs of the team.
 
 UI Changes after Usability Testing
 https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/Changes%20to%20UI%20from%20Usability%20test.docx?raw=true
@@ -38,9 +62,7 @@ https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentatio
 UI Design Changes after additional Usability Testing 6/29
 https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/design%20comments6-29.docx?raw=true
 
-MORE????
-
-Final Design
+The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below.
 LINK
 
 
