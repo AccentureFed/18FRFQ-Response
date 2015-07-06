@@ -1,4 +1,4 @@
-![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/proposal-header.png)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/raw/master/process-documentation/agile-process-photos/response-images/proposal-header.png)
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
 
@@ -42,11 +42,10 @@ LINK
 
 Usability  and 508 testing was conducted to understand the user needs and allow the team to build functionality based on those desires. 
 
-Usability Testing
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/Alison%20usability%20test.mp4?raw=true
+<a href="https://vimeo.com/132240054" target="_blank">Usability Testing</a>
 
-508 Testing
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/process-video/508-testing.MOV?raw=true
+<a href="https://vimeo.com/132240055" target="_blank">508 Testing</a>
+
 
 A field survey was conducted to gain "real-life" feedback from people matching our personas.
 SURVEY LINK
