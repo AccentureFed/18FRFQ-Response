@@ -60,16 +60,17 @@ Design Concept 2
 Including people in the review and testing process drove iterative changes through the process to ensure we refined the needs of the end users matching our Personas as well as the needs of the team.
 
 UI Changes after Usability Testing
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/Changes%20to%20UI%20from%20Usability%20test.docx?raw=true
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_12.jpg?raw=true>)
 
 UI Changes after peer-peer designer review
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/Changes%20to%20UI%20from%20Usability%20test.docx?raw=true
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_10.jpg?raw=true>)
 
 UI Design Changes after additional Usability Testing 6/29
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Change%20Documentation/design%20comments6-29.docx?raw=true
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_17.jpg?raw=true>)
 
-The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below.
-LINK
+The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below with the live prototype, http://52.1.100.220:8080/jigsaw/#/ and seen below.
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_16.jpg?raw=true>)
 
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
