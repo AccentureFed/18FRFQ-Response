@@ -803,4 +803,8 @@ a{
 	#recallListTable  tbody{
 		top:60px;
 	}
+	
+	nav {
+		margin-top:20px;
+	}
 }
