@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
+angular.module('jigsawApp', ['http-auth-interceptor', 'LocalStorageModule', 'tmh.dynamicLocale',
     'ngResource', 'ui.router', 'ngCookies', 'ngCacheBuster', 'datamaps'])
 
     .run(function ($rootScope, $location, $window, $http, $state, ENV) {
@@ -29,11 +29,9 @@ angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
 
     .config(function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, httpRequestInterceptorCacheBusterProvider) {
 
-        //enable CSRF
         $httpProvider.defaults.xsrfCookieName = 'CSRF-TOKEN';
         $httpProvider.defaults.xsrfHeaderName = 'X-CSRF-TOKEN';
 
-        //Cache everything except rest api requests
         httpRequestInterceptorCacheBusterProvider.setMatchlist([/.*api.*/, /.*protected.*/], true);
 
         $urlRouterProvider.otherwise('/');
@@ -57,3 +55,25 @@ angular.module('jigsawApp', ['LocalStorageModule', 'tmh.dynamicLocale',
 
 
     });
+
+function getAuthModuleHttpConfig() {
+    return {
+        ignoreAuthModule: true
+    };
+}
+
+function getLocalBrowserToken() {
+    return sessionStorage["authToken"];
+ }
+
+ function setLocalBrowserToken(value) {
+     sessionStorage["authToken"] = value;
+ }
+
+ function getHttpAuthConfig() {
+     return {
+         headers: {
+             'X-Auth-Token': getLocalBrowserToken()
+         }
+     };
+ }

@@ -18,6 +18,7 @@
 //= require bootflat/js/jquery.fs.stepper.min.js
 //= require json3/lib/json3.js
 //= require angular/angular.js
+//= require angular-http-auth/src/http-auth-interceptor
 //= require angular-ui-router/release/angular-ui-router.js
 //= require angular-resource/angular-resource.js
 //= require angular-cookies/angular-cookies.js
@@ -36,10 +37,13 @@
 //= require app/footer/footer.controller.js
 //= require app/appMetrics/appMetrics.controller.js
 //= require app/appMetrics/appMetrics.js
+//= require app/login/auth.js
+//= require app/login/auth.controller.js
 //= require components/navbar/navbar.service.js
 //= require components/main/main.service.js
 //= require components/appMetrics/appMetrics.service.js
 //= require components/footer/footer.service.js
+//= require components/login/login.service.js
 //= require app/error/error.js
 //= require app/main/main.js
 //= require app/main/main.controller.js

@@ -97,7 +97,7 @@
    		</div>
 	</div>
 	<div id="recallsRow" class="row">
-		<h2 class="h2" ng-show=selectedState>{{totalRecalls}} Recalls for {{selectedState}} between {{startDateValue}} and {{endDateValue}}:</h2><h2 class="h2" ng-show=!selectedState>National FDA Recalls: {{totalRecalls}}</h2>
+		<h2 class="h2" ng-show=selectedState>{{totalRecalls}} Recalls for {{selectedState}} between {{startDateValue | date : "MM/dd/yy"}} and {{endDateValue | date : "MM/dd/yy"}}:</h2><h2 class="h2" ng-show=!selectedState>National FDA Recalls: {{totalRecalls}}</h2>
 		<div id="mapCell" class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
 			<p>Click a state to see food recalls specific to that state</p>
 			<datamap map="mapObject" style="left: -10%; padding-top: 10px; cursor:pointer"></datamap>
@@ -136,9 +136,9 @@
 			                <li ng-show="page > 2" ng-click="loadPage(page - 2)"><a>{{page - 2}}</a></li>
 			                <li ng-show="page > 1" ng-click="loadPage(page - 1)"><a>{{page - 1}}</a></li>
 			                <li class="active"><a>{{page}}</a></li>
-			                <li ng-show="page < (numPages - 1)" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
-			                <li ng-show="page < (numPages - 2)" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
-			                <li ng-show="page < (numPages - 3)" ng-click="loadPage(numPages)"><a>Last &gt;&gt;</a></li>
+			                <li ng-show="page <= (numPages - 1)" ng-click="loadPage(page + 1)"><a>{{page + 1}}</a></li>
+			                <li ng-show="page <= (numPages - 2)" ng-click="loadPage(page + 2)"><a>{{page + 2}}</a></li>
+			                <li ng-show="page <= (numPages - 3)" ng-click="loadPage(numPages)"><a>Last({{numPages}}) &gt;&gt;</a></li>
 		                </ul>
 		            </nav>
 		        </div>
@@ -207,7 +207,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h2 class="h2 modal-title" id="myModalLabel"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&nbsp;Recall Deatails: {{currentRecall.recalling_firm}}</h2>
+                <h2 class="h2 modal-title" id="myModalLabel"><span><i class="glyphicon glyphicon-list-alt"  style="font-size:1.4em"></i>&nbsp;Recall Details: {{currentRecall.recalling_firm}}</h2>
             </div>
             <div class="modal-body well">
             	<div class="container-fluid">
@@ -231,8 +231,8 @@
 				                  	<td>{{currentRecall.product_description}}</td>
 				                  </tr>
 				                  <tr>
-				                    <td>Recall Date</td>
-				                    <td>{{currentRecall.recall_initiation_date}}</td>
+				                    <td>Reported Date</td>
+				                    <td>{{currentRecall.report_date}}</td>
 				                  </tr>
 								  <tr>
 				                    <td>Severity</td>
@@ -267,8 +267,8 @@
 				                    <td>{{currentRecall.status}}</td>
 				                  </tr>
 				                  <tr>
-				                    <td>Reported Date</td>
-				                    <td>{{currentRecall.report_date}}</td>
+				                    <td>Date Initiated</td>
+				                    <td>{{currentRecall.recall_initiation_date}}</td>
 				                  </tr>
 				                </tbody>
 					        </table>

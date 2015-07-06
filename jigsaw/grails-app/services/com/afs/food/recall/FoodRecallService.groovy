@@ -132,6 +132,7 @@ class FoodRecallService {
                     foodRecall.productDescription = result.product_description
                     foodRecall.recallingFirm = result.recalling_firm
                     foodRecall.reasonForRecall = result.reason_for_recall
+                    foodRecall.barcodes = result.normalized_barcodes.join(' ')
 
                     result.normalized_distribution_pattern.each { stateAbbreviation ->
                         def state = State.fromString(stateAbbreviation)
@@ -139,13 +140,6 @@ class FoodRecallService {
                         recallState.state = state
 
                         foodRecall.addToDistributionStates(recallState)
-                    }
-
-                    result.normalized_barcodes.each { upcNumber ->
-                        def barcode = new UPCBarcode()
-                        barcode.upcNumber = upcNumber
-
-                        foodRecall.addToBarcodes(barcode)
                     }
 
                     if(!foodRecall.save()) {
@@ -219,7 +213,7 @@ class FoodRecallService {
 
             if(searchText) {
                 or {
-                    barcodes { 'in'('upcNumber', searchText) }
+                    ilike('barcodes', "%${searchText}%")
                     ilike('productDescription', "%${searchText}%")
                     ilike('recallingFirm', "%${searchText}%")
                     ilike('reasonForRecall', "%${searchText}%")

@@ -46,14 +46,20 @@ class FoodRecall {
     String reasonForRecall
 
     /**
+     * A normalized, spaced delimited list of upc numbers
+     */
+    String barcodes
+
+    /**
      * Contains our enriched distribution pattern
      */
-    static hasMany = [distributionStates: RecallState, barcodes: UPCBarcode]
+    static hasMany = [distributionStates: RecallState]
 
     static mapping = {
         enrichedJSONPayload type: 'text'
         productDescription type: 'text'
         reasonForRecall type: 'text'
+        barcodes type: 'text'
     }
 
     static constraints = {
