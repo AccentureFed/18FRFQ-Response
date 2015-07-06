@@ -33,29 +33,29 @@ Persona development made the needs of the end user come alive.  Three unique Per
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona2.jpg?raw=true>)
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona3.jpg?raw=true>)
 
-The wireframes allowed the prototype to take shape capturing the needs of the user but also the structure, outline and functionality requirements the team needed. 
+<a href="https://docs.google.com/forms/d/1uvt2dUzJS2DMylwZzvDNS0poexIlP8lTrJQjYab4EEs/viewform" target="_blank" >A field survey</a> was conducted to gain "real-life" feedback from people matching our personas.
 
 **WireFrame**
 
+The wireframes allowed the prototype to take shape capturing the needs of the user but also the structure, outline and functionality requirements the team needed. 
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png>)
 
+**Designs**
 
 Multiple designs were created to provide a interface appealing and purposeful to users.
 
-Design Concept
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_3.jpg?raw=true>)
-
 Design Concept 1
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_3.jpg?raw=true>)
 
 Design Concept 2
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_4.jpg?raw=true>)
 
-<a href="https://vimeo.com/132240054" target="_blank">Usability </a>  and <a href="https://vimeo.com/132240055" target="_blank">508 Testing</a> was conducted to understand the user needs and allow the team to build functionality based on those desires.
-
 **Testing**
-<a href="https://docs.google.com/forms/d/1uvt2dUzJS2DMylwZzvDNS0poexIlP8lTrJQjYab4EEs/viewform" target="_blank" >A field survey</a> was conducted to gain "real-life" feedback from people matching our personas.
 
+<a href="https://vimeo.com/132240054" target="_blank">Usability </a>  and <a href="https://vimeo.com/132240055" target="_blank">508 Testing</a> was conducted to understand the user needs and allow the team to build functionality based on those desires.
 
 Including people in the review and testing process drove iterative changes through the process to ensure we refined the needs of the end users matching our Personas as well as the needs of the team.
 
