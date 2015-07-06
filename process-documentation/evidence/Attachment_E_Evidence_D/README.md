@@ -19,6 +19,7 @@ As described above in our evidence response, four Human-Centered Design Techniqu
 Our initial white board visioning session with our team and Product Owner provided foresight into the prototype functionality, user base and purpose. 
 
 *Visioning*
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20(added%206.23.2015).png?raw=true)
 
 Creating Personas allowed the end users to come alive.  Their needs, desires and purpose for use stood as the foundation for our user base.
@@ -42,6 +43,7 @@ Defining and understanding the needs and desires of the end user was critical to
 User stories were used to describe our user, what they wanted and why. These stories created a simplified description of a requirement that the team then turned into tasks. 
 
 *User Stories*
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/features(added%206.23).png?raw=true)
 
 A field survey was conducted to gain additional insight and understanding at a local grocery store.
@@ -58,14 +60,13 @@ Survey participant who agreed to take a photo!
 
 Continual and iterative feedback from our product owner drove functionality requirements and aided in prioritization.
 
-**Product Owner Feedback:**
+*Product Owner Feedback:*
 
 <a href="https://vimeo.com/132240357" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/user-interface-discussion.png?raw=true)]</a><br>
-**UI Discussion**
+
+*UI Discussion*
 
 <a href="https://vimeo.com/132240053" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/state-discussion.png?raw=true)</a><br>
-**UX Discussion**
-
 
 **Technique 3 - Implement Rapid Prototyping**
 
@@ -85,7 +86,7 @@ Rapid Prototyping allowed the designers to quickly mock up the various features 
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_7.jpg?raw=true>)
 
-**Application FrontEnd Development**
+*Application FrontEnd Development*
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_9.jpg?raw=true>)
 
