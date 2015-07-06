@@ -8,9 +8,12 @@
 
 Our Kanban board served as our workflow visualization tool that enabled the team to optimize the flow of work while ensuring feedback was driving our tasks. We choose to utilize an "arts and crafts" board exposing the prototype "backlog", "in-work", and "done" tasks on a large physical wall. Our Kanban board was co-located with the team allowing them a visual depiction of the work in progress.  Tasks on the board moved daily as the prototype progressed with new items being added to the backlog, and moving through the "in-work" and "done" phases. 
 
-New items were added, work reprioritized, and the backlog continually groomed, based on iterative feedback received daily. Feedback was derived from Sprint reviews where the PO provided input,   508 and UAT testing with Users, and the team offering thoughts based on development or UI acknowledgements.  Embracing an iterative approach, and incorporating ideas and feedback allowed the team to continually ensure they were working on the most important tasks with the highest value.
+New items were added, work reprioritized, and the backlog continually groomed, based on iterative feedback received daily. Feedback was derived from Sprint reviews where the PO provided input, 508 and UAT testing with Users, and the team offering thoughts based on development or UI acknowledgements.  The movement and addition of work drove functionality and the progression of our prototype.  Embracing an iterative approach, and incorporating ideas and feedback allowed the team to continually ensure they were working on the most important tasks with the highest value.
 
 Below is a representation of our Kanban board and design/prototype changes that progressed across the lifecycle of the project due to feedback informing work and direction.
+
+**Design Evolution**
+
 
 **Kanban Board Evolution**
 
@@ -57,10 +60,6 @@ July 2- Thursday
 
 July 6- Monday
 ![alt tag]( https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/2015-07-06%2009.28%20-%20kanban.JPG?raw=true>)
-
-
-**Design Evolution**
-
 
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
