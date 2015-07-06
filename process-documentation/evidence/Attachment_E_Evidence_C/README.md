@@ -10,7 +10,7 @@ Our team design process centered on including people, their ideas, feedback, cri
 
 Our Human Centered Design Overview graphic, shown below, articulates the evolution of our prototype design and depicts the critical role defining people’s needs played in its maturity.
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Process%20Overview.pdf)
+[Process Overview](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Process%20Overview.pdf)
 
 
 Team needs first evolved when our PO worked with the team to define the vision and high level concept of the prototype.
@@ -23,7 +23,7 @@ In collaboration with the PO, the team took the vision and developed a high leve
 
 *Concept*
 
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
+[Concept Overview](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
 Persona development made the needs of the end user come alive.  Three unique Personas told a compelling story articulating the needs of each user.
 
@@ -47,15 +47,11 @@ LINK
 Design Concept 2
 LINK
 
-Usability  and 508 testing was conducted to understand the user needs and allow the team to build functionality based on those desires. 
-
-<a href="https://vimeo.com/132240054" target="_blank">Usability Testing</a>
-
-<a href="https://vimeo.com/132240055" target="_blank">508 Testing</a>
+<a href="https://vimeo.com/132240054" target="_blank">Usability </a>  and <a href="https://vimeo.com/132240055" target="_blank">508 Testing</a> was conducted to understand the user needs and allow the team to build functionality based on those desires. 
 
 
-A field survey was conducted to gain "real-life" feedback from people matching our personas.
-SURVEY LINK
+<a href="https://docs.google.com/forms/d/1uvt2dUzJS2DMylwZzvDNS0poexIlP8lTrJQjYab4EEs/viewform" target="_blank" >A field survey</a> was conducted to gain "real-life" feedback from people matching our personas.
+
 
 Including people in the review and testing process drove iterative changes through the process to ensure we refined the needs of the end users matching our Personas as well as the needs of the team.
 
