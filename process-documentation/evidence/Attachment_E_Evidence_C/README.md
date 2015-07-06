@@ -10,7 +10,7 @@ Our team design process centered on including people, their ideas, feedback, cri
 
 Our Human Centered Design Overview graphic, shown below, articulates the evolution of our prototype design and depicts the critical role defining people’s needs played in its maturity.
 
-[Process Overview](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Process%20Overview.pdf)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/UCD-Process-for-8F_2.jpg?raw=true>)
 
 
 Team needs first evolved when our PO worked with the team to define the vision and high level concept of the prototype.
