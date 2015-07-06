@@ -19,20 +19,20 @@ Local and remote usability testing was conducted.
 
 Based on feedback received, the designs were refined and iterations made. 
 
-A field survey was conducted at a local grocery chain to gain hands on feedback from individuals who would be using our prototype amongst their daily lives.  Four individuals provided a response and gave constructive feedback to drive functionality. 
+In addition to hands on keyboard testing, a field survey was conducted at a local grocery chain to gain hands on feedback from individuals who would be using our prototype amongst their daily lives.  Four individuals provided a response and gave constructive feedback to drive functionality. 
 
 The Site Survey entailed the following questions:
 
 [Survey Responses](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true)
 
-Jeff, was one of our respondants 
+Jeff, was one of our respondants.
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true)
 
 Our team brought in a 508 SME in addition to our designer to facilitate 508 testing.   508 testing was done utilizing JAWS, the Wat tool bar and Keyboard Accessibility. 
 
 [[!ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/508-testing.png?raw=true)](https://vimeo.com/132240055)
 
-Through hands on testing feedback drove substantial design and functionality changes within the prototype. These changes were added to the backlog and the product owner prioritized them amongst the other outstanding tasks. 
+Through hands on testing feedback drove substantial design and functionality changes within the prototype. These changes were added to the backlog (shown with blue dots on the stickies) and the product owner prioritized them amongst the other outstanding tasks. 
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/2015-06-26%2009.52.14%20-%20backlog.jpg?raw=true>)
 
