@@ -1,4 +1,4 @@
-![alt tag](https://github.com/AccentureFed/process-documentation/raw/master/agile-process-photos/response-images/proposal-header.png)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/response-images/proposal-header.png?raw=true)
 
 [Back to Attachment E_Evidence Criteria](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md)
 
@@ -12,9 +12,9 @@ Usability testing provided unique feedback from hands on users.  It gave direct 
 
 Local and remote usability testing was conducted. 
 
-[![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/alison-usability.png?raw=true)](https://vimeo.com/132240054)
+<a href="https://vimeo.com/132240054" target="_blank">![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true)</a>
 
-[![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/6-24-go-to-meeting-capture.png?raw=true)](https://vimeo.com/132240058)
+<a href="(https://vimeo.com/132240058)" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/6-24-go-to-meeting-capture.png?raw=true)</a>
 
 
 Based on feedback received, the designs were refined and iterations made. 
@@ -25,12 +25,12 @@ The Site Survey entailed the following questions:
 
 [Survey Responses](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/18F%20Survey%20(Responses).xlsx?raw=true)
 
-Jeff, was one of our respondants.
+Josh, was one of our respondants.
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true)
 
-Our team brought in a 508 SME in addition to our designer to facilitate 508 testing.   508 testing was done utilizing JAWS, the Wat tool bar and Keyboard Accessibility. 
+Our team brought in a 508 SME in addition to our designer to facilitate 508 testing.   508 testing was done utilizing JAWS, the Wat tool bar and Keyboard Accessibility. <br>
 
-[[!ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing/508-testing.png?raw=true)](https://vimeo.com/132240055)
+<a href="https://vimeo.com/132240055" target="_blank">![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/508-testing.png?raw=true)</a>
 
 Through hands on testing feedback drove substantial design and functionality changes within the prototype. These changes were added to the backlog (shown with blue dots on the stickies) and the product owner prioritized them amongst the other outstanding tasks. 
 
