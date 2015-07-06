@@ -418,7 +418,7 @@ angular.module('jigsawApp')
 			}
 			else {
 				$scope.oldState = null;
-				$scope.getAllRecalls();
+				$scope.getBriefRecallsByState();
 			}
 				
     	}
@@ -466,7 +466,7 @@ angular.module('jigsawApp')
 	            	$scope.setUserState(state);
 	            } else {
 	            	$scope.selectedState = null;
-	            	$scope.getAllRecalls();
+	            	$scope.getBriefRecallsByState();
 	            }
 			}
 		}
@@ -500,45 +500,8 @@ angular.module('jigsawApp')
     	}
     	
     	$scope.getBriefRecallsByState = function(){
-    		if ($scope.selectedState != null && typeof $scope.selectedState != 'undefined') {
-	    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.searchText, 0, perRequest, function(data){
-	    			if (data != null && data.numResults != null && data.numResults > 0) {
-	    				$scope.totalRecalls = data.numResults;
-	        			$scope.recalls = data.results;
-	        			if (perRequest > 0)
-	        			{
-	        				$scope.numPages = Math.ceil(data.numResults / perRequest);
-	        				$scope.page = 1;
-	        			}
-	        			else
-	        			{
-	        				$scope.numPages = 0;
-	        				$scope.page = 0;
-	        			}
-	    			}
-	    			else
-	    			{
-	    				$scope.totalRecalls = 0;
-	    				$scope.numPages = 0;
-	    				$scope.page = 0;
-	    				$scope.recalls = null;
-	    			}
-	    		}, function(){
-	    			$scope.totalRecalls = 0;
-					$scope.numPages = 0;
-					$scope.page = 0;
-					$scope.recalls = null;
-	    		});
-    		}
-    		else
-    		{
-    			$scope.getAllRecalls();
-    		}
-    	}
-    	
-    	$scope.getAllRecalls = function(){
-    		RecallInfo.getAllRecallDetail(function(data, headers){
-    			if (data != null && data.numResults != null && data.results != null && data.numResults > 0) {
+    		RecallInfo.getRecallDetail($scope.selectedState, $scope.startDateValue.replace(/-/g,''), $scope.endDateValue.replace(/-/g,''), $scope.searchText, 0, perRequest, function(data){
+    			if (data != null && data.numResults != null && data.numResults > 0) {
     				$scope.totalRecalls = data.numResults;
         			$scope.recalls = data.results;
         			if (perRequest > 0)
@@ -565,7 +528,8 @@ angular.module('jigsawApp')
 				$scope.page = 0;
 				$scope.recalls = null;
     		});
-    	}
+		}
+    	
     	
     	$scope.setDateRange = function(rangeType){
     		var tempDate = new Date();
@@ -591,14 +555,10 @@ angular.module('jigsawApp')
     		}
     		$scope.startDateValue = tempDate.toJSON().substring(0, 10);
     		
+			$scope.getBriefRecallsByState();
     		if ($scope.selectedState != null)
     		{
-    			$scope.getBriefRecallsByState();
     			$scope.getStateSeverity($scope.selectedState);
-    		}
-    		else
-    		{
-    			$scope.getAllRecalls();
     		}
     	}
     	
@@ -696,7 +656,9 @@ angular.module('jigsawApp')
         	});
         }
         
+       
         angular.element(document).ready(function () {
+    	    
         	$scope.loadAppSettings();
 
         	$(".btn-group > .btn").click(function(){
