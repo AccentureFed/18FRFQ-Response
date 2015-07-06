@@ -12,18 +12,19 @@ UCD Process Overview
 
 
 Visioning
-
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20(added%206.23.2015).png?raw=true)
 
 Concept
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
 UX Timeline
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/6.29.2015%2014.09%20-%20ux-timeline.JPG)
 
 Prototype Overview
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/prototype%20overview.pptx?raw=true)
 
 WireFrame
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)
 
 
 
