@@ -16,21 +16,28 @@ Our Human Centered Design Overview graphic, shown below, articulates the evoluti
 Team needs first evolved when our PO worked with the team to define the vision and high level concept of the prototype.
 
 *Visioning*
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/brainstorm%20(added%206.23.2015).png?raw=true).
 
 In collaboration with the PO, the team took the vision and developed a high level concept of the prototype artuculating the basic features needed by the end user.
 
 *Concept*
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/Concept%20%E2%80%93%20Develop%20a%20tool%20that%20will%20utilize%20the%20FDA.docx)
 
 Persona development made the needs of the end user come alive.  Three unique Personas told a compelling story articulating the needs of each user.
 
 *Personas* 
-https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Personas/Pesonas%20for%208F.docx
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona1.jpg?raw=true>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona2.jpg?raw=true>)
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Persona3.jpg?raw=true>)
 
 The wireframes allowed the prototype to take shape capturing the needs of the user but also the structure, outline and functionality requirements the team needed. 
+
 *WireFrame*
-![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png)
+
+![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/wireframe%20%28added%206.23%29.png>)
 
 
 Multiple designs were created to provide a interface appealing and purposeful to users.
