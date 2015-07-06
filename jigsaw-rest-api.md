@@ -11,34 +11,39 @@ We enrich the data in a few ways:
 
 All of the endpoints are assumed to have the host/port and application root at the beginning.  Such that `<host>/application/version` would expand to something like `https://jigsaw.agilex-devcloud.com/jigsaw/application/version`
 
-**host/application/version - GET**
+###host/application/version - GET
 Returns JSON of the application version number, as seen below:
- `   {
+ ```   
+ {
       "version": "1.0.120"
-    } `
-The version can be read as <major>.<minor>.<build_number>
+    } 
+ ```
+The version can be read as `<major>.<minor>.<build_number>`
 
 
-<host>/appSettings/updateSettings - POST (URL Encoded Payload) - Requires to be logged in
+###host/appSettings/updateSettings - POST (URL Encoded Payload) - Requires to be logged in
     params:
         appAlert:	String, Required - The new home page alert banner text. To clear the banner, use an empty string.
 Sets the settings, currently only the appAlert variable, for the application.  Upon a successful update, a status 200 is returned.  If an error occurs, a 501 is returned.
 
 
-<host>/appSettings/getSettings - GET
+###host/appSettings/getSettings - GET
 Returns JSON of the application settings, as seen below:
-    {
+ ```
+ {
       "appAlert": "This is the saved alert banner for the application"
-    }
+ }
+ ```
 The appAlert is the only setting and it contains the text that the alert banner on the front page should display.  If it is empty, no banner should be displayed.
 
 
-<host>/foodRecall/count - GET or POST (URL Encoded Payload)
+###host/foodRecall/count - GET or POST (URL Encoded Payload)
     params:
         stateCode:	String, Optional - The state to get recall count for.  If not present (or an invalid state), then no state specific searching will be performed. Can be any name or abbreviation of a state.
         startDate:	DateString, Optional - The date to start the count from in the format of yyyyMMdd If the date is in an invalid format, it will be ignored.  The date is inclusive (the date given will be included in the counts).
         endDate:	DateString, Optional - The date to end the count from in the format of yyyyMMdd If the date is in an invalid format, it will be ignored.  The date is inclusive (the date given will be included in the counts).
 Gets a list of counts, grouped by severity, that match the given criteria.  Returns JSON, as seen below:
+ ```
     {
       "stateCode": null,
       "results": [
@@ -56,10 +61,11 @@ Gets a list of counts, grouped by severity, that match the given criteria.  Retu
         }
       ]
     }
+ ```
 The stateCode will be exactly what was given, even if it was an invalid state.  The results will contain an array of each severity and the count of recalls.  If no recalls were found for a given quest, the results array will be empty.
 
 
-<host>/foodRecall/recalls - GET or POST  (URL Encoded Payload)
+###host/foodRecall/recalls - GET or POST  (URL Encoded Payload)
     params:
         stateCode:	String, Optional - The state to get recalls for.  If not present (or an invalid state), then no state specific searching will be performed. Can be any name or abbreviation of a state.
         searchText:	String, Optional - Any free-form text to be matched with a UPC (exact match), Product Description (substring match), Recalling Firm (substring match), or Reason for Recall (substring match). If not given, ignored.
@@ -68,6 +74,7 @@ The stateCode will be exactly what was given, even if it was an invalid state.  
         limit:		Numeric, Optional - The number of results to return. If not given, 10 will be returned.
         skip:		Numeric, Optional - The page number to get. The first recall record will be from the offset of limit*skip.  If not given, 0 will be used (page numbers are 0-based).
 Gets the set of recalls that matched the given query.  Returns JSON, as seen below:
+```
     {
       "limit": 1,
       "skip": 0,
@@ -101,4 +108,5 @@ Gets the set of recalls that matched the given query.  Returns JSON, as seen bel
         }
       ]
     }
+```
 In the results, the limit and skip will be passed back exactly as it was passed into the API.  The results will be an array of recalls with a size up to the limit requested (it may be less if there aren't enough results for your query to fill your limit).  The numResults field will contain the total records based on your given query.  This is helpful in determining how many pages of data there are, for example if limit was set to 10 and the numResults is 7,805, then there would be 781 pages (781 would be the highest skip parameter that could be used).  Most of the recall data is returned verbatim from the FDA API, with the exception of the normalized_distribution_pattern and the normalized_barcodes.  The normalized_distribution_pattern is an array of the US state codes that the product was distributed agains.  The normalized_barcodes is an array of all the UPC codes that this recall has affected.
