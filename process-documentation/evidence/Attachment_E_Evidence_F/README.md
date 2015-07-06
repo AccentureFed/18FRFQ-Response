@@ -10,9 +10,10 @@ Usability testing provided unique feedback from hands on users.  It gave direct 
 
 [Usability Test Cases](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/usability%20testing/usab%20questionaiere.docx?raw=true)
 
-Local and remote usability testing was conducted. 
+Local and remote usability testing was conducted (Click on image to watch video)
 
 <a href="https://vimeo.com/132240054" target="_blank">![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true)</a>
+
 
 <a href="(https://vimeo.com/132240058)" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/6-24-go-to-meeting-capture.png?raw=true)</a>
 
@@ -25,6 +26,7 @@ These were the [Survey Questions.](https://docs.google.com/forms/d/1uvt2dUzJS2DM
 <br>
 
 Josh, was one of our respondents.
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/User%20Survey/IMG_0181.JPG?raw=true)
 
 Our team brought in a 508 SME in addition to our designer to facilitate 508 testing.   508 testing was done utilizing JAWS, the Wat tool bar and Keyboard Accessibility. <br>
