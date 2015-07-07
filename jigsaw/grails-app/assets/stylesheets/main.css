@@ -1,0 +1,810 @@
+body {
+    background: #eeeeee;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #333;
+}
+
+.badge {
+	background-color:#666;
+}
+
+/* ==========================================================================
+Hide ng-cloak on page load, https://docs.angularjs.org/api/ng/directive/ngCloak
+========================================================================== */
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+/* ==========================================================================
+Theme
+========================================================================== */
+.pagination li.active>a {
+    background-color: #a0d468;
+    border-color: #a0d468;
+}
+
+ol.breadcrumb.breadcrumb-arrow.active {
+	background-color: #e6e9ed;
+	border-color: #e6e9ed;
+}
+
+ol.breadcrumb.breadcrumb-arrow.li.backup {
+	color: #fff;
+	background-color: #3bafda;
+	border-color: #3bafda;
+}
+
+tbody {
+    height: 200px;
+    overflow-y: auto;
+}
+
+.modal-header hr {
+    margin-bottom:0;
+}
+
+.navbar {
+	border:none;
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.navbar-black {
+	color: #fff;
+    background-color: #323232;
+    border-color: #323232;
+	height:40px;
+	border-bottom:1px solid #646464;
+}
+
+.navbar-blue {
+	color: #fff;
+    background-color: #003152;
+    border-color: #003152;
+    height: 80px;
+}
+
+.fda-header {
+	padding:0;
+}
+
+.navbar-brand {
+	padding: 0;
+}
+
+.navbar-header {
+	display: table-cell;
+	vertical-align: middle;
+	height:40px;
+	padding:0;
+}
+
+.navbar-black .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #323232;
+}
+
+.navbar-black .navbar-toggle .icon-bar {
+    background-color: #323232;
+}
+
+.navbar-black .nav > li > a:hover, .navbar-blue .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #323232;
+}
+
+.navbar-black .navbar-nav>li>a, .navbar-default .navbar-text {
+    color: #323232;
+}
+
+.navbar-black .nav-pills>li>a:hover {
+    color: #fff;
+    background-color: #323232;
+}
+
+.footer {
+    padding: 10px;
+}
+
+#filter-affix.affix {
+top:10px;
+}
+
+@media (min-width: 768px) {
+    #filter-affix {
+        min-width:152.5px
+    }
+}
+@media (min-width: 992px) {
+    #filter-affix {
+        min-width: 207.5px
+    }
+}
+
+@media (min-width: 1200px) {
+    #filter-affix {
+        min-width: 257.5px
+    }
+}
+
+/* ==========================================================================
+Browser Upgrade Prompt
+========================================================================== */
+.browserupgrade {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+.paddingLeft {
+	padding-left: 5px;
+}
+
+.hero-unit {
+    margin: 50px auto 0 auto;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    background-color: #eee;
+    border-radius: 6px;
+    padding: 60px;
+}
+
+.hero-unit h1 {
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.error {
+    color: white;
+    background-color: red;
+}
+
+.logo {
+    display: inline-block;
+    background: url("http://www.fda.gov/ucm/groups/fdagov-public/@system/documents/system/gov-fda-white-svg.svg");
+    background-color: #003152;
+}
+
+img.logo-navbar {
+    display:inline;
+    margin-top:2px;
+    margin-bottom:2px;
+    margin-left:10px;
+    margin-right:10px;
+    width:28px;
+    height: 30px;
+}
+
+img.fda-logo-navbar {
+    display:inline;
+    margin-top:2px;
+    margin-bottom:2px;
+    margin-left:10px;
+    margin-right:10px;
+	margin-top:13px;
+    width:108px;
+    height: 46px;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+.alert .popover pre {
+    font-size: 10px;
+}
+
+.voffset  { margin-top: 2px; }
+.voffset1 { margin-top: 5px; }
+.voffset2 { margin-top: 10px; }
+.voffset3 { margin-top: 15px; }
+.voffset4 { margin-top: 30px; }
+.voffset5 { margin-top: 40px; }
+.voffset6 { margin-top: 60px; }
+.voffset7 { margin-top: 80px; }
+.voffset8 { margin-top: 100px; }
+.voffset9 { margin-top: 150px; }
+
+
+
+.panel-default > .panel-heading {
+	color: white;
+	background-color: #003152;
+	border-color: #646464;
+}
+
+a{
+    cursor:pointer;
+}
+
+.spaced {
+	margin-right: 14px;
+	margin-bottom: 5px;
+}
+
+.card {
+    background: #fefefe;
+    color: #666666;
+    font-weight: bold;
+    font-size: small;
+    padding: 12px;
+    padding-left: 16px; 
+    border-top: solid 3px #CCCCCC;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+    -moz-box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+    box-shadow: 0 10px 10px -5px rgba(0,0,0,.08);
+}
+.card h2:first-child, .card h3:first-child, .card h4:first-child, .card h5:first-child {
+    padding-top:0;
+    margin-top:0;
+}
+.card p {
+    font-weight: 400;
+    line-height: 1;
+    color: #777
+}
+.card-clear {
+    border-color: #fefefe;
+    -webkit-box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+    -moz-box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+    box-shadow: 0 7px 10px -5px rgba(0,0,0,.15);
+}
+.card-info {
+    height: 70px;
+	border: none;
+	border-bottom: 2px solid #646464;
+	border-radius: 0;
+	padding:0;
+}
+.card-success {
+    border-color: #cef2b8;
+}
+.card-warning {
+    border-color: rgba(255,165,0,.5);
+}
+.card-danger {
+    color: white;
+	height: 30px;
+	margin-top: 5px;
+	border-radius: 5px;
+	background-color: rgb(195, 55, 32);
+	border: none;
+	padding:7px;
+}
+.card-primary {
+    border-color: #9ca6f1;
+}
+.card-magick {
+    border-color: #e0b8f2;
+}
+.card-info-text {
+    color: #39b3d7;
+}
+.card-success-text {
+    color: #80d651;
+}
+.card-warning-text {
+    color: #db9e34;
+}
+.card-danger-text {
+    color: #c9302c;
+}
+.card-primary-text {
+    color: rgba(47,106,215,.9);
+}
+.card-magick-text {
+    color: #bb39d7;
+}
+
+.glyphicon-remove {
+    color:#FF0004;
+}
+
+.glyphicon-ok {
+    color:#04FF00;
+}
+
+.img-fitted {
+	width: 30%;
+	object-fit: contain;
+}
+
+.hide-img {
+	display: none;
+}
+
+.feed-title {
+	color: #EEEEEE;
+ 	background-color: #666;
+ 	border-radius: .1em;
+}
+
+.progress span {
+	color: black;
+}
+
+.led {
+    margin: 12px 12px auto;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    box-shadow: #000 0 -1px 7px 1px;
+    display:inline-block;
+}
+
+.led-red {
+    background-color: #940;
+    box-shadow: #000 0 -1px 7px 1px, inset #7e0104 -1px 9px, #F00 0 2px 12px;
+}
+
+.led-green {
+    background-color: #690;
+    box-shadow: #000 0 -1px 7px 1px, inset #460 0 -1px 9px, #7D0 0 2px 12px;
+}
+
+.led-yellow {
+    background-color: #A90;
+    box-shadow: #000 0 -1px 7px 1px, inset #660 0 -1px 9px, #DD0 0 2px 12px;
+}
+
+.led-orange {
+    background-color: #FF7000;
+    box-shadow: #000 0 -1px 7px 1px, inset #630 0 -1px 9px, #FF7000 0 2px 12px;
+}
+
+.clickable-row:hover {
+	background-color: #E6E6E6;
+}
+
+/* Final Design Custom Styling - Russell */
+#content{
+	margin: 0 auto;
+	width: 1000px;
+	float: none;
+	padding:0;
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.25);
+}
+
+#hhsDescription {
+	letter-spacing: 1px;
+	font-size: 9px;
+	margin-top: 12px;
+	display: inline-block;
+}
+
+#fdaDescription {
+	font-size:20px;
+	font-weight:bold;
+	margin-top: 13px;
+	display: inline-block;
+}
+
+#fdaTagline {
+	font-size:16px;
+}
+
+#fdaTaglineInnerSpan {
+	font-style:italic;
+}
+
+#mainContent {
+	border-radius: 0;
+	border: 1px solid #a2a2a2;
+	background-color: white;
+	padding:10px;
+	margin-bottom: 0;
+}
+
+.container {
+	padding: 0;
+	width: 100%;
+	position: relative;
+}
+
+.h1 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.h2 {
+	font-size:14px;
+	font-weight:bold;
+	color:black;
+}
+
+.row {
+	margin:0;
+}
+
+.hidden{
+	font-size: 0px;
+	visibility: hidden;
+	height: 0px;
+	padding: 0px;
+}
+
+.col-lg-4 {
+	padding:0;
+}
+
+.btn , #textSearch{
+	height:30px;
+	padding:5px;
+	font-weight:normal;
+	background-color:#eeeeee;
+	border:1px solid #646464;
+	color:black;
+	line-height:initial;
+}
+
+#stateContainer {
+	margin-top:25px;
+	margin-left:10px;
+	width:30%;
+}
+
+.bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+	width:100%;
+}
+
+#dateContainer {
+	margin-top:25px;
+	margin-left:10px;
+}
+
+.btn-group .btn:first-child , .btn-group .btn:last-child  {
+	border:1px solid #646464;
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+	margin-left:0px;
+}
+
+.btn-group .btn {
+	border-right:none;
+}
+
+.btn-group .btn:last-child  {
+	border-right:border:2px solid #646464;
+}
+
+.table-bordered {
+	border:none;
+}
+
+.table-bordered thead {
+	background-color:#003152;
+	color:white;
+}
+
+.table-bordered tbody, p , a, span {
+	font-size:12px;
+}
+
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+ 	padding:5px;
+	border-collapse: separate;
+	border: 1px solid #646464;
+}
+
+.table-bordered th:first-child{
+	border-top-left-radius:0px;
+}
+
+.table-bordered th:last-child{
+	border-top-right-radius:0px;
+}
+
+.severityIndicator {
+	width: 10px;
+	height: 10px;
+	margin: 10px 3px 0 0;
+	/*border: 1px solid rgb(0, 0, 0);*/
+	border-radius: 5px;
+	display:inline-block;
+}
+
+.panel-title, .table-bordered th .h2, .card-danger  .h2  {
+	color:white;
+}
+
+.table-bordered th .h2 {
+	padding-top:10px;
+}
+
+.panel-body , .panel-heading{
+	border:1px solid #646464;
+}
+
+.panel-body {
+	border-bottom-left-radius:4px;
+	border-bottom-right-radius:4px;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default, .btn:hover, .btn:focus, .btn:active , .btn-default.active, .pagination li.active>a, .pagination > li > a:hover, .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default, .btn-default.active:focus{
+	background-color:#003152;
+	color:white;
+	border: 2px solid #646464;
+}
+
+.pagination > li > a {
+	margin-left: 5px;
+	color: black;
+	background-color: #eeeeee;
+	border: 1px solid #646464;
+	height: 35px;
+}
+
+#mapCell, #recallListCell {
+	padding:0;
+}
+
+#mapCell {
+}
+
+#recentTweets {
+	padding-left:0;
+}
+
+#followFDA {
+	padding:0;
+}
+
+.h2 {
+	margin-top:0;
+}
+
+.panel {
+	box-shadow:none;
+	-webkit-box-shadow:none;
+	border:none;
+}
+
+#recallsRow {
+	border-bottom: 2px solid #646464;
+	margin-bottom: 20px;
+}
+
+#recallListTable {
+	cursor: pointer;
+	height: 325px;
+}
+
+#recallListTable thead{
+	display: block;
+	width: 100%;
+	padding-bottom: 10px;
+}
+
+#recallListTable thead tr th:first-child {
+	width:216px;
+}
+
+#recallListTable thead tr th {
+	width:83px;
+	border:none;
+}
+
+#recallListTable thead tr th:last-child {
+	width:107px;
+}
+
+#recallListTable tbody{
+	display: block;
+	overflow-y: auto;
+	width: 100%;
+	height: 284px;
+	border-left: none;
+}
+
+
+#recallListTable tbody tr td:first-child {
+	width: 215px;
+}
+
+#recallListTable tbody tr td {
+	width: 83px;
+}
+
+#recallListTable tbody tr td:last-child {
+	width: 90px;
+}
+
+#recallListTable>tbody>tr:first-child *{
+	border-top: none;
+}
+
+.bootstrap-select.btn-group .dropdown-menu {
+	border: 2px solid rgb(100, 100, 100);
+	background-color: white;
+}
+
+.bootstrap-select.btn-group .dropdown-menu.inner {
+	background-color: white;
+}
+
+.dropdown-menu li a {
+	color:black;
+}
+
+.card-danger + hr {
+	border-top:2px solid #646464;
+}
+
+#mapCell {
+	width:55%;
+}
+
+#recallListCell {
+	width:45%;
+}
+
+#recentTweets {
+	width:55%;
+}  
+
+#followFDA {
+	width:45%;
+}
+
+.modal-body.well {
+	background-color: white;
+	border: none;
+	box-shadow:none;
+}
+
+.modal-header {
+	border-bottom: 2px solid #646464;
+}
+
+#recallDetailsTable {
+	border: 1px solid #646464;	
+}
+
+#recallDetailsTable  thead tr th{
+	border-radius:0;
+}
+
+.modal-body {
+	margin-bottom:0;
+}
+
+@media (max-width: 1024px) { 
+	.container-fluid {
+		padding:0;
+	}
+	
+	#content {
+		width:100%;
+	}
+	
+	#mainContent {
+		border:none;
+	}
+	
+	.navbar {
+		width:100%;
+	}
+	
+	.card-danger {
+		height:auto;
+	}
+	
+	.card-danger  .h2  {
+		margin-bottom:0;
+	}
+	
+	img.fda-logo-navbar {
+		width:80px;
+		margin-top:5px;
+	}
+	
+	#fdaDescription {
+		font-size:16px;
+		margin-top:18px;
+	}
+	
+	.btn {
+		font-size:11px;
+	}
+}
+@media (max-width: 768px) { 
+	#recentTweets {
+		width:100%;
+	}  
+
+	#followFDA {
+		width:100%;
+	}
+	
+	#mapCell {
+		display:none;
+	}
+	
+	.btn {
+		font-size:14px;
+	}
+	
+	#stateContainer, #dateContainer {
+		margin-left:0;
+		margin-top:10px;
+	}
+	
+	#stateContainer {
+		width:100%;
+	}
+
+	#searchContainer {
+		width:100%;
+	}
+	
+	#dateContainer {
+		width:100%;
+	}	
+	
+	.card-info {
+		height:155px;
+	}
+	
+	#fdaDescription {
+		font-size:11px;
+	}
+	
+	.navbar-blue {
+		height:55px;
+	}
+	
+	#recentTweets, #followFDA {
+		padding:0;
+	}
+	
+	#recallListCell {
+		width:100%;
+	}
+	
+	#recallListTable {
+		width:100%;
+		position:relative;
+	}
+	
+	#recallListTable  thead{
+		position:absolute;
+	}
+	
+	#recallListTable thead tr th:first-child, #recallListTable tbody tr td:first-child {
+		width:24%;
+	}
+	
+	#recallListTable thead tr th {
+		width:10%;
+	}
+	
+	#recallListTable tbody tr td {
+		width:10%;
+	}
+	
+	#recallListTable thead tr th:last-child, #recallListTable tbody tr td:last-child {
+		width:9%;
+	}
+	
+	#recallListTable  tbody{
+		position:absolute;
+		top:45px;
+	}	
+}
+
+@media (max-width: 400px) { 
+	#recallListTable  tbody{
+		top:60px;
+	}
+	
+	nav {
+		margin-top:20px;
+	}
+}

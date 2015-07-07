@@ -1,0 +1,49 @@
+{
+  "name": "jigsaw",
+  "version": "0.0.0",
+  "homepage": "https://github.com/AccentureFed/jigsaw",
+  "authors": [
+    "bakerj <joshua.baker@agilex.com>"
+  ],
+  "description": "jigsaw",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular": "~1.4.1",
+    "fontawesome": "~4.3.0",
+    "angular-cache-buster": "~0.4.3",
+    "angular-cookies": "~1.4.1",
+    "angular-dynamic-locale": "~0.1.27",
+    "angular-i18n": "~1.4.1",
+    "angular-local-storage": "~0.2.2",
+    "angular-mocks": "~1.4.1",
+    "angular-resource": "~1.4.1",
+    "angular-sanitize": "~1.4.1",
+    "angular-scenario": "~1.4.1",
+    "angular-translate": "~2.7.2",
+    "angular-translate-loader-partial": "~2.7.2",
+    "angular-translate-storage-cookie": "~2.7.2",
+    "angular-ui-router": "~0.2.15",
+    "bootflat": "*",
+    "bootstrap": "~3.3.5",
+    "json3": "~3.3.2",
+    "modernizer": "~2.8.2",
+    "swagger-ui": "~2.1.0",
+    "angular-bootstrap": "~0.13.0",
+    "angular-datamaps": "~0.1.2",
+    "bootstrap-select": "~1.7.3",
+    "ol3": "hastebrot/ol3-dist#~3.1.1",
+    "angular-http-auth": "~1.2.2"
+  }
+}
