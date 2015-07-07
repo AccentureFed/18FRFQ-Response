@@ -8,8 +8,12 @@ Follow install instructions here to install docker on the server.  This guide is
 but will guide you through the correct steps required to get Docker up for any environment.
 http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
 
-Run the following commands to setup docker and start(assuming your using the Amazon standard Linux AMI):  
+Run the following commands to setup docker and launch the Jigsaw App (assuming your using the Amazon standard Linux AMI):   
+
+# Docker Install
+
 Step 1. Launch new  server instance from an Amazon Linux AMI
+
 Step 2. Run the following commands:
 * sudo yum update -y
 * sudo yum install -y docker 
@@ -18,16 +22,16 @@ Step 2. Run the following commands:
 * logout/log back in
 * docker info --> now should have docker permissions as ec2-user
 
-# Usage
+# Jigsaw Install as Docker container
+
   Once you have a server configured with the Docker daemon, there are two simple steps:  
     1.  Pull Jigsaw image from DockerHub  
+  * from the server with Docker installed, create a new folder called AFS-Jigsaw run: "mkdir AFS-Jigsaw"
+  * change to that directory run: "cd AFS-Jigsaw"
+  * pull the Jigsaw Docker image from DockerHub run: "docker pull joshbaker/jigsaw-prod:latest"  
+
     2.  Launch Docker container using Jigsaw image  
-          
-# DockerHub
-* from the server with Docker installed, create a new folder called AFS-Jigsaw run: "mkdir AFS-Jigsaw"
-* change to that directory run: "cd AFS-Jigsaw"
-* pull the Jigsaw Docker image from DockerHub run: "docker pull joshbaker/jigsaw-prod:latest"
-* to start the image as a container, run: "docker run -i -t -p 8080:8080 joshbaker/jigsaw-prod:latest"
+  * to start the image as a container, run: "docker run -i -t -p 8080:8080 joshbaker/jigsaw-prod:latest"
     
 # Additional details
 This creates and starts a docker container and maps port 8080 of your host IP to port 8080 on your
