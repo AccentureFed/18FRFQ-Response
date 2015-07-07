@@ -1,25 +1,25 @@
--# jigsaw-deployment
--Directions to setup a Jigsaw Docker container on a new server using the Image(Prefered)
--
--# Setup
--Follow install instructions here to install docker on the server.  This guide is specific to Amazon Web Services
--but will guide you through the correct steps required to get Docker up for any environment.
--http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
--
--Run the following commands to setup docker and launch the Jigsaw App (assuming your using the Amazon standard Linux AMI):       
--
--# Docker Install
--
--Step 1. Launch new  server instance from an Amazon Linux AMI
--
--Step 2. Run the following commands:
--* sudo yum update -y
--* sudo yum install -y docker 
--* sudo service docker start
--* sudo usermod -a -G docker ec2-user
--* logout/log back in
--* docker info --> now should have docker permissions as ec2-user
--
+# jigsaw-deployment
+Directions to setup a Jigsaw Docker container on a new server using the Image(Prefered)
+
+# Setup
+Follow install instructions here to install docker on the server.  This guide is specific to Amazon Web Services
+but will guide you through the correct steps required to get Docker up for any environment.
+http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
+
+Run the following commands to setup docker and launch the Jigsaw App (assuming your using the Amazon standard Linux AMI):       
+
+# Docker Install
+
+Step 1. Launch new  server instance from an Amazon Linux AMI
+
+Step 2. Run the following commands:
+* sudo yum update -y
+* sudo yum install -y docker 
+* sudo service docker start
+* sudo usermod -a -G docker ec2-user
+* logout/log back in
+* docker info --> now should have docker permissions as ec2-user
+
 # Jigsaw Install as Docker container
 
   Once you have a server configured with the Docker daemon, there are three steps:  
