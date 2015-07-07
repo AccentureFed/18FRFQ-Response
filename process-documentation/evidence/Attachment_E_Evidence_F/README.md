@@ -7,16 +7,19 @@
 |f|performed usability tests with people|Usability testing was implemented in a series of steps.   Our experienced UX designers used their knowledge and experience to take the prototype vision from our Product owner, defined personas and feature map to create our original design concept.  Multiple iterations were created through moc-ups and wire frame development.  At the daily sprint review, designs were reviewed and feedback from the development team, product owner and stakeholders was incorporated to subsequent designs.  Within 48 hours of the initial product direction, a solid design was conceptualized in an interactive, clickable wireframe. In 72 hours, usability test cases were created and testing was administered with real users against that design with individuals matching the personas created for the prototype.  Local and remote testing was conducted. Based on feedback received, the designs were refined and iterations made. 508 testing was done utilizing JAWS, the Wat tool bar and Keyboard Accessibility.  Results highlighted areas of our implemented design were not conducive to individuals with disabilities.  These critical tests allowed our team to ensure our prototype vision not only met the desires of our user base, but was accessible for all users.|
 
 Usability testing provided unique feedback from hands on users.  It gave direct input on how real users would use our system and provided an unbiased view.  Usability test cases were created and administered with users matching our defined personas.   
+
 **<a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/usability%20testing/usab%20questionaiere.pdf" target="_blank">Usability Test Cases</a>**
 
 Local and remote usability testing was conducted (Click on image to watch video)
 
 <a href="https://vimeo.com/132240054" target="_blank">![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true)</a>
 <br>
+
 **Usability Testing**
 
 <a href="(https://vimeo.com/132240058)" target="_blank"> ![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/6-24-go-to-meeting-capture.png?raw=true)</a>
 <br>
+
 **Internal Discussion** 
 
 Based on feedback received, the designs were refined and iterations made. 
