@@ -33,4 +33,4 @@ running container. You can exit with ^c. This does not delete the container, onl
 stops it. You can view all containers with "docker ps -a". You can delete all 
 containers with "docker rm $(docker ps -a -q)"
 
-NOTE: Running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat and the Docker container accordingly and then map the 443 port in your docker run command "docker run -i -t -p 443:443 agilex-jigsaw-server"
+NOTE: Running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat and the Docker container accordingly and then map the 443 port in your docker run command "docker run -i -t -p 443:443 joshbaker/jigsaw-prod:latest"
