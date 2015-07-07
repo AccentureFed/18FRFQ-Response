@@ -20,7 +20,7 @@ Human Centered Design stood as the backbone of our prototype. The end user desir
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/UCD-Process-for-8F_2.jpg?raw=true>)
 
-1.Understand the User Concept.  <a href="https://raw.githubusercontent.com/AccentureFed/18FRFQ-Response/master/process-documentation/user-centric-design/design_evolution_images/Persona1.jpg" target="_blank">Three personas</a> were developed to depict multiple user context for the prototype. 
+1. Understand the User Concept.  <a href="https://raw.githubusercontent.com/AccentureFed/18FRFQ-Response/master/process-documentation/user-centric-design/design_evolution_images/Persona1.jpg" target="_blank">Three personas</a> were developed to depict multiple user context for the prototype. 
  a. Ann Jordan - Mom searching for information for her children 
  b. Steven Jones - FDA Administrator monitoring site metrics and updating public information 
  c. Kathy Miller - Nutritionist looking for updates for her client base 
@@ -34,7 +34,7 @@ Our user first focus leveraged pattern libraries (e.g. Font Awesome, Bootstrap) 
 ## Testing 
 Backend unit testing utilized JUnit and Spock.  All components received unit tests, especially corner cases and null.  Unit tests were created simultaneously as code was developed. Unit tests (~30) were run on every Jenkins build (~125).  If defects were identified, the developer would resolve the defect within the same sprint.  
 
-Usability testing drove multiple iterations of moc-ups and wire frame development. At the daily sprint review, designs were reviewed and feedback from the development team, product owner and stakeholders incorporated to the Kanban board. Within 48 hours of defining the prototype vision, a solid design was conceptualized in an interactive, clickable wireframe. In 72 hours, usability tests were created and <a href="https://vimeo.com/132240054" target="_blank">testing</a> was administered with real users against that design with individuals who matched the personas. Local and remote testing was conducted and based on feedback received, designs were refined.  
+Usability testing drove multiple iterations of mock-ups and wire frame development. At the daily sprint review, designs were reviewed and feedback from the development team, product owner and stakeholders incorporated to the Kanban board. Within 48 hours of defining the prototype vision, a solid design was conceptualized in an interactive, clickable wireframe. In 72 hours, usability tests were created and <a href="https://vimeo.com/132240054" target="_blank">testing</a> was administered with real users against that design with individuals who matched the personas. Local and remote testing was conducted and based on feedback received, designs were refined.  
 
 <a href="https://vimeo.com/132240055" target="_blank">508 testing</a> was done utilizing JAWS, the Wat toolbar and Keyboard Accessibility. Results highlighted that areas of our implemented design were not conducive to individuals with disabilities. These tests allowed our team to implement design changes, ensuring our prototype was accessible for all users.    
 
@@ -57,5 +57,5 @@ The team choose to deploy our software into an Amazon Web Service EC2 instance f
 To provide continuous monitoring the team developed an administrative view to a dynamic page. This url is accessible at the bottom left of the homepage titled "metrics" or https://jigsaw.agilex-devcloud.com/jigsaw/#/appMetrics (admin/afs18F).  This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.  
 
 ## Conclusion 
-All of our evidence is in this Git repository, and can be leveraged as needed.  The <a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md" target="_blank">(Evidence Summary)</a> README.md provides a replica of our Attachment_E submisison and additional supporting documentation.
+All of our evidence is in this Git repository, and can be leveraged as needed.  The <a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/evidence/README.md" target="_blank">Evidence Summary</a> README.md provides a replica of our Attachment_E submission and additional supporting documentation.
 
