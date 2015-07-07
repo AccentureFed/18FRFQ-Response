@@ -55,26 +55,30 @@ Design Concept 2
 
 **Testing**
 
-Usability and 508 Testing was conducted to understand the user needs and allow the team to build functionality based on those desires.
+Usability and 508 Testing was conducted to understand the user needs and allow the team to build functionality based on those desires. 
+
+*Usability Testing* (Click on image to view video)
 
 <a href="https://vimeo.com/132240054" target="_blank">![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/alison-usability.png?raw=true) </a> 
 <br>
-**Usability Testing**
-<br>
+
+*508 Testing* (Click on image to view video)
 
 <a href="https://vimeo.com/132240055" target="_blank">![ScreenShot](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/testing-screenshots/508-testing.png)</a><br>
-**508 Testing**
-<br>
+
 
 Including people in the review and testing process drove iterative changes through the process to ensure we refined the needs of the end users matching our Personas as well as the needs of the team.
 
 UI Changes after Usability Testing
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_12.jpg?raw=true)
 
 UI Changes after peer-peer designer review
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_10.jpg?raw=true)
 
 UI Design Changes after additional Usability Testing 6/29
+
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_17.jpg?raw=true)
 
 The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below with the live prototype, http://52.1.100.220:8080/jigsaw/#/ and seen below.
