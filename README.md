@@ -35,11 +35,12 @@ Our user first focus leveraged pattern libraries (e.g. Font Awesome, Bootstrap) 
 ## Testing 
 Backend unit testing - utilized JUnit and Spock.  All components received unit tests, especially corner cases and null.  Unit tests were created simultaneously as code was developed. Unit tests (~30) were run on every Jenkins build (~125).  If defects were identified, the developer would resolve the defect within the same sprint.  
 
-Usability testing - implemented through multiple iterations of moc-ups and wire frame development. At the daily sprint review, designs were reviewed and feedback from the development team, product owner and stakeholders incorporated. Within 48 hours of the initial product direction a solid design was conceptualized in an interactive, clickable wireframe. In 72 hours, <a href="https://vimeo.com/132240054" target="_blank">usability test cases</a>) were created and testing was administered with real users against that design with individuals who matched the personas. Local and remote testing was conducted. Based on feedback received, the designs were refined.  
+Usability testing - implemented through multiple iterations of moc-ups and wire frame development. At the daily sprint review, designs were reviewed and feedback from the development team, product owner and stakeholders incorporated. Within 48 hours of the initial product direction a solid design was conceptualized in an interactive, clickable wireframe. In 72 hours, usability tests were created and <a href="https://vimeo.com/132240054" target="_blank">testing</a>) was administered with real users against that design with individuals who matched the personas. Local and remote testing was conducted. Based on feedback received, the designs were refined.  
+
 <a href="https://vimeo.com/132240055" target="_blank">508 testing</a> was done utilizing JAWS, the Wat toolbar and Keyboard Accessibility. Results highlighted areas of our implemented design were not conducive to individuals with disabilities. These  tests allowed our team to ensure our prototype was accessible for all users.    
 
 ## Technology Choices 
-Open source technologies allowed our team to drive efficiencies (cost, time, reliability, value).   The underlying platforms used in our prototype are openly licensed and free.  A complete list of tools used can be found here:  
+Open source technologies allowed our team to drive efficiencies (cost, time, reliability, value).  Our prototype and the underlying <a href="https://github.com/AccentureFed/18FRFQ-Response/tree/master/process-documentation/evidence/Attachment_E_Evidence_Q" target="_blank">51 technologies</a> used to create and run the prototype are openly licensed and free of charge.
 ![alt tag](/process-documentation/agile-process-photos/design/tool-diagram.png)
 
 ## Development 
@@ -57,6 +58,5 @@ he team choose to deploy our software into an Amazon Web Service EC2 instance fo
 To provide continuous monitoring the team developed an administrative view to a dynamic page. This url is accessible at the bottom left of the homepage titled "metrics" or https://jigsaw.agilex-devcloud.com/jigsaw/#/appMetrics (admin/afs18F).  This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data and do not require any authentication, there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.  
 
 ## Conclusion 
-All of our evidence is in this Git repository and can be leveraged as needed.  Click here for our [evidence summary](process-documentation/evidence)
-
+All of our evidence is in this Git repository and can be leveraged as needed.  Click here for our <a hrefhttps://github.com/AccentureFed/18FRFQ-Response/tree/master/process-documentation/evidence">evidence summary</a>  
 
