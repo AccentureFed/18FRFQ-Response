@@ -14,6 +14,10 @@ Within the first 24 hours, our full multidisciplinary team had been assembled, c
 
 ## Basic Agile Process 
 Due to the short turn around we took a modified agile management approach based with Scrum and Kanban leveraging a [physical task board](process-documentation/agile-process-photos/process-photos/6.18.2015 14.03 - kanban board.jpg)target="_blank">Physical task board</a>.
+
+<a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/agile-process-photos/process-photos/6.18.2015%2014.03%20-%20kanban%20board.jpg?raw=true" target="_blank">Physical task board</a>
+
+
 We had daily 'sprints' where we had a [team stand-up](process-documentation/agile-process-photos/process-photos/6.19.2015.0907 - standup.jpg) in the morning to understand where each team member was regarding what had been completed, what was to be worked on next, and any impediments that were of concern. This kept all the tasks very visible, lightweight, fast moving, and easy for all to see the current state of the project.  Each afternoon a sprint review was held where the team met to review the progress made for the day and begin [planning](process-documentation/agile-process-photos/process-photos/2015-06-29 09.18.32 - work-in-progress.jpg) for the next day's sprint.  Once new stories, features, defects, functionality or change requests had been captured via stickies on the task-board, the product owner would prioritize the backlog based on user impact, time and value. This prioritization enabled the PO during our daily sprint planning to set the sprint goals, and allow the team to define how those goals would be implemented and what could be taken on during the sprint.
 
 ##Human Centered Design 
