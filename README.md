@@ -58,7 +58,7 @@ he team choose to deploy our software into an Amazon Web Service EC2 instance fo
 To provide continuous monitoring the team developed an administrative view to a dynamic page. This url is accessible at the bottom left of the homepage titled "metrics" or https://jigsaw.agilex-devcloud.com/jigsaw/#/appMetrics (admin/afs18F).  This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data and do not require any authentication, there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.  
 
 ## Conclusion 
-All of our evidence is in this Git repository and can be leveraged as needed.  <ahref="https://github.com/AccentureFed/18FRFQ-Response/tree/master/process-documentation/evidenc" target="_blank">(Evidence Summary)</a> for our evidence summary and additional supporting documentation.
+All of our evidence is in this Git repository and can be leveraged as needed.  <a href="https://github.com/AccentureFed/18FRFQ-Response/tree/master/process-documentation/evidenc" target="_blank">(Evidence Summary)</a> for our evidence summary and additional supporting documentation.
 
 
 
