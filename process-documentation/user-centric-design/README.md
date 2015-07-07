@@ -1,4 +1,4 @@
-# jigsaw-mockups
+# User-Centric Design
 Mockups for Jigsaw
 
 ## Version 1.0
