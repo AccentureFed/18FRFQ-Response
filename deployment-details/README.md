@@ -4,7 +4,8 @@
 Directions to setup a Jigsaw Docker container on a new server
 
 # Setup
-Follow install instructions here to install docker on the server
+Follow install instructions here to install docker on the server.  This guide is specific to Amazon Web Services
+but will guide you through the correct steps required to get Docker up for any environment.
 http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
 
 Run the following commands to setup docker and start:
