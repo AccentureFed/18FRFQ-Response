@@ -29,10 +29,10 @@ Step 2. Run the following commands:
 Step 1.  Pull Jigsaw image from DockerHub  
   * from the server with Docker installed, create a new folder called AFS-Jigsaw run: "mkdir AFS-Jigsaw"
   * change to that directory run: "cd AFS-Jigsaw"
-  * pull the Jigsaw Docker image from DockerHub run: "docker pull joshbaker/jigsaw-prod:latest"  
+  * pull the Jigsaw Docker image from DockerHub run: "docker pull joshbaker/jigsaw-prod:v3"  
 
 Step 2.  Launch Docker container using Jigsaw image  
-  * to start the image as a container, run: "docker run -i -t -p 8080:8080 joshbaker/jigsaw-prod:latest"
+  * to start the image as a container, run: "docker run -i -t -p 8080:8080 joshbaker/jigsaw-prod:v3"
 
 Step 3.  Browse to website 
   * http://(INSERT YOUR IP ADDRESS or URL HERE):8080/jigsaw/
@@ -45,7 +45,7 @@ running container. You can exit with ^c. This does not delete the container, onl
 stops it. You can view all containers with "docker ps -a". You can delete all 
 containers with "docker rm $(docker ps -a -q)"
 
-NOTE: Running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat and the Docker container accordingly and then map the 443 port in your docker run command "docker run -i -t -p 443:443 joshbaker/jigsaw-prod:latest"
+NOTE: Running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat and the Docker container accordingly and then map the 443 port in your docker run command "docker run -i -t -p 443:443 joshbaker/jigsaw-prod:v3"
 
 # Manual Install Directions
 # Setup
