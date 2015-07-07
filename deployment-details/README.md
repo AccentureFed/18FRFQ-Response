@@ -29,7 +29,8 @@ Step 2. Run the following commands:
   * from the server with Docker installed, create a new folder called AFS-Jigsaw run: "mkdir AFS-Jigsaw"
   * change to that directory run: "cd AFS-Jigsaw"
   * pull the Jigsaw Docker image from DockerHub run: "docker pull joshbaker/jigsaw-prod:latest"  
-    2.  Launch Docker container using Jigsaw image  
+  
+   2.  Launch Docker container using Jigsaw image  
   * to start the image as a container, run: "docker run -i -t -p 8080:8080 joshbaker/jigsaw-prod:latest"
     
 # Additional details
