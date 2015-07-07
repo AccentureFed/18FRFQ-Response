@@ -82,9 +82,9 @@
 	                 <span class="progress-value" style="line-height:25px; font-weight:bold; vertical-align:middle;">{{((metrics.gauges['jvm.threads.blocked.count'].value / metrics.gauges['jvm.threads.count'].value) * 100.0) | number:2}}%</span>
 	            </div>
 	        </div>
-	        <div>
+<!-- 	        <div>
 	        	<button id="threadBtn" class="btn btn-info" type="button" role="button" ng-click="showThreads()">Show Thread Info</button>
-	        </div>
+	        </div> -->
 	    </div>
 	    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-if="metrics.gauges">
 	        <b><u>Garbage collections</u></b>
