@@ -46,3 +46,18 @@ stops it. You can view all containers with "docker ps -a". You can delete all
 containers with "docker rm $(docker ps -a -q)"
 
 NOTE: Running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat and the Docker container accordingly and then map the 443 port in your docker run command "docker run -i -t -p 443:443 joshbaker/jigsaw-prod:latest"
+
+# Manual Install Directions
+# Setup
+1. Download <a href="https://tomcat.apache.org/download-80.cgi" target="_blank">Apache Tomcat 8.0</a>
+2. Extract the downloaded file to any directory. 
+3. Copy jigsaw.war to <Path-to-Tomcat>/webapps 
+4. Ensure all scripts in <Path-to-Tomcat>/bin have executable permissions
+5. Run <Path-to-Tomcat>/bin/startup.sh
+6. Wait until Tomcat starts up (tail <Path-to-Tomcat>/logs/catalina.out) and look for `Cache Update Finished`
+7. Open web browser, go to http://localhost:8080/jigsaw
+8. Enjoy.
+ 
+
+
+
