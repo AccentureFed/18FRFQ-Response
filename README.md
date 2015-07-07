@@ -2,6 +2,8 @@
 
 [Click for Working Prototype](https://jigsaw.agilex-devcloud.com/jigsaw/#/)
 
+<a href="https://jigsaw.agilex-devcloud.com/jigsaw/#/" target="_blank">Click here for Working Prototype</a>
+
 ![alt tag](/process-documentation/agile-process-photos/response-images/proposal-header.png?raw=true)
 
 # Request for Quotation 4QTFHS150004 Multiple Award Blanket Purchase Agreement for Agile Delivery Services (ADS I) 
