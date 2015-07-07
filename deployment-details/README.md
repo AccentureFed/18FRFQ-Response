@@ -1,9 +1,9 @@
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/raw/master/process-documentation/agile-process-photos/response-images/proposal-header.png)
 
 # jigsaw-deployment
-Docker file and directions to setup Jigsaw on a new server
+Directions to setup a Jigsaw Docker container on a new server
 
-# setup
+# Setup
 Follow install instructions here to install docker on the server
 http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#install_docker
 
@@ -15,18 +15,21 @@ Run the following commands to setup docker and start:
 * logout/log back in
 * docker info --> now should have docker permissions as ec2-user
 
-# usage
-* copy Dockerfile and 'run.sh' to server into a directory
-* In 'run.sh' set desired admin and admin-script password
-* from that dir, run the command to build an 'image': docker build -t tomcat-server .
-* to view the available images, run: docker images
-* to start the image as a container, run: docker run -i -t -p 8080:8080 tomcat-server
-
-# additional details
-This creates and starts a docker container and maps port 8080 of your host IP to your
+# Usage
+  Once you have a server configured with the Docker daemon, there are two simple steps:  
+    1.  Pull Jigsaw image from DockerHub  
+    2.  Launch Docker container using Jigsaw image  
+          
+# DockerHub
+* from the server with Docker installed, create a new folder called AFS-Jigsaw run: "mkdir AFS-Jigsaw"
+* change to that directory run: "cd AFS-Jigsaw"
+* pull the Jigsaw Docker image from DockerHub run: "docker pull joshbaker/jigsaw-prod"
+* to start the image as a container, run: "docker run -i -t -p 8080:8080 agilex-jigsaw-server"
+    
+# Additional details
+This creates and starts a docker container and maps port 8080 of your host IP to port 8080 on your
 running container. You can exit with ^c. This does not delete the container, only 
-stops it. You can view all containers with 'docker ps -a'. You can delete all 
-containers with 'docker rm $(docker ps -a -q)'
+stops it. You can view all containers with "docker ps -a". You can delete all 
+containers with "docker rm $(docker ps -a -q)"
 
-NOTE: The running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat accordingly.
-
+NOTE: Running Tomcat from the Docker script will NOT be secured with SSL.  If you have an SSL certificate, you will need to configure Tomcat and the Docker container accordingly and then map the 443 port in your docker run command "docker run -i -t -p 443:443 agilex-jigsaw-server"
