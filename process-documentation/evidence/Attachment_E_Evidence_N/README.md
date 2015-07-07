@@ -7,7 +7,7 @@
 |n|set up or used continuous monitoring |We achieved continuous monitoring by utilizing the AWS Elastic Load Balancer Health Check to monitor the health of our application nodes within an auto-scaling group. Through this process if an EC2 node becomes unresponsive we can immediately create a new one, eliminating down time. Our site demonstrates authentication with a username and password to prevent configuration changes and enables the ability to display metrics.  We established the security parameters on our Virtual Private Cloud hosted within AWS.  Thus, removing any of our EC2 instances from public accessibility.  Our site is only available through our elastic load balancer. We will only allow public access to our site, via SSL, over port 443 through our elastic load balancer. Our site does not store or distribute any PII, or classified data.  To monitor system health, an authenticated admin page was developed for an FDA administrator. This page allows, the Admin to create and publish alerts shown on the main site banner and view system health metrics. |
 
 
-The link to the metrics page can be found at the bottom left of the home screen or by clicking http://52.1.100.220:8080/jigsaw/#/login/
+The link to the metrics page can be found at the bottom left of the home screen or by clicking https://jigsaw.agilex-devcloud.com/jigsaw/#/login/
 
 To login - 
 
