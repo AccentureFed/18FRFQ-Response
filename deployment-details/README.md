@@ -24,7 +24,7 @@ Step 2. Run the following commands:
 
 # Jigsaw Install as Docker container
 
-  Once you have a server configured with the Docker daemon, there are two simple steps:  
+  Once you have a server configured with the Docker daemon, there are three steps:  
   
 Step 1.  Pull Jigsaw image from DockerHub  
   * from the server with Docker installed, create a new folder called AFS-Jigsaw run: "mkdir AFS-Jigsaw"
@@ -33,7 +33,12 @@ Step 1.  Pull Jigsaw image from DockerHub
 
 Step 2.  Launch Docker container using Jigsaw image  
   * to start the image as a container, run: "docker run -i -t -p 8080:8080 joshbaker/jigsaw-prod:latest"
-    
+
+Step 3.  Browse to website 
+  * http://(INSERT YOUR IP ADDRESS or URL HERE):8080/jigsaw/
+
+
+
 # Additional details
 This creates and starts a docker container and maps port 8080 of your host IP to port 8080 on your
 running container. You can exit with ^c. This does not delete the container, only 
