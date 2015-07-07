@@ -1,5 +1,4 @@
 
-# 18FRFQ-Response
 
 [Click for Working Prototype](https://jigsaw.agilex-devcloud.com/jigsaw/#/)
 
@@ -31,7 +30,7 @@ Human Centered Design stood as the backbone of our prototype. The end user desir
 4. We conducted usability testing with local/remote testers along with remote observers using COT usability tool Morae allowing collaboration between test administrators and remote observers. 508 and accessibility testing using JAWS screen reader, the WAT toolbar and Keyboard Accessibility helped drive continuous improvement and enhance usability for disable users.   
 
 ## Design Style Guide 
-Our user first focus leveraged pattern libraries (e.g. Font Awesome, Bootstrap) and a lightweight**<a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/jigsawStyleGuide.pdf" target="_blank">Style Guide</a>** to drive the UX and design patterns to help maintain a consistent user experience among our designers and across multiple devices.  Bootstrap was used to develop our multi-device framework.  This encouraged collective code ownership, making it easier for our developers to work across the code base.  Developing and implementing Pattern libraries and UI libraries also allowed the team to have functionality and design elements that could be reused, and compliant with 508, keeping cost and time low.  
+Our user first focus leveraged pattern libraries (e.g. Font Awesome, Bootstrap) and a lightweight **<a href="https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/jigsawStyleGuide.pdf" target="_blank">Style Guide</a>** to drive the UX and design patterns to help maintain a consistent user experience among our designers and across multiple devices.  Bootstrap was used to develop our multi-device framework.  This encouraged collective code ownership, making it easier for our developers to work across the code base.  Developing and implementing Pattern libraries and UI libraries also allowed the team to have functionality and design elements that could be reused, and compliant with 508, keeping cost and time low.  
 
 ## Testing 
 Backend unit testing - utilized JUnit and Spock.  All components received unit tests, especially corner cases and null.  Unit tests were created simultaneously as code was developed. Unit tests (~30) were run on every Jenkins build (~125).  If defects were identified, the developer would resolve the defect within the same sprint.  
@@ -49,12 +48,13 @@ The team both developed and consumed a RESTfull API (Details [Here](https://gith
 The team utilized Github for configuration management. Three backend developers each worked part time, to ensure continuity and CM best practices they used Github time stamps and the check in-check-out feature to work on the most recent code sources.  The team built in the ability to trace any warfile back to the Jenkins Job/Build and commit reference in Github. This allowed tractability and a testing reference for each build.  
 
 ## Deployment 
-he team choose to deploy our software into an Amazon Web Service EC2 instance for production running the Docker daemon. The application was deployed inside of a Docker container, from a Docker image running Ubuntu 14.04, Tomcat 8.0.2.3 and Java 8. Our Docker container running on the Docker hypervisor is our operating system-level virtualization. We chose docker because it is free, easy to use, and provides application portability and infrastructure flexibility.
+he team choose to deploy our software into an Amazon Web Service EC2 instance for production running the Docker daemon. The application was deployed inside of a Docker container, from a Docker image running Ubuntu 14.04, Tomcat 8.0.2.3 and Java 8. Our Docker container running on the Docker hypervisor is our operating system-level virtualization. We chose Docker because it is free, easy to use, and provides application portability and infrastructure flexibility.
+
 ![alt tag](/process-documentation/agile-process-photos/design/deploy-stack.png)
 
 
-Continuous Monitoring 
-To provide continuous monitoring the team developed an administrative view to a dynamic page. This url accessible at the bottom left of the homepage titled "metrics" or https://jigsaw.agilex-devcloud.com/jigsaw/#/appMetrics (admin/afs18F).  This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data and do not require any authentication, there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.  
+## Continuous Monitoring 
+To provide continuous monitoring the team developed an administrative view to a dynamic page. This url is accessible at the bottom left of the homepage titled "metrics" or https://jigsaw.agilex-devcloud.com/jigsaw/#/appMetrics (admin/afs18F).  This monitoring app is just a start to provide insight into the activity of the application and to monitor for intrusions, denial of service attacks, etc.  Since we chose to use only publicly available data and do not require any authentication, there is no need to store any end-user sensitive information.  These choices were intentional to lower the security profile.  Clearly a full security assessment is in order as this solution moves to production.  
 
 ## Conclusion 
 All of our evidence is in this Git repository and can be leveraged as needed.  Click here for our [evidence summary](process-documentation/evidence)
