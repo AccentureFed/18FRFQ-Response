@@ -10,6 +10,7 @@ http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html#in
 
 Run the following commands to setup docker and start(assuming your using the Amazon standard Linux AMI):
 * Step 1. Launch new  server instance from an Amazon Linux AMI
+* Step 2. Run the following commands:
 * sudo yum update -y
 * sudo yum install -y docker 
 * sudo service docker start
