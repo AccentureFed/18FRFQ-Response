@@ -1,7 +1,7 @@
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/raw/master/process-documentation/agile-process-photos/response-images/proposal-header.png)
 
 # jigsaw-deployment
-Directions to setup a Jigsaw Docker container on a new server
+Directions to setup a Jigsaw Docker container on a new server using the Image(Prefered)
 
 # Setup
 Follow install instructions here to install docker on the server.  This guide is specific to Amazon Web Services
