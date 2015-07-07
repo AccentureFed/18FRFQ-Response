@@ -81,7 +81,7 @@ UI Design Changes after additional Usability Testing 6/29
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_17.jpg?raw=true)
 
-The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below, and with the , <a href="https://jigsaw.agilex-devcloud.com/jigsaw/#/" target="_blank"> Working Prototype</a>
+The design evolved and matured through the life of the project with end-user and team needs being the cornerstone. Our final design is reflected below, and with the <a href="https://jigsaw.agilex-devcloud.com/jigsaw/#/" target="_blank"> working Prototype</a>
 
 ![alt tag](https://github.com/AccentureFed/18FRFQ-Response/blob/master/process-documentation/user-centric-design/design_evolution_images/Evo_16.jpg?raw=true)
 
