@@ -1,7 +1,4 @@
 
-
-[Click for Working Prototype](https://jigsaw.agilex-devcloud.com/jigsaw/#/)
-
 <a href="https://jigsaw.agilex-devcloud.com/jigsaw/#/" target="_blank">Click here for Working Prototype</a>
 
 ![alt tag](/process-documentation/agile-process-photos/response-images/proposal-header.png?raw=true)
@@ -9,7 +6,7 @@
 # Request for Quotation 4QTFHS150004 Multiple Award Blanket Purchase Agreement for Agile Delivery Services (ADS I) 
 
 ## Introduction
-Upon receipt of the RFQ, our team decomposed the RFQ to understand the scope and initial resources required for the effort. The following describes our approach and a bit of the history of this short lived project. We adapted a few agile techniques including Scrum, Kanban, and XP to support this effort.  The basic solution leverages the FDA Food Recall Enforcement Reports dataset. The vision of the prototype was an interactive web tool used to inform and educate consumers of food product recalls that are in an open or closed status.
+Upon receipt of the RFQ, our team decomposed the requirements to understand the scope and resources needed for the effort. The following describes our approach and a bit of the history of this short lived project. We adapted a few agile techniques including Scrum, Kanban, and XP to support this effort.  The basic solution leverages the FDA Food Recall Enforcement Reports dataset. The vision of the prototype was an interactive web tool used to inform and educate consumers of food product recalls that are in an open or closed status.
 ![alt img](/process-documentation/agile-process-photos/design/high-level-overview.png)
 
 ## Team 
